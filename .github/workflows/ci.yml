@@ -1,0 +1,65 @@
+name: acceptance
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  postgres-acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17.12
+        env:
+          POSTGRES_PASSWORD: ci-only-admin-password
+          POSTGRES_DB: resolvelab
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      APP_ENV: local
+      DEMO_MODE: "true"
+      FIXTURE_CLOCK: "2026-11-23T12:00:00Z"
+      GENERATION_ADAPTER: offline
+      AUTH_SECRET: ci-only-signing-secret-please-never-use-in-production
+      DATABASE_URL: postgresql+psycopg://resolvelab_app:ci-only-runtime-password@127.0.0.1:5432/resolvelab
+      ADMIN_DATABASE_URL: postgresql+psycopg://postgres:ci-only-admin-password@127.0.0.1:5432/resolvelab
+      TEST_DATABASE_URL: postgresql+psycopg://resolvelab_app:ci-only-runtime-password@127.0.0.1:5432/resolvelab_test
+      ADMIN_TEST_DATABASE_URL: postgresql+psycopg://postgres:ci-only-admin-password@127.0.0.1:5432/resolvelab_test
+      EVALUATION_DATABASE_URL: postgresql+psycopg://resolvelab_app:ci-only-runtime-password@127.0.0.1:5432/resolvelab_evaluation
+      ADMIN_EVALUATION_DATABASE_URL: postgresql+psycopg://postgres:ci-only-admin-password@127.0.0.1:5432/resolvelab_evaluation
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with: {python-version: "3.12.14"}
+      - run: pip install uv==0.11.25
+      - run: uv sync --frozen
+      - run: .venv/bin/python scripts/container_setup.py
+      - run: .venv/bin/python scripts/run_tests.py -q --junitxml=artifacts/checks/pytest.xml
+      - run: .venv/bin/python scripts/evaluate.py --output artifacts/ci-evaluation
+      - run: node --check web/app.js
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: postgres-acceptance-evidence
+          path: |
+            artifacts/checks
+            artifacts/ci-evaluation
+  docker-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - run: python3 scripts/docker_env.py
+      - run: docker compose --env-file .env.docker up --build -d
+      - name: Verify container readiness
+        run: |
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:8000/health/ready; then exit 0; fi
+            sleep 2
+          done
+          docker compose --env-file .env.docker logs --no-color
+          exit 1
+      - if: always()
+        run: docker compose --env-file .env.docker down -v
+
