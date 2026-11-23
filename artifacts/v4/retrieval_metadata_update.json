@@ -1,0 +1,11 @@
+{
+  "prior_manifest_sha256": "76f9ec79f5ece7cc8fd5f460cc6ee661444628350ced08933de1ba1a74a5cf07",
+  "updated_manifest_sha256": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+  "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+  "threshold": 0.425,
+  "retrieval_config": {
+    "mode": "dense",
+    "version": "dense-minilm-v1"
+  },
+  "scope": "Retrieval release configuration added before fresh blind evaluation; model bytes and threshold unchanged."
+}

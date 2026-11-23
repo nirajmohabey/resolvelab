@@ -1,0 +1,92 @@
+{
+  "within_collection_checks": "Training checks normalized duplicates and assigned groups do not cross each collection's splits.",
+  "cross_collection_exact_overlaps": {
+    "source_calibration": [],
+    "source_validation": [
+      {
+        "id": 233,
+        "label": "cancel_request",
+        "normalized_text": "cancel order",
+        "same_as_required_core_regression": true
+      },
+      {
+        "id": 24892,
+        "label": "track_order",
+        "normalized_text": "track order",
+        "same_as_required_core_regression": true
+      },
+      {
+        "id": 24997,
+        "label": "track_order",
+        "normalized_text": "where is order",
+        "same_as_required_core_regression": true
+      }
+    ],
+    "source_test": [],
+    "domain_calibration": [],
+    "domain_validation": [],
+    "domain_test": []
+  },
+  "fresh_blind_training_exact_overlap_ids": [],
+  "source_validation_cleaning_sensitivity": {
+    "removed_core_overlap_rows": 3,
+    "selected_parameters_unchanged": true,
+    "original_selected": {
+      "architecture": "hierarchical",
+      "C": 100.0,
+      "source_strength": 0.1,
+      "blend_weight": 0.5,
+      "temperature": 0.751056224959064,
+      "calibration": "heldout-temperature",
+      "threshold": 0.425,
+      "domain_validation": {
+        "accepted": 185,
+        "correct_supported": 184,
+        "wrong_accepted": 1,
+        "accepted_error": 0.005405405405405406,
+        "ood_accepted": 1,
+        "ood_false_acceptance": 0.015625
+      },
+      "source_validation": {
+        "accepted": 438,
+        "correct_supported": 418,
+        "wrong_accepted": 20,
+        "accepted_error": 0.045662100456621,
+        "ood_accepted": 18,
+        "ood_false_acceptance": 0.004218420435903445
+      },
+      "calibration_log_loss": 0.27403963584831403,
+      "core_pass": true
+    },
+    "selected_after_excluding3rows": {
+      "architecture": "hierarchical",
+      "C": 100.0,
+      "source_strength": 0.1,
+      "blend_weight": 0.5,
+      "temperature": 0.751056224959064,
+      "calibration": "heldout-temperature",
+      "threshold": 0.425,
+      "domain_validation": {
+        "accepted": 185,
+        "correct_supported": 184,
+        "wrong_accepted": 1,
+        "accepted_error": 0.005405405405405406,
+        "ood_accepted": 1,
+        "ood_false_acceptance": 0.015625
+      },
+      "source_validation": {
+        "accepted": 435,
+        "correct_supported": 415,
+        "wrong_accepted": 20,
+        "accepted_error": 0.04597701149425287,
+        "ood_accepted": 18,
+        "ood_false_acceptance": 0.004218420435903445
+      },
+      "calibration_log_loss": 0.27403963584831403,
+      "core_pass": true
+    },
+    "feasible_candidates_after_exclusion": 880,
+    "reason": "Every feasible candidate must correctly accept all14 core regressions; these3 normalized overlaps are identical core features. Removing them uniformly subtracts3 correct accepts. This can only tighten source error gates; selected candidate remains feasible and maximizes the unchanged ranking."
+  },
+  "limitations": "This post-freeze audit does not retrain/tune the model. Raw reports are retained. No exact training overlap exists in source/domain test, domain calibration/validation, or fresh blind160. Approximate semantic/template overlaps beyond assigned groups may still exist."
+}

@@ -20,6 +20,9 @@ def main():
     required=ROOT/"fixtures/domain_development_v1.jsonl"
     if not required.exists():
         raise SystemExit("Frozen domain development fixture is missing; restore it from version control.")
+    if args.rebuild:
+        subprocess.run([sys.executable,str(ROOT/"scripts/rebuild_models.py")],cwd=ROOT,env=environment,check=True)
+        return
     if not args.rebuild and (ROOT/"artifacts/model_manifest.json").exists():
         manifest=json.loads((ROOT/"artifacts/model_manifest.json").read_text())
         artifact=ROOT/manifest["artifact_uri"]

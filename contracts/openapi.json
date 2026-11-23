@@ -104,6 +104,22 @@
         ]
       }
     },
+    "/v1/auth/config": {
+      "get": {
+        "summary": "Authentication Config",
+        "operationId": "authentication_config_v1_auth_config_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/cases": {
       "get": {
         "summary": "Cases",

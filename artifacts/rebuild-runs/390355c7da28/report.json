@@ -1,0 +1,56 @@
+{
+  "command": "python scripts/train_all.py --rebuild",
+  "run_id": "390355c7da28",
+  "checks": {
+    "selection_parameters_reproduced": true,
+    "temperature_within_1e_4": true,
+    "source_macro_f1_reproduced": true,
+    "family_test_macro_f1_reproduced": true,
+    "serving_manifests_unchanged": true
+  },
+  "scope": "Complete source-baseline, v2, v3, v4 pipeline in isolated work copy. Frozen development fixtures, no blind audit fitting/selection, no database calls. Numeric reproduction, not byte-identical pickle serialization.",
+  "selected": {
+    "architecture": "hierarchical",
+    "C": 100.0,
+    "source_strength": 0.1,
+    "blend_weight": 0.5,
+    "temperature": 0.7510563718820663,
+    "calibration": "heldout-temperature",
+    "threshold": 0.425,
+    "domain_validation": {
+      "accepted": 185,
+      "correct_supported": 184,
+      "wrong_accepted": 1,
+      "accepted_error": 0.005405405405405406,
+      "ood_accepted": 1,
+      "ood_false_acceptance": 0.015625
+    },
+    "source_validation": {
+      "accepted": 438,
+      "correct_supported": 418,
+      "wrong_accepted": 20,
+      "accepted_error": 0.045662100456621,
+      "ood_accepted": 18,
+      "ood_false_acceptance": 0.004218420435903445
+    },
+    "calibration_log_loss": 0.2740396387545396,
+    "core_pass": true
+  },
+  "source_test_macro_f1": 0.9817335614519597,
+  "family_test_macro_f1": 0.9369806940371457,
+  "trained_artifact": {
+    "version": "domain-router-v4",
+    "artifact_uri": "artifacts/router-domain-v4-c893bf1e1b7c.joblib",
+    "artifact_sha256": "c893bf1e1b7c70aaccfb24f6bc9261fb0e98e528fca83b5127235bee553902d9",
+    "threshold": 0.425,
+    "model_manifest_sha256": "c743b72db3df9b28da8b924a50a80bd2f5847af0076574fdfdb439a5c3c5ff5a",
+    "new_blind_audit": "not opened; evaluate only after this freeze",
+    "active_pointer": "unchanged"
+  },
+  "unchanged_serving_manifest_hashes": {
+    "artifacts/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/model_freeze.json": "b6059a574462c773d72559af332fc3ce0ae3c66d1fa2c68683fd8da6e5f69aad",
+    "artifacts/v4/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/v4/model_freeze.json": "b6059a574462c773d72559af332fc3ce0ae3c66d1fa2c68683fd8da6e5f69aad"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": "domain-development-v2",
+  "authoring": "Agent-authored development data after disclosed v1-v3 diagnostic audits. Historical audit messages excluded by normalized equality except preexisting explicitly marked handbook core regressions.",
+  "normalizer": "unicode-order-v2",
+  "embedding_feature": "individual-onnx-v1",
+  "rows": 1290,
+  "authored_families": 319,
+  "excluded_exact_audit_overlap_families": 1,
+  "core_development_regressions": 14,
+  "split_unit": "authored meaning family; all ID/polite variants together",
+  "seed": 740,
+  "sha256": "5d8e43bbb76b20accfd649aa60be7b4b9aa28b32f35c7bdbd3920f0936dbfe8f",
+  "core_sha256": "9b8c46b2009ee1005ede6e3d427c81e84c8955d369b6434e7ff8524b72b9c36d",
+  "counts": {
+    "train": {
+      "rows": 650,
+      "families": 173
+    },
+    "calibration": {
+      "rows": 256,
+      "families": 64
+    },
+    "validation": {
+      "rows": 256,
+      "families": 64
+    },
+    "test": {
+      "rows": 128,
+      "families": 32
+    }
+  },
+  "selection_protocol": "Fit features/models on train; fit temperature on calibration; choose architecture/hyperparameters/threshold on validation with source safety and core development regression gates; evaluate test only after selection. New blind audit remains unseen until artifact freeze."
+}

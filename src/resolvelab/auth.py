@@ -3,12 +3,14 @@ from dataclasses import asdict, dataclass, replace
 from datetime import datetime, timedelta, timezone
 import json
 import os
+from functools import lru_cache
 from uuid import NAMESPACE_URL, UUID, uuid5
 
 import jwt
 from sqlalchemy import text
 
-from .db import ROOT, transaction
+from .db import ROOT, engine, transaction
+from .config import auth_mode, environment
 from .schemas import DomainError
 
 
@@ -32,7 +34,7 @@ def _secret():
 
 
 def demo_enabled():
-    return os.environ.get("APP_ENV", "local") == "local" and os.environ.get("DEMO_MODE", "false").lower() == "true"
+    return environment() == "local" and auth_mode() == "fixture" and os.environ.get("DEMO_MODE", "false").lower() == "true"
 
 
 def assert_member(conn, principal, roles=None):
@@ -63,6 +65,8 @@ def fixture_principal(alias):
 
 
 def issue_token(principal):
+    if not demo_enabled():
+        raise DomainError(403, "fixture_auth_disabled", "Fixture tokens cannot be issued in this environment.")
     now = datetime.now(timezone.utc)
     return jwt.encode({"iss": "resolvelab", "aud": "resolvelab-api", "sub": principal.actor_id,
                        "tenant_id": principal.tenant_id, "customer_subject": principal.customer_subject,
@@ -70,8 +74,50 @@ def issue_token(principal):
                       _secret(), algorithm="HS256")
 
 
-def authenticate(token):
+@lru_cache(maxsize=4)
+def _jwks_client(url):
+    return jwt.PyJWKClient(url, timeout=5, lifespan=300, cache_keys=False, cooldown_duration=30)
+
+
+def _oidc_claims(token):
+    issuer = os.environ.get("OIDC_ISSUER", "")
+    audience = os.environ.get("OIDC_AUDIENCE", "")
+    url = os.environ.get("OIDC_JWKS_URL", "")
+    algorithm = os.environ.get("OIDC_ALGORITHM", "RS256")
+    if not issuer.startswith("https://") or not url.startswith("https://") or not audience or algorithm not in {"RS256", "ES256"}:
+        raise DomainError(503, "auth_not_configured", "The identity provider is not configured.")
     try:
+        header = jwt.get_unverified_header(token)
+        if header.get("alg") != algorithm or not isinstance(header.get("kid"), str) or len(header["kid"]) > 200:
+            raise jwt.InvalidTokenError("Disallowed signing algorithm or key identifier")
+        key = _jwks_client(url).get_signing_key_from_jwt(token)
+        return jwt.decode(token, key.key, algorithms=[algorithm], issuer=issuer, audience=audience, leeway=10,
+                          options={"require": ["exp", "iat", "sub", "iss", "aud"]})
+    except jwt.PyJWKClientConnectionError:
+        raise DomainError(503, "identity_provider_unavailable", "The identity signing keys are temporarily unavailable.", True) from None
+
+
+def authenticate(token):
+    if len(token) > 8192:
+        raise DomainError(401, "invalid_token", "The bearer token is invalid or expired.")
+    try:
+        if auth_mode() == "oidc":
+            claims = _oidc_claims(token)
+            subject = claims["sub"]
+            if not isinstance(subject, str) or not 1 <= len(subject) <= 300:
+                raise ValueError("Invalid external subject")
+            # Only verified issuer/subject enters this reviewed, minimal lookup.
+            # Tenant, role and customer claims from the token are ignored.
+            with engine.connect() as conn:
+                mapped = conn.execute(text("SELECT * FROM resolvelab.resolve_external_identity(:issuer,:subject)"),
+                                      {"issuer": claims["iss"], "subject": subject}).mappings().first()
+            if not mapped:
+                raise DomainError(401, "identity_not_registered", "The external identity has no active support membership.")
+            principal = Principal(str(mapped["tenant_id"]), str(mapped["actor_id"]), "", mapped["customer_subject"])
+            with transaction(principal) as conn:
+                return assert_member(conn, principal)
+        if not demo_enabled():
+            raise DomainError(401, "fixture_auth_disabled", "Fixture authentication is disabled.")
         claims = jwt.decode(token, _secret(), algorithms=["HS256"], audience="resolvelab-api", issuer="resolvelab",
                             options={"require": ["exp", "iat", "sub", "tenant_id", "customer_subject"]})
         subject = claims["customer_subject"]

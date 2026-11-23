@@ -1,0 +1,28 @@
+{
+  "default_version": "domain-router-v4",
+  "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+  "threshold": 0.425,
+  "retrieval_config": {
+    "mode": "dense",
+    "version": "dense-minilm-v1"
+  },
+  "recorded_at": "2026-11-23T08:28:30.492555+00:00",
+  "scope": "Default artifact metadata only; existing database active release pointers are not changed by migration or no-reset seed. Explicit operator rollout controls serving activation.",
+  "decision_basis": "Predeclared development selection/core gates passed; known fixture live20/20; independent160 outcome and accepted errors published; authorized actions still require exact-proposal approval. Not unattended production authorization.",
+  "retained_versions": [
+    "tfidf-logistic-v1",
+    "domain-hybrid-v3"
+  ],
+  "independent_workflow": {
+    "passed": 139,
+    "total": 160
+  },
+  "accepted_errors": {
+    "wrong": 4,
+    "accepted": 104
+  },
+  "ood_false_acceptance": {
+    "wrong": 1,
+    "total": 40
+  }
+}

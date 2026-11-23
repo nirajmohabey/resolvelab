@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/app.css" />
   </head>
   <body>
+    <a class="skip-link" href="#mainContent">Skip to content</a>
     <aside class="sidebar">
       <a class="brand" href="/" aria-label="ResolveLab home"
         ><span class="brand-icon">R<span>·</span></span
@@ -15,18 +16,18 @@
       <div class="workspace-tag">
         <span class="workspace-icon">A</span>
         <div id="tenantName">Alpha Retail<small>Fixture workspace</small></div>
-        <span class="tag">LOCAL</span>
+        <span class="tag" id="environmentTag">LOCAL</span>
       </div>
       <p class="nav-label">WORKSPACE</p>
       <nav aria-label="Main navigation">
         <button class="nav-item active" data-view="inbox">
-          <span>▤</span>Case inbox<span class="count" id="navCount"
+          <span aria-hidden="true">▤</span>Case inbox<span class="count" id="navCount"
             >—</span
           ></button
         ><button class="nav-item" data-view="evaluation">
-          <span>◫</span>Evaluation lab</button
+          <span aria-hidden="true">◫</span>Evaluation lab</button
         ><button class="nav-item" data-view="releases">
-          <span>◇</span>Release registry
+          <span aria-hidden="true">◇</span>Release registry
         </button>
       </nav>
       <div class="sidebar-bottom">
@@ -34,7 +35,7 @@
           <span class="shield">◈</span><b>A deliberate boundary.</b>
           <p>Read, propose, approve.<br />Every action leaves evidence.</p>
         </div>
-        <a href="/docs" target="_blank" rel="noopener"
+        <a id="apiReference" href="/docs" target="_blank" rel="noopener" hidden
           >API reference <span>↗</span></a
         ><a
           href="/static/reports/workflow-evaluation.html"
@@ -51,17 +52,26 @@
           Workspace <span>/</span> <strong id="pageLabel">Case inbox</strong>
         </div>
         <div class="top-actions">
-          <span class="adapter-label"><i></i> Offline response adapter</span
+          <span class="adapter-label"
+            ><i></i><span id="responseMode">Connecting workspace</span></span
           ><label class="identity-label" for="actor">Viewing as</label
           ><select id="actor" aria-label="Fixture identity">
             <option value="alpha-operator">Alpha · Operator</option>
             <option value="alpha-approver-one">Alpha · Approver</option>
             <option value="alpha-evaluator">Alpha · Evaluator</option>
             <option value="beta-operator">Beta · Operator</option></select
-          ><span class="avatar" id="avatar">NM</span>
+          ><button class="button primary" id="signIn" hidden>Sign in</button
+          ><button
+            class="button secondary"
+            id="signOut"
+            hidden
+            title="Disconnect this workbench session"
+          >
+            Disconnect</button
+          ><span class="avatar" id="avatar">OP</span>
         </div>
       </header>
-      <main>
+      <main id="mainContent" tabindex="-1">
         <div id="notice" class="notice" role="status" hidden></div>
         <section class="view" id="view-inbox">
           <div class="page-heading">
@@ -198,12 +208,12 @@
         </section>
       </main>
     </div>
-    <dialog id="caseDialog">
+    <dialog id="caseDialog" aria-labelledby="caseDialogTitle">
       <form id="caseForm">
         <div class="dialog-head">
           <div>
             <div class="eyebrow">NEW SUPPORT CASE</div>
-            <h2>What can we help with?</h2>
+            <h2 id="caseDialogTitle">What can we help with?</h2>
           </div>
           <button
             type="button"
@@ -245,9 +255,13 @@
         </div>
       </form>
     </dialog>
-    <dialog id="evaluationDialog" class="evaluation-dialog">
+    <dialog
+      id="evaluationDialog"
+      class="evaluation-dialog"
+      aria-labelledby="evaluationDialogTitle"
+    >
       <div class="dialog-head">
-        <h2>Evaluation details</h2>
+        <h2 id="evaluationDialogTitle">Evaluation details</h2>
         <button
           class="icon-button"
           id="closeEvaluationDialog"
@@ -258,6 +272,6 @@
       </div>
       <div id="evaluationDetails" aria-live="polite"></div>
     </dialog>
-    <script src="/static/app.js" defer></script>
+    <script src="/static/app.js" type="module"></script>
   </body>
 </html>

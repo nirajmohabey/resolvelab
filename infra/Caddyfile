@@ -1,0 +1,6 @@
+{$PUBLIC_HOST} {
+    @privateReady path /health/ready
+    respond @privateReady 404
+    reverse_proxy api:8000
+    encode gzip
+}

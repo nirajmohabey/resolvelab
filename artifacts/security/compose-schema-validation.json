@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-11-23T08:29:21.013746+00:00",
+  "schema_url": "https://raw.githubusercontent.com/compose-spec/compose-spec/main/schema/compose-spec.json",
+  "schema_sha256": "49eb9a1e1de41315949f302f8e6221bb42acd6038977f7c0974e38596ec4cdf6",
+  "configurations": [
+    {
+      "path": "docker-compose.yml",
+      "sha256": "573ee69914b6d0e07a2a505ef54e6bfde846b37ed7de2ddbb20284bbb1227e87",
+      "schema_valid": true,
+      "services": [
+        "api",
+        "db",
+        "init",
+        "worker"
+      ]
+    },
+    {
+      "path": "infra/compose.production.yml",
+      "sha256": "d7386b7cc6247f5758b08221b428e28c8e1793de89c2f37d6c93e44a16071b59",
+      "schema_valid": true,
+      "services": [
+        "api",
+        "db",
+        "gateway",
+        "migrate"
+      ]
+    }
+  ],
+  "container_execution": "not_performed: Docker/WSL unavailable"
+}

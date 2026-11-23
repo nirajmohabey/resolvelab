@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-11-23T08:44:31.062Z",
+  "read_only": true,
+  "backend_connected": false,
+  "initial_app_sha256": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+  "app_sha256": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+  "source_stable": true,
+  "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
+  "passed": 10,
+  "total": 10,
+  "failures": 0,
+  "results": [
+    {
+      "name": "latest case selection wins over an older case response",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 7,
+      "page_errors": [],
+      "duration_ms": 1753
+    },
+    {
+      "name": "late case A evidence cannot replace case B evidence",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 8,
+      "page_errors": [],
+      "duration_ms": 1495
+    },
+    {
+      "name": "late case A trace cannot replace case B trace",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 8,
+      "page_errors": [],
+      "duration_ms": 1469
+    },
+    {
+      "name": "late evidence cannot overwrite the newly selected trace tab",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 7,
+      "page_errors": [],
+      "duration_ms": 1523
+    },
+    {
+      "name": "late evidence error cannot replace another case",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 8,
+      "page_errors": [],
+      "duration_ms": 1447
+    },
+    {
+      "name": "OIDC 401 during evidence clears the workspace without a page error",
+      "passed": true,
+      "authentication": "synthetic OIDC adapter; real workbench session handling",
+      "api_requests_intercepted": 5,
+      "page_errors": [],
+      "duration_ms": 1394
+    },
+    {
+      "name": "OIDC 401 during resolve clears the workspace without a page error",
+      "passed": true,
+      "authentication": "synthetic OIDC adapter; real workbench session handling",
+      "api_requests_intercepted": 5,
+      "page_errors": [],
+      "duration_ms": 1495
+    },
+    {
+      "name": "a rejected old request cannot redraw after disconnect",
+      "passed": true,
+      "authentication": "synthetic OIDC adapter; real workbench session handling",
+      "api_requests_intercepted": 5,
+      "page_errors": [],
+      "duration_ms": 1465
+    },
+    {
+      "name": "lost create response retries the same idempotency key and creates one case",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 10,
+      "page_errors": [],
+      "duration_ms": 1528
+    },
+    {
+      "name": "late report A cannot replace a newly opened report B",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 9,
+      "page_errors": [],
+      "duration_ms": 1644
+    }
+  ]
+}

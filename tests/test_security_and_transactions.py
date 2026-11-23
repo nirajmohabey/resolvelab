@@ -130,7 +130,13 @@ def test_stale_proposal_variants_do_not_mutate(actor, mutation):
     elif mutation == "expired":
         faults = {"clock": "2026-11-23T13:00:00Z"}
     elif mutation == "evidence":
-        fixture_mutate(actor, "UPDATE resolvelab.chunks SET body='Changed policy with no matching publication' WHERE tenant_id=:tenant AND locator='approval'")
+        # Model an administrator bypassing the immutable-policy guard: the
+        # domain snapshot check must still fail closed after that stronger fault.
+        from resolvelab.db import admin_engine
+        with admin_engine.begin() as setup:
+            setup.exec_driver_sql("ALTER TABLE resolvelab.chunks DISABLE TRIGGER immutable_chunks")
+            setup.execute(text("UPDATE resolvelab.chunks SET body='Changed policy with no matching publication' WHERE tenant_id=:tenant AND locator='approval'"), {"tenant":actor.tenant_id})
+            setup.exec_driver_sql("ALTER TABLE resolvelab.chunks ENABLE TRIGGER immutable_chunks")
     expect_domain_error(lambda: approve(item, "stale-" + mutation, faults), 409)
     assert not rows(actor, "SELECT * FROM resolvelab.actions")
     assert rows(actor, "SELECT status FROM resolvelab.fixture_orders WHERE order_ref='A-100'")[0]["status"] != "cancelled"
@@ -194,7 +200,8 @@ def test_inference_dependency_outage_preserves_failed_case_and_trace(actor, monk
 
 def test_fixture_auth_disabled_outside_local_environment(client, monkeypatch):
     monkeypatch.setenv("APP_ENV", "production")
-    response = client.post("/v1/demo/session", json={"actor": "alpha-operator"})
+    monkeypatch.setenv("ALLOWED_HOSTS", "testserver")
+    response = client.post("https://testserver/v1/demo/session", json={"actor": "alpha-operator"})
     assert response.status_code == 404
 
 

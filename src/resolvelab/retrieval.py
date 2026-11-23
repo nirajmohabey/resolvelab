@@ -4,6 +4,7 @@ from __future__ import annotations
 from functools import lru_cache
 import hashlib
 import os
+import re
 from pathlib import Path
 
 import numpy as np
@@ -54,15 +55,28 @@ def embed(texts: list[str]) -> np.ndarray:
     return vectors.astype(np.float32)
 
 
-def retrieve(conn, tenant_id, corpus_id, query: str, role: str, mode: str = "hybrid", limit: int = 4) -> list[dict]:
+def embed_consistent(texts: list[str]) -> np.ndarray:
+    """Identical one-example quantization/tokenization in training and serving.
+
+    Dynamic quantization can depend on other examples/padding in a batch. V4
+    routing uses this explicit per-example transform for both fit and inference.
+    Historical releases retain embed() and their recorded behavior.
+    """
+    return np.vstack([embed([value])[0] for value in texts]) if texts else np.empty((0,EMBEDDING_DIMENSION),dtype=np.float32)
+
+
+def retrieve(conn, tenant_id, corpus_id, query: str, role: str, mode: str = "hybrid", limit: int = 4, lexical_mode: str = "all") -> list[dict]:
     if mode not in {"lexical", "dense", "hybrid"}:
         raise ValueError("Unsupported retrieval mode")
+    if lexical_mode not in {"all","any"}:raise ValueError("Unsupported lexical query semantics")
     limit = max(1, min(int(limit), 20))
+    lexical_query=" OR ".join(re.findall(r"\w+",query)[:128]) if lexical_mode=="any" else query
     rows = conn.execute(text("""
         SELECT c.chunk_id, c.document_id, c.corpus_id, c.locator, c.body,
                c.embedding, c.embedding_dimension, d.source_label, d.title,
                v.embedding_model_revision, v.embedding_dimension AS corpus_dimension,
-               ts_rank_cd(c.lexical, plainto_tsquery('english', :query)) AS lexical_score
+               CASE WHEN :lexical_any THEN ts_rank_cd(c.lexical,websearch_to_tsquery('english',:lexical_query))
+                    ELSE ts_rank_cd(c.lexical,plainto_tsquery('english',:query)) END AS lexical_score
         FROM resolvelab.chunks c
         JOIN resolvelab.documents d USING (tenant_id, corpus_id, document_id)
         JOIN resolvelab.corpus_versions v USING (tenant_id, corpus_id)
@@ -71,11 +85,12 @@ def retrieve(conn, tenant_id, corpus_id, query: str, role: str, mode: str = "hyb
           AND (d.access_scope = 'support' OR :is_admin)
         ORDER BY c.chunk_id
     """), {"tenant": str(tenant_id), "corpus": str(corpus_id), "query": query,
-           "is_admin": role == "admin"}).mappings().all()
+           "is_admin": role == "admin","lexical_any":lexical_mode=="any","lexical_query":lexical_query}).mappings().all()
     if not rows:
         return []
     candidates = [dict(row) for row in rows]
     lexical = sorted(range(len(candidates)), key=lambda i: (-float(candidates[i]["lexical_score"]), str(candidates[i]["chunk_id"])))
+    if lexical_mode=="any":lexical=[i for i in lexical if float(candidates[i]["lexical_score"])>0]
     dense = []
     if mode in {"dense", "hybrid"}:
         query_vector = embed([query])[0]
@@ -104,6 +119,6 @@ def retrieve(conn, tenant_id, corpus_id, query: str, role: str, mode: str = "hyb
         row = candidates[index]
         result.append({key: str(row[key]) if key.endswith("_id") else row[key]
                        for key in ("chunk_id", "document_id", "corpus_id", "locator", "body", "source_label", "title")}
-                      | {"score": float(scores[index]), "mode": mode,
+                      | {"score": float(scores[index]), "mode": mode,"lexical_mode":lexical_mode,
                          "embedding_model": EMBEDDING_MODEL if mode != "lexical" else None})
     return result

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-11-23T08:14:03.244862+00:00",
+  "commands": [
+    "python artifacts/security/audit_dependencies.py",
+    "npm audit --json --package-lock-only --registry=https://registry.npmjs.org"
+  ],
+  "inputs": {
+    "uv.lock": {
+      "sha256": "fb643b44c76d9019fe1003e7902dfa27c2d0992bea26db27cbe18b4f0f58efac",
+      "bytes": 187786
+    },
+    "requirements.lock": {
+      "sha256": "63f284589c36a522742f58502e4a3ee9ee77f5c6e973a025f1e66c57b423baf7",
+      "bytes": 35129
+    },
+    "package-lock.json": {
+      "sha256": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701",
+      "bytes": 17373
+    }
+  },
+  "osv": {
+    "queried_python_versions": 63,
+    "queried_npm_versions": 33,
+    "packages_with_advisories": 0,
+    "unique_advisories": 0
+  },
+  "npm": {
+    "exit_code": 0,
+    "reported_vulnerabilities": 0,
+    "registry": "https://registry.npmjs.org"
+  },
+  "limitations": [
+    "This checks known advisories for exact application dependency versions as of the query time; it is not proof of security.",
+    "The OSV query includes all resolved PyPI package versions in uv.lock, including platform-specific and development dependencies, plus the npm lock graph.",
+    "This does not scan a built container's operating-system packages, deployment configuration, application authorization, or pretrained model contents.",
+    "No dependency or advisory was automatically suppressed or upgraded by the audit."
+  ]
+}

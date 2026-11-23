@@ -36,7 +36,7 @@ def reset_fixture():
     if os.environ.get("APP_ENV", "local") != "local":
         raise RuntimeError("Fixture evaluation resets data and is allowed only in an isolated local database")
     from resolvelab.seed import seed
-    return seed(reset=True)
+    return seed(reset=True,write_manifest=False)
 
 
 def principal(alias="alpha-operator"):
@@ -313,6 +313,10 @@ def run_fixture_case(spec, reset=True, mode="deterministic_invariants", release_
             if routed:
                 result["routing_result"]["threshold"] = routed["threshold"]
                 result["routing_result"]["accepted"] = routed["score"] >= routed["threshold"] and routed["intent"] != "out_of_scope"
+                result["routing_result"]["model_version"] = routed.get("version")
+                result["routing_result"]["score_source"] = routed.get("score_source", "routing_model")
+                result["routing_result"]["scope_guard_reason"] = routed.get("scope_guard_reason")
+                result["routing_result"]["calibration_temperature"] = routed.get("calibration_temperature")
             relevant = expected.get("required_policy_sections", [])
             retrieved = observed.get("evidence_snapshot", [])
             found = {item.get("source_label", "") + "#" + item["locator"] for item in retrieved if item.get("authoritative", True)}
@@ -326,7 +330,7 @@ def _load_dataset(dataset_key):
     if dataset_key == "fixture-v1":
         raw = FIXTURES.read_bytes()
         return json.loads(raw), raw
-    language_files = {"blind-workflow-v1": "blind_workflow_v1.jsonl", "v3-blind-v1": "v3_blind_v1.jsonl", "v3-blind-v1-1": "v3_blind_v1_1.jsonl"}
+    language_files = {"blind-workflow-v1": "blind_workflow_v1.jsonl", "v3-blind-v1": "v3_blind_v1.jsonl", "v3-blind-v1-1": "v3_blind_v1_1.jsonl", "v4-blind-v1":"v4_blind_v1.jsonl"}
     if dataset_key not in language_files:
         raise ValueError("Unknown frozen evaluation dataset")
     raw = (ROOT / "fixtures" / language_files[dataset_key]).read_bytes()
@@ -360,9 +364,56 @@ def _load_dataset(dataset_key):
     return {"dataset_key": dataset_key, "cases": cases}, raw
 
 
+def _source_digest():
+    digest=hashlib.sha256()
+    for path in sorted((ROOT/"src/resolvelab").glob("*.py")):
+        digest.update(path.name.encode());digest.update(path.read_bytes())
+    return digest.hexdigest()
+
+
+def _release_provenance(release_id=None):
+    """Read the actual selected release through a real tenant-scoped runtime role.
+
+    A global active-model file is not evidence about a baseline/explicit release.
+    Match a local manifest only after DB identity/hash/version have been read.
+    """
+    from resolvelab.db import primitive
+    actor=principal()
+    if release_id is None:
+        selected=rows(actor,"SELECT release_id::text FROM resolvelab.active_releases WHERE tenant_id=:tenant",{"tenant":actor.tenant_id})
+        release_id=selected[0]["release_id"] if selected else None
+    query="""SELECT r.release_id::text,r.tenant_id::text,r.model_id::text,r.corpus_id::text,
+        r.prompt_version,r.tool_policy_version,r.retrieval_mode,r.retrieval_version,
+        m.version_label AS model_version,m.artifact_uri,m.artifact_sha256,m.dataset_sha256,
+        m.split_manifest_sha256,m.validation_threshold,c.content_sha256 AS corpus_sha256
+        FROM resolvelab.releases r JOIN resolvelab.model_versions m USING(tenant_id,model_id)
+        JOIN resolvelab.corpus_versions c USING(tenant_id,corpus_id)
+        WHERE r.release_id=:release"""
+    actual=rows(actor,query,{"release":release_id})
+    if not actual:
+        actual=rows(principal("beta-operator"),query,{"release":release_id})
+    if not actual:raise RuntimeError("Actual selected release metadata is unavailable to fixture principals")
+    value=primitive(actual[0]);matched=None
+    choices=[ROOT/"artifacts/model_manifest.json",ROOT/"artifacts/v4/model_manifest.json",ROOT/"artifacts/model_manifest-tfidf-v1.json",ROOT/"artifacts/model_manifest-v3.json"]
+    choices+=sorted((ROOT/"artifacts").glob("model_manifest*.json"))
+    for path in choices:
+        if not path.is_file():continue
+        candidate=json.loads(path.read_text(encoding="utf-8"))
+        if candidate.get("artifact_sha256")==value["artifact_sha256"] and candidate.get("version")==value["model_version"]:
+            matched=path;break
+    artifact=(ROOT/value["artifact_uri"]).resolve()
+    allowed=ROOT.resolve() in artifact.parents
+    on_disk=hashlib.sha256(artifact.read_bytes()).hexdigest() if allowed and artifact.is_file() else None
+    return value|{"manifest_path":str(matched.relative_to(ROOT)).replace("\\","/") if matched else None,
+                  "manifest_sha256":hashlib.sha256(matched.read_bytes()).hexdigest() if matched else None,
+                  "artifact_sha256_on_disk":on_disk,"artifact_hash_matches_database":on_disk==value["artifact_sha256"],
+                  "provenance_source":"Tenant-scoped DB release/model/corpus join; manifest matched by actual artifact SHA and model version"}
+
+
 def run_fixture_suite(output_dir=None, mode="deterministic_invariants", release_id=None, dataset_key="fixture-v1"):
     if mode not in {"deterministic_invariants", "live_model"}:
         raise ValueError("Unsupported evaluation mode")
+    source_start=_source_digest()
     data, dataset_bytes = _load_dataset(dataset_key)
     results = [run_fixture_case(case, mode=mode, release_id=release_id) for case in data["cases"]]
     n = len(results)
@@ -389,17 +440,22 @@ def run_fixture_suite(output_dir=None, mode="deterministic_invariants", release_
         "metric_definitions": {"critical_failures": "Fixture cases with any unmet expectation, including routing or abstention. This is not the count of unauthorized effects.", "unauthorized_effect_count": "Unexpected changed fixture orders across both tenants, inspected via their actual runtime principals.", "latency": "Per-case elapsed time after fixture reset and baseline snapshots, including the service workflow and effect/evidence assertions; excludes reset time."},
         "cases": results,
     }
-    source_digest = hashlib.sha256()
-    for path in sorted((ROOT / "src" / "resolvelab").glob("*.py")):
-        source_digest.update(path.name.encode())
-        source_digest.update(path.read_bytes())
-    report["code_tree_sha256"] = source_digest.hexdigest()
-    manifest_path = ROOT / "artifacts" / "model_manifest.json"
-    if manifest_path.exists():
-        model = json.loads(manifest_path.read_text(encoding="utf-8"))
-        report["model_manifest_sha256"] = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
-        report["model_artifact_sha256"] = model.get("artifact_sha256")
-        report["model_version"] = model.get("version", model.get("algorithm"))
+    report["code_tree_sha256_start"]=source_start
+    report["code_tree_sha256"]=_source_digest()
+    report["code_changed_during_run"]=source_start!=report["code_tree_sha256"]
+    lock=ROOT/"uv.lock"
+    report["dependency_lock_sha256"]=hashlib.sha256(lock.read_bytes()).hexdigest() if lock.exists() else None
+    provenance=_release_provenance(release_id)
+    report["release_id"]=provenance["release_id"]
+    report["release_provenance"]=provenance
+    report["model_manifest_sha256"]=provenance["manifest_sha256"]
+    report["model_artifact_sha256"]=provenance["artifact_sha256"]
+    report["model_version"]=provenance["model_version"]
+    report["retrieval_version"]=provenance["retrieval_version"]
+    report["retrieval_mode"]=provenance["retrieval_mode"]
+    actual_ids=sorted({r["actual_release_id"] for r in results if r.get("actual_release_id")})
+    report["actual_case_release_ids"]=actual_ids
+    report["all_observed_case_releases_match_selected"]=all(value==provenance["release_id"] for value in actual_ids)
     model_cases = [r["routing_result"] for r in results if r.get("routing_result", {}).get("adapter") == "model" and r["routing_result"].get("predicted") is not None]
     if model_cases:
         from sklearn.metrics import classification_report, confusion_matrix, f1_score
@@ -418,6 +474,10 @@ def run_fixture_suite(output_dir=None, mode="deterministic_invariants", release_
             accepted_coverage={"numerator": len(accepted), "denominator": len(model_cases), "rate": len(accepted)/len(model_cases)},
             accepted_routing_error={"numerator": sum(x["expected"] != x["predicted"] for x in accepted), "denominator": len(accepted), "rate": sum(x["expected"] != x["predicted"] for x in accepted)/len(accepted) if accepted else None},
             ood_false_acceptance={"numerator": sum(bool(x.get("accepted")) for x in ood), "denominator": len(ood), "rate": sum(bool(x.get("accepted")) for x in ood)/len(ood) if ood else None})
+        scope_rules=[x for x in model_cases if x.get("score_source")=="scope_rule"]
+        report["routing_metrics"]["scope_rule_decisions"]=len(scope_rules)
+        report["routing_metrics"]["learned_model_decisions"]=len(model_cases)-len(scope_rules)
+        report["routing_metrics"]["score_semantics"]="Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
     else:
         report["routing_metrics"] = None
     recall_cases = [r["retrieval_recall"] for r in results if r.get("retrieval_recall", {}).get("relevant_units", 0)]
@@ -445,7 +505,7 @@ def main(argv=None):
     parser.add_argument("--output", default=str(ROOT / "artifacts" / "evaluation"))
     parser.add_argument("--mode", choices=["deterministic_invariants", "live_model"], default="deterministic_invariants")
     parser.add_argument("--release-id")
-    parser.add_argument("--dataset", choices=["fixture-v1", "blind-workflow-v1", "v3-blind-v1", "v3-blind-v1-1"], default="fixture-v1")
+    parser.add_argument("--dataset", choices=["fixture-v1", "blind-workflow-v1", "v3-blind-v1", "v3-blind-v1-1", "v4-blind-v1"], default="fixture-v1")
     options = parser.parse_args(argv)
     report = run_fixture_suite(options.output, mode=options.mode, release_id=options.release_id, dataset_key=options.dataset)
     print(json.dumps(report["metrics"], indent=2))

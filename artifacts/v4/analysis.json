@@ -1,0 +1,704 @@
+{
+  "version": "domain-router-v4",
+  "selection": {
+    "architecture": "hierarchical",
+    "C": 100.0,
+    "source_strength": 0.1,
+    "blend_weight": 0.5,
+    "temperature": 0.751056224959064,
+    "calibration": "heldout-temperature",
+    "threshold": 0.425,
+    "domain_validation": {
+      "accepted": 185,
+      "correct_supported": 184,
+      "wrong_accepted": 1,
+      "accepted_error": 0.005405405405405406,
+      "ood_accepted": 1,
+      "ood_false_acceptance": 0.015625
+    },
+    "source_validation": {
+      "accepted": 438,
+      "correct_supported": 418,
+      "wrong_accepted": 20,
+      "accepted_error": 0.045662100456621,
+      "ood_accepted": 18,
+      "ood_false_acceptance": 0.004218420435903445
+    },
+    "calibration_log_loss": 0.27403963584831403,
+    "core_pass": true
+  },
+  "development_ablations": [
+    {
+      "architecture": "flat",
+      "C": 100.0,
+      "source_strength": 0.005,
+      "blend_weight": 0.0,
+      "temperature": 1.0391254309786664,
+      "calibration": "heldout-temperature",
+      "threshold": 0.6,
+      "domain_validation": {
+        "accepted": 173,
+        "correct_supported": 173,
+        "wrong_accepted": 0,
+        "accepted_error": 0.0,
+        "ood_accepted": 0,
+        "ood_false_acceptance": 0.0
+      },
+      "source_validation": {
+        "accepted": 439,
+        "correct_supported": 420,
+        "wrong_accepted": 19,
+        "accepted_error": 0.04328018223234624,
+        "ood_accepted": 19,
+        "ood_false_acceptance": 0.00445277712678697
+      },
+      "calibration_log_loss": 0.398558773335012,
+      "core_pass": true
+    },
+    {
+      "architecture": "flat",
+      "C": 20.0,
+      "source_strength": 0.1,
+      "blend_weight": 0.5,
+      "temperature": 0.7682084396313488,
+      "calibration": "heldout-temperature",
+      "threshold": 0.35,
+      "domain_validation": {
+        "accepted": 182,
+        "correct_supported": 182,
+        "wrong_accepted": 0,
+        "accepted_error": 0.0,
+        "ood_accepted": 0,
+        "ood_false_acceptance": 0.0
+      },
+      "source_validation": {
+        "accepted": 436,
+        "correct_supported": 420,
+        "wrong_accepted": 16,
+        "accepted_error": 0.03669724770642202,
+        "ood_accepted": 15,
+        "ood_false_acceptance": 0.003515350363252871
+      },
+      "calibration_log_loss": 0.29039079899669495,
+      "core_pass": true
+    },
+    {
+      "architecture": "flat",
+      "C": 100.0,
+      "source_strength": 0.1,
+      "blend_weight": 1.0,
+      "temperature": 1.5788058804844478,
+      "calibration": "heldout-temperature",
+      "threshold": 0.7,
+      "domain_validation": {
+        "accepted": 171,
+        "correct_supported": 171,
+        "wrong_accepted": 0,
+        "accepted_error": 0.0,
+        "ood_accepted": 0,
+        "ood_false_acceptance": 0.0
+      },
+      "source_validation": {
+        "accepted": 431,
+        "correct_supported": 413,
+        "wrong_accepted": 18,
+        "accepted_error": 0.04176334106728538,
+        "ood_accepted": 18,
+        "ood_false_acceptance": 0.004218420435903445
+      },
+      "calibration_log_loss": 0.29669102224267585,
+      "core_pass": true
+    },
+    {
+      "architecture": "hierarchical",
+      "C": 100.0,
+      "source_strength": 0.005,
+      "blend_weight": 0.0,
+      "temperature": 1.0,
+      "calibration": "none",
+      "threshold": 0.65,
+      "domain_validation": {
+        "accepted": 176,
+        "correct_supported": 175,
+        "wrong_accepted": 1,
+        "accepted_error": 0.005681818181818182,
+        "ood_accepted": 1,
+        "ood_false_acceptance": 0.015625
+      },
+      "source_validation": {
+        "accepted": 442,
+        "correct_supported": 420,
+        "wrong_accepted": 22,
+        "accepted_error": 0.049773755656108594,
+        "ood_accepted": 22,
+        "ood_false_acceptance": 0.005155847199437544
+      },
+      "calibration_log_loss": 0.43563553108787084,
+      "core_pass": true
+    },
+    {
+      "architecture": "hierarchical",
+      "C": 100.0,
+      "source_strength": 0.1,
+      "blend_weight": 0.5,
+      "temperature": 0.751056224959064,
+      "calibration": "heldout-temperature",
+      "threshold": 0.35,
+      "domain_validation": {
+        "accepted": 185,
+        "correct_supported": 184,
+        "wrong_accepted": 1,
+        "accepted_error": 0.005405405405405406,
+        "ood_accepted": 1,
+        "ood_false_acceptance": 0.015625
+      },
+      "source_validation": {
+        "accepted": 439,
+        "correct_supported": 418,
+        "wrong_accepted": 21,
+        "accepted_error": 0.04783599088838269,
+        "ood_accepted": 19,
+        "ood_false_acceptance": 0.00445277712678697
+      },
+      "calibration_log_loss": 0.27403963584831403,
+      "core_pass": true
+    },
+    {
+      "architecture": "hierarchical",
+      "C": 20.0,
+      "source_strength": 0.1,
+      "blend_weight": 1.0,
+      "temperature": 0.8428974386882584,
+      "calibration": "heldout-temperature",
+      "threshold": 0.875,
+      "domain_validation": {
+        "accepted": 158,
+        "correct_supported": 158,
+        "wrong_accepted": 0,
+        "accepted_error": 0.0,
+        "ood_accepted": 0,
+        "ood_false_acceptance": 0.0
+      },
+      "source_validation": {
+        "accepted": 422,
+        "correct_supported": 404,
+        "wrong_accepted": 18,
+        "accepted_error": 0.04265402843601896,
+        "ood_accepted": 18,
+        "ood_false_acceptance": 0.004218420435903445
+      },
+      "calibration_log_loss": 0.2604212340932679,
+      "core_pass": true
+    }
+  ],
+  "heldout_family_test_model_only_calibration": {
+    "N": 112,
+    "raw_ece_10_bins": 0.061232766888353954,
+    "temperature_ece_10_bins": 0.03917262960181187,
+    "raw_bins": [
+      {
+        "N": 2,
+        "score": 0.3770062574776889,
+        "accuracy": 0.0
+      },
+      {
+        "N": 5,
+        "score": 0.4773429029817412,
+        "accuracy": 0.4
+      },
+      {
+        "N": 4,
+        "score": 0.642606840087723,
+        "accuracy": 1.0
+      },
+      {
+        "N": 18,
+        "score": 0.7506625831710529,
+        "accuracy": 0.8888888888888888
+      },
+      {
+        "N": 13,
+        "score": 0.8639559983261169,
+        "accuracy": 1.0
+      },
+      {
+        "N": 70,
+        "score": 0.9852696471814154,
+        "accuracy": 0.9857142857142858
+      }
+    ],
+    "temperature_bins": [
+      {
+        "N": 1,
+        "score": 0.3980035686317041,
+        "accuracy": 0.0
+      },
+      {
+        "N": 3,
+        "score": 0.4625795542489491,
+        "accuracy": 0.0
+      },
+      {
+        "N": 3,
+        "score": 0.5271498053822351,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "N": 2,
+        "score": 0.6812345179184784,
+        "accuracy": 1.0
+      },
+      {
+        "N": 5,
+        "score": 0.7748079012712086,
+        "accuracy": 1.0
+      },
+      {
+        "N": 16,
+        "score": 0.8543841910004857,
+        "accuracy": 0.875
+      },
+      {
+        "N": 82,
+        "score": 0.9867110085564408,
+        "accuracy": 0.9878048780487805
+      }
+    ]
+  },
+  "development_coverage_curve": [
+    {
+      "threshold": 0.25,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.275,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.3,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.325,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.35,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.375,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.4,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.425,
+      "accepted": 185,
+      "wrong": 1,
+      "coverage": 0.72265625,
+      "accepted_error": 0.005405405405405406
+    },
+    {
+      "threshold": 0.45,
+      "accepted": 184,
+      "wrong": 1,
+      "coverage": 0.71875,
+      "accepted_error": 0.005434782608695652
+    },
+    {
+      "threshold": 0.475,
+      "accepted": 184,
+      "wrong": 1,
+      "coverage": 0.71875,
+      "accepted_error": 0.005434782608695652
+    },
+    {
+      "threshold": 0.5,
+      "accepted": 183,
+      "wrong": 1,
+      "coverage": 0.71484375,
+      "accepted_error": 0.00546448087431694
+    },
+    {
+      "threshold": 0.525,
+      "accepted": 182,
+      "wrong": 0,
+      "coverage": 0.7109375,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.55,
+      "accepted": 179,
+      "wrong": 0,
+      "coverage": 0.69921875,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.575,
+      "accepted": 179,
+      "wrong": 0,
+      "coverage": 0.69921875,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.6,
+      "accepted": 178,
+      "wrong": 0,
+      "coverage": 0.6953125,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.625,
+      "accepted": 178,
+      "wrong": 0,
+      "coverage": 0.6953125,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.65,
+      "accepted": 178,
+      "wrong": 0,
+      "coverage": 0.6953125,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.675,
+      "accepted": 176,
+      "wrong": 0,
+      "coverage": 0.6875,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.7,
+      "accepted": 174,
+      "wrong": 0,
+      "coverage": 0.6796875,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.725,
+      "accepted": 172,
+      "wrong": 0,
+      "coverage": 0.671875,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.75,
+      "accepted": 168,
+      "wrong": 0,
+      "coverage": 0.65625,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.775,
+      "accepted": 166,
+      "wrong": 0,
+      "coverage": 0.6484375,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.8,
+      "accepted": 164,
+      "wrong": 0,
+      "coverage": 0.640625,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.825,
+      "accepted": 162,
+      "wrong": 0,
+      "coverage": 0.6328125,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.85,
+      "accepted": 155,
+      "wrong": 0,
+      "coverage": 0.60546875,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.875,
+      "accepted": 152,
+      "wrong": 0,
+      "coverage": 0.59375,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.9,
+      "accepted": 148,
+      "wrong": 0,
+      "coverage": 0.578125,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.925,
+      "accepted": 144,
+      "wrong": 0,
+      "coverage": 0.5625,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.95,
+      "accepted": 139,
+      "wrong": 0,
+      "coverage": 0.54296875,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.975,
+      "accepted": 121,
+      "wrong": 0,
+      "coverage": 0.47265625,
+      "accepted_error": 0.0
+    }
+  ],
+  "family_test_metrics": {
+    "N": 128,
+    "macro_f1": 0.9369806940371457,
+    "accuracy": 0.9375,
+    "labels": [
+      "cancel_request",
+      "human_handoff",
+      "out_of_scope",
+      "track_order"
+    ],
+    "class_support": {
+      "track_order": 32,
+      "cancel_request": 32,
+      "human_handoff": 32,
+      "out_of_scope": 32
+    },
+    "confusion_matrix": [
+      [
+        32,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        32,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        28,
+        2
+      ],
+      [
+        0,
+        0,
+        4,
+        28
+      ]
+    ],
+    "classification_report": {
+      "cancel_request": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 32.0
+      },
+      "human_handoff": {
+        "precision": 0.9411764705882353,
+        "recall": 1.0,
+        "f1-score": 0.9696969696969697,
+        "support": 32.0
+      },
+      "out_of_scope": {
+        "precision": 0.875,
+        "recall": 0.875,
+        "f1-score": 0.875,
+        "support": 32.0
+      },
+      "track_order": {
+        "precision": 0.9333333333333333,
+        "recall": 0.875,
+        "f1-score": 0.9032258064516129,
+        "support": 32.0
+      },
+      "accuracy": 0.9375,
+      "macro avg": {
+        "precision": 0.9373774509803923,
+        "recall": 0.9375,
+        "f1-score": 0.9369806940371457,
+        "support": 128.0
+      },
+      "weighted avg": {
+        "precision": 0.9373774509803923,
+        "recall": 0.9375,
+        "f1-score": 0.9369806940371457,
+        "support": 128.0
+      }
+    },
+    "log_loss": null,
+    "accepted_count": 94,
+    "accepted_coverage": 0.734375,
+    "accepted_routing_error_count": 2,
+    "accepted_routing_error": 0.02127659574468085,
+    "ood_count": 32,
+    "ood_false_acceptance_count": 2,
+    "ood_false_acceptance": 0.0625,
+    "reliability_bins": [
+      {
+        "bin_low": 0.0,
+        "N": 0,
+        "mean_score": null,
+        "accuracy": null
+      },
+      {
+        "bin_low": 0.1,
+        "N": 0,
+        "mean_score": null,
+        "accuracy": null
+      },
+      {
+        "bin_low": 0.2,
+        "N": 0,
+        "mean_score": null,
+        "accuracy": null
+      },
+      {
+        "bin_low": 0.3,
+        "N": 1,
+        "mean_score": 0.3980035686317042,
+        "accuracy": 0.0
+      },
+      {
+        "bin_low": 0.4,
+        "N": 3,
+        "mean_score": 0.4625795542489491,
+        "accuracy": 0.0
+      },
+      {
+        "bin_low": 0.5,
+        "N": 3,
+        "mean_score": 0.5271498053822351,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "bin_low": 0.6,
+        "N": 2,
+        "mean_score": 0.6812345179184784,
+        "accuracy": 1.0
+      },
+      {
+        "bin_low": 0.7,
+        "N": 5,
+        "mean_score": 0.7748079012712086,
+        "accuracy": 1.0
+      },
+      {
+        "bin_low": 0.8,
+        "N": 16,
+        "mean_score": 0.8543841910004858,
+        "accuracy": 0.875
+      },
+      {
+        "bin_low": 0.9,
+        "N": 82,
+        "mean_score": 0.9867110085564408,
+        "accuracy": 0.9878048780487805
+      }
+    ],
+    "learned_route_calibration": {
+      "N": 112,
+      "log_loss": 0.2177041608478031,
+      "reliability_bins": [
+        {
+          "bin_low": 0.0,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.1,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.2,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.3,
+          "N": 1,
+          "mean_score": 0.3980035686317042,
+          "accuracy": 0.0
+        },
+        {
+          "bin_low": 0.4,
+          "N": 3,
+          "mean_score": 0.4625795542489491,
+          "accuracy": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "N": 3,
+          "mean_score": 0.5271498053822351,
+          "accuracy": 0.6666666666666666
+        },
+        {
+          "bin_low": 0.6,
+          "N": 2,
+          "mean_score": 0.6812345179184784,
+          "accuracy": 1.0
+        },
+        {
+          "bin_low": 0.7,
+          "N": 5,
+          "mean_score": 0.7748079012712086,
+          "accuracy": 1.0
+        },
+        {
+          "bin_low": 0.8,
+          "N": 16,
+          "mean_score": 0.8543841910004858,
+          "accuracy": 0.875
+        },
+        {
+          "bin_low": 0.9,
+          "N": 82,
+          "mean_score": 0.9867110085564408,
+          "accuracy": 0.9878048780487805
+        }
+      ]
+    },
+    "scope_rule_decisions": 16,
+    "calibration_scope": "Learned routes only. Deterministic scope-denial decisions are not probabilities and are excluded from calibration."
+  },
+  "calibration_excludes": "Deterministic scope-rule denials, which are not probabilities.",
+  "claim_support_human_review": null,
+  "fresh_blind_workflow": "not read by this analysis script",
+  "ablation_scope": "Best feasible development configuration per architecture/blend; not a held-out comparison or independent generalization estimate."
+}

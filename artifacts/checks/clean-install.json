@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-11-23T08:21:58.704075+00:00",
+  "database": "resolvelab_install_check_509335a19cf3",
+  "fresh_migration_and_seed": true,
+  "runtime_nonowner_rls": true,
+  "readiness_http_status": 200,
+  "signed_login_verified": true,
+  "trained_tracking_verified": true,
+  "serving_database_reset": false,
+  "command_output": "Fresh migrations, least-privilege role, seed, signed login, trained tracking and readiness verified."
+}

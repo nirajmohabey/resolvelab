@@ -1,0 +1,12 @@
+[
+  {
+    "file": "CDLA-Sharing-1.0.txt",
+    "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/CDLA-Sharing-1.0.txt",
+    "sha256": "6419d7a7245cb8a9da6e3dd925d05d824ea0268e3527095f68dec091f84f75da"
+  },
+  {
+    "file": "Apache-2.0.txt",
+    "source_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  }
+]

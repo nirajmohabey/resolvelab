@@ -1,0 +1,282 @@
+{
+  "source_report_sha256": "eb0d820dd220bbe7ba48348b1421dd1c3f035627598c505dd3cec79ecfca5761",
+  "N": 100,
+  "status": "Disclosed historical diagnostic for v4 planning. No new blind case or label is read.",
+  "taxonomy": {
+    "supported_predicted_ood": 15,
+    "wrong_supported_route": 2,
+    "correct_supported_below_threshold": 14,
+    "unsupported_false_acceptance": 0
+  },
+  "coverage_threshold_curve": [
+    {
+      "threshold": 0.25,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.275,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.3,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.325,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.35,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.375,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.4,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.425,
+      "accepted": 60,
+      "wrong": 2,
+      "coverage": 0.6,
+      "accepted_error": 0.03333333333333333
+    },
+    {
+      "threshold": 0.45,
+      "accepted": 59,
+      "wrong": 1,
+      "coverage": 0.59,
+      "accepted_error": 0.01694915254237288
+    },
+    {
+      "threshold": 0.475,
+      "accepted": 58,
+      "wrong": 1,
+      "coverage": 0.58,
+      "accepted_error": 0.017241379310344827
+    },
+    {
+      "threshold": 0.5,
+      "accepted": 58,
+      "wrong": 1,
+      "coverage": 0.58,
+      "accepted_error": 0.017241379310344827
+    },
+    {
+      "threshold": 0.525,
+      "accepted": 55,
+      "wrong": 1,
+      "coverage": 0.55,
+      "accepted_error": 0.01818181818181818
+    },
+    {
+      "threshold": 0.55,
+      "accepted": 54,
+      "wrong": 1,
+      "coverage": 0.54,
+      "accepted_error": 0.018518518518518517
+    },
+    {
+      "threshold": 0.575,
+      "accepted": 52,
+      "wrong": 1,
+      "coverage": 0.52,
+      "accepted_error": 0.019230769230769232
+    },
+    {
+      "threshold": 0.6,
+      "accepted": 52,
+      "wrong": 1,
+      "coverage": 0.52,
+      "accepted_error": 0.019230769230769232
+    },
+    {
+      "threshold": 0.625,
+      "accepted": 51,
+      "wrong": 1,
+      "coverage": 0.51,
+      "accepted_error": 0.0196078431372549
+    },
+    {
+      "threshold": 0.65,
+      "accepted": 51,
+      "wrong": 1,
+      "coverage": 0.51,
+      "accepted_error": 0.0196078431372549
+    },
+    {
+      "threshold": 0.675,
+      "accepted": 50,
+      "wrong": 1,
+      "coverage": 0.5,
+      "accepted_error": 0.02
+    },
+    {
+      "threshold": 0.7,
+      "accepted": 46,
+      "wrong": 0,
+      "coverage": 0.46,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.725,
+      "accepted": 44,
+      "wrong": 0,
+      "coverage": 0.44,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.75,
+      "accepted": 42,
+      "wrong": 0,
+      "coverage": 0.42,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.775,
+      "accepted": 40,
+      "wrong": 0,
+      "coverage": 0.4,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.8,
+      "accepted": 40,
+      "wrong": 0,
+      "coverage": 0.4,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.825,
+      "accepted": 39,
+      "wrong": 0,
+      "coverage": 0.39,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.85,
+      "accepted": 35,
+      "wrong": 0,
+      "coverage": 0.35,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.875,
+      "accepted": 33,
+      "wrong": 0,
+      "coverage": 0.33,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.9,
+      "accepted": 28,
+      "wrong": 0,
+      "coverage": 0.28,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.925,
+      "accepted": 27,
+      "wrong": 0,
+      "coverage": 0.27,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.95,
+      "accepted": 26,
+      "wrong": 0,
+      "coverage": 0.26,
+      "accepted_error": 0.0
+    },
+    {
+      "threshold": 0.975,
+      "accepted": 19,
+      "wrong": 0,
+      "coverage": 0.19,
+      "accepted_error": 0.0
+    }
+  ],
+  "top_label_reliability_bins": [
+    {
+      "N": 4,
+      "mean_score": 0.472615,
+      "accuracy": 0.25
+    },
+    {
+      "N": 13,
+      "mean_score": 0.5466630769230769,
+      "accuracy": 0.5384615384615384
+    },
+    {
+      "N": 11,
+      "mean_score": 0.6563363636363636,
+      "accuracy": 0.5454545454545454
+    },
+    {
+      "N": 9,
+      "mean_score": 0.7499977777777778,
+      "accuracy": 0.6666666666666666
+    },
+    {
+      "N": 16,
+      "mean_score": 0.858835,
+      "accuracy": 1.0
+    },
+    {
+      "N": 47,
+      "mean_score": 0.9797178723404255,
+      "accuracy": 1.0
+    }
+  ],
+  "top_label_ece_10_bins": 0.06178660000000002,
+  "probability_limit": "Only maximum scores stored in actual-service report; full multiclass log loss/Brier unavailable from that report.",
+  "observed_accepted_error": {
+    "count": 0,
+    "N": 44,
+    "wilson95": [
+      0,
+      0.08029560375848066
+    ]
+  },
+  "observed_ood_acceptance": {
+    "count": 0,
+    "N": 25,
+    "wilson95": [
+      1.3877787807814457e-17,
+      0.13319225093904846
+    ]
+  },
+  "coverage": {
+    "count": 44,
+    "N": 100,
+    "wilson95": [
+      0.34672026630160796,
+      0.5377189534832302
+    ]
+  },
+  "interpretation": "Threshold reduction cannot recover false-OOD predictions. Wrong supported routes were gated, but useful correctly routed requests were also rejected. Synthetic-family validation overestimated fresh linguistic generalization. Zero observed errors is not a production error bound."
+}

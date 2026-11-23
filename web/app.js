@@ -1,4 +1,9 @@
-"use strict";
+import {
+  readAuthentication,
+  beginSignIn,
+  clearAuthentication,
+} from "./auth-client.js";
+("use strict");
 const $ = (s) => document.querySelector(s),
   $$ = (s) => [...document.querySelectorAll(s)];
 const esc = (s) =>
@@ -21,6 +26,10 @@ const labels = {
   failed: "Failed",
 };
 const state = {
+  sessionGeneration: 0,
+  caseSelectionRequest: 0,
+  evaluationReportRequest: 0,
+  pendingCreate: null,
   token: null,
   principal: null,
   cases: [],
@@ -30,6 +39,15 @@ const state = {
   releases: [],
   evaluations: [],
 };
+class SessionChanged extends Error {
+  constructor() {
+    super("The workspace session changed.");
+  }
+}
+function checkSession(generation, token) {
+  if (state.sessionGeneration !== generation || state.token !== token)
+    throw new SessionChanged();
+}
 const badge = (s) =>
   `<span class="badge ${esc(s)}">${esc(labels[s] || s)}</span>`;
 const short = (s) =>
@@ -43,6 +61,8 @@ function notify(message, error = false) {
   el.hidden = false;
 }
 async function api(path, options = {}) {
+  const generation = state.sessionGeneration, token = state.token;
+  if (!token && path !== "/v1/demo/session") throw new SessionChanged();
   const headers = {
     ...(options.body ? { "Content-Type": "application/json" } : {}),
     ...(state.token ? { Authorization: `Bearer ${state.token}` } : {}),
@@ -50,18 +70,33 @@ async function api(path, options = {}) {
   };
   if (options.method && options.method !== "GET")
     headers["Idempotency-Key"] = options.key || crypto.randomUUID();
-  const response = await fetch(path, {
-    ...options,
-    headers,
-    body: options.body ? JSON.stringify(options.body) : undefined,
-  });
+  let response;
+  try {
+    response = await fetch(path, {
+      ...options,
+      headers,
+      body: options.body ? JSON.stringify(options.body) : undefined,
+    });
+  } catch (error) {
+    checkSession(generation, token);
+    throw error;
+  }
   let result;
   try {
     result = await response.json();
   } catch {
     result = {};
   }
+  checkSession(generation, token);
   if (!response.ok) {
+    if (
+      response.status === 401 &&
+      state.authConfig?.mode === "oidc" &&
+      state.token
+    ) {
+      requireSignIn("Your session expired. Sign in again.");
+      throw new SessionChanged();
+    }
     const err = result.error || result.detail || result;
     throw new Error(
       typeof err === "string"
@@ -82,37 +117,162 @@ function setBusy(button, busy, label) {
     button.disabled = false;
   }
 }
+let expiryTimer;
+async function applySession(token, principal, organization) {
+  const generation = ++state.sessionGeneration;
+  state.pendingCreate = null;
+  const previous = state.selected,
+    previousTenant = state.principal?.tenant_id;
+  state.token = token;
+  state.principal = principal;
+  const fixture = state.authConfig?.mode === "fixture";
+  $("#apiReference").hidden = !fixture;
+  $(".build-label").textContent = fixture ? "v0.1 · Fixture retailer" : "v0.1 · Verified workspace";
+  const name =
+    organization?.display_name ||
+    (fixture
+      ? principal.tenant_id.startsWith("1111")
+        ? "Alpha Retail"
+        : "Beta Retail"
+      : "Support workspace");
+  $("#tenantName").innerHTML =
+    esc(name) +
+    "<small>" +
+    (fixture ? "Fixture workspace" : "Verified workspace") +
+    "</small>";
+  $(".workspace-icon").textContent = name.slice(0, 1).toUpperCase();
+  $("#avatar").textContent = principal.role.slice(0, 2).toUpperCase();
+  $("#signIn").hidden = true;
+  $("#signOut").hidden = fixture;
+  $("#actor").hidden = !fixture;
+  $(".identity-label").hidden = !fixture;
+  $("#environmentTag").textContent = fixture ? "LOCAL" : "OIDC";
+  $("#responseMode").textContent = fixture
+    ? "Fixture workflow"
+    : "Verified session";
+  $(".fixture-disclaimer").textContent = fixture
+    ? "Synthetic retailer · Demo clock: November 23, 2026, 12:00 UTC · No real order, payment, or email is changed."
+    : "Verified customer context · Policy, ownership, current state, and approval checks control every action.";
+  state.selected =
+    previous && previousTenant === principal.tenant_id
+      ? { case_id: previous.case_id }
+      : null;
+  state.tab = "summary";
+  $("#detail").innerHTML =
+    '<div class="empty"><h3>Loading organization cases…</h3></div>';
+  $$("[data-view]").forEach((button) => (button.disabled = false));
+  await refresh();
+  checkSession(generation, token);
+  $("#newCase").disabled = !["operator", "approver", "admin"].includes(
+    principal.role,
+  );
+  if (!$("#view-evaluation").hidden) await evaluationView();
+  checkSession(generation, token);
+  if (!$("#view-releases").hidden) await releasesView();
+  checkSession(generation, token);
+  $("#notice").hidden = true;
+}
+function requireSignIn(message = "Sign in to your support workspace.") {
+  state.sessionGeneration++;
+  clearTimeout(expiryTimer);
+  clearAuthentication();
+  state.token = null;
+  state.principal = null;
+  state.selected = null;
+  state.cases = [];
+  state.releases = [];
+  state.evaluations = [];
+  state.pendingCreate = null;
+  $("#apiReference").hidden = true;
+  $(".build-label").textContent = "v0.1 · Verified workspace";
+  $("#actor").hidden = true;
+  $(".identity-label").hidden = true;
+  $("#signOut").hidden = true;
+  $("#signIn").hidden = false;
+  $("#signIn").disabled = !(
+    state.authConfig?.mode === "oidc" && state.authConfig?.configured
+  );
+  $("#newCase").disabled = true;
+  $$("[data-view]").forEach((button) => (button.disabled = true));
+  $("#tenantName").innerHTML =
+    "Support workspace<small>Sign-in required</small>";
+  $("#environmentTag").textContent = "OIDC";
+  $("#responseMode").textContent = "Sign-in required";
+  [
+    "#statTotal",
+    "#statApproval",
+    "#statResolved",
+    "#statEscalated",
+    "#navCount",
+  ].forEach((id) => ($(id).textContent = "—"));
+  $("#caseList").innerHTML =
+    '<div class="empty">Sign in to view your organization’s cases.</div>';
+  $("#detail").innerHTML =
+    '<div class="welcome-state"><div class="eyebrow">VERIFIED ACCESS</div><h2>Sign in to continue.</h2><p>Your organization and permissions are verified by the server.</p></div>';
+  $("#evaluationContent").textContent = "";
+  $("#releaseContent").textContent = "";
+  $("#evaluationDetails").textContent = "";
+  $("#caseForm").reset();
+  if ($("#caseDialog").open) $("#caseDialog").close();
+  if ($("#evaluationDialog").open) $("#evaluationDialog").close();
+  notify(message);
+}
 async function login() {
+  if (state.authConfig?.mode !== "fixture") return;
+  state.sessionGeneration++;
   try {
     const result = await api("/v1/demo/session", {
       method: "POST",
       body: { actor: $("#actor").value },
     });
-    const previous = state.selected;
-    const previousTenant = state.principal?.tenant_id;
-    state.token = result.access_token || result.token;
-    state.principal = result.principal;
-    $("#tenantName").innerHTML =
-      (state.principal.tenant_id.startsWith("1111") ? "Alpha" : "Beta") +
-      " Retail<small>Fixture workspace</small>";
-    state.selected =
-      previous && previousTenant === state.principal.tenant_id
-        ? { case_id: previous.case_id }
-        : null;
-    state.tab = "summary";
-    $("#detail").innerHTML =
-      '<div class="empty"><h3>Loading organization cases…</h3></div>';
-    await refresh();
-    $("#newCase").disabled = !["operator", "approver", "admin"].includes(
-      state.principal.role,
+    await applySession(
+      result.access_token || result.token,
+      result.principal,
+      result.organization,
     );
-    if (!$("#view-evaluation").hidden) await evaluationView();
-    if (!$("#view-releases").hidden) await releasesView();
-    $("#notice").hidden = true;
-  } catch (e) {
-    notify(e.message, true);
+  } catch (error) {
+    if (error instanceof SessionChanged) return;
+    notify(error.message, true);
   }
 }
+async function bootstrapAuthentication() {
+  try {
+    const result = await readAuthentication();
+    state.authConfig = result.config;
+    if (result.config.mode === "fixture") {
+      await login();
+      return;
+    }
+    if (!result.token) {
+      requireSignIn(
+        result.config.configured
+          ? "Sign in with your organization’s identity provider."
+          : result.config.message ||
+              "Workspace sign-in has not been configured.",
+      );
+      return;
+    }
+    state.token = result.token;
+    state.sessionGeneration++;
+    const session = await api("/v1/session");
+    await applySession(result.token, session.principal, session.organization);
+    if (result.expiresAt)
+      expiryTimer = setTimeout(
+        () => requireSignIn("Your session expired. Sign in again to continue."),
+        Math.max(0, result.expiresAt - Date.now()),
+      );
+  } catch (error) {
+    if (error instanceof SessionChanged) return;
+    try {
+      state.authConfig = (await readAuthentication()).config;
+    } catch {}
+    requireSignIn(error.message);
+  }
+}
+$("#signIn").onclick = () =>
+  beginSignIn(state.authConfig).catch((error) => notify(error.message, true));
+$("#signOut").onclick = () =>
+  requireSignIn("This workbench session is disconnected.");
 async function refresh() {
   const result = await api("/v1/cases?limit=100");
   state.cases = result.items || [];
@@ -153,11 +313,16 @@ function renderList() {
   );
 }
 async function selectCase(id) {
+  const request = ++state.caseSelectionRequest;
   try {
-    state.selected = await api(`/v1/cases/${id}`);
+    const selected = await api(`/v1/cases/${id}`);
+    if (request !== state.caseSelectionRequest) return;
+    state.selected = selected;
     renderList();
     renderDetail();
   } catch (e) {
+    if (e instanceof SessionChanged) return;
+    if (request !== state.caseSelectionRequest) return;
     notify(e.message, true);
   }
 }
@@ -189,12 +354,14 @@ function renderDetail() {
     return;
   }
   const r = resolution;
-  let html = `<div class="section-label">TRAINED ROUTING</div><div class="routing-row"><span class="intent-label">${esc((c.intent || r.intent || "unavailable").replaceAll("_", " "))}</span><span class="score">${c.routing_score != null ? (100 * c.routing_score).toFixed(1) + "% routing score" : "Score unavailable"}</span></div><p class="score-caveat">A routing score measures intent confidence. It does not establish factual correctness or permission.</p><div class="section-label">CUSTOMER RESPONSE</div><div class="answer-card"><p>${esc(r.answer)}</p><div class="answer-meta">${r.citations?.length ? `◈ ${r.citations.length} permitted policy section${r.citations.length === 1 ? "" : "s"} cited` : "Human review or additional information required"} <button class="text-button" id="inspectEvidence">Inspect evidence</button></div></div>`;
+  const scopeRule = r.routing_result?.score_source === "scope_rule";
+  const scoreText = scopeRule ? "Scope decision" : c.routing_score != null ? (100 * c.routing_score).toFixed(1) + "% routing score" : "Score unavailable";
+  let html = `<div class="section-label">${scopeRule ? "SCOPE CHECK" : "TRAINED ROUTING"}</div><div class="routing-row"><span class="intent-label">${esc((c.intent || r.intent || "unavailable").replaceAll("_", " "))}</span><span class="score">${esc(scoreText)}</span></div><p class="score-caveat">${scopeRule ? "A versioned scope rule requires human review. This decision is not a model probability." : "A routing score measures intent confidence. It does not establish factual correctness or permission."}</p><div class="section-label">CUSTOMER RESPONSE</div><div class="answer-card"><p>${esc(r.answer)}</p><div class="answer-meta">${r.citations?.length ? `◈ ${r.citations.length} permitted policy section${r.citations.length === 1 ? "" : "s"} cited` : "Human review or additional information required"} <button class="text-button" id="inspectEvidence">Inspect evidence</button></div></div>`;
   if (r.missing_information?.length)
     html += `<p class="muted">Needed: ${esc(r.missing_information.join(", "))}</p>`;
   const p = c.proposals?.find((p) => p.state === "pending") || r.proposal;
   if (p && c.state === "awaiting_approval") {
-    html += `<div class="action-card"><h3>◇ Cancellation proposed</h3><p>Order ${esc(p.order_ref || c.order_ref)} is eligible under the frozen policy. Preparing this proposal has not changed the order.</p><div class="action-grid"><div><span>ORDER VERSION</span><strong>v${p.expected_order_version}</strong></div><div><span>PROPOSAL DIGEST</span><strong>${esc((p.proposal_sha256 || "").slice(0, 16))}…</strong></div></div>${["approver", "admin"].includes(state.principal?.role) ? '<div class="action-footer"><small>Approval checks the exact proposal and current order again.</small><button class="button primary" id="approveProposal">Approve cancellation</button></div>' : '<div class="role-hint">Switch to Alpha · Approver to review and approve this proposal.</div>'}</div>`;
+    html += `<div class="action-card"><h3>◇ Cancellation proposed</h3><p>Order ${esc(p.order_ref || c.order_ref)} is eligible under the frozen policy. Preparing this proposal has not changed the order.</p><div class="action-grid"><div><span>ORDER VERSION</span><strong>v${p.expected_order_version}</strong></div><div><span>PROPOSAL DIGEST</span><strong>${esc((p.proposal_sha256 || "").slice(0, 16))}…</strong></div></div>${["approver", "admin"].includes(state.principal?.role) ? '<div class="action-footer"><small>Approval checks the exact proposal and current order again.</small><button class="button primary" id="approveProposal">Approve cancellation</button></div>' : `<div class="role-hint">${state.authConfig?.mode === "fixture" ? "Switch to Alpha · Approver to review and approve this proposal." : "An authorized approver must review this proposal."}</div>`}</div>`;
   }
   if (c.actions?.length)
     html += `<div class="answer-card"><div class="section-label">LOCAL ACTION RECEIPT</div><p>Cancellation completed. One durable action was recorded.</p><div class="compact-code">${esc(c.actions[0].action_id)}</div></div>`;
@@ -219,6 +386,7 @@ async function resolveSelected() {
       "Resolution saved. Evidence and decision stages are ready to inspect.",
     );
   } catch (e) {
+    if (e instanceof SessionChanged) return;
     notify(e.message, true);
     await selectCase(state.selected.case_id);
   } finally {
@@ -248,22 +416,31 @@ async function approve(p) {
       "Cancellation completed. The approval, order change, and action receipt committed together.",
     );
   } catch (e) {
+    if (e instanceof SessionChanged) return;
     notify(e.message, true);
     await selectCase(state.selected.case_id);
   } finally {
     setBusy(button, false);
   }
 }
+function currentDetail(c, tab) {
+  return state.selected?.case_id === c.case_id && state.selected?.version === c.version && state.tab === tab ? $("#detailBody") : null;
+}
 async function loadEvidence(c) {
   $("#detailBody").innerHTML =
     '<p class="muted">Loading permitted evidence…</p>';
   try {
     const result = await api(`/v1/cases/${c.case_id}/evidence`);
+    const target = currentDetail(c, "evidence");
+    if (!target) return;
     const items = result.items || result.evidence || result.citations || [];
-    $("#detailBody").innerHTML =
+    target.innerHTML =
       `<div class="section-label">PERMISSION-FILTERED POLICY EVIDENCE</div><p class="muted">Organization, published corpus, and access scope are checked before ranking.</p>${items.length ? items.map((e) => `<article class="evidence-card"><h3>${esc(e.title || e.source_label || "Retail policy")} · ${esc(e.locator)}</h3><p>${esc(e.body || e.excerpt)}</p><code>${esc(e.chunk_id)}</code></article>`).join("") : '<div class="empty">No permitted evidence is available for this case.</div>'}`;
   } catch (e) {
-    $("#detailBody").innerHTML =
+    if (e instanceof SessionChanged) return;
+    const target = currentDetail(c, "evidence");
+    if (!target) return;
+    target.innerHTML =
       `<div class="form-error">${esc(e.message)}</div>`;
   }
 }
@@ -271,8 +448,10 @@ async function loadTrace(c) {
   $("#detailBody").innerHTML = '<p class="muted">Loading structured trace…</p>';
   try {
     const result = await api(`/v1/cases/${c.case_id}/trace`);
+    const target = currentDetail(c, "trace");
+    if (!target) return;
     const items = result.events || result.items || [];
-    $("#detailBody").innerHTML =
+    target.innerHTML =
       `<div class="section-label">DECISION STAGES</div><p class="muted">Structured outcomes and evidence references. Customer text is excluded from logs.</p>${
         items.length
           ? items
@@ -291,7 +470,10 @@ async function loadTrace(c) {
           : '<div class="empty">The trace begins when this case is routed.</div>'
       }`;
   } catch (e) {
-    $("#detailBody").innerHTML =
+    if (e instanceof SessionChanged) return;
+    const target = currentDetail(c, "trace");
+    if (!target) return;
+    target.innerHTML =
       `<div class="form-error">${esc(e.message)}</div>`;
   }
 }
@@ -304,13 +486,21 @@ async function createCase(event) {
   event.preventDefault();
   setBusy($("#createSubmit"), true, "Saving…");
   try {
+    const body = {
+      message: $("#message").value,
+      order_ref: $("#orderRef").value.trim() || null,
+    };
+    const fingerprint = JSON.stringify(body);
+    if (state.pendingCreate?.fingerprint !== fingerprint)
+      state.pendingCreate = { fingerprint, key: crypto.randomUUID() };
+    const key = state.pendingCreate.key;
     const c = await api("/v1/cases", {
       method: "POST",
-      body: {
-        message: $("#message").value,
-        order_ref: $("#orderRef").value.trim() || null,
-      },
+      key,
+      body,
     });
+    if (!c.case_id) throw new Error("The server response was incomplete. Retry to check the saved case.");
+    if (state.pendingCreate?.key === key) state.pendingCreate = null;
     $("#caseDialog").close();
     $("#caseForm").reset();
     state.selected = c;
@@ -320,6 +510,7 @@ async function createCase(event) {
       "Case created with verified customer context. Run resolution to inspect its route.",
     );
   } catch (e) {
+    if (e instanceof SessionChanged) return;
     $("#formError").textContent = e.message;
     $("#formError").hidden = false;
   } finally {
@@ -327,6 +518,7 @@ async function createCase(event) {
   }
 }
 async function evaluationView() {
+  const generation = state.sessionGeneration, token = state.token;
   const target = $("#evaluationContent");
   target.innerHTML =
     '<div class="content-card"><p>Loading measured results…</p></div>';
@@ -342,9 +534,11 @@ async function evaluationView() {
       const r = await fetch("/static/reports/summary.json");
       if (r.ok) saved = await r.json();
     } catch {}
+    checkSession(generation, token);
+    const comparisonBaseline = state.releases.find((release) => release.model_version === "tfidf-logistic-v1")?.release_id || state.releases.find((release) => !release.active)?.release_id;
     const w = saved?.workflow?.metrics;
     const model = saved?.model;
-    target.innerHTML = `<div class="comparison-grid"><div class="content-card"><div class="eyebrow">DETERMINISTIC REGRESSIONS</div><h2 style="margin-top:12px">Workflow invariants</h2><p>Frozen fixture adapters test permissions, evidence, stale proposals, recovery, and duplicate effects. They do not measure trained routing accuracy.</p><div class="result-metrics"><div><strong>${w ? w.workflow_success.numerator + "/" + w.workflow_success.denominator : "—"}</strong><span>Invariant cases passed</span></div><div><strong>${w ? w.unauthorized_effect_count : "—"}</strong><span>Unauthorized effects observed</span></div><div><strong>${w ? w.runner_errors : "—"}</strong><span>Runner errors</span></div></div><a class="report-link" href="/static/reports/workflow-evaluation.html" target="_blank" rel="noopener">Inspect case-level report ↗</a></div><div class="content-card"><div class="eyebrow">TRAINED MODEL · SOURCE HOLDOUT</div><h2 style="margin-top:12px">Routing is a separate measure</h2><p>Grouped synthetic source tests can overestimate performance on ordinary customer language. Inspect the independent set alongside source metrics.</p><div class="result-metrics"><div><strong>${model?.source_macro_f1 != null ? (100 * model.source_macro_f1).toFixed(1) + "%" : "—"}</strong><span>Source macro-F1</span></div><div><strong>${model?.independent_macro_f1 != null ? (100 * model.independent_macro_f1).toFixed(1) + "%" : "—"}</strong><span>Independent synthetic macro-F1</span></div><div><strong>${model?.independent_count ?? "—"}</strong><span>Independent cases</span></div></div><p><strong>Independent workflow: ${model?.independent_workflow_success ? model.independent_workflow_success.numerator + " / " + model.independent_workflow_success.denominator : "Unavailable"} outcomes matched.</strong> Abstentions and incorrect outcomes remain failures.</p><a class="report-link" href="/static/reports/independent-evaluation.html" target="_blank" rel="noopener">Inspect all independent outcomes ↗</a><a class="report-link" href="/static/reports/model_report.json" target="_blank" rel="noopener">Inspect model measurements ↗</a></div></div><div class="content-card"><h2>Compare immutable releases</h2><p>Queue the same frozen workflow dataset for two releases. The worker runs in its own database, preserving the inbox. Live-model mode uses the trained router with deterministic drafts.</p><div class="run-form"><select id="evalRelease" aria-label="Release">${state.releases.map((r) => `<option value="${esc(r.release_id)}">${esc(r.model_version)} · ${esc(r.corpus_version)}</option>`).join("")}</select><select id="evalReleaseB" aria-label="Comparison release">${state.releases.map((r) => `<option value="${esc(r.release_id)}" ${r.active ? "selected" : ""}>${esc(r.model_version)} · ${esc(r.corpus_version)}</option>`).join("")}</select><select id="evalMode" aria-label="Evaluation mode"><option value="live_model">Trained routing + fixture workflow</option><option value="deterministic_invariants">Deterministic invariants</option></select><button class="button primary" id="queueEvaluation" ${["evaluator", "admin"].includes(state.principal?.role) ? "" : "disabled"}>Compare releases</button></div>${["evaluator", "admin"].includes(state.principal?.role) ? "" : '<p class="muted" style="margin-top:12px">Select Alpha · Evaluator to queue a comparison.</p>'}<div class="table-wrap"><table><thead><tr><th>Release</th><th>Mode</th><th>State</th><th>Passed / total</th><th>Errors</th></tr></thead><tbody>${
+    target.innerHTML = `<div class="comparison-grid"><div class="content-card"><div class="eyebrow">DETERMINISTIC REGRESSIONS</div><h2 style="margin-top:12px">Workflow invariants</h2><p>Frozen fixture adapters test permissions, evidence, stale proposals, recovery, and duplicate effects. They do not measure trained routing accuracy.</p><div class="result-metrics"><div><strong>${w ? w.workflow_success.numerator + "/" + w.workflow_success.denominator : "—"}</strong><span>Invariant cases passed</span></div><div><strong>${w ? w.unauthorized_effect_count : "—"}</strong><span>Unauthorized effects observed</span></div><div><strong>${w ? w.runner_errors : "—"}</strong><span>Runner errors</span></div></div><a class="report-link" href="/static/reports/workflow-evaluation.html" target="_blank" rel="noopener">Inspect case-level report ↗</a></div><div class="content-card"><div class="eyebrow">TRAINED MODEL · SOURCE HOLDOUT</div><h2 style="margin-top:12px">Routing is a separate measure</h2><p>Grouped synthetic source tests can overestimate performance on ordinary customer language. Inspect the independent set alongside source metrics.</p><div class="result-metrics"><div><strong>${model?.source_macro_f1 != null ? (100 * model.source_macro_f1).toFixed(1) + "%" : "—"}</strong><span>Source macro-F1</span></div><div><strong>${model?.independent_macro_f1 != null ? (100 * model.independent_macro_f1).toFixed(1) + "%" : "—"}</strong><span>Independent synthetic macro-F1</span></div><div><strong>${model?.independent_count ?? "—"}</strong><span>Independent cases</span></div></div><p><strong>Independent workflow: ${model?.independent_workflow_success ? model.independent_workflow_success.numerator + " / " + model.independent_workflow_success.denominator : "Unavailable"} outcomes matched.</strong> Abstentions and incorrect outcomes remain failures.</p><a class="report-link" href="/static/reports/independent-evaluation.html" target="_blank" rel="noopener">Inspect all independent outcomes ↗</a><a class="report-link" href="/static/reports/model_report.json" target="_blank" rel="noopener">Inspect model measurements ↗</a></div></div><div class="content-card"><h2>Compare immutable releases</h2><p>Queue the same frozen workflow dataset for two releases. The worker runs in its own database, preserving the inbox. Live-model mode uses the trained router with deterministic drafts.</p><div class="run-form"><select id="evalRelease" aria-label="Release">${state.releases.map((r) => `<option value="${esc(r.release_id)}" ${r.release_id === comparisonBaseline ? "selected" : ""}>${esc(r.model_version)} · ${esc(r.corpus_version)}</option>`).join("")}</select><select id="evalReleaseB" aria-label="Comparison release">${state.releases.map((r) => `<option value="${esc(r.release_id)}" ${r.active ? "selected" : ""}>${esc(r.model_version)} · ${esc(r.corpus_version)}</option>`).join("")}</select><select id="evalMode" aria-label="Evaluation mode"><option value="live_model">Trained routing + fixture workflow</option><option value="deterministic_invariants">Deterministic invariants</option></select><button class="button primary" id="queueEvaluation" ${["evaluator", "admin"].includes(state.principal?.role) ? "" : "disabled"}>Compare releases</button></div>${["evaluator", "admin"].includes(state.principal?.role) ? "" : '<p class="muted" style="margin-top:12px">Select Alpha · Evaluator to queue a comparison.</p>'}<div class="table-wrap"><table><thead><tr><th>Release</th><th>Mode</th><th>State</th><th>Passed / total</th><th>Errors</th></tr></thead><tbody>${
       state.evaluations.length
         ? state.evaluations
             .map((e) => {
@@ -361,10 +555,12 @@ async function evaluationView() {
           showEvaluationReport(button.dataset.evaluationReport)),
     );
   } catch (e) {
+    if (e instanceof SessionChanged) return;
     target.innerHTML = `<div class="content-card"><div class="form-error">${esc(e.message)}</div></div>`;
   }
 }
 async function showEvaluationReport(id) {
+  const request = ++state.evaluationReportRequest;
   const dialog = $("#evaluationDialog"),
     target = $("#evaluationDetails");
   target.innerHTML =
@@ -372,6 +568,7 @@ async function showEvaluationReport(id) {
   dialog.showModal();
   try {
     const report = await api(`/v1/evaluations/${id}/report`);
+    if (request !== state.evaluationReportRequest || !dialog.open) return;
     const result = report.metrics.workflow_success;
     target.innerHTML = `<p class="muted">${esc(report.model_version || "Release-pinned model")} · ${esc(report.mode)} · ${esc(report.generated_at)}</p><div class="result-metrics"><div><strong>${result.numerator} / ${result.denominator}</strong><span>Expected workflows completed</span></div><div><strong>${report.metrics.runner_errors}</strong><span>Runner errors</span></div><div><strong>${report.metrics.unauthorized_effect_count}</strong><span>Unauthorized effects observed</span></div></div><label class="report-filter"><input type="checkbox" id="onlyEvaluationFailures" checked> Show only failures</label><div id="evaluationCases"></div>`;
     const render = () => {
@@ -390,10 +587,16 @@ async function showEvaluationReport(id) {
     $("#onlyEvaluationFailures").onchange = render;
     render();
   } catch (error) {
+    if (error instanceof SessionChanged) return;
+    if (request !== state.evaluationReportRequest || !dialog.open) return;
     target.innerHTML = `<p class="form-error">${esc(error.message)}</p>`;
   }
 }
-$("#closeEvaluationDialog").onclick = () => $("#evaluationDialog").close();
+$("#closeEvaluationDialog").onclick = () => {
+  state.evaluationReportRequest++;
+  $("#evaluationDialog").close();
+};
+$("#evaluationDialog").addEventListener("cancel", () => state.evaluationReportRequest++);
 async function queueEvaluation() {
   const button = $("#queueEvaluation");
   setBusy(button, true, "Queuing…");
@@ -415,6 +618,7 @@ async function queueEvaluation() {
     );
     await evaluationView();
   } catch (e) {
+    if (e instanceof SessionChanged) return;
     notify(e.message, true);
   } finally {
     setBusy(button, false);
@@ -426,6 +630,7 @@ async function releasesView() {
     $("#releaseContent").innerHTML =
       `<div class="content-card"><h2>Release registry</h2><p>Published artifacts are immutable. Rollback changes the active pointer for new cases; existing cases retain their original release.</p><div class="table-wrap"><table><thead><tr><th>Model</th><th>Policy corpus</th><th>Prompt / tool policy</th><th>Release</th><th>State</th></tr></thead><tbody>${result.items.map((r) => `<tr><td>${esc(r.model_version)}<div class="muted">${esc(r.algorithm)}</div></td><td>${esc(r.corpus_version)}</td><td>${esc(r.prompt_version)}<br>${esc(r.tool_policy_version)}</td><td><code>${esc(r.release_id)}</code></td><td>${r.active ? '<span class="release-active">Active</span>' : "Retained"}</td></tr>`).join("")}</tbody></table></div></div><div class="comparison-grid"><div class="content-card"><div class="eyebrow">RECOVERY CONTRACT</div><h2 style="margin-top:12px">Change the pointer. Keep the evidence.</h2><p>The administrative rollback command accepts an existing evaluated release. It does not rewrite past cases or delete model artifacts.</p><p>See the repository runbook for the exact local command and the backup restoration check.</p></div><div class="content-card"><div class="eyebrow">PROVENANCE</div><h2 style="margin-top:12px">Four versions per decision</h2><p>Model artifact, policy corpus, prompt, and deterministic tool policy are pinned together. A probability never grants permission to act.</p></div></div>`;
   } catch (e) {
+    if (e instanceof SessionChanged) return;
     $("#releaseContent").innerHTML =
       `<div class="content-card"><div class="form-error">${esc(e.message)}</div></div>`;
   }
@@ -478,4 +683,4 @@ $$("[data-example]").forEach(
       $("#orderRef").value = b.dataset.example === "handoff" ? "" : ref;
     }),
 );
-login();
+bootstrapAuthentication();

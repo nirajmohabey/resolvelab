@@ -2,7 +2,7 @@
 from typing import Literal
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 Intent = Literal["track_order", "cancel_request", "human_handoff", "out_of_scope"]
 
@@ -20,6 +20,13 @@ class StrictModel(BaseModel):
 class CreateCase(StrictModel):
     message: str = Field(min_length=1, max_length=6000)
     order_ref: str | None = Field(default=None, max_length=100)
+
+    @field_validator("message")
+    @classmethod
+    def nonblank_message(cls, value):
+        if not value.strip():
+            raise ValueError("Message cannot be blank")
+        return value
 
 
 class ResolveRequest(StrictModel):

@@ -17,6 +17,7 @@ from sqlalchemy.engine import make_url
 
 from .auth import Principal
 from .db import ROOT, engine, primitive, transaction
+from .processes import run_bounded
 
 
 def _configuration():
@@ -65,6 +66,30 @@ def _claim():
     return None
 
 
+def _complete(principal, job, token, state, metrics, report=None, destination=None):
+    """Fence filesystem publication and the database acknowledgement together."""
+    with transaction(principal) as conn:
+        current = conn.execute(text("SELECT 1 FROM resolvelab.evaluation_runs WHERE tenant_id=:tenant AND evaluation_id=:id AND state='running' AND environment->>'worker_token'=:token FOR UPDATE"),
+                               {"tenant":principal.tenant_id,"id":job["evaluation_id"],"token":token}).first()
+        if not current:
+            return False
+        uri = None
+        if report is not None:
+            destination = destination or ROOT / "artifacts/evaluation" / str(job["evaluation_id"])
+            destination.mkdir(parents=True,exist_ok=True)
+            temporary = destination / ("workflow-evaluation."+token+".tmp")
+            temporary.write_text(json.dumps(primitive(report),allow_nan=False),encoding="utf-8")
+            final = destination / "workflow-evaluation.json"
+            temporary.replace(final)
+            uri = str(final)
+        conn.execute(text("""UPDATE resolvelab.evaluation_runs SET state=:state,metrics=CAST(:metrics AS jsonb),
+            case_results_uri=:uri,environment=environment || CAST(:extra AS jsonb)
+            WHERE tenant_id=:tenant AND evaluation_id=:id AND environment->>'worker_token'=:token"""),
+                     {"tenant":principal.tenant_id,"id":job["evaluation_id"],"token":token,"state":state,"metrics":json.dumps(primitive(metrics)),"uri":uri,
+                      "extra":json.dumps({"completed_at":datetime.now(timezone.utc).isoformat(),"runner_environment":report.get("environment") if report else None})})
+    return True
+
+
 def run_once():
     target, admin_target = _configuration()
     # This session lock is deliberately held across the isolated subprocess so
@@ -81,16 +106,24 @@ def run_once():
             evaluation_id = str(UUID(str(job["evaluation_id"])))
             destination = ROOT / "artifacts/evaluation" / evaluation_id
             destination.mkdir(parents=True, exist_ok=True)
+            attempt_directory = destination / ("attempt-"+token)
+            attempt_directory.mkdir(parents=True,exist_ok=True)
             env = dict(os.environ)
-            env.update(DATABASE_URL=target, ADMIN_DATABASE_URL=admin_target, APP_ENV="local", DEMO_MODE="true", GENERATION_ADAPTER="offline")
+            env.update(DATABASE_URL=target, ADMIN_DATABASE_URL=admin_target, APP_ENV="local", AUTH_MODE="fixture", DEMO_MODE="true", GENERATION_ADAPTER="offline",
+                       ALLOWED_HOSTS="testserver,localhost,127.0.0.1", ALLOWED_ORIGINS="http://testserver")
             state, metrics, report = "failed", {"runner_error": "evaluation_failed"}, None
             try:
-                completed = subprocess.run([sys.executable, "-m", "resolvelab.evaluate", "--output", str(destination),
+                completed = run_bounded([sys.executable, "-m", "resolvelab.evaluation_job", "--output", str(attempt_directory),
                                             "--mode", job["mode"], "--release-id", str(job["release_id"])],
-                                           cwd=ROOT, env=env, capture_output=True, text=True, timeout=720, check=False)
-                report_path = destination / "workflow-evaluation.json"
+                                           cwd=ROOT, env=env, timeout=720)
+                report_path = attempt_directory / "workflow-evaluation.json"
                 if report_path.exists():
+                    if report_path.stat().st_size>4*1024*1024:
+                        raise ValueError("Evaluation report exceeds bounded size")
                     report = json.loads(report_path.read_text(encoding="utf-8"))
+                    if (report.get("release_id") != str(job["release_id"]) or report.get("dataset_sha256") != job["dataset_sha256"] or report.get("mode") != job["mode"]
+                            or not isinstance(report.get("metrics"),dict) or not isinstance(report.get("cases"),list)):
+                        raise ValueError("Evaluation provenance does not match the leased job")
                     metrics = report["metrics"]
                     state = "completed"
                 else:
@@ -99,14 +132,7 @@ def run_once():
                 metrics = {"runner_error": "evaluation_timeout", "timeout_seconds": 720}
             except Exception as exc:
                 metrics = {"runner_error": "evaluation_worker_error", "exception_type": type(exc).__name__}
-            with transaction(principal) as conn:
-                conn.execute(text("""UPDATE resolvelab.evaluation_runs SET state=:state,metrics=CAST(:metrics AS jsonb),
-                    case_results_uri=:uri,environment=environment || CAST(:extra AS jsonb)
-                    WHERE tenant_id=:tenant AND evaluation_id=:id AND environment->>'worker_token'=:token"""),
-                             {"tenant": principal.tenant_id, "id": job["evaluation_id"], "token": token, "state": state,
-                              "metrics": json.dumps(primitive(metrics)), "uri": str(destination / "workflow-evaluation.json") if report else None,
-                              "extra": json.dumps({"completed_at": datetime.now(timezone.utc).isoformat(),
-                                                   "runner_environment": report.get("environment") if report else None})})
+            _complete(principal,job,token,state,metrics,report if state=="completed" else None,destination)
             print(json.dumps({"evaluation_id": evaluation_id, "state": state, "attempt": job["environment"]["attempts"]}), flush=True)
             return True
         finally:

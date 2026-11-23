@@ -1,0 +1,78 @@
+name: resolvelab-production
+services:
+  db:
+    image: postgres:17.12
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Provide a generated database administrator password}
+      POSTGRES_DB: resolvelab
+    volumes: [database:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d resolvelab"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks: [private]
+    restart: unless-stopped
+  migrate:
+    build: {context: .., dockerfile: Dockerfile}
+    command: [python, scripts/production_setup.py]
+    environment:
+      APP_ENV: production
+      DATABASE_URL: ${DATABASE_URL:?Provide the restricted runtime database URL}
+      ADMIN_DATABASE_URL: ${ADMIN_DATABASE_URL:?Provide the migration database URL}
+      OIDC_ISSUER: ${OIDC_ISSUER:?Configure the trusted identity issuer}
+      SEED_SYNTHETIC_DEMO: ${SEED_SYNTHETIC_DEMO:-false}
+    depends_on:
+      db: {condition: service_healthy}
+    networks: [private]
+  api:
+    build: {context: .., dockerfile: Dockerfile}
+    command: [python, -m, uvicorn, "resolvelab.api:app", --host, 0.0.0.0, --port, "8000", --proxy-headers, --forwarded-allow-ips, 172.30.42.10, --limit-concurrency, "40", --timeout-keep-alive, "5", --timeout-graceful-shutdown, "30", --h11-max-incomplete-event-size, "16384"]
+    environment:
+      APP_ENV: production
+      AUTH_MODE: oidc
+      DEMO_MODE: "false"
+      GENERATION_ADAPTER: offline
+      DATABASE_URL: ${DATABASE_URL:?Provide the restricted runtime database URL}
+      PUBLIC_HOST: ${PUBLIC_HOST:?Provide the actual DNS hostname}
+      ALLOWED_HOSTS: ${PUBLIC_HOST:?Provide the actual DNS hostname}
+      ALLOWED_ORIGINS: https://${PUBLIC_HOST:?Provide the actual DNS hostname}
+      OIDC_ISSUER: ${OIDC_ISSUER:?Configure the trusted identity issuer}
+      OIDC_AUDIENCE: ${OIDC_AUDIENCE:?Configure the API audience}
+      OIDC_JWKS_URL: ${OIDC_JWKS_URL:?Configure the pinned HTTPS signing-key endpoint}
+      OIDC_ALGORITHM: ${OIDC_ALGORITHM:-RS256}
+      OIDC_CLIENT_ID: ${OIDC_CLIENT_ID:-}
+      OIDC_AUTHORIZATION_URL: ${OIDC_AUTHORIZATION_URL:-}
+      OIDC_TOKEN_URL: ${OIDC_TOKEN_URL:-}
+      OIDC_SCOPE: ${OIDC_SCOPE:-openid profile}
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import os,urllib.request; urllib.request.urlopen(urllib.request.Request('http://127.0.0.1:8000/health/ready',headers={'Host':os.environ['PUBLIC_HOST']}),timeout=10)"]
+      interval: 20s
+      timeout: 12s
+      retries: 5
+    networks: [private]
+    restart: unless-stopped
+  gateway:
+    image: caddy:2.11.9
+    environment: {PUBLIC_HOST: "${PUBLIC_HOST:?Provide the actual DNS hostname}"}
+    ports: ["80:80", "443:443", "443:443/udp"]
+    volumes: ["./Caddyfile:/etc/caddy/Caddyfile:ro", "certificates:/data", "gateway_config:/config"]
+    depends_on:
+      api: {condition: service_healthy}
+    networks:
+      private: {ipv4_address: 172.30.42.10}
+    restart: unless-stopped
+volumes:
+  database:
+  certificates:
+  gateway_config:
+networks:
+  private:
+    ipam:
+      config: [{subnet: 172.30.42.0/24}]

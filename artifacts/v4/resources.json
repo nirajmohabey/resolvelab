@@ -1,0 +1,32 @@
+{
+  "scope": "One fresh Python process per model, same80 historical diagnostic messages. Cold model load/first query after library imports; warm per-message latency. Peak process RSS includes interpreter/libraries. Single local CPU run, no cloud cost/throughput inference.",
+  "models": {
+    "TF-IDF v1": {
+      "version": "tfidf-logistic-v1",
+      "N": 80,
+      "cold_load_and_first_query_ms": 60.167200048454106,
+      "warm_p50_ms": 0.9801000123843551,
+      "warm_p95_ms": 1.1545199959073216,
+      "cpu_seconds_including_cold_load": 0.140625,
+      "peak_process_rss_mb": 134.57421875
+    },
+    "Domain v3": {
+      "version": "domain-hybrid-v3",
+      "N": 80,
+      "cold_load_and_first_query_ms": 304.2970999958925,
+      "warm_p50_ms": 2.577799983555451,
+      "warm_p95_ms": 3.0689949664520095,
+      "cpu_seconds_including_cold_load": 0.78125,
+      "peak_process_rss_mb": 193.09765625
+    },
+    "Candidate v4": {
+      "version": "domain-router-v4",
+      "N": 80,
+      "cold_load_and_first_query_ms": 330.7071999879554,
+      "warm_p50_ms": 2.673450013389811,
+      "warm_p95_ms": 3.1829699932131916,
+      "cpu_seconds_including_cold_load": 0.859375,
+      "peak_process_rss_mb": 196.0
+    }
+  }
+}

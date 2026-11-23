@@ -2,6 +2,19 @@
   "name": "resolvelab-browser-checks",
   "private": true,
   "version": "0.1.0",
-  "scripts": {"test:browser": "node scripts/browser-check.mjs"},
-  "devDependencies": {"playwright": "1.62.1"}
+  "scripts": {
+    "build:auth": "node scripts/build-auth.mjs",
+    "test:browser": "node scripts/browser-check.mjs",
+    "test:oidc": "node scripts/oidc-browser-check.mjs",
+    "test:ui-races": "node scripts/ui-race-check.mjs",
+    "test:accessibility": "node scripts/accessibility.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "esbuild": "0.28.2",
+    "playwright": "1.62.1"
+  },
+  "dependencies": {
+    "oauth4webapi": "3.8.9"
+  }
 }

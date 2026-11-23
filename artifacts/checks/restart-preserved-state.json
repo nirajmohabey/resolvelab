@@ -1,0 +1,13 @@
+{
+  "serving_cases": 7,
+  "serving_orders": 5,
+  "state_unchanged": true,
+  "readiness": {
+    "status": "ready",
+    "model": "loaded",
+    "embedding": "loaded",
+    "corpus": "published",
+    "database_role": "nonowner_rls"
+  },
+  "security_headers_present": true
+}

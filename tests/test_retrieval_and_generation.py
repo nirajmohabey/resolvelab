@@ -3,6 +3,7 @@ import json
 
 import numpy as np
 import pytest
+from sqlalchemy import text
 
 from resolvelab.evaluate import ROOT, fixture_mutate, principal, rows
 
@@ -26,7 +27,13 @@ def test_unpublished_and_admin_documents_are_filtered(actor):
     from resolvelab.db import transaction
     from resolvelab.retrieval import retrieve
     corpus = rows(actor, "SELECT corpus_id FROM resolvelab.corpus_versions")[0]["corpus_id"]
-    fixture_mutate(actor, "UPDATE resolvelab.documents SET access_scope='admin' WHERE tenant_id=:tenant AND source_label='alpha-cancel-v1'")
+    # Deliberate administrative fault setup bypasses the new immutable-policy
+    # trigger only inside this transaction; assertions use the runtime role.
+    from resolvelab.db import admin_engine
+    with admin_engine.begin() as setup:
+        setup.exec_driver_sql("ALTER TABLE resolvelab.documents DISABLE TRIGGER immutable_documents")
+        setup.execute(text("UPDATE resolvelab.documents SET access_scope='admin' WHERE tenant_id=:tenant AND source_label='alpha-cancel-v1'"), {"tenant":actor.tenant_id})
+        setup.exec_driver_sql("ALTER TABLE resolvelab.documents ENABLE TRIGGER immutable_documents")
     with transaction(actor) as conn:
         evidence = retrieve(conn, actor.tenant_id, corpus, "cancellation", "operator")
         assert all(item["source_label"] != "alpha-cancel-v1" for item in evidence)

@@ -1,0 +1,389 @@
+{
+  "generated_at": "2026-11-23T07:45:11.043048+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "packages": [
+    {
+      "name": "alembic",
+      "version": "1.20.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.7",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.11.20",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "click",
+      "version": "8.5.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.3",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "coverage",
+      "version": "7.17.4",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.165.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "filelock",
+      "version": "4.3.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.68.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.8.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "1.33.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "mako",
+      "version": "1.4.3",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.4",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.29.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.5",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.32.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.2",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "psycopg",
+      "version": "3.3.9",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "psycopg-binary",
+      "version": "3.3.9",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.4",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.5",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pyjwt",
+      "version": "2.15.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pytest",
+      "version": "9.2.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pytest-cov",
+      "version": "7.1.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.4",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "sqlalchemy",
+      "version": "2.1.9",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "starlette",
+      "version": "1.10.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.8.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.3",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "ecosystem": "PyPI"
+    },
+    {
+      "name": "fsevents",
+      "version": "2.3.2",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "playwright",
+      "version": "1.62.1",
+      "ecosystem": "npm"
+    },
+    {
+      "name": "playwright-core",
+      "version": "1.62.1",
+      "ecosystem": "npm"
+    }
+  ],
+  "queried_package_versions": 63,
+  "findings": [],
+  "advisories": {},
+  "raw_results": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ]
+}

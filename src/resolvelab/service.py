@@ -79,7 +79,7 @@ def _release(conn, p, release_id):
     return record
 
 
-def _idem(conn, p, operation, key, payload):
+def _idem(conn, p, operation, key, payload, legacy_body=None):
     if not key or not 1 <= len(key) <= 128:
         raise DomainError(422, "invalid_idempotency_key", "Idempotency-Key must contain 1 to 128 characters.")
     scope = _json([p.tenant_id, p.actor_id, operation, key])
@@ -88,7 +88,14 @@ def _idem(conn, p, operation, key, payload):
         WHERE tenant_id=:tenant AND actor_id=:actor AND operation=:operation AND idempotency_key=:key""",
                        {**_base(p), "operation": operation, "key": key})
     if found and found["request_sha256"] != fingerprint(payload):
-        raise DomainError(409, "idempotency_conflict", "This idempotency key was already used with a different request.")
+        # Pre-hardening create receipts hashed the public body only. Retain
+        # their immutable result, but replay it only for the original verified
+        # customer recorded in that result; no receipt rewrite is necessary.
+        compatible = (operation=="create_case" and legacy_body is not None
+                      and found["request_sha256"]==fingerprint(legacy_body)
+                      and found["response_body"].get("customer_subject")==p.customer_subject)
+        if not compatible:
+            raise DomainError(409, "idempotency_conflict", "This idempotency key was already used with a different request.")
     return found
 
 
@@ -122,7 +129,8 @@ def create_case(principal, body, key, request_id=None):
     request_id = request_id or str(uuid4())
     with transaction(principal) as conn:
         p = assert_member(conn, principal, WRITE_ROLES)
-        found = _idem(conn, p, "create_case", key, body)
+        payload={"body":body,"verified_customer_subject":p.customer_subject}
+        found = _idem(conn, p, "create_case", key, payload, legacy_body=body)
         if found:
             return _replay(found)
         active = _query_one(conn, "SELECT release_id FROM resolvelab.active_releases WHERE tenant_id=:tenant", _base(p))
@@ -134,7 +142,7 @@ def create_case(principal, body, key, request_id=None):
                             {**_base(p), **body, "release": active["release_id"], "customer": p.customer_subject})
         _trace(conn, p, result["case_id"], request_id, "auth", details={"role": p.role, "verified_intake": True})
         result = primitive(result)
-        _remember(conn, p, "create_case", key, body, result, 201)
+        _remember(conn, p, "create_case", key, payload, result, 201)
         return result
 
 
@@ -143,7 +151,7 @@ def get_case(principal, case_id):
         p = assert_member(conn, principal, READ_ROLES)
         result = _case(conn, p, case_id)
         release = _release(conn, p, result["release_id"])
-        result["release"] = primitive({k: release[k] for k in ("release_id", "model_id", "model_version", "corpus_id", "corpus_version", "prompt_version", "tool_policy_version")})
+        result["release"] = primitive({k: release[k] for k in ("release_id", "model_id", "model_version", "corpus_id", "corpus_version", "prompt_version", "tool_policy_version", "retrieval_mode", "retrieval_version")})
         result["proposals"] = rows(conn.execute(text("SELECT * FROM resolvelab.proposals WHERE tenant_id=:tenant AND case_id=:case ORDER BY created_at"), {**_base(p), "case": case_id}))
         result["actions"] = rows(conn.execute(text("""SELECT a.* FROM resolvelab.actions a JOIN resolvelab.proposals p USING(tenant_id,proposal_id)
             WHERE a.tenant_id=:tenant AND p.case_id=:case ORDER BY a.created_at"""), {**_base(p), "case": case_id}))
@@ -188,11 +196,12 @@ def _routing(message, release, faults):
     if (faults or {}).get("routing_adapter"):
         spec = faults["routing_adapter"]
         return {"intent": spec["predicted_intent"], "score": float(spec["routing_score"]),
-                "threshold": float(spec["validation_threshold"]), "version": "deterministic-invariant-adapter"}
+                "threshold": float(spec["validation_threshold"]), "version": "deterministic-invariant-adapter","score_source":"fixture_adapter"}
     from .ml import keyword_predict
     if release.get("algorithm") == "keyword":
         return {"intent": keyword_predict(message), "score": 1.0, "threshold": 0.0, "version": "routing-keyword-v0"}
     prediction = load_pinned_router(release).predict(message)
+    prediction.setdefault("score_source","model_probability")
     return prediction
 
 
@@ -247,6 +256,7 @@ def triage_case(principal, case_id, body, key, request_id=None, faults=None):
         accepted = route["score"] >= route["threshold"] and route["intent"] != "out_of_scope"
         result = {"intent": route["intent"], "routing_score": route["score"], "accepted": accepted,
                   "model_id": str(release["model_id"]), "case_version": record["version"] + 1,
+                  "score_source":route.get("score_source","model_probability"),"scope_guard_reason":route.get("scope_guard_reason"),
                   "reason_code": "accepted" if accepted else "low_routing_confidence"}
         conn.execute(text("""UPDATE resolvelab.cases SET state='triaged',intent=:intent,routing_score=:score,
             version=version+1,updated_at=now() WHERE tenant_id=:tenant AND case_id=:case"""),
@@ -264,7 +274,7 @@ def _citation(item):
 
 def _retrieve(conn, p, record, release, faults=None):
     from .retrieval import retrieve
-    evidence = retrieve(conn, p.tenant_id, str(release["corpus_id"]), record["message"], p.role, mode="hybrid", limit=4)
+    evidence = retrieve(conn, p.tenant_id, str(release["corpus_id"]), record["message"], p.role, mode=release.get("retrieval_mode","hybrid"), limit=4)
     evidence = primitive(evidence)
     if (faults or {}).get("retrieval") == "no_required_policy_evidence":
         evidence = []
@@ -288,15 +298,16 @@ def get_evidence(principal, case_id, limit=4):
     with transaction(principal) as conn:
         p = assert_member(conn, principal, READ_ROLES)
         record = _case(conn, p, case_id)
+        release=_release(conn,p,record["release_id"])
         if record["resolution"] and record["resolution"].get("evidence_snapshot") is not None:
             evidence = record["resolution"]["evidence_snapshot"]
         else:
             try:
-                evidence = _retrieve(conn, p, record, _release(conn, p, record["release_id"]))
+                evidence = _retrieve(conn, p, record, release)
             except Exception as exc:
                 raise DomainError(503, "retrieval_unavailable", "Policy retrieval is temporarily unavailable.", True) from exc
         return {"case_id": str(case_id), "citations": [_citation(x) for x in evidence[:limit] if x.get("authoritative", True)],
-                "items": evidence[:limit], "retrieval_version": "hybrid-rrf-v1"}
+                "items": evidence[:limit], "retrieval_version": release.get("retrieval_version","hybrid-rrf-v1")}
 
 
 def _required_evidence(intent, evidence, corpus_id):
@@ -416,6 +427,7 @@ def resolve_case(principal, case_id, body, key, request_id=None, faults=None):
     except Exception as exc:
         return _inference_failed(p, case_id, "resolve", key, payload, request_id, record["version"], type(exc).__name__, "retrieve", traces)
     traces.append(("retrieve", "ok", {"chunk_ids": [x["chunk_id"] for x in evidence], "corpus_id": str(release["corpus_id"]),
+                                      "retrieval_mode":release.get("retrieval_mode","hybrid"),"retrieval_version":release.get("retrieval_version","hybrid-rrf-v1"),
                                       "injected_documents_seen": [x["source_label"] for x in evidence if not x.get("authoritative", True)]},
                    (time.perf_counter()-start)*1000, None))
     now = clock(faults)
@@ -466,11 +478,16 @@ def resolve_case(principal, case_id, body, key, request_id=None, faults=None):
             raise DomainError(409, "stale_corpus", "The policy evidence changed while preparing the draft.")
         for stage, outcome, detail, duration, cost in traces:
             _trace(conn, p, case_id, request_id, stage, outcome, detail, duration, cost)
-        if allowed["disposition"] == "awaiting_approval":
+        if allowed["disposition"] in {"awaiting_approval","resolved_read_only"} and order is not None:
             live_order = _query_one(conn, "SELECT * FROM resolvelab.fixture_orders WHERE tenant_id=:tenant AND order_ref=:order_ref FOR UPDATE", {**_base(p), "order_ref": current["order_ref"]})
-            if not live_order or live_order["version"] != order["version"]:
+            if (not live_order or any(live_order[field]!=order[field] for field in ("version","customer_subject","status","tracking_summary"))
+                    or live_order["customer_subject"]!=record["customer_subject"]):
                 raise DomainError(409, "stale_order", "The order changed while preparing the proposal.")
-            expires = min(now + timedelta(minutes=15), order["cancel_deadline"])
+        if allowed["disposition"] == "awaiting_approval":
+            proposal_now=clock(faults)
+            if live_order["status"]!="pending" or live_order["cancel_deadline"]<proposal_now:
+                raise DomainError(409,"stale_order","Cancellation eligibility changed while preparing the proposal. Refresh and retry.")
+            expires = min(proposal_now + timedelta(minutes=15), live_order["cancel_deadline"])
             digest = _proposal_digest(record, release, order, expires)
             proposal = _query_one(conn, """INSERT INTO resolvelab.proposals
                 (tenant_id,case_id,tool_name,order_ref,expected_order_version,expected_case_version,proposal_sha256,tool_policy_version,expires_at)
@@ -490,7 +507,8 @@ def resolve_case(principal, case_id, body, key, request_id=None, faults=None):
                 VALUES(:tenant,:case,'user_requested') ON CONFLICT(tenant_id,case_id) DO NOTHING"""), {**_base(p), "case": case_id})
             _trace(conn, p, case_id, request_id, "handoff", details={"reason_code": "user_requested", "queue": "support_review"})
         allowed["evidence_snapshot"] = evidence
-        allowed["versions"] = primitive({k: release[k] for k in ("release_id", "model_id", "corpus_id", "prompt_version", "tool_policy_version")})
+        allowed["routing_result"]=primitive(route)
+        allowed["versions"] = primitive({k: release[k] for k in ("release_id", "model_id", "corpus_id", "prompt_version", "tool_policy_version", "retrieval_mode", "retrieval_version")})
         conn.execute(text("""UPDATE resolvelab.cases SET intent=:intent,routing_score=:score,state=:state,
             resolution=CAST(:resolution AS jsonb),version=version+1,updated_at=now() WHERE tenant_id=:tenant AND case_id=:case"""),
                      {**_base(p), "case": case_id, "intent": route["intent"], "score": round(route["score"], 5), "state": state, "resolution": _json(allowed)})
@@ -592,6 +610,14 @@ def dashboard(principal):
             FROM resolvelab.trace_events WHERE tenant_id=:tenant AND stage='generate' AND created_at > now()-interval '24 hours'""", _base(p))
         return primitive({"states": {x["state"]: x["count"] for x in counts}, "total_cases": sum(x["count"] for x in counts),
                           "successful_actions": actions, "generation_latency": latencies, "window": "last 24 hours", "provider_cost_usd": None})
+
+
+def organization(principal):
+    with transaction(principal) as conn:
+        p=assert_member(conn,principal,READ_ROLES)
+        value=_query_one(conn,"SELECT tenant_id,display_name FROM resolvelab.tenants WHERE tenant_id=:tenant",_base(p))
+        if not value:raise DomainError(404,"not_found","The organization was not found.")
+        return primitive(value)
 
 
 def list_releases(principal):

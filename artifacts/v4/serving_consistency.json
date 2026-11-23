@@ -1,0 +1,10 @@
+{
+  "N": 128,
+  "intent_mismatches": [],
+  "accepted_decision_mismatches": [],
+  "max_absolute_score_difference": 1.1241567465791746e-07,
+  "score_tolerance": 1e-06,
+  "threshold": 0.425,
+  "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+  "scope": "Actual one-message Router serving path versus saved untuned domain-family test predictions. Float reductions can differ at about1e-7; no decision difference is allowed."
+}

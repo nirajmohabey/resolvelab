@@ -1,11 +1,11 @@
-# Handoff
+# Release handoff
 
-The bounded local first release is implemented. AI01–AI11 have executable code and saved evidence: scaffold/locking, PostgreSQL/RLS fixtures, state and policy gates, grouped datasets, trained models, filtered retrieval, structured responses, tracking/handoff, atomic approvals, evaluation and the workbench. AI12 uses the recorded local demonstration, model rollback, backup restoration, runbook and case study. Public hosting and a paid provider benchmark remain unperformed.
+ResolveLab implements a bounded, operator-reviewed synthetic support workflow: FastAPI/PostgreSQL, forced tenant isolation, OIDC-ready browser/API identity, trained routing, filtered retrieval, structured responses, versioned proposals, atomic local approval, traces, leased evaluation, immutable pins, rollback and recovery.
 
-Run `scripts/local.ps1 setup`, then `scripts/local.ps1 run` and `scripts/local.ps1 worker` in separate terminals. Optional background lifecycle is `scripts/background.ps1 start|stop`. The local demo is at http://127.0.0.1:8000 and has six inspectable cases including one pending proposal and one recoverable provider failure.
+Evidence includes 95 PostgreSQL tests, nine operator browser checks, nine OIDC scenarios, ten UI race scenarios and nine accessibility states with zero automated violations. Deterministic workflows pass 20/20. Frozen v4 synthetic evaluation matched 139/160 expected workflows, with 21 retained failures, 4/104 wrong accepted routes, 1/40 unsupported false acceptances and zero unauthorized effects across 160 audits.
 
-Final checks: 64 PostgreSQL-backed tests, 9 browser checks, 20/20 deterministic workflows. The independently authored final language/workflow set scored 74/100; its 26 failures remain visible and are not release safety-test passes. Model artifact SHA-256 starts `6856ace9` and ends `217e8829`; the full freeze is in `artifacts/model_freeze.json`.
+Run `scripts/local.ps1 setup`, then `scripts/local.ps1 run` and `scripts/local.ps1 worker`. Optional hidden process ownership uses `scripts/background.ps1`. Local URL: http://127.0.0.1:8000. Fixtures use a frozen clock and affect no real merchant.
 
-The code tree and report identities are in `artifacts/release_manifest.json`. The GitHub `v0.1.0` tag identifies the packaged source revision. Hosted jobs could not start because GitHub restricted runners at the account level; no Docker/Linux execution claim is made. Local native validation is complete.
+See `artifacts/release_manifest.json`, `docs/CHECKS.md`, `docs/MODEL_CARD.md` and `docs/PRODUCTION.md`. Retained historical models/reports must not be overwritten or used to tune against published holdouts.
 
-Next bounded work: resolve the account runner restriction, rerun CI and container smoke, then use new retailer development evidence and an independently reviewed holdout to improve excessive escalation. Do not tune against the published final cases or replace a historical model file. Integration with a real identity/intake provider precedes any public demo with real customer data.
+Remaining external work: backend hosting and a real IdP/memberships, account runner restriction and executed Docker/Linux acceptance, scheduled operational backups, provider/merchant integrations and independently reviewed real-world quality. The portfolio uses the actual local recording; no hosted customer deployment or business lift is claimed.

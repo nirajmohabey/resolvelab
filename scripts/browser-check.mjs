@@ -1,8 +1,12 @@
 import { chromium } from "playwright";
 import assert from "node:assert/strict";
 import fs from "node:fs/promises";
+import { createHash } from "node:crypto";
 const base = process.env.BASE_URL || "http://127.0.0.1:8000";
 const output = new URL("../artifacts/browser/", import.meta.url);
+const sourceFiles = ["web/app.js", "web/app.css", "web/index.html", "web/auth-client.js"];
+const sourceHashes = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async (name) => [name,createHash("sha256").update(await fs.readFile(new URL("../"+name,import.meta.url))).digest("hex")])));
+const initialHashes = await sourceHashes();
 await fs.mkdir(output, { recursive: true });
 const browser = await chromium.launch({
   channel: process.env.BROWSER_CHANNEL || "chrome",
@@ -238,11 +242,14 @@ try {
     });
   });
   assert.deepEqual(errors, [], "browser JavaScript errors");
+  assert.deepEqual(await sourceHashes(), initialHashes, "Browser source changed during acceptance");
   await fs.writeFile(
     new URL("browser-results.json", output),
     JSON.stringify(
       {
         passed: 9,
+        source_hashes: initialHashes,
+        source_stable: true,
         errors,
         base_url: base,
         viewport: [1440, 1000],

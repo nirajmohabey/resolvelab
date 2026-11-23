@@ -85,11 +85,8 @@ def bootstrap(stop=False):
         child_env['ADMIN_DATABASE_URL']=admin_url.set(database=database).render_as_string(hide_password=False)
         subprocess.run([sys.executable,'-m','alembic','upgrade','head'],check=True,cwd=ROOT,env=child_env)
         with psycopg.connect(**config, dbname=database, autocommit=True) as conn:
-            role = sql.Identifier(app_url.username)
-            conn.execute(sql.SQL('GRANT USAGE ON SCHEMA resolvelab TO {}').format(role))
-            conn.execute(sql.SQL('GRANT SELECT ON ALL TABLES IN SCHEMA resolvelab TO {}').format(role))
-            for table in ('cases','trace_events','proposals','proposal_evidence','approvals','actions','handoffs','idempotency_keys','evaluation_runs','fixture_orders'):
-                conn.execute(sql.SQL('GRANT INSERT, UPDATE ON resolvelab.{} TO {}').format(sql.Identifier(table),role))
+            from resolvelab.provision import grant_runtime
+            grant_runtime(conn, app_url.username)
     print('Private PostgreSQL ready on 127.0.0.1:55439; migrations applied; runtime role has no DDL or superuser privileges.')
 
 if __name__ == '__main__':

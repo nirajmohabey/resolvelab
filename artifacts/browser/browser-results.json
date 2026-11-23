@@ -1,5 +1,12 @@
 {
   "passed": 9,
+  "source_hashes": {
+    "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+    "web/app.css": "68ba80da21a69156128e2947d649d4c6731022b0e6967650119209a9edd17bd6",
+    "web/index.html": "b4196e3efc5baa6d7567a2931238049df6cc30b107551bb925cc6d25478eb5e8",
+    "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb"
+  },
+  "source_stable": true,
   "errors": [],
   "base_url": "http://127.0.0.1:8000",
   "viewport": [
@@ -10,5 +17,5 @@
     390,
     844
   ],
-  "generated_at": "2026-11-23T07:37:58.671Z"
+  "generated_at": "2026-11-23T08:44:46.677Z"
 }

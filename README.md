@@ -6,9 +6,13 @@ An evaluated support workbench for a fictional online retailer. Operators inspec
 
 **Implemented:** FastAPI API, PostgreSQL migrations and tenant isolation, trained routing, lexical/dense/hybrid retrieval, structured responses, local approval transactions, durable traces, evaluation worker, release rollback, browser interface, repeatable fixtures, backup restore check and CI.
 
-**Verified locally:** 64 tests, including 25 repeated concurrent-approval races; 20/20 deterministic workflow regressions; nine browser checks on desktop/mobile. Zero unauthorized order effects were observed in those fixture runs. These are bounded synthetic checks, not a production reliability estimate.
+**Verified locally:** 95 PostgreSQL-backed tests, including 25 repeated approval races and real process termination/recovery; 20/20 deterministic workflow regressions; nine operator browser checks; nine browser OIDC scenarios; ten UI race scenarios; zero automated accessibility violations across nine scanned states. The checks do not establish complete accessibility conformance or production identity-provider interoperability.
 
-The frozen domain router scored **83% intent accuracy and 0.8366 macro-F1 on 100 newly authored synthetic cases**. It accepted 44/100 cases past the confidence gate with 0/44 wrong accepted routes and 0/25 unsupported false acceptances. **74/100 final workflow outcomes matched expectations**; the 26 failures remain visible. Conservative routing still over-escalates, and terse commands can fail. Inspect the complete workflow result and denominators in [the evaluation evidence](artifacts/v3-blind-final/workflow-evaluation.html) and [model card](docs/MODEL_CARD.md).
+The frozen v4 router achieved **0.8705 macro-F1 and 139/160 correct intents on a separately authored synthetic holdout**. Full workflow success was also **139/160 (86.9%)**. It accepted 104 routes, including **4 wrong accepted routes**; **1/40 unsupported requests was accepted**. All 160 order-effect audits completed with **zero unauthorized effects observed**. Seventeen supported requests were over-escalated. These are small, agent-authored synthetic tests, not customer accuracy or a reliability guarantee. [Inspect every outcome](artifacts/v4/blind-final/workflow-evaluation.html).
+
+On the **same 160 cases**, retained v1/v3/v4 releases completed 76/95/139 expected workflows respectively. This paired comparison is distinct from older 80- and 100-case audits. Historical failures, models and provenance remain available. See the [model card](docs/MODEL_CARD.md) and [analysis](artifacts/v4/analysis.json).
+
+The workbench supports OIDC Authorization Code + PKCE for a configured provider. Production API tokens are signature-verified and mapped to server-maintained memberships; token-supplied roles do not grant permissions. A hardened TLS/OIDC deployment template is included. **A hosted backend, real merchant connector, real IdP integration and paid-provider benchmark have not been executed.** The portfolio uses the recorded local demonstration.
 
 ## Run on Windows
 
@@ -33,15 +37,15 @@ If PostgreSQL is installed elsewhere, set `PG_BIN` to its `bin` directory. API r
 4. Switch to **Beta · Operator** to inspect the separate organization. Alpha's objects are unavailable through direct API reads as well as the inbox.
 5. Select **Alpha · Evaluator** to queue the same fixture set for retained releases. The worker runs in a different database and preserves the inbox.
 
-These identities are signed local fixture sessions. They are disabled outside `APP_ENV=local`; this is not a public customer-authentication integration.
+These signed local fixture identities are disabled outside `APP_ENV=local`. Production uses the separate OIDC flow and requires a real provider plus registered server-side memberships. See [production setup](docs/PRODUCTION.md).
 
 ## Reproduce checks and model results
 
 ```powershell
 .\scripts\local.ps1 test
 .\scripts\local.ps1 evaluate
-.venv\Scripts\python.exe scripts/evaluate.py --dataset v3-blind-v1-1 --mode live_model --output artifacts/v3-blind-final
-.venv\Scripts\python.exe scripts/evaluate_retrieval.py
+.venv\Scripts\python.exe scripts/evaluate.py --dataset v4-blind-v1 --mode live_model --release-id 84f8a907-04de-5257-af61-98f317392d01 --output artifacts/v4/blind-final
+.venv\Scripts\python.exe scripts/evaluate_retrieval_v2.py
 .\scripts\local.ps1 backup-check
 ```
 
@@ -54,6 +58,9 @@ To record the browser journey, use a clean fixture reset with pending `A-100`, s
 ```powershell
 npm ci
 npm run test:browser
+npm run test:oidc
+npm run test:ui-races
+npm run test:accessibility
 ```
 
 Keep both the API and worker running for this check. The browser suite uses installed Google Chrome in an isolated headless session and writes screenshots, a WebM recording and JSON results under `artifacts/browser`. It checks tracking, evidence, trace, proposal, approval, handoff, release/evaluation screens, tenant switching and mobile overflow. It changes the local fixture order. Reset fixtures explicitly before repeating the cancellation journey.
@@ -72,10 +79,10 @@ Compose includes API, worker, private PostgreSQL, one-shot migrations and durabl
 | Area | Implementation / evidence |
 |---|---|
 | Atomic proposal approval and idempotency | `src/resolvelab/service.py`; `tests/test_security_and_transactions.py` |
-| Signed fixture identity and RLS transactions | `auth.py`, `db.py`, `migrations/001_core.sql` |
+| OIDC, server-side membership and RLS | `auth.py`, `config.py`, `db.py`, `migrations/versions/0002_security.py` |
 | Immutable release pinning | `load_pinned_router`, `tests/test_pinned_artifacts.py`, `scripts/rollback.py` |
 | Training and leakage checks | `scripts/train*.py`, `artifacts/*manifest*.json`, split membership |
-| Filtered retrieval and RRF | `src/resolvelab/retrieval.py`, `artifacts/retrieval_report.json` |
+| Release-pinned filtered retrieval | `src/resolvelab/retrieval.py`, `artifacts/retrieval-v2/report.json` |
 | Evaluation and recoverable jobs | `evaluate.py`, `worker.py`, `scripts/evaluate.py` |
 | Recovery and operations | [Runbook](docs/RUNBOOK.md), `scripts/backup_check.py` |
 
@@ -85,4 +92,6 @@ Compose includes API, worker, private PostgreSQL, one-shot migrations and durabl
 
 For optional hidden background processes on Windows, use `scripts/background.ps1 start` and `scripts/background.ps1 stop`. PostgreSQL is managed separately. The model rollback verification command is `python scripts/verify_rollback.py`; it restores the original active pointer when finished. A full training rebuild may produce different serialized bytes despite identical metrics; promote those bytes under a new model version or use a disposable fixture reset rather than replacing an existing release.
 
-The optional OpenAI Responses adapter is implemented and mock-tested, but has not been measured with a paid provider. It is deliberately restricted to the canonical supported answer; noncanonical drafts fail closed. No real order, payment, email, external connector or public cloud deployment is claimed. MIT covers application source; dataset and model assets retain their original licenses.
+The optional OpenAI Responses adapter is implemented and mock-tested, but has not been measured with a paid provider. It is deliberately restricted to the canonical supported answer; noncanonical drafts fail closed. No real order, payment, email, merchant connector or public backend deployment is claimed. MIT covers application source; dataset and model assets retain their original licenses.
+
+[Production deployment](docs/PRODUCTION.md) · [Dependency audit](artifacts/security/README.md)

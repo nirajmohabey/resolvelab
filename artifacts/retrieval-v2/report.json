@@ -1,0 +1,6087 @@
+{
+  "fixture_sha256": "ec1454bdbc46ef2f5f537de3b82f9bf33c14f35ffe5060bed30c5a0aa65b7f38",
+  "physical_sections": 80,
+  "permitted_operator_sections": 32,
+  "labeling": "Synthetic policies/queries and relevance labels authored by coding agent. No independent human adjudication.",
+  "configurations": {
+    "lexical_all_v1": {
+      "summary": {
+        "dev": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.125,
+            "10": 0.1875
+          },
+          "mrr_at_10": 0.04895833333333333,
+          "ndcg_at_10": 0.07839651493401645,
+          "p50_ms": 6.056000012904406,
+          "p95_ms": 7.044000012683682
+        },
+        "test": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.125,
+            "10": 0.1875
+          },
+          "mrr_at_10": 0.03854166666666667,
+          "ndcg_at_10": 0.0733585345259973,
+          "p50_ms": 6.4814000215847045,
+          "p95_ms": 7.824900021660142
+        }
+      },
+      "queries": [
+        {
+          "id": "RB2-01",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 4.858900036197156,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-02",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 5.37090003490448,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-03",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 4.2711999849416316,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-04",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 4.232100036460906,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-05",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.5
+          },
+          "mrr_at_10": 0.16666666666666666,
+          "ndcg_at_10": 0.21840743681816419,
+          "latency_ms": 4.647399997338653,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-06",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 5.7119999546557665,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-07",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.007499992847443,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-08",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.31159998010844,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-09",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.183999998029321,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-10",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 6.332399963866919,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-11",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.874400016386062,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-12",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 6.104500032961369,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-13",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.168400053866208,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-14",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 7.071300002280623,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-15",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 5.885299993678927,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-16",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.5
+          },
+          "mrr_at_10": 0.16666666666666666,
+          "ndcg_at_10": 0.21840743681816419,
+          "latency_ms": 7.034900016151369,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-17",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.87759998254478,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-18",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.488200044259429,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-19",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 5.812500021420419,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-20",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.16666666666666666,
+          "ndcg_at_10": 0.3562071871080222,
+          "latency_ms": 6.383300002198666,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-21",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.47459999890998,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-22",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.3293999992311,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-23",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.26409996766597,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-24",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 7.814300013706088,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-25",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 6.853900034911931,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-26",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.434200040530413,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-27",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 5.869099986739457,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-28",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 5.840900004841387,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-29",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.726199993863702,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-30",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.585900031495839,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-31",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 7.856700045522302,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-32",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 7.470199954696,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "handoff",
+            "distractor-09",
+            "distractor-08",
+            "distractor-14",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        }
+      ]
+    },
+    "lexical_any_v2": {
+      "summary": {
+        "dev": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.53125,
+            "3": 0.8125,
+            "5": 0.875,
+            "10": 0.9375
+          },
+          "mrr_at_10": 0.7625,
+          "ndcg_at_10": 0.7831823429175453,
+          "p50_ms": 6.395000003976747,
+          "p95_ms": 7.90949999645818
+        },
+        "test": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.46875,
+            "3": 0.8125,
+            "5": 0.875,
+            "10": 0.875
+          },
+          "mrr_at_10": 0.6510416666666666,
+          "ndcg_at_10": 0.7116226543020987,
+          "p50_ms": 6.26945000840351,
+          "p95_ms": 7.083574993885122
+        }
+      },
+      "queries": [
+        {
+          "id": "RB2-01",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.5
+          },
+          "mrr_at_10": 0.16666666666666666,
+          "ndcg_at_10": 0.21840743681816419,
+          "latency_ms": 7.277400000020862,
+          "ranked_locators": [
+            "pending",
+            "distractor-11",
+            "distractor-15",
+            "versions",
+            "distractor-05",
+            "ownership",
+            "tenants",
+            "distractor-01",
+            "distractor-03",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-02",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.9197207891481876,
+          "latency_ms": 7.164300011936575,
+          "ranked_locators": [
+            "pending",
+            "distractor-11",
+            "deadline",
+            "versions",
+            "tools",
+            "distractor-01",
+            "distractor-03",
+            "timestamps",
+            "distractor-09",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-03",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 5.928500031586736,
+          "ranked_locators": [
+            "approval",
+            "accounts",
+            "pending",
+            "distractor-11",
+            "distractor-01",
+            "deadline",
+            "tools",
+            "distractor-03",
+            "handoff",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-04",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 6.172600027639419,
+          "ranked_locators": [
+            "approval",
+            "versions",
+            "distractor-11",
+            "replay",
+            "pending",
+            "distractor-03",
+            "timestamps",
+            "distractor-09",
+            "distractor-07",
+            "evidence"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8"
+          ]
+        },
+        {
+          "id": "RB2-05",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.752000004984438,
+          "ranked_locators": [
+            "handoff",
+            "refunds",
+            "distractor-01",
+            "distractor-06",
+            "distractor-11",
+            "distractor-14",
+            "replay",
+            "distractor-07",
+            "distractor-10",
+            "distractor-16"
+          ],
+          "chunk_ids": [
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef"
+          ]
+        },
+        {
+          "id": "RB2-06",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.6849999711848795,
+          "ranked_locators": [
+            "tools",
+            "pending",
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "approval",
+            "versions",
+            "citations",
+            "timestamps",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-07",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.212900043465197,
+          "ranked_locators": [
+            "evidence",
+            "pending",
+            "tools",
+            "refunds",
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "distractor-10",
+            "distractor-06"
+          ],
+          "chunk_ids": [
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "81985750-585c-527f-a1e9-cf9573c3951d"
+          ]
+        },
+        {
+          "id": "RB2-08",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 6.172099965624511,
+          "ranked_locators": [
+            "replay",
+            "provider",
+            "timestamps",
+            "distractor-14",
+            "distractor-13",
+            "distractor-16",
+            "versions",
+            "evidence",
+            "tenants"
+          ],
+          "chunk_ids": [
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147"
+          ]
+        },
+        {
+          "id": "RB2-09",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 5.947900004684925,
+          "ranked_locators": [
+            "approval",
+            "pending",
+            "distractor-11",
+            "distractor-03",
+            "replay",
+            "evidence",
+            "distractor-01",
+            "distractor-09",
+            "distractor-10",
+            "distractor-16"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef"
+          ]
+        },
+        {
+          "id": "RB2-10",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.2865000218153,
+          "ranked_locators": [
+            "citations",
+            "distractor-11",
+            "handoff",
+            "distractor-07",
+            "distractor-16",
+            "distractor-12",
+            "deadline",
+            "provider",
+            "ownership"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0"
+          ]
+        },
+        {
+          "id": "RB2-11",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.381999970879406,
+          "ranked_locators": [
+            "tenants",
+            "citations",
+            "distractor-08",
+            "distractor-12",
+            "versions"
+          ],
+          "chunk_ids": [
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f"
+          ]
+        },
+        {
+          "id": "RB2-12",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.683900021016598,
+          "ranked_locators": [
+            "timestamps",
+            "distractor-02",
+            "distractor-11",
+            "distractor-13",
+            "versions",
+            "pending",
+            "distractor-01",
+            "distractor-03",
+            "distractor-09",
+            "replay"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5"
+          ]
+        },
+        {
+          "id": "RB2-13",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 5.744799971580505,
+          "ranked_locators": [
+            "accounts",
+            "distractor-07",
+            "versions",
+            "pending",
+            "distractor-11",
+            "distractor-01",
+            "distractor-13",
+            "distractor-04",
+            "approval",
+            "verification"
+          ],
+          "chunk_ids": [
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef"
+          ]
+        },
+        {
+          "id": "RB2-14",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 5.852100031916052,
+          "ranked_locators": [
+            "pending",
+            "refunds",
+            "distractor-11",
+            "distractor-06",
+            "evidence",
+            "tools",
+            "distractor-01",
+            "distractor-03",
+            "handoff",
+            "distractor-13"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2"
+          ]
+        },
+        {
+          "id": "RB2-15",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.5,
+          "latency_ms": 6.503499986138195,
+          "ranked_locators": [
+            "approval",
+            "replay",
+            "versions",
+            "distractor-11",
+            "distractor-03",
+            "distractor-09",
+            "distractor-02",
+            "pending",
+            "distractor-01",
+            "citations"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e"
+          ]
+        },
+        {
+          "id": "RB2-16",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 0.5
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.6131471927654584,
+          "latency_ms": 7.421999995131046,
+          "ranked_locators": [
+            "verification",
+            "pending",
+            "ownership",
+            "distractor-11",
+            "distractor-03",
+            "distractor-07",
+            "versions",
+            "tools",
+            "distractor-01",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-17",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.959599966648966,
+          "ranked_locators": [
+            "ownership",
+            "verification",
+            "distractor-07",
+            "distractor-15",
+            "pending",
+            "distractor-11",
+            "handoff",
+            "distractor-13",
+            "distractor-10",
+            "distractor-12"
+          ],
+          "chunk_ids": [
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5"
+          ]
+        },
+        {
+          "id": "RB2-18",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.828500016126782,
+          "ranked_locators": [
+            "pending",
+            "deadline",
+            "distractor-11",
+            "approval",
+            "distractor-01",
+            "distractor-03",
+            "distractor-13",
+            "distractor-04",
+            "versions",
+            "tools"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28"
+          ]
+        },
+        {
+          "id": "RB2-19",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6934264036172708,
+          "latency_ms": 5.9019000036641955,
+          "ranked_locators": [
+            "approval",
+            "versions",
+            "pending",
+            "distractor-11",
+            "replay",
+            "distractor-03",
+            "distractor-09",
+            "distractor-13",
+            "distractor-07",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        },
+        {
+          "id": "RB2-20",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 7.07019999390468,
+          "ranked_locators": [
+            "pending",
+            "distractor-01",
+            "distractor-11",
+            "handoff",
+            "approval",
+            "versions",
+            "accounts",
+            "distractor-03",
+            "distractor-14",
+            "distractor-07"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "623307d5-fd47-548f-ab41-f8b6d841030e"
+          ]
+        },
+        {
+          "id": "RB2-21",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.712400005199015,
+          "ranked_locators": [
+            "approval",
+            "pending",
+            "deadline",
+            "evidence",
+            "distractor-11",
+            "distractor-03",
+            "replay",
+            "versions",
+            "distractor-01",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-22",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.123699993826449,
+          "ranked_locators": [
+            "replay",
+            "distractor-11",
+            "approval",
+            "distractor-12",
+            "versions",
+            "distractor-03",
+            "timestamps",
+            "distractor-09",
+            "distractor-13",
+            "distractor-07"
+          ],
+          "chunk_ids": [
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "623307d5-fd47-548f-ab41-f8b6d841030e"
+          ]
+        },
+        {
+          "id": "RB2-23",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 6.875400024000555,
+          "ranked_locators": [
+            "versions",
+            "verification",
+            "ownership",
+            "distractor-11",
+            "distractor-01",
+            "timestamps",
+            "distractor-02",
+            "pending",
+            "distractor-03",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-24",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.5,
+          "latency_ms": 5.881199962459505,
+          "ranked_locators": [
+            "versions",
+            "distractor-11",
+            "tools",
+            "pending",
+            "distractor-01",
+            "distractor-03",
+            "citations",
+            "timestamps",
+            "distractor-09",
+            "distractor-08"
+          ],
+          "chunk_ids": [
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1"
+          ]
+        },
+        {
+          "id": "RB2-25",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 5.626400001347065,
+          "ranked_locators": [
+            "citations",
+            "evidence",
+            "tools",
+            "distractor-01",
+            "distractor-08",
+            "distractor-02",
+            "distractor-16",
+            "distractor-04",
+            "distractor-05",
+            "tenants"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147"
+          ]
+        },
+        {
+          "id": "RB2-26",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 6.670400034636259,
+          "ranked_locators": [
+            "distractor-01",
+            "distractor-14",
+            "tenants",
+            "distractor-11",
+            "citations",
+            "handoff",
+            "distractor-08",
+            "replay",
+            "distractor-07",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-27",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 5.862799996975809,
+          "ranked_locators": [
+            "evidence",
+            "approval",
+            "citations",
+            "pending",
+            "distractor-11",
+            "distractor-03",
+            "replay",
+            "deadline",
+            "tools",
+            "refunds"
+          ],
+          "chunk_ids": [
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e"
+          ]
+        },
+        {
+          "id": "RB2-28",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.5,
+          "latency_ms": 5.290100001730025,
+          "ranked_locators": [
+            "pending",
+            "distractor-11",
+            "refunds",
+            "distractor-01",
+            "distractor-03",
+            "timestamps",
+            "distractor-13",
+            "distractor-10",
+            "approval",
+            "distractor-15"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f"
+          ]
+        },
+        {
+          "id": "RB2-29",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.08779996400699,
+          "ranked_locators": [
+            "tenants",
+            "distractor-04",
+            "distractor-11",
+            "handoff",
+            "distractor-14",
+            "replay",
+            "provider",
+            "versions",
+            "evidence",
+            "accounts"
+          ],
+          "chunk_ids": [
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "e5e0011f-91fe-5092-9964-4f502742a582"
+          ]
+        },
+        {
+          "id": "RB2-30",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 5.739999993238598,
+          "ranked_locators": [
+            "distractor-01",
+            "handoff",
+            "distractor-07",
+            "distractor-11",
+            "distractor-14",
+            "replay",
+            "distractor-16",
+            "distractor-12",
+            "distractor-06",
+            "distractor-05"
+          ],
+          "chunk_ids": [
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d"
+          ]
+        },
+        {
+          "id": "RB2-31",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 5.625399993732572,
+          "ranked_locators": [
+            "timestamps",
+            "versions",
+            "distractor-11",
+            "distractor-01",
+            "distractor-07",
+            "distractor-04",
+            "approval",
+            "ownership",
+            "accounts",
+            "pending"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4"
+          ]
+        },
+        {
+          "id": "RB2-32",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 6.4511000528000295,
+          "ranked_locators": [
+            "pending",
+            "deadline",
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "distractor-13",
+            "distractor-10",
+            "distractor-04",
+            "approval",
+            "versions"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f"
+          ]
+        }
+      ]
+    },
+    "dense_v1": {
+      "summary": {
+        "dev": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.59375,
+            "3": 0.9375,
+            "5": 0.96875,
+            "10": 0.96875
+          },
+          "mrr_at_10": 0.875,
+          "ndcg_at_10": 0.8641657931801512,
+          "p50_ms": 9.006550011690706,
+          "p95_ms": 9.697949994006194
+        },
+        "test": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.65625,
+            "3": 0.84375,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.809375,
+          "ndcg_at_10": 0.8564649620284179,
+          "p50_ms": 8.747499989112839,
+          "p95_ms": 10.139150021132082
+        }
+      },
+      "queries": [
+        {
+          "id": "RB2-01",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 9.576799988280982,
+          "ranked_locators": [
+            "ownership",
+            "verification",
+            "distractor-01",
+            "distractor-04",
+            "distractor-07",
+            "distractor-11",
+            "distractor-10",
+            "distractor-05",
+            "distractor-13",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-02",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.9197207891481876,
+          "latency_ms": 9.053600020706654,
+          "ranked_locators": [
+            "deadline",
+            "distractor-13",
+            "pending",
+            "timestamps",
+            "distractor-03",
+            "distractor-14",
+            "distractor-04",
+            "distractor-09",
+            "distractor-01",
+            "tools"
+          ],
+          "chunk_ids": [
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28"
+          ]
+        },
+        {
+          "id": "RB2-03",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 9.202999994158745,
+          "ranked_locators": [
+            "deadline",
+            "approval",
+            "pending",
+            "distractor-11",
+            "refunds",
+            "distractor-03",
+            "distractor-01",
+            "distractor-15",
+            "evidence",
+            "accounts"
+          ],
+          "chunk_ids": [
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "e5e0011f-91fe-5092-9964-4f502742a582"
+          ]
+        },
+        {
+          "id": "RB2-04",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 9.188399999402463,
+          "ranked_locators": [
+            "approval",
+            "versions",
+            "replay",
+            "distractor-11",
+            "accounts",
+            "pending",
+            "evidence",
+            "ownership",
+            "distractor-07",
+            "distractor-03"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a"
+          ]
+        },
+        {
+          "id": "RB2-05",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 0.5,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.8503449055347546,
+          "latency_ms": 8.103600004687905,
+          "ranked_locators": [
+            "refunds",
+            "distractor-11",
+            "ownership",
+            "verification",
+            "handoff",
+            "distractor-06",
+            "provider",
+            "distractor-10",
+            "accounts",
+            "distractor-12"
+          ],
+          "chunk_ids": [
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5"
+          ]
+        },
+        {
+          "id": "RB2-06",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.959500002674758,
+          "ranked_locators": [
+            "tools",
+            "pending",
+            "distractor-03",
+            "approval",
+            "distractor-11",
+            "deadline",
+            "distractor-10",
+            "distractor-09",
+            "refunds",
+            "ownership"
+          ],
+          "chunk_ids": [
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0"
+          ]
+        },
+        {
+          "id": "RB2-07",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 9.347699990030378,
+          "ranked_locators": [
+            "evidence",
+            "distractor-15",
+            "refunds",
+            "pending",
+            "approval",
+            "deadline",
+            "distractor-03",
+            "tools",
+            "provider",
+            "distractor-12"
+          ],
+          "chunk_ids": [
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5"
+          ]
+        },
+        {
+          "id": "RB2-08",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.155999996233732,
+          "ranked_locators": [
+            "provider",
+            "evidence",
+            "deadline",
+            "distractor-15",
+            "refunds",
+            "versions",
+            "timestamps",
+            "tenants",
+            "tools",
+            "replay"
+          ],
+          "chunk_ids": [
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5"
+          ]
+        },
+        {
+          "id": "RB2-09",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.188200008589774,
+          "ranked_locators": [
+            "replay",
+            "approval",
+            "evidence",
+            "pending",
+            "deadline",
+            "refunds",
+            "distractor-15",
+            "versions",
+            "distractor-11",
+            "distractor-03"
+          ],
+          "chunk_ids": [
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a"
+          ]
+        },
+        {
+          "id": "RB2-10",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.953599968459457,
+          "ranked_locators": [
+            "citations",
+            "verification",
+            "ownership",
+            "provider",
+            "tenants",
+            "distractor-16",
+            "distractor-08",
+            "distractor-07",
+            "timestamps",
+            "distractor-14"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "4c595e61-45be-511f-8595-93e1a7732141"
+          ]
+        },
+        {
+          "id": "RB2-11",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 9.13259998196736,
+          "ranked_locators": [
+            "distractor-08",
+            "tenants",
+            "accounts",
+            "ownership",
+            "distractor-12",
+            "tools",
+            "distractor-01",
+            "distractor-15",
+            "versions",
+            "evidence"
+          ],
+          "chunk_ids": [
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8"
+          ]
+        },
+        {
+          "id": "RB2-12",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 9.37409995822236,
+          "ranked_locators": [
+            "timestamps",
+            "distractor-13",
+            "distractor-04",
+            "distractor-11",
+            "distractor-02",
+            "distractor-07",
+            "verification",
+            "deadline",
+            "ownership",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-13",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 8.618300023954362,
+          "ranked_locators": [
+            "distractor-07",
+            "accounts",
+            "tools",
+            "ownership",
+            "distractor-05",
+            "distractor-03",
+            "distractor-11",
+            "versions",
+            "distractor-12",
+            "distractor-01"
+          ],
+          "chunk_ids": [
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "07fbc55c-5a3e-5520-b249-538925d9d348"
+          ]
+        },
+        {
+          "id": "RB2-14",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.684599946718663,
+          "ranked_locators": [
+            "refunds",
+            "distractor-11",
+            "pending",
+            "distractor-15",
+            "approval",
+            "distractor-03",
+            "deadline",
+            "evidence",
+            "distractor-01",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        },
+        {
+          "id": "RB2-15",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 0.5
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.6131471927654584,
+          "latency_ms": 8.416500000748783,
+          "ranked_locators": [
+            "versions",
+            "replay",
+            "approval",
+            "accounts",
+            "distractor-11",
+            "ownership",
+            "evidence",
+            "tools",
+            "distractor-12",
+            "handoff"
+          ],
+          "chunk_ids": [
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007"
+          ]
+        },
+        {
+          "id": "RB2-16",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.9197207891481876,
+          "latency_ms": 10.061400011181831,
+          "ranked_locators": [
+            "verification",
+            "ownership",
+            "handoff",
+            "provider",
+            "tools",
+            "distractor-12",
+            "distractor-11",
+            "distractor-07",
+            "distractor-09",
+            "distractor-05"
+          ],
+          "chunk_ids": [
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d"
+          ]
+        },
+        {
+          "id": "RB2-17",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 10.297700006049126,
+          "ranked_locators": [
+            "verification",
+            "ownership",
+            "distractor-07",
+            "distractor-05",
+            "distractor-08",
+            "distractor-10",
+            "distractor-04",
+            "distractor-02",
+            "distractor-13",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-18",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.785199956037104,
+          "ranked_locators": [
+            "deadline",
+            "pending",
+            "approval",
+            "distractor-03",
+            "distractor-15",
+            "refunds",
+            "distractor-11",
+            "evidence",
+            "distractor-04",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-19",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.5,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6240505200038379,
+          "latency_ms": 9.019199991598725,
+          "ranked_locators": [
+            "approval",
+            "versions",
+            "replay",
+            "distractor-11",
+            "pending",
+            "distractor-04",
+            "evidence",
+            "verification",
+            "ownership",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-20",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 8.768300001975149,
+          "ranked_locators": [
+            "pending",
+            "distractor-11",
+            "approval",
+            "distractor-03",
+            "handoff",
+            "accounts",
+            "tools",
+            "distractor-01",
+            "deadline",
+            "refunds"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e"
+          ]
+        },
+        {
+          "id": "RB2-21",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.017299987841398,
+          "ranked_locators": [
+            "approval",
+            "pending",
+            "evidence",
+            "deadline",
+            "versions",
+            "replay",
+            "distractor-15",
+            "refunds",
+            "distractor-03",
+            "distractor-01"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348"
+          ]
+        },
+        {
+          "id": "RB2-22",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 10.075199999846518,
+          "ranked_locators": [
+            "replay",
+            "versions",
+            "approval",
+            "distractor-11",
+            "evidence",
+            "distractor-04",
+            "distractor-13",
+            "pending",
+            "timestamps",
+            "handoff"
+          ],
+          "chunk_ids": [
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007"
+          ]
+        },
+        {
+          "id": "RB2-23",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.962899970356375,
+          "ranked_locators": [
+            "verification",
+            "ownership",
+            "timestamps",
+            "distractor-11",
+            "distractor-10",
+            "distractor-13",
+            "distractor-04",
+            "distractor-01",
+            "distractor-12",
+            "distractor-02"
+          ],
+          "chunk_ids": [
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e"
+          ]
+        },
+        {
+          "id": "RB2-24",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 8.847800025250763,
+          "ranked_locators": [
+            "versions",
+            "distractor-12",
+            "accounts",
+            "tools",
+            "approval",
+            "provider",
+            "handoff",
+            "replay",
+            "evidence",
+            "pending"
+          ],
+          "chunk_ids": [
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4"
+          ]
+        },
+        {
+          "id": "RB2-25",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.972300052642822,
+          "ranked_locators": [
+            "citations",
+            "verification",
+            "distractor-10",
+            "evidence",
+            "ownership",
+            "distractor-12",
+            "tenants",
+            "refunds",
+            "distractor-15",
+            "tools"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28"
+          ]
+        },
+        {
+          "id": "RB2-26",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 10.086300026159734,
+          "ranked_locators": [
+            "provider",
+            "handoff",
+            "evidence",
+            "distractor-08",
+            "distractor-12",
+            "verification",
+            "distractor-15",
+            "accounts",
+            "ownership",
+            "distractor-05"
+          ],
+          "chunk_ids": [
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d"
+          ]
+        },
+        {
+          "id": "RB2-27",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.680799986701459,
+          "ranked_locators": [
+            "evidence",
+            "approval",
+            "distractor-15",
+            "refunds",
+            "deadline",
+            "pending",
+            "distractor-10",
+            "distractor-03",
+            "replay",
+            "tools"
+          ],
+          "chunk_ids": [
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28"
+          ]
+        },
+        {
+          "id": "RB2-28",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.249799964483827,
+          "ranked_locators": [
+            "refunds",
+            "pending",
+            "approval",
+            "distractor-11",
+            "distractor-15",
+            "evidence",
+            "deadline",
+            "distractor-03",
+            "distractor-01",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-29",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 8.431599999312311,
+          "ranked_locators": [
+            "provider",
+            "tenants",
+            "replay",
+            "ownership",
+            "evidence",
+            "versions",
+            "verification",
+            "distractor-12",
+            "distractor-08",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        },
+        {
+          "id": "RB2-30",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.8387000248767436,
+          "ranked_locators": [
+            "accounts",
+            "distractor-07",
+            "distractor-05",
+            "ownership",
+            "distractor-14",
+            "handoff",
+            "distractor-01",
+            "refunds",
+            "verification",
+            "distractor-11"
+          ],
+          "chunk_ids": [
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a"
+          ]
+        },
+        {
+          "id": "RB2-31",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.72669997625053,
+          "ranked_locators": [
+            "timestamps",
+            "distractor-13",
+            "distractor-07",
+            "ownership",
+            "distractor-04",
+            "distractor-10",
+            "verification",
+            "deadline",
+            "pending",
+            "distractor-03"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a"
+          ]
+        },
+        {
+          "id": "RB2-32",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.664799970574677,
+          "ranked_locators": [
+            "deadline",
+            "pending",
+            "approval",
+            "distractor-03",
+            "distractor-15",
+            "refunds",
+            "evidence",
+            "distractor-13",
+            "distractor-11",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        }
+      ]
+    },
+    "hybrid_all_v1": {
+      "summary": {
+        "dev": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.0625,
+            "3": 0.3125,
+            "5": 0.4375,
+            "10": 0.8125
+          },
+          "mrr_at_10": 0.27934027777777776,
+          "ndcg_at_10": 0.39352417517522353,
+          "p50_ms": 7.975949964020401,
+          "p95_ms": 8.931249991292134
+        },
+        "test": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.125,
+            "3": 0.1875,
+            "5": 0.46875,
+            "10": 0.8125
+          },
+          "mrr_at_10": 0.2674355158730159,
+          "ndcg_at_10": 0.3858940378070579,
+          "p50_ms": 7.927450002171099,
+          "p95_ms": 8.813849970465526
+        }
+      },
+      "queries": [
+        {
+          "id": "RB2-01",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 8.367400034330785,
+          "ranked_locators": [
+            "distractor-01",
+            "distractor-11",
+            "timestamps",
+            "distractor-03",
+            "distractor-07",
+            "handoff",
+            "distractor-04",
+            "distractor-10",
+            "distractor-13",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-02",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.5
+          },
+          "mrr_at_10": 0.125,
+          "ndcg_at_10": 0.19342640361727081,
+          "latency_ms": 8.683499996550381,
+          "ranked_locators": [
+            "distractor-03",
+            "timestamps",
+            "distractor-01",
+            "distractor-13",
+            "distractor-11",
+            "distractor-14",
+            "distractor-09",
+            "deadline",
+            "distractor-04",
+            "distractor-07"
+          ],
+          "chunk_ids": [
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "623307d5-fd47-548f-ab41-f8b6d841030e"
+          ]
+        },
+        {
+          "id": "RB2-03",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 7.530500006396323,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "approval",
+            "deadline",
+            "handoff",
+            "distractor-10",
+            "distractor-07",
+            "distractor-15",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-04",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.1111111111111111,
+          "ndcg_at_10": 0.3010299956639812,
+          "latency_ms": 7.852900016587228,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-03",
+            "replay",
+            "timestamps",
+            "distractor-01",
+            "approval",
+            "distractor-09",
+            "distractor-07",
+            "versions",
+            "distractor-08"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1"
+          ]
+        },
+        {
+          "id": "RB2-05",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.5640920940185894,
+          "latency_ms": 8.187500003259629,
+          "ranked_locators": [
+            "distractor-11",
+            "handoff",
+            "distractor-03",
+            "distractor-01",
+            "distractor-08",
+            "distractor-10",
+            "distractor-06",
+            "distractor-12",
+            "verification",
+            "refunds"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e"
+          ]
+        },
+        {
+          "id": "RB2-06",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.125,
+          "ndcg_at_10": 0.31546487678572877,
+          "latency_ms": 8.30739998491481,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-03",
+            "distractor-01",
+            "distractor-09",
+            "distractor-10",
+            "approval",
+            "timestamps",
+            "tools",
+            "replay",
+            "deadline"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068"
+          ]
+        },
+        {
+          "id": "RB2-07",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 7.411300030071288,
+          "ranked_locators": [
+            "distractor-03",
+            "distractor-01",
+            "distractor-11",
+            "distractor-15",
+            "evidence",
+            "approval",
+            "citations",
+            "deadline",
+            "distractor-12",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-08",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.3333333333333333,
+          "ndcg_at_10": 0.5,
+          "latency_ms": 8.413000032305717,
+          "ranked_locators": [
+            "timestamps",
+            "distractor-03",
+            "provider",
+            "distractor-01",
+            "distractor-11",
+            "replay",
+            "deadline",
+            "distractor-15",
+            "evidence",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-09",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 7.5730999815277755,
+          "ranked_locators": [
+            "distractor-11",
+            "replay",
+            "distractor-03",
+            "distractor-01",
+            "approval",
+            "handoff",
+            "evidence",
+            "timestamps",
+            "deadline",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-10",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.740799977909774,
+          "ranked_locators": [
+            "citations",
+            "distractor-11",
+            "timestamps",
+            "distractor-01",
+            "distractor-08",
+            "distractor-03",
+            "distractor-14",
+            "distractor-16",
+            "distractor-07",
+            "replay"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5"
+          ]
+        },
+        {
+          "id": "RB2-11",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 7.448400021530688,
+          "ranked_locators": [
+            "distractor-08",
+            "distractor-01",
+            "timestamps",
+            "distractor-14",
+            "distractor-12",
+            "citations",
+            "handoff",
+            "distractor-03",
+            "distractor-11",
+            "replay"
+          ],
+          "chunk_ids": [
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5"
+          ]
+        },
+        {
+          "id": "RB2-12",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 7.503499975427985,
+          "ranked_locators": [
+            "distractor-11",
+            "timestamps",
+            "distractor-13",
+            "distractor-03",
+            "distractor-02",
+            "distractor-01",
+            "distractor-07",
+            "distractor-04",
+            "distractor-09",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-13",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.1,
+          "ndcg_at_10": 0.2890648263178879,
+          "latency_ms": 8.189700020011514,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-03",
+            "distractor-01",
+            "distractor-07",
+            "handoff",
+            "timestamps",
+            "distractor-14",
+            "distractor-12",
+            "distractor-08",
+            "accounts"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "e5e0011f-91fe-5092-9964-4f502742a582"
+          ]
+        },
+        {
+          "id": "RB2-14",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.1,
+          "ndcg_at_10": 0.2890648263178879,
+          "latency_ms": 8.03029997041449,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-03",
+            "distractor-01",
+            "replay",
+            "distractor-15",
+            "timestamps",
+            "approval",
+            "distractor-13",
+            "distractor-10",
+            "refunds"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e"
+          ]
+        },
+        {
+          "id": "RB2-15",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.5
+          },
+          "mrr_at_10": 0.125,
+          "ndcg_at_10": 0.19342640361727081,
+          "latency_ms": 7.921599957626313,
+          "ranked_locators": [
+            "distractor-11",
+            "replay",
+            "timestamps",
+            "handoff",
+            "distractor-03",
+            "approval",
+            "distractor-01",
+            "versions",
+            "distractor-09",
+            "distractor-12"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5"
+          ]
+        },
+        {
+          "id": "RB2-16",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.5714285040141098,
+          "latency_ms": 9.674499975517392,
+          "ranked_locators": [
+            "distractor-11",
+            "handoff",
+            "distractor-09",
+            "distractor-01",
+            "citations",
+            "distractor-07",
+            "distractor-12",
+            "timestamps",
+            "verification",
+            "provider"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2"
+          ]
+        },
+        {
+          "id": "RB2-17",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 9.083100012503564,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-08",
+            "timestamps",
+            "distractor-01",
+            "distractor-07",
+            "distractor-02",
+            "citations",
+            "distractor-10",
+            "distractor-03",
+            "distractor-13"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2"
+          ]
+        },
+        {
+          "id": "RB2-18",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.5,
+            "10": 0.5
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.2640681225725909,
+          "latency_ms": 8.133800001814961,
+          "ranked_locators": [
+            "distractor-03",
+            "distractor-11",
+            "distractor-01",
+            "deadline",
+            "timestamps",
+            "approval",
+            "distractor-15",
+            "distractor-10",
+            "distractor-07",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        },
+        {
+          "id": "RB2-19",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.5
+          },
+          "mrr_at_10": 0.14285714285714285,
+          "ndcg_at_10": 0.20438239758848611,
+          "latency_ms": 7.748899981379509,
+          "ranked_locators": [
+            "distractor-11",
+            "replay",
+            "timestamps",
+            "approval",
+            "distractor-03",
+            "distractor-01",
+            "versions",
+            "distractor-04",
+            "handoff",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-20",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 8.222399977967143,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-03",
+            "distractor-01",
+            "handoff",
+            "distractor-09",
+            "approval",
+            "pending",
+            "distractor-07",
+            "distractor-10",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-21",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 7.534399977885187,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "replay",
+            "approval",
+            "handoff",
+            "deadline",
+            "evidence",
+            "timestamps",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-22",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 7.918899995274842,
+          "ranked_locators": [
+            "distractor-11",
+            "replay",
+            "timestamps",
+            "handoff",
+            "distractor-03",
+            "distractor-01",
+            "distractor-13",
+            "approval",
+            "versions",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        },
+        {
+          "id": "RB2-23",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.1,
+          "ndcg_at_10": 0.2890648263178879,
+          "latency_ms": 7.8449000138789415,
+          "ranked_locators": [
+            "distractor-11",
+            "timestamps",
+            "distractor-01",
+            "distractor-13",
+            "distractor-09",
+            "distractor-10",
+            "distractor-02",
+            "citations",
+            "distractor-03",
+            "verification"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef"
+          ]
+        },
+        {
+          "id": "RB2-24",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 0.0
+          },
+          "mrr_at_10": 0.0,
+          "ndcg_at_10": 0.0,
+          "latency_ms": 8.724099956452847,
+          "ranked_locators": [
+            "handoff",
+            "distractor-01",
+            "distractor-11",
+            "distractor-12",
+            "distractor-03",
+            "replay",
+            "versions",
+            "approval",
+            "distractor-09",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-25",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.176299976184964,
+          "ranked_locators": [
+            "citations",
+            "distractor-01",
+            "distractor-10",
+            "timestamps",
+            "distractor-11",
+            "distractor-12",
+            "verification",
+            "evidence",
+            "distractor-03",
+            "replay"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5"
+          ]
+        },
+        {
+          "id": "RB2-26",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 8.185599988792092,
+          "ranked_locators": [
+            "handoff",
+            "distractor-08",
+            "distractor-01",
+            "distractor-11",
+            "provider",
+            "distractor-12",
+            "distractor-14",
+            "timestamps",
+            "evidence",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-27",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.125,
+          "ndcg_at_10": 0.31546487678572877,
+          "latency_ms": 7.3370999889448285,
+          "ranked_locators": [
+            "distractor-03",
+            "distractor-11",
+            "distractor-01",
+            "approval",
+            "replay",
+            "distractor-10",
+            "distractor-15",
+            "evidence",
+            "citations",
+            "deadline"
+          ],
+          "chunk_ids": [
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068"
+          ]
+        },
+        {
+          "id": "RB2-28",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.1,
+          "ndcg_at_10": 0.2890648263178879,
+          "latency_ms": 6.825299991760403,
+          "ranked_locators": [
+            "distractor-11",
+            "distractor-01",
+            "distractor-03",
+            "approval",
+            "handoff",
+            "timestamps",
+            "distractor-15",
+            "distractor-10",
+            "replay",
+            "refunds"
+          ],
+          "chunk_ids": [
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e"
+          ]
+        },
+        {
+          "id": "RB2-29",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.1,
+          "ndcg_at_10": 0.2890648263178879,
+          "latency_ms": 7.832700037397444,
+          "ranked_locators": [
+            "replay",
+            "distractor-01",
+            "timestamps",
+            "distractor-08",
+            "citations",
+            "provider",
+            "distractor-11",
+            "distractor-12",
+            "evidence",
+            "tenants"
+          ],
+          "chunk_ids": [
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147"
+          ]
+        },
+        {
+          "id": "RB2-30",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 0.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.1111111111111111,
+          "ndcg_at_10": 0.3010299956639812,
+          "latency_ms": 8.49699997343123,
+          "ranked_locators": [
+            "distractor-01",
+            "distractor-11",
+            "handoff",
+            "distractor-14",
+            "distractor-07",
+            "timestamps",
+            "distractor-03",
+            "distractor-08",
+            "accounts",
+            "distractor-05"
+          ],
+          "chunk_ids": [
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d"
+          ]
+        },
+        {
+          "id": "RB2-31",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.50290002906695,
+          "ranked_locators": [
+            "timestamps",
+            "distractor-03",
+            "distractor-11",
+            "distractor-13",
+            "distractor-01",
+            "distractor-07",
+            "distractor-10",
+            "distractor-14",
+            "distractor-04",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-32",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 7.936000009067357,
+          "ranked_locators": [
+            "distractor-03",
+            "distractor-11",
+            "distractor-01",
+            "timestamps",
+            "deadline",
+            "distractor-13",
+            "approval",
+            "distractor-15",
+            "distractor-09",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        }
+      ]
+    },
+    "hybrid_any_v2": {
+      "summary": {
+        "dev": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.625,
+            "3": 0.90625,
+            "5": 0.90625,
+            "10": 0.96875
+          },
+          "mrr_at_10": 0.875,
+          "ndcg_at_10": 0.870545392992905,
+          "p50_ms": 8.054350008023903,
+          "p95_ms": 8.755050017498434
+        },
+        "test": {
+          "N": 16,
+          "mean_recall_at_k": {
+            "1": 0.53125,
+            "3": 0.78125,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.728125,
+          "ndcg_at_10": 0.7967557726914989,
+          "p50_ms": 9.379499970236793,
+          "p95_ms": 11.295775024336763
+        }
+      },
+      "queries": [
+        {
+          "id": "RB2-01",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.8315546295836225,
+          "latency_ms": 8.666599984280765,
+          "ranked_locators": [
+            "ownership",
+            "distractor-11",
+            "distractor-01",
+            "pending",
+            "distractor-05",
+            "verification",
+            "distractor-07",
+            "distractor-15",
+            "distractor-04",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-02",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.73120001051575,
+          "ranked_locators": [
+            "deadline",
+            "pending",
+            "timestamps",
+            "distractor-03",
+            "distractor-13",
+            "tools",
+            "distractor-01",
+            "distractor-11",
+            "distractor-09",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        },
+        {
+          "id": "RB2-03",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.525399967562407,
+          "ranked_locators": [
+            "approval",
+            "pending",
+            "deadline",
+            "distractor-11",
+            "accounts",
+            "distractor-01",
+            "distractor-03",
+            "tools",
+            "refunds",
+            "distractor-15"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f"
+          ]
+        },
+        {
+          "id": "RB2-04",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 8.826600038446486,
+          "ranked_locators": [
+            "approval",
+            "versions",
+            "distractor-11",
+            "replay",
+            "pending",
+            "distractor-03",
+            "evidence",
+            "timestamps",
+            "distractor-07",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-05",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.017499989364296,
+          "ranked_locators": [
+            "refunds",
+            "handoff",
+            "distractor-11",
+            "distractor-06",
+            "verification",
+            "ownership",
+            "distractor-10",
+            "distractor-12",
+            "distractor-01",
+            "distractor-07"
+          ],
+          "chunk_ids": [
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "623307d5-fd47-548f-ab41-f8b6d841030e"
+          ]
+        },
+        {
+          "id": "RB2-06",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.532200008630753,
+          "ranked_locators": [
+            "tools",
+            "pending",
+            "distractor-11",
+            "distractor-03",
+            "approval",
+            "distractor-01",
+            "distractor-09",
+            "distractor-10",
+            "versions",
+            "deadline"
+          ],
+          "chunk_ids": [
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068"
+          ]
+        },
+        {
+          "id": "RB2-07",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 6.913500023074448,
+          "ranked_locators": [
+            "evidence",
+            "pending",
+            "refunds",
+            "tools",
+            "distractor-15",
+            "distractor-03",
+            "approval",
+            "deadline",
+            "distractor-01",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-08",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.810799987055361,
+          "ranked_locators": [
+            "provider",
+            "evidence",
+            "timestamps",
+            "replay",
+            "versions",
+            "tenants",
+            "distractor-14",
+            "distractor-13",
+            "distractor-16",
+            "deadline"
+          ],
+          "chunk_ids": [
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068"
+          ]
+        },
+        {
+          "id": "RB2-09",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 7.839399971999228,
+          "ranked_locators": [
+            "approval",
+            "replay",
+            "pending",
+            "evidence",
+            "distractor-11",
+            "distractor-03",
+            "deadline",
+            "distractor-01",
+            "distractor-15",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-10",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.288600016385317,
+          "ranked_locators": [
+            "citations",
+            "distractor-16",
+            "ownership",
+            "distractor-07",
+            "provider",
+            "distractor-11",
+            "handoff",
+            "distractor-12",
+            "deadline",
+            "verification"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef"
+          ]
+        },
+        {
+          "id": "RB2-11",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.09120002668351,
+          "ranked_locators": [
+            "tenants",
+            "distractor-08",
+            "distractor-12",
+            "versions",
+            "citations",
+            "accounts",
+            "ownership",
+            "tools",
+            "distractor-01",
+            "distractor-15"
+          ],
+          "chunk_ids": [
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f"
+          ]
+        },
+        {
+          "id": "RB2-12",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.508600003551692,
+          "ranked_locators": [
+            "timestamps",
+            "distractor-13",
+            "distractor-02",
+            "distractor-11",
+            "distractor-04",
+            "distractor-07",
+            "pending",
+            "distractor-03",
+            "verification",
+            "versions"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f"
+          ]
+        },
+        {
+          "id": "RB2-13",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 8.127000008244067,
+          "ranked_locators": [
+            "distractor-07",
+            "accounts",
+            "versions",
+            "distractor-11",
+            "pending",
+            "distractor-01",
+            "distractor-03",
+            "tools",
+            "ownership",
+            "verification"
+          ],
+          "chunk_ids": [
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef"
+          ]
+        },
+        {
+          "id": "RB2-14",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.555299962405115,
+          "ranked_locators": [
+            "refunds",
+            "pending",
+            "distractor-11",
+            "evidence",
+            "distractor-03",
+            "distractor-01",
+            "distractor-15",
+            "approval",
+            "distractor-06",
+            "tools"
+          ],
+          "chunk_ids": [
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28"
+          ]
+        },
+        {
+          "id": "RB2-15",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.5912352048230277,
+          "latency_ms": 6.717600044794381,
+          "ranked_locators": [
+            "approval",
+            "versions",
+            "replay",
+            "distractor-11",
+            "distractor-03",
+            "distractor-09",
+            "pending",
+            "timestamps",
+            "evidence",
+            "distractor-12"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5"
+          ]
+        },
+        {
+          "id": "RB2-16",
+          "split": "dev",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 0.5,
+            "5": 0.5,
+            "10": 0.5
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 0.6131471927654584,
+          "latency_ms": 7.643000048119575,
+          "ranked_locators": [
+            "verification",
+            "ownership",
+            "distractor-11",
+            "tools",
+            "distractor-07",
+            "distractor-09",
+            "versions",
+            "pending",
+            "distractor-01",
+            "timestamps"
+          ],
+          "chunk_ids": [
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d"
+          ]
+        },
+        {
+          "id": "RB2-17",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 8.212199958506972,
+          "ranked_locators": [
+            "verification",
+            "ownership",
+            "distractor-07",
+            "distractor-10",
+            "distractor-15",
+            "distractor-11",
+            "distractor-13",
+            "distractor-04",
+            "pending",
+            "distractor-12"
+          ],
+          "chunk_ids": [
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5"
+          ]
+        },
+        {
+          "id": "RB2-18",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.5,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 7.952800020575523,
+          "ranked_locators": [
+            "deadline",
+            "pending",
+            "approval",
+            "distractor-11",
+            "distractor-03",
+            "distractor-01",
+            "distractor-04",
+            "distractor-15",
+            "tools",
+            "distractor-13"
+          ],
+          "chunk_ids": [
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2"
+          ]
+        },
+        {
+          "id": "RB2-19",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.5,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6509209298071326,
+          "latency_ms": 8.194900001399219,
+          "ranked_locators": [
+            "approval",
+            "versions",
+            "replay",
+            "pending",
+            "distractor-11",
+            "distractor-04",
+            "evidence",
+            "verification",
+            "distractor-13",
+            "distractor-03"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a"
+          ]
+        },
+        {
+          "id": "RB2-20",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.25,
+          "ndcg_at_10": 0.43067655807339306,
+          "latency_ms": 8.214800036512315,
+          "ranked_locators": [
+            "pending",
+            "distractor-11",
+            "approval",
+            "handoff",
+            "distractor-01",
+            "distractor-03",
+            "accounts",
+            "deadline",
+            "tools",
+            "versions"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f"
+          ]
+        },
+        {
+          "id": "RB2-21",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 8.116799988783896,
+          "ranked_locators": [
+            "approval",
+            "pending",
+            "deadline",
+            "evidence",
+            "versions",
+            "replay",
+            "distractor-03",
+            "distractor-11",
+            "distractor-01",
+            "distractor-15"
+          ],
+          "chunk_ids": [
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f"
+          ]
+        },
+        {
+          "id": "RB2-22",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 10.126099979970604,
+          "ranked_locators": [
+            "replay",
+            "distractor-11",
+            "approval",
+            "versions",
+            "distractor-12",
+            "timestamps",
+            "distractor-13",
+            "distractor-03",
+            "pending",
+            "evidence"
+          ],
+          "chunk_ids": [
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8"
+          ]
+        },
+        {
+          "id": "RB2-23",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 11.295100033748895,
+          "ranked_locators": [
+            "verification",
+            "ownership",
+            "distractor-11",
+            "timestamps",
+            "distractor-01",
+            "versions",
+            "distractor-02",
+            "distractor-13",
+            "distractor-09",
+            "distractor-04"
+          ],
+          "chunk_ids": [
+            "c7c78ec8-ec81-5f0e-90dd-f8743f8994ef",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77",
+            "94a98974-52dd-5fa0-a82e-2aa036377854"
+          ]
+        },
+        {
+          "id": "RB2-24",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 9.697299974504858,
+          "ranked_locators": [
+            "versions",
+            "tools",
+            "pending",
+            "distractor-12",
+            "distractor-11",
+            "distractor-01",
+            "replay",
+            "distractor-03",
+            "approval",
+            "distractor-09"
+          ],
+          "chunk_ids": [
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "44e69b86-7617-5e52-99c6-cfea1038eb77"
+          ]
+        },
+        {
+          "id": "RB2-25",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 11.297799996100366,
+          "ranked_locators": [
+            "citations",
+            "evidence",
+            "tools",
+            "tenants",
+            "distractor-01",
+            "distractor-05",
+            "distractor-08",
+            "distractor-04",
+            "distractor-02",
+            "distractor-16"
+          ],
+          "chunk_ids": [
+            "1ec8864e-6bb7-56c3-b344-56c6f56dc30e",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "52975b0c-5c5b-5346-9017-aa6e3aff2e3e",
+            "72f5b9ac-b725-5c08-ab3c-4ed1b3896fef"
+          ]
+        },
+        {
+          "id": "RB2-26",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 10.546800040174276,
+          "ranked_locators": [
+            "handoff",
+            "distractor-08",
+            "tenants",
+            "distractor-01",
+            "provider",
+            "distractor-14",
+            "distractor-12",
+            "evidence",
+            "distractor-10",
+            "distractor-11"
+          ],
+          "chunk_ids": [
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "49e1910e-532e-50b8-b1a6-fbdb8749b7b1",
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a"
+          ]
+        },
+        {
+          "id": "RB2-27",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 9.32660000398755,
+          "ranked_locators": [
+            "evidence",
+            "approval",
+            "pending",
+            "deadline",
+            "refunds",
+            "distractor-03",
+            "replay",
+            "distractor-15",
+            "distractor-11",
+            "tools"
+          ],
+          "chunk_ids": [
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "ee9a0f0b-4ced-51d9-803f-940c6f2e6a28"
+          ]
+        },
+        {
+          "id": "RB2-28",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.5,
+          "ndcg_at_10": 0.6309297535714575,
+          "latency_ms": 9.384999983012676,
+          "ranked_locators": [
+            "pending",
+            "refunds",
+            "distractor-11",
+            "approval",
+            "distractor-01",
+            "distractor-03",
+            "distractor-15",
+            "evidence",
+            "deadline",
+            "distractor-10"
+          ],
+          "chunk_ids": [
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "f841d975-3c59-5f70-90f0-6fca87efb42e",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e"
+          ]
+        },
+        {
+          "id": "RB2-29",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 9.966299985535443,
+          "ranked_locators": [
+            "tenants",
+            "provider",
+            "replay",
+            "distractor-04",
+            "evidence",
+            "versions",
+            "distractor-14",
+            "distractor-11",
+            "handoff",
+            "accounts"
+          ],
+          "chunk_ids": [
+            "eebd7289-d538-571e-9b89-eb8c6efbc147",
+            "b18f6c8b-ec25-5130-ad14-9e32ab52c9c2",
+            "5b6dece1-b456-501e-a37e-6ef78e7ed3e5",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "b977fd69-f3a9-5841-8afd-b4e439ff3cf8",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "e5e0011f-91fe-5092-9964-4f502742a582"
+          ]
+        },
+        {
+          "id": "RB2-30",
+          "split": "test",
+          "recall_at_k": {
+            "1": 0.0,
+            "3": 0.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 0.2,
+          "ndcg_at_10": 0.38685280723454163,
+          "latency_ms": 9.188600000925362,
+          "ranked_locators": [
+            "distractor-07",
+            "distractor-01",
+            "handoff",
+            "distractor-14",
+            "accounts",
+            "distractor-05",
+            "distractor-11",
+            "ownership",
+            "distractor-06",
+            "distractor-12"
+          ],
+          "chunk_ids": [
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "3bbcf1b3-1dcb-5cd0-b8cf-f9c12ac59007",
+            "4c595e61-45be-511f-8595-93e1a7732141",
+            "e5e0011f-91fe-5092-9964-4f502742a582",
+            "d16b4b7e-ab76-5a7c-b76f-4ea99ecd5c1d",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "81985750-585c-527f-a1e9-cf9573c3951d",
+            "8010c9cd-9e65-5e3e-811c-fd213d240de5"
+          ]
+        },
+        {
+          "id": "RB2-31",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 9.37399995746091,
+          "ranked_locators": [
+            "timestamps",
+            "distractor-07",
+            "distractor-04",
+            "ownership",
+            "distractor-11",
+            "distractor-13",
+            "versions",
+            "distractor-01",
+            "pending",
+            "distractor-03"
+          ],
+          "chunk_ids": [
+            "31715749-526b-5bfd-828d-7c2f5fb3b79d",
+            "623307d5-fd47-548f-ab41-f8b6d841030e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "e476382f-cfe2-53d5-9cf0-33572de2b6f0",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "b532d70c-022e-5ac7-9caf-928644e5dd4f",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a"
+          ]
+        },
+        {
+          "id": "RB2-32",
+          "split": "test",
+          "recall_at_k": {
+            "1": 1.0,
+            "3": 1.0,
+            "5": 1.0,
+            "10": 1.0
+          },
+          "mrr_at_10": 1.0,
+          "ndcg_at_10": 1.0,
+          "latency_ms": 11.237200000323355,
+          "ranked_locators": [
+            "deadline",
+            "pending",
+            "distractor-03",
+            "distractor-11",
+            "approval",
+            "distractor-13",
+            "distractor-01",
+            "distractor-10",
+            "distractor-04",
+            "distractor-15"
+          ],
+          "chunk_ids": [
+            "a9b3e37d-6008-51de-8aeb-6ee31f324068",
+            "f9d06689-7c77-551e-8259-2d02785c5bb4",
+            "0f39d242-aa4a-551f-99fd-1b55e0d9560a",
+            "0330589f-8093-5461-bbe1-4cb14ed3305a",
+            "97182ff2-8efa-588d-98eb-f4060e6d2569",
+            "5d7e838a-5caa-58da-8823-3986b02ffbe2",
+            "07fbc55c-5a3e-5520-b249-538925d9d348",
+            "6e9b6934-02e1-5bab-9cc0-d5edf934389e",
+            "94a98974-52dd-5fa0-a82e-2aa036377854",
+            "a3cb8419-f49e-59e8-b8ce-5d1c7a093e1f"
+          ]
+        }
+      ]
+    }
+  },
+  "isolation_checks": {
+    "actual_beta_corpus_exists_and_retrievable_as_beta": true,
+    "same_beta_corpus_empty_as_alpha": true,
+    "retired_corpus_empty": true,
+    "admin_beta_retired_canaries_absent_from_operator_rankings": true
+  },
+  "claim_support_human_review": null,
+  "lexical_semantics": "Legacy all uses AND plainto_tsquery and retains zero-score ranks. New any uses parameterized OR websearch terms and excludes zero-score lexical entries from ranking/fusion. No main pipeline configuration is changed.",
+  "latency_scope": "Warm retrieval with a new scoped runtime-role transaction per query; local CPU/PostgreSQL. Excludes fixture seed, routing, generation and provider calls.",
+  "runtime_role": "resolvelab_app",
+  "runtime_bypass_rls": false,
+  "selected_by_dev_only": "dense_v1",
+  "limitations": "32 agent-authored synthetic queries,16 per split; no independent human relevance adjudication or representative traffic sample. Ranking comparison does not establish answer factuality or retrieval abstention on unknown topics. Main demo still retains its previous corpus/retrieval release."
+}

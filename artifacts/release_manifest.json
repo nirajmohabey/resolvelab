@@ -1,36 +1,67 @@
 {
-  "first_source_commit": "b8dfaf4cfebe55486018d61dc4d810d271804512",
-  "application_file_sha256": {
-    "src/resolvelab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "src/resolvelab/api.py": "7793f1abd1e9451727f7dccff9239ca0e80040688374c394c94302cf47154ae8",
-    "src/resolvelab/auth.py": "d548c570e35711a96779ac8e01d72eeb8febe29deeb048d74ce5f9dba3306469",
-    "src/resolvelab/db.py": "7bf835bbacfb5ae82cb82c8f4279749e2f21589c31d167442eec2ce871547d8e",
-    "src/resolvelab/evaluate.py": "2069b09d8a41c3fdb3a2a06587bfa4a94c24a306205b5d7082e197a179e54457",
-    "src/resolvelab/generation.py": "bb4708d1ec53be4520212a56e7196167b7f94a706223a47947a2b9584df64760",
-    "src/resolvelab/ml.py": "6222954275ecc5cee60e27d515d43384f1f1e1db30cff8a71689c97144a8f16c",
-    "src/resolvelab/retrieval.py": "6205034fa441c821b7b9cc688ea4bc30489b71e1943551cdde95d3385eab4d02",
-    "src/resolvelab/schemas.py": "b46fdc01671333a31c307e0df0cba1b765add6dcdc2bcc2ec4e53863d030af88",
-    "src/resolvelab/seed.py": "aa8b51e65e5930245159902411f16f40dc8ad145458b036d01b6aa5e98737b12",
-    "src/resolvelab/service.py": "5e04cc9463c6fb1dbc99c0d5ca1c1ac3dc754c14ec8e8938e4f3abf1c787ca1a",
-    "src/resolvelab/worker.py": "6417e1190d04ec94d30763bcb2e6812ad99e59f3e42ef94a779a1cdf686cb06d",
-    "web/app.css": "06fd42c42a0dc29e8e285062aa931fde92e7a76dde230f42e014946a08758fdb",
-    "web/app.js": "76a73f0cc69763ef3a5724a0ff290fe865da28ee91142fbca493e61e9d96a5b7",
-    "web/index.html": "fabeeb6566cf478883f5ae4e8ff39bbb2a7c0749f6fe7e303eba749a3676a3b7"
+  "release": "v0.1.0",
+  "generated_at": "2026-11-23T08:48:02.927442+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
   },
-  "dependency_lock_sha256": "8e0766142877b58113631effa9acfc0f30eabed183e394c380e8bb20f8a8d58a",
-  "model_artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+  "python_source_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+  "application_file_sha256": {
+    "migrations/versions/0001_core.py": "e0be9fb98d6b6450c05ab2c4c0b940581270d7ba042405560a57ff06492ee984",
+    "migrations/versions/0002_security.py": "e5096df275ea0872804e3aa288109f4808a41fecc1ce26b4a69d725242ce291b",
+    "migrations/versions/0003_retrieval_release.py": "8aa230c5935932a73eeeb55d2966ee84b3a21874560f9a5d7f5144b95676b0c2",
+    "src/resolvelab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/resolvelab/api.py": "57ff44fe6b8be023fb6e11be976403b9090f3cc9c13b028b5d73176120ca636f",
+    "src/resolvelab/auth.py": "38f343cd0192865b542b33bc0e6fa7ef098a290a2cb6a077c0d2cfd031dc38b5",
+    "src/resolvelab/config.py": "e1f0de27e10c8d946eb7ab540f2fa3187ad9d817aab85fb12f1105fef1a5146f",
+    "src/resolvelab/db.py": "da076bdc2d995302cf5aea737597eb58c64bd18f45b38e088c95b1882772d8f7",
+    "src/resolvelab/evaluate.py": "751fdeb077f6f8d1ffadfa3de14ae3dc0882a4391f2d35e5028f621873188ea4",
+    "src/resolvelab/evaluation_job.py": "00582a3738eb9bbc52e970f655c85d1851a3d22b2aedfb37f19020d658950271",
+    "src/resolvelab/generation.py": "bb4708d1ec53be4520212a56e7196167b7f94a706223a47947a2b9584df64760",
+    "src/resolvelab/ml.py": "b54ea98248a85fc1d27569877ad5ab6a7ad1ac99cf81582744a3029a10cb54c9",
+    "src/resolvelab/processes.py": "8b60b7e1515f5fa46a070799e7a64a12e6e809fc1d009deb2a518543a1a009a1",
+    "src/resolvelab/provision.py": "12b4e11cf88b91d45ac8b5e86961c69ba8a5c6da2c0f9a928b5def32b0df719d",
+    "src/resolvelab/retrieval.py": "f0f6e3f815f3eac21f9e95e142ac17a8c9e8b61b83055cf285334f57675762a2",
+    "src/resolvelab/schemas.py": "26899200bc2aa1aced1b962801ff603d81c39bb21768d1d720925319de2c2e56",
+    "src/resolvelab/security.py": "b3ca55ab41ba658c080cabf49ac78727893c09066e0df300dfaf4bdb5aef65e0",
+    "src/resolvelab/seed.py": "f22412651d3cb36758b2db981d0e57c8f8d436b14f710cddab7c6c623fd9a4f3",
+    "src/resolvelab/service.py": "07b11ddd3007efd48836fd179bc0a2c33b62f47a50d01f5265e03968b5fb68bd",
+    "src/resolvelab/worker.py": "ff9353effaa373ed0b619e2c3731d2b71e45bda954c1d37e4210c5529118c551",
+    "web/app.css": "68ba80da21a69156128e2947d649d4c6731022b0e6967650119209a9edd17bd6",
+    "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+    "web/auth-client-src.js": "3fcf6c58056b3cb580eec8755381bfc6e111a1880bcf4cac5536068e1b6db6a8",
+    "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb",
+    "web/index.html": "b4196e3efc5baa6d7567a2931238049df6cc30b107551bb925cc6d25478eb5e8"
+  },
+  "locks": {
+    "uv.lock": "fb643b44c76d9019fe1003e7902dfa27c2d0992bea26db27cbe18b4f0f58efac",
+    "requirements.lock": "63f284589c36a522742f58502e4a3ee9ee77f5c6e973a025f1e66c57b423baf7",
+    "package-lock.json": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701"
+  },
+  "model": {
+    "version": "domain-router-v4",
+    "sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "threshold": 0.425
+  },
   "tests": {
     "name": "pytest",
     "errors": "0",
     "failures": "0",
     "skipped": "0",
-    "tests": "64",
-    "time": "15.055",
-    "timestamp": "2026-11-23T02:37:29.605737-05:00",
+    "tests": "95",
+    "time": "38.308",
+    "timestamp": "2026-11-23T03:29:21.414028-05:00",
     "hostname": "Niraj-16ARX8"
   },
   "browser": {
     "passed": 9,
+    "source_hashes": {
+      "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+      "web/app.css": "68ba80da21a69156128e2947d649d4c6731022b0e6967650119209a9edd17bd6",
+      "web/index.html": "b4196e3efc5baa6d7567a2931238049df6cc30b107551bb925cc6d25478eb5e8",
+      "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb"
+    },
+    "source_stable": true,
     "errors": [],
     "base_url": "http://127.0.0.1:8000",
     "viewport": [
@@ -41,53 +72,637 @@
       390,
       844
     ],
-    "generated_at": "2026-11-23T07:37:58.671Z"
+    "generated_at": "2026-11-23T08:44:46.677Z"
   },
-  "deterministic_workflows": {
-    "workflow_success": {
-      "numerator": 20,
-      "denominator": 20,
-      "rate": 1.0
+  "oidc": {
+    "generated_at": "2026-11-23T08:44:26.419Z",
+    "browser": "158.0.8127.37",
+    "mode": "mocked HTTPS IdP and app API, real RSA signatures, no production provider credentials",
+    "source_hashes": {
+      "web/auth-client-src.js": "3fcf6c58056b3cb580eec8755381bfc6e111a1880bcf4cac5536068e1b6db6a8",
+      "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb",
+      "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+      "package-lock.json": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701"
     },
-    "runner_errors": 0,
-    "critical_failures": 0,
-    "unauthorized_effect_count": 0,
-    "all_tenant_effect_checks_completed": 20,
-    "p50_ms": 37.8405,
-    "p95_ms": 61.215,
-    "estimated_provider_cost_usd": null,
-    "citation_support_human_review": null,
-    "safe_escalation_recall": {
-      "numerator": 8,
-      "denominator": 8,
-      "rate": 1.0
-    },
-    "workflow_failures": 0
+    "source_stable": true,
+    "passed": 9,
+    "total": 9,
+    "results": [
+      {
+        "scenario": "success_and_disconnect",
+        "passed": true,
+        "requests": {
+          "token": 1,
+          "jwks": 1,
+          "session": 1,
+          "demo": 0,
+          "authorization": 1,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "bad_state",
+        "passed": true,
+        "requests": {
+          "token": 0,
+          "jwks": 0,
+          "session": 0,
+          "demo": 0,
+          "authorization": 1,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "bad_nonce",
+        "passed": true,
+        "requests": {
+          "token": 1,
+          "jwks": 0,
+          "session": 0,
+          "demo": 0,
+          "authorization": 1,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "bad_signature",
+        "passed": true,
+        "requests": {
+          "token": 1,
+          "jwks": 1,
+          "session": 0,
+          "demo": 0,
+          "authorization": 1,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "expired_token",
+        "passed": true,
+        "requests": {
+          "token": 1,
+          "jwks": 0,
+          "session": 0,
+          "demo": 0,
+          "authorization": 1,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "unconfigured",
+        "passed": true,
+        "requests": {
+          "token": 0,
+          "jwks": 0,
+          "session": 0,
+          "demo": 0,
+          "authorization": 0,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "spoofed_fixture",
+        "passed": true,
+        "requests": {
+          "token": 0,
+          "jwks": 0,
+          "session": 0,
+          "demo": 0,
+          "authorization": 0,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "malformed_pending_timestamp",
+        "passed": true,
+        "requests": {
+          "token": 0,
+          "jwks": 0,
+          "session": 0,
+          "demo": 0,
+          "authorization": 1,
+          "unauthenticated_protected": 0
+        }
+      },
+      {
+        "scenario": "late_response_after_disconnect",
+        "passed": true,
+        "requests": {
+          "token": 1,
+          "jwks": 1,
+          "session": 1,
+          "demo": 0,
+          "authorization": 1,
+          "unauthenticated_protected": 0
+        }
+      }
+    ],
+    "limitations": [
+      "Identity-provider account registration, public TLS, real provider CORS and hosted callback URLs are not exercised by this isolated browser harness.",
+      "Backend token signatures and server-managed identity bindings are verified separately by PostgreSQL-backed acceptance tests."
+    ]
   },
-  "independent_final": {
-    "workflow_success": {
-      "numerator": 74,
-      "denominator": 100,
-      "rate": 0.74
+  "ui_races": {
+    "generated_at": "2026-11-23T08:44:31.062Z",
+    "read_only": true,
+    "backend_connected": false,
+    "initial_app_sha256": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+    "app_sha256": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+    "source_stable": true,
+    "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
+    "passed": 10,
+    "total": 10,
+    "failures": 0,
+    "results": [
+      {
+        "name": "latest case selection wins over an older case response",
+        "passed": true,
+        "authentication": "real fixture auth adapter",
+        "api_requests_intercepted": 7,
+        "page_errors": [],
+        "duration_ms": 1753
+      },
+      {
+        "name": "late case A evidence cannot replace case B evidence",
+        "passed": true,
+        "authentication": "real fixture auth adapter",
+        "api_requests_intercepted": 8,
+        "page_errors": [],
+        "duration_ms": 1495
+      },
+      {
+        "name": "late case A trace cannot replace case B trace",
+        "passed": true,
+        "authentication": "real fixture auth adapter",
+        "api_requests_intercepted": 8,
+        "page_errors": [],
+        "duration_ms": 1469
+      },
+      {
+        "name": "late evidence cannot overwrite the newly selected trace tab",
+        "passed": true,
+        "authentication": "real fixture auth adapter",
+        "api_requests_intercepted": 7,
+        "page_errors": [],
+        "duration_ms": 1523
+      },
+      {
+        "name": "late evidence error cannot replace another case",
+        "passed": true,
+        "authentication": "real fixture auth adapter",
+        "api_requests_intercepted": 8,
+        "page_errors": [],
+        "duration_ms": 1447
+      },
+      {
+        "name": "OIDC 401 during evidence clears the workspace without a page error",
+        "passed": true,
+        "authentication": "synthetic OIDC adapter; real workbench session handling",
+        "api_requests_intercepted": 5,
+        "page_errors": [],
+        "duration_ms": 1394
+      },
+      {
+        "name": "OIDC 401 during resolve clears the workspace without a page error",
+        "passed": true,
+        "authentication": "synthetic OIDC adapter; real workbench session handling",
+        "api_requests_intercepted": 5,
+        "page_errors": [],
+        "duration_ms": 1495
+      },
+      {
+        "name": "a rejected old request cannot redraw after disconnect",
+        "passed": true,
+        "authentication": "synthetic OIDC adapter; real workbench session handling",
+        "api_requests_intercepted": 5,
+        "page_errors": [],
+        "duration_ms": 1465
+      },
+      {
+        "name": "lost create response retries the same idempotency key and creates one case",
+        "passed": true,
+        "authentication": "real fixture auth adapter",
+        "api_requests_intercepted": 10,
+        "page_errors": [],
+        "duration_ms": 1528
+      },
+      {
+        "name": "late report A cannot replace a newly opened report B",
+        "passed": true,
+        "authentication": "real fixture auth adapter",
+        "api_requests_intercepted": 9,
+        "page_errors": [],
+        "duration_ms": 1644
+      }
+    ]
+  },
+  "accessibility": {
+    "states": 9,
+    "violations": 0,
+    "artifact": {
+      "path": "artifacts/accessibility/axe-results.json",
+      "sha256": "7d8d2718bfb94e702027b1315e056b4b816f51b430f74209125f2df97576dc36"
+    }
+  },
+  "evaluations": {
+    "deterministic": {
+      "path": "artifacts/hardening-final-invariants/workflow-evaluation.json",
+      "sha256": "0cca4725320016d53e279827e6f3320b6246dc8a56bdfcff4c195527028f59a7",
+      "metrics": {
+        "workflow_success": {
+          "numerator": 20,
+          "denominator": 20,
+          "rate": 1.0
+        },
+        "runner_errors": 0,
+        "critical_failures": 0,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 20,
+        "p50_ms": 41.143,
+        "p95_ms": 57.089,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 8,
+          "denominator": 8,
+          "rate": 1.0
+        },
+        "workflow_failures": 0
+      },
+      "routing_metrics": null,
+      "model_version": "domain-router-v4",
+      "dataset_sha256": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b"
     },
-    "runner_errors": 0,
-    "critical_failures": 26,
-    "unauthorized_effect_count": 0,
-    "all_tenant_effect_checks_completed": 100,
-    "p50_ms": 36.429,
-    "p95_ms": 41.463,
-    "estimated_provider_cost_usd": null,
-    "citation_support_human_review": null,
-    "safe_escalation_recall": {
-      "numerator": 59,
-      "denominator": 59,
-      "rate": 1.0
+    "v4_final": {
+      "path": "artifacts/v4/blind-final/workflow-evaluation.json",
+      "sha256": "1271b20677672f9d81ab7b437a8e6f6330367d288ee05e6b8ac0f90195f5d5af",
+      "metrics": {
+        "workflow_success": {
+          "numerator": 139,
+          "denominator": 160,
+          "rate": 0.86875
+        },
+        "runner_errors": 0,
+        "critical_failures": 21,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 160,
+        "p50_ms": 36.643,
+        "p95_ms": 47.395,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 95,
+          "denominator": 98,
+          "rate": 0.9693877551020408
+        },
+        "workflow_failures": 21
+      },
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.8705458144796381,
+        "confusion_matrix": [
+          [
+            35,
+            0,
+            0,
+            5
+          ],
+          [
+            2,
+            37,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            28,
+            11
+          ],
+          [
+            1,
+            0,
+            0,
+            39
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 0.9210526315789473,
+            "recall": 0.875,
+            "f1-score": 0.8974358974358975,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.9736842105263158,
+            "recall": 0.925,
+            "f1-score": 0.9487179487179487,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.7,
+            "f1-score": 0.8235294117647058,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.6964285714285714,
+            "recall": 0.975,
+            "f1-score": 0.8125,
+            "support": 40.0
+          },
+          "accuracy": 0.86875,
+          "macro avg": {
+            "precision": 0.8977913533834587,
+            "recall": 0.86875,
+            "f1-score": 0.8705458144796381,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.8977913533834586,
+            "recall": 0.86875,
+            "f1-score": 0.870545814479638,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 104,
+          "denominator": 160,
+          "rate": 0.65
+        },
+        "accepted_routing_error": {
+          "numerator": 4,
+          "denominator": 104,
+          "rate": 0.038461538461538464
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 27,
+        "learned_model_decisions": 133,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      },
+      "model_version": "domain-router-v4",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0"
     },
-    "workflow_failures": 26
+    "v1_paired": {
+      "path": "artifacts/v4/paired-baseline/workflow-evaluation.json",
+      "sha256": "3f961e7edc014a94573108fb5dcb2d3657a10ee9cf52ece8ba705792303382b3",
+      "metrics": {
+        "workflow_success": {
+          "numerator": 76,
+          "denominator": 160,
+          "rate": 0.475
+        },
+        "runner_errors": 0,
+        "critical_failures": 84,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 160,
+        "p50_ms": 30.6455,
+        "p95_ms": 40.181,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 96,
+          "denominator": 98,
+          "rate": 0.9795918367346939
+        },
+        "workflow_failures": 84
+      },
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.46378593386507144,
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            0,
+            31
+          ],
+          [
+            1,
+            17,
+            0,
+            22
+          ],
+          [
+            0,
+            1,
+            11,
+            28
+          ],
+          [
+            0,
+            1,
+            0,
+            39
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 0.9,
+            "recall": 0.225,
+            "f1-score": 0.36,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.8947368421052632,
+            "recall": 0.425,
+            "f1-score": 0.576271186440678,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.275,
+            "f1-score": 0.43137254901960786,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.325,
+            "recall": 0.975,
+            "f1-score": 0.4875,
+            "support": 40.0
+          },
+          "accuracy": 0.475,
+          "macro avg": {
+            "precision": 0.7799342105263158,
+            "recall": 0.475,
+            "f1-score": 0.46378593386507144,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.7799342105263157,
+            "recall": 0.475,
+            "f1-score": 0.4637859338650715,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 40,
+          "denominator": 160,
+          "rate": 0.25
+        },
+        "accepted_routing_error": {
+          "numerator": 3,
+          "denominator": 40,
+          "rate": 0.075
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 160,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      },
+      "model_version": "tfidf-logistic-v1",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0"
+    },
+    "v3_paired": {
+      "path": "artifacts/v4/paired-v3/workflow-evaluation.json",
+      "sha256": "bb05e78659f48a143d6af33fe434f315a07ce5e35203a4632f62c47c98b32647",
+      "metrics": {
+        "workflow_success": {
+          "numerator": 95,
+          "denominator": 160,
+          "rate": 0.59375
+        },
+        "runner_errors": 0,
+        "critical_failures": 65,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 160,
+        "p50_ms": 35.533500000000004,
+        "p95_ms": 43.639,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 97,
+          "denominator": 98,
+          "rate": 0.9897959183673469
+        },
+        "workflow_failures": 65
+      },
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.8691047297297297,
+        "confusion_matrix": [
+          [
+            35,
+            0,
+            0,
+            5
+          ],
+          [
+            0,
+            32,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            34,
+            6
+          ],
+          [
+            0,
+            3,
+            0,
+            37
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1-score": 0.9333333333333333,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.9142857142857143,
+            "recall": 0.8,
+            "f1-score": 0.8533333333333334,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.85,
+            "f1-score": 0.918918918918919,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.6607142857142857,
+            "recall": 0.925,
+            "f1-score": 0.7708333333333334,
+            "support": 40.0
+          },
+          "accuracy": 0.8625,
+          "macro avg": {
+            "precision": 0.8937499999999999,
+            "recall": 0.8625,
+            "f1-score": 0.8691047297297297,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.89375,
+            "recall": 0.8625,
+            "f1-score": 0.8691047297297297,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 54,
+          "denominator": 160,
+          "rate": 0.3375
+        },
+        "accepted_routing_error": {
+          "numerator": 1,
+          "denominator": 54,
+          "rate": 0.018518518518518517
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 160,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      },
+      "model_version": "domain-hybrid-v3",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0"
+    }
   },
   "backup_restore": {
-    "generated_at": "2026-11-23T07:18:27.011070+00:00",
-    "disposable_database": "resolvelab_restore_3dda4b5ff35b",
+    "generated_at": "2026-11-23T08:30:41.763831+00:00",
+    "disposable_database": "resolvelab_restore_795325a22419",
     "restored": true,
     "original_order_snapshot_verified": true,
     "synthetic_restore_probe_used": true,
@@ -97,13 +712,13 @@
     "command_output": "Restored tracking and atomic approval verified."
   },
   "model_rollback": {
-    "previous_model": "domain-hybrid-v3",
+    "previous_model": "domain-router-v4",
     "rollback_target": "tfidf-logistic-v1",
     "target_tracking_verified": true,
     "old_case_release_preserved": true,
     "original_pointer_restored": true,
-    "old_case_id": "c107aa2f-b9bb-4c62-9ec3-16065e461cc1",
-    "new_case_id": "d3e0f58d-60c3-4ae5-9b33-78b483d9f439"
+    "old_case_id": "d48899dd-ae68-40b7-94af-cbec76abfea9",
+    "new_case_id": "4b980f1a-ce48-4db4-8d0b-e04fde38c701"
   },
   "live_worker": {
     "readiness": {
@@ -118,12 +733,38 @@
     "inbox_preserved": true,
     "evaluation_jobs": [
       {
-        "evaluation_id": "5521c7f6-8900-4b7f-9fde-ebb519a7c777",
+        "evaluation_id": "ff4f950b-9458-4a4e-a93c-9ed039344217",
+        "release_id": "84f8a907-04de-5257-af61-98f317392d01",
+        "state": "completed",
+        "metrics": {
+          "p50_ms": 36.298,
+          "p95_ms": 111.666,
+          "runner_errors": 0,
+          "workflow_success": {
+            "rate": 1.0,
+            "numerator": 20,
+            "denominator": 20
+          },
+          "critical_failures": 0,
+          "workflow_failures": 0,
+          "safe_escalation_recall": {
+            "rate": 1.0,
+            "numerator": 8,
+            "denominator": 8
+          },
+          "unauthorized_effect_count": 0,
+          "estimated_provider_cost_usd": null,
+          "citation_support_human_review": null,
+          "all_tenant_effect_checks_completed": 20
+        }
+      },
+      {
+        "evaluation_id": "0e204c6c-de4b-488a-88f3-33b8b685656a",
         "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
         "state": "completed",
         "metrics": {
-          "p50_ms": 34.543499999999995,
-          "p95_ms": 105.294,
+          "p50_ms": 36.150999999999996,
+          "p95_ms": 111.658,
           "runner_errors": 0,
           "workflow_success": {
             "rate": 0.95,
@@ -144,12 +785,12 @@
         }
       },
       {
-        "evaluation_id": "dac5a293-6c64-4b0e-9507-8aceb37433ba",
+        "evaluation_id": "e6003927-db12-4df6-91a8-38424a2ca3ef",
         "release_id": "70ca5649-301c-540a-a93d-abfcf24703e3",
         "state": "completed",
         "metrics": {
-          "p50_ms": 30.147,
-          "p95_ms": 38.784,
+          "p50_ms": 37.826,
+          "p95_ms": 54.69,
           "runner_errors": 0,
           "workflow_success": {
             "rate": 0.6,
@@ -171,12 +812,81 @@
       }
     ]
   },
-  "ci": {
-    "status": "not_started",
-    "reason": "account_runner_restriction",
-    "run_url": "https://github.com/nirajmohabey/resolvelab/actions/runs/45130660423"
+  "dependency_audit": {
+    "generated_at": "2026-11-23T08:14:03.244862+00:00",
+    "commands": [
+      "python artifacts/security/audit_dependencies.py",
+      "npm audit --json --package-lock-only --registry=https://registry.npmjs.org"
+    ],
+    "inputs": {
+      "uv.lock": {
+        "sha256": "fb643b44c76d9019fe1003e7902dfa27c2d0992bea26db27cbe18b4f0f58efac",
+        "bytes": 187786
+      },
+      "requirements.lock": {
+        "sha256": "63f284589c36a522742f58502e4a3ee9ee77f5c6e973a025f1e66c57b423baf7",
+        "bytes": 35129
+      },
+      "package-lock.json": {
+        "sha256": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701",
+        "bytes": 17373
+      }
+    },
+    "osv": {
+      "queried_python_versions": 63,
+      "queried_npm_versions": 33,
+      "packages_with_advisories": 0,
+      "unique_advisories": 0
+    },
+    "npm": {
+      "exit_code": 0,
+      "reported_vulnerabilities": 0,
+      "registry": "https://registry.npmjs.org"
+    },
+    "limitations": [
+      "This checks known advisories for exact application dependency versions as of the query time; it is not proof of security.",
+      "The OSV query includes all resolved PyPI package versions in uv.lock, including platform-specific and development dependencies, plus the npm lock graph.",
+      "This does not scan a built container's operating-system packages, deployment configuration, application authorization, or pretrained model contents.",
+      "No dependency or advisory was automatically suppressed or upgraded by the audit."
+    ]
   },
-  "docker_execution": "unverified",
-  "public_cloud_deployment": null,
-  "paid_provider_measurement": null
+  "evidence_files": [
+    {
+      "path": "artifacts/checks/clean-install.json",
+      "sha256": "9d7bb70449b938f7b22dd79c9b402c96c166409754da6138d4ff1f1b2fe1a788"
+    },
+    {
+      "path": "artifacts/security/production-hardening.json",
+      "sha256": "6faf4f1657468886a9d76b1a0f42c2bcfc981183a90012f8ca5e6087c25eb5db"
+    },
+    {
+      "path": "artifacts/security/compose-schema-validation.json",
+      "sha256": "2b69da6c0df8128d0e80e67bf8bd1c3da0a35da19da0adba1016802c1019fbf5"
+    },
+    {
+      "path": "artifacts/security/source-exposure-check.json",
+      "sha256": "6207eeccc3dd5349df6d044904403635ce3843a651c351bc731cc0ea173e6caf"
+    },
+    {
+      "path": "artifacts/v4/final-analysis/analysis.json",
+      "sha256": "be17d58c531753150f636c870c5af3c370a4d0a550dd7e34414d1d1b5a533e09"
+    },
+    {
+      "path": "artifacts/rebuild-runs/390355c7da28/report.json",
+      "sha256": "7f4af7c3a8c593ba76b9b3f4604693ab8df8cfa659a8dd604b45b90f300eaeb0"
+    },
+    {
+      "path": "artifacts/retrieval-v2/report.json",
+      "sha256": "6d8e94959fe2aad828826938d51855256cc59170bda35fdcb31142f3961d144b"
+    }
+  ],
+  "limits": [
+    "Synthetic agent-authored cases, not real-customer accuracy or independent human validation.",
+    "V4 retained21/160 workflow failures,4/104 wrong accepted routes and1/40 unsupported false acceptances.",
+    "Zero observed unauthorized effects is a bounded test result, not a reliability guarantee.",
+    "Mocked HTTPS IdP with real signatures; no real provider account/callback integration.",
+    "Automated accessibility scans and limited keyboard/zoom checks do not establish complete WCAG conformance.",
+    "No hosted backend, executed production containers, paid-provider benchmark, merchant/payment/email effects or cloud backup schedule.",
+    "GitHub previously prevented acceptance runners from starting because of an account restriction; inspect Actions for subsequent status."
+  ]
 }

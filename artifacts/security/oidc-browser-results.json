@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-11-23T08:44:26.419Z",
+  "browser": "158.0.8127.37",
+  "mode": "mocked HTTPS IdP and app API, real RSA signatures, no production provider credentials",
+  "source_hashes": {
+    "web/auth-client-src.js": "3fcf6c58056b3cb580eec8755381bfc6e111a1880bcf4cac5536068e1b6db6a8",
+    "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb",
+    "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+    "package-lock.json": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701"
+  },
+  "source_stable": true,
+  "passed": 9,
+  "total": 9,
+  "results": [
+    {
+      "scenario": "success_and_disconnect",
+      "passed": true,
+      "requests": {
+        "token": 1,
+        "jwks": 1,
+        "session": 1,
+        "demo": 0,
+        "authorization": 1,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "bad_state",
+      "passed": true,
+      "requests": {
+        "token": 0,
+        "jwks": 0,
+        "session": 0,
+        "demo": 0,
+        "authorization": 1,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "bad_nonce",
+      "passed": true,
+      "requests": {
+        "token": 1,
+        "jwks": 0,
+        "session": 0,
+        "demo": 0,
+        "authorization": 1,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "bad_signature",
+      "passed": true,
+      "requests": {
+        "token": 1,
+        "jwks": 1,
+        "session": 0,
+        "demo": 0,
+        "authorization": 1,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "expired_token",
+      "passed": true,
+      "requests": {
+        "token": 1,
+        "jwks": 0,
+        "session": 0,
+        "demo": 0,
+        "authorization": 1,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "unconfigured",
+      "passed": true,
+      "requests": {
+        "token": 0,
+        "jwks": 0,
+        "session": 0,
+        "demo": 0,
+        "authorization": 0,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "spoofed_fixture",
+      "passed": true,
+      "requests": {
+        "token": 0,
+        "jwks": 0,
+        "session": 0,
+        "demo": 0,
+        "authorization": 0,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "malformed_pending_timestamp",
+      "passed": true,
+      "requests": {
+        "token": 0,
+        "jwks": 0,
+        "session": 0,
+        "demo": 0,
+        "authorization": 1,
+        "unauthenticated_protected": 0
+      }
+    },
+    {
+      "scenario": "late_response_after_disconnect",
+      "passed": true,
+      "requests": {
+        "token": 1,
+        "jwks": 1,
+        "session": 1,
+        "demo": 0,
+        "authorization": 1,
+        "unauthenticated_protected": 0
+      }
+    }
+  ],
+  "limitations": [
+    "Identity-provider account registration, public TLS, real provider CORS and hosted callback URLs are not exercised by this isolated browser harness.",
+    "Backend token signatures and server-managed identity bindings are verified separately by PostgreSQL-backed acceptance tests."
+  ]
+}

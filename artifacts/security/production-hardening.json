@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-11-23T08:31:09.571721+00:00",
+  "python_source_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+  "postgresql_acceptance": {
+    "tests": 95,
+    "failures": 0,
+    "errors": 0,
+    "elapsed_seconds": 38.308,
+    "artifact": "artifacts/checks/production-acceptance.xml"
+  },
+  "browser_oidc": {
+    "passed": 9,
+    "total": 9,
+    "source_stable": true,
+    "artifact": "artifacts/security/oidc-browser-results.json",
+    "original_failure_artifact": "artifacts/security/oidc-browser-before-fix.json"
+  },
+  "deterministic_invariants": {
+    "metrics": {
+      "workflow_success": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0
+      },
+      "runner_errors": 0,
+      "critical_failures": 0,
+      "unauthorized_effect_count": 0,
+      "all_tenant_effect_checks_completed": 20,
+      "p50_ms": 41.143,
+      "p95_ms": 57.089,
+      "estimated_provider_cost_usd": null,
+      "citation_support_human_review": null,
+      "safe_escalation_recall": {
+        "numerator": 8,
+        "denominator": 8,
+        "rate": 1.0
+      },
+      "workflow_failures": 0
+    },
+    "artifact": "artifacts/hardening-final-invariants/workflow-evaluation.json",
+    "release_id": "84f8a907-04de-5257-af61-98f317392d01",
+    "model_version": "domain-router-v4",
+    "retrieval_version": "dense-minilm-v1"
+  },
+  "fresh_install": "artifacts/checks/clean-install.json",
+  "backup_restore": "artifacts/backup/restore-report.json",
+  "schema_validation": "artifacts/security/compose-schema-validation.json",
+  "dependency_audit": "artifacts/security/audit-summary.json",
+  "implemented_controls": [
+    "OIDC asymmetric JWT verification and server-managed tenant/customer mapping",
+    "browser PKCE, state, nonce, issuer/audience/expiry/signature validation",
+    "memory-only access tokens and stale-session response rejection",
+    "host/origin/CORS/CSP controls and bounded JSON body receipt",
+    "shared PostgreSQL per-IP/per-actor request budgets",
+    "nonowner RLS runtime grants and private authentication registry",
+    "database-enforced retained model/policy/action/trace/idempotency immutability",
+    "final ownership/order/cutoff rechecks after inference",
+    "verified-customer-bound create idempotency with safe legacy replay",
+    "real process/session crash tests and leased/fenced worker recovery",
+    "independent evaluator mutex and attempt-scoped verified report publication",
+    "ownership-bound Windows interpreter/process-tree lifecycle"
+  ],
+  "not_performed": [
+    "Docker image build/container execution and OS image vulnerability scan: Docker/WSL unavailable",
+    "Public hosting, actual TLS/DNS validation, real identity-provider account/callback/CORS configuration",
+    "Paid LLM benchmark and real merchant/payment/email effects"
+  ],
+  "primary_references": [
+    "https://pyjwt.readthedocs.io/en/stable/usage.html",
+    "https://www.rfc-editor.org/rfc/rfc8725.html",
+    "https://www.postgresql.org/docs/17/sql-createfunction.html",
+    "https://github.com/caddyserver/caddy/releases/tag/v2.11.9",
+    "https://github.com/compose-spec/compose-spec/blob/main/schema/compose-spec.json"
+  ]
+}

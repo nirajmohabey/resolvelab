@@ -55,18 +55,22 @@
     "beta-published-v1": "580558ab-f3ef-5d6a-994e-35d0d5b93911"
   },
   "releases": {
+    "alpha/domain-router-v4": "84f8a907-04de-5257-af61-98f317392d01",
     "alpha/tfidf-logistic-v1": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
     "alpha/domain-hybrid-v3": "70ca5649-301c-540a-a93d-abfcf24703e3",
-    "alpha/routing-v1": "70ca5649-301c-540a-a93d-abfcf24703e3",
-    "alpha-active-release": "70ca5649-301c-540a-a93d-abfcf24703e3",
+    "alpha/routing-v1": "84f8a907-04de-5257-af61-98f317392d01",
+    "alpha-active-release": "84f8a907-04de-5257-af61-98f317392d01",
+    "beta/domain-router-v4": "c3b665cb-0f6f-52a2-85ae-33c39c5e458b",
     "beta/tfidf-logistic-v1": "0d511f51-0b86-58b6-9688-9ae0bd8bd259",
     "beta/domain-hybrid-v3": "840e0276-ff83-573e-b479-a48d2c6ee89d",
-    "beta/routing-v1": "840e0276-ff83-573e-b479-a48d2c6ee89d",
-    "beta-active-release": "840e0276-ff83-573e-b479-a48d2c6ee89d"
+    "beta/routing-v1": "c3b665cb-0f6f-52a2-85ae-33c39c5e458b",
+    "beta-active-release": "c3b665cb-0f6f-52a2-85ae-33c39c5e458b"
   },
   "models": {
+    "alpha/domain-router-v4": "261228b9-f59c-5c3d-a1a1-6a72a138b30a",
     "alpha/tfidf-logistic-v1": "fa5da148-f1a8-52c2-bbe2-9d5bd2c80849",
     "alpha/domain-hybrid-v3": "16242107-a965-5a84-8b76-b46f06fb6b66",
+    "beta/domain-router-v4": "0a372395-3fe8-562a-897e-b5f19a6c48d3",
     "beta/tfidf-logistic-v1": "736c8be6-a8fc-561d-8afb-c3fd760ee214",
     "beta/domain-hybrid-v3": "82fce458-5fbf-58fd-a0d0-b7ccd2c02e1b"
   }

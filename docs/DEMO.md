@@ -9,10 +9,10 @@ The supplied WebM is an actual automated browser recording, without narration. U
 | 0:40–1:00 | Switch to Alpha Approver and approve | Exact proposal hash, case/order versions, owner, deadline and role are checked again. Approval, order change and one action receipt commit together. |
 | 1:00–1:15 | Failed provider case and Retry resolution | The case and error stage survive an outage. A retry uses a current version and a new key. |
 | 1:15–1:30 | Beta Operator | Tenant isolation is enforced in direct API/database tests, not just navigation. |
-| 1:30–1:50 | Evaluation lab | Show 20/20 deterministic invariants separately from 74/100 independent workflow success. Explain the 26 conservative-routing failures. |
+| 1:30–1:50 | Evaluation lab | Show 20/20 deterministic invariants separately from 139/160 separately authored synthetic workflow success. Explain the 21 retained failures and four wrong accepted routes. |
 | 1:50–2:00 | Release registry and saved restore report | Models are hash-pinned; rollback changes only new cases. A real disposable restore verified tracking and approval. |
 
-For transaction depth, open `tests/test_security_and_transactions.py`: independent connections and a barrier race two approvers 25 times. Before/after-commit faults verify rollback or persisted idempotent replay. These are deterministic simulated crash boundaries, not a claim that an operating-system process was killed at every boundary.
+For transaction depth, open `tests/test_security_and_transactions.py`: independent connections and a barrier race two approvers 25 times. Before/after-commit faults verify rollback or persisted idempotent replay. The expanded suite also kills real approval/worker processes and terminates a database session. Fault injection covers additional boundaries; every possible crash timing has not been exercised.
 
 To reset the demo, run `scripts/local.ps1 reset`, then `python scripts/populate_demo.py`. Do not run a fixture reset against a non-project database. Tests/evaluations use separate configured databases.
 

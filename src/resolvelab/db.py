@@ -12,14 +12,14 @@ from sqlalchemy import create_engine, text
 ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(ROOT / ".env")
 
-engine = create_engine(
-    os.environ.get("DATABASE_URL", "postgresql+psycopg://resolvelab_app:resolvelab_local@127.0.0.1:55432/resolvelab"),
-    pool_pre_ping=True, pool_size=10, max_overflow=10,
-)
+if not os.environ.get("DATABASE_URL"):
+    raise RuntimeError("DATABASE_URL must be explicitly configured")
+engine = create_engine(os.environ["DATABASE_URL"], pool_pre_ping=True,
+                       pool_size=int(os.environ.get("DB_POOL_SIZE", "5")), max_overflow=int(os.environ.get("DB_MAX_OVERFLOW", "5")),
+                       pool_timeout=5, connect_args={"connect_timeout": 5})
 admin_engine = create_engine(
-    os.environ.get("ADMIN_DATABASE_URL", "postgresql+psycopg://postgres@127.0.0.1:55432/resolvelab"),
-    pool_pre_ping=True,
-)
+    os.environ["ADMIN_DATABASE_URL"], pool_pre_ping=True, connect_args={"connect_timeout": 5},
+) if os.environ.get("ADMIN_DATABASE_URL") else None
 
 
 def primitive(value):

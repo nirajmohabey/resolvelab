@@ -13,6 +13,7 @@ for runtime_key, evaluation_key in (("DATABASE_URL", "EVALUATION_DATABASE_URL"),
         raise SystemExit("Evaluation resets fixtures and requires the dedicated resolvelab_evaluation database configuration.")
     os.environ[runtime_key] = value
 os.environ["APP_ENV"] = "local"
+os.environ["GENERATION_ADAPTER"] = "offline"
 
 from resolvelab.evaluate import main  # noqa: E402 - configure isolation before database imports
 

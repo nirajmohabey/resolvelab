@@ -21,10 +21,8 @@ for database in ['resolvelab','resolvelab_evaluation','resolvelab_test']:
     env=os.environ.copy();env['ADMIN_DATABASE_URL']=admin.set(database=database).render_as_string(hide_password=False)
     subprocess.run([sys.executable,'-m','alembic','upgrade','head'],cwd=root,env=env,check=True)
     with psycopg.connect(**config,dbname=database,autocommit=True) as conn:
-        conn.execute(sql.SQL('GRANT USAGE ON SCHEMA resolvelab TO {}').format(sql.Identifier(runtime.username)))
-        conn.execute(sql.SQL('GRANT SELECT ON ALL TABLES IN SCHEMA resolvelab TO {}').format(sql.Identifier(runtime.username)))
-        for table in ['cases','trace_events','proposals','proposal_evidence','approvals','actions','handoffs','idempotency_keys','evaluation_runs','fixture_orders']:
-            conn.execute(sql.SQL('GRANT INSERT,UPDATE ON resolvelab.{} TO {}').format(sql.Identifier(table),sql.Identifier(runtime.username)))
+        from resolvelab.provision import grant_runtime
+        grant_runtime(conn,runtime.username)
 if not (root/'artifacts/router.joblib').exists():
     subprocess.run([sys.executable,'scripts/train_all.py'],cwd=root,check=True)
 subprocess.run([sys.executable,'-m','resolvelab.seed'],cwd=root,check=True)

@@ -1,0 +1,9 @@
+# Third-party data and model notices
+
+Project source code and third-party assets retain their respective licenses.
+
+**Bitext data.** [Bitext customer-support dataset](https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset), revision `430d1a89bd93bd1fa23c16f29dd53e73f0087443`, is provided by Bitext under **CDLA-Sharing-1.0**. A copy is in [LICENSES/CDLA-Sharing-1.0.txt](LICENSES/CDLA-Sharing-1.0.txt). Bitext-derived membership files in `artifacts/v4/source_membership*.jsonl` contain modified data: instructions were normalized/deduplicated, labels were mapped, and group/split metadata was added. These derived data files are distributed under the same CDLA-Sharing-1.0 terms, with this notice and the original source attribution. The raw downloaded CSV and publisher card remain in ignored `work/raw/` for reproduction. Training text is separate from retailer policy evidence.
+
+**MiniLM model.** `artifacts/embeddings/model.onnx`, tokenizer/configuration and model card are from [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2), revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`, under **Apache-2.0**. The selected file is the publisher's quantized `onnx/model_quint8_avx2.onnx`; ResolveLab applies attention-mask pooling and normalization. The publisher card is preserved in `artifacts/embeddings/README.md`, and the license copy is [LICENSES/Apache-2.0.txt](LICENSES/Apache-2.0.txt).
+
+`artifacts/source_manifest.json` pins source revisions, URLs, dimensions and checksums. `LICENSES/sources.json` records the license-copy URLs/checksums. Independently authored fictional retailer policies, development fixtures and evaluation cases are labeled as synthetic in their dataset/model cards; they are not customer records or Bitext factual policy answers.

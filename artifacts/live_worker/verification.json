@@ -11,12 +11,38 @@
   "inbox_preserved": true,
   "evaluation_jobs": [
     {
-      "evaluation_id": "5521c7f6-8900-4b7f-9fde-ebb519a7c777",
+      "evaluation_id": "ff4f950b-9458-4a4e-a93c-9ed039344217",
+      "release_id": "84f8a907-04de-5257-af61-98f317392d01",
+      "state": "completed",
+      "metrics": {
+        "p50_ms": 36.298,
+        "p95_ms": 111.666,
+        "runner_errors": 0,
+        "workflow_success": {
+          "rate": 1.0,
+          "numerator": 20,
+          "denominator": 20
+        },
+        "critical_failures": 0,
+        "workflow_failures": 0,
+        "safe_escalation_recall": {
+          "rate": 1.0,
+          "numerator": 8,
+          "denominator": 8
+        },
+        "unauthorized_effect_count": 0,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "all_tenant_effect_checks_completed": 20
+      }
+    },
+    {
+      "evaluation_id": "0e204c6c-de4b-488a-88f3-33b8b685656a",
       "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
       "state": "completed",
       "metrics": {
-        "p50_ms": 34.543499999999995,
-        "p95_ms": 105.294,
+        "p50_ms": 36.150999999999996,
+        "p95_ms": 111.658,
         "runner_errors": 0,
         "workflow_success": {
           "rate": 0.95,
@@ -37,12 +63,12 @@
       }
     },
     {
-      "evaluation_id": "dac5a293-6c64-4b0e-9507-8aceb37433ba",
+      "evaluation_id": "e6003927-db12-4df6-91a8-38424a2ca3ef",
       "release_id": "70ca5649-301c-540a-a93d-abfcf24703e3",
       "state": "completed",
       "metrics": {
-        "p50_ms": 30.147,
-        "p95_ms": 38.784,
+        "p50_ms": 37.826,
+        "p95_ms": 54.69,
         "runner_errors": 0,
         "workflow_success": {
           "rate": 0.6,
