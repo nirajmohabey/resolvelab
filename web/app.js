@@ -470,8 +470,16 @@ async function disconnectAuthentication() {
     if (generation === state.sessionGeneration) requireSignIn("You have signed out of the workbench and identity provider.");
   } catch (error) { if (generation === state.sessionGeneration) requireSignIn(error.message); }
 }
-$("#signIn").onclick = () => state.authConfig?.mode === "fixture" ? login() :
-  state.authConfig?.mode === "neon" ? $("#loginEmail")?.focus() : beginSignIn(state.authConfig).catch((error) => notify(error.message, true));
+$("#signIn").onclick = () => {
+  if (state.authConfig?.mode === "fixture") return login();
+  if (state.authConfig?.mode === "neon") {
+    state.authFormMode = "signin";
+    requireSignIn();
+    $("#loginEmail")?.focus();
+    return;
+  }
+  return beginSignIn(state.authConfig).catch((error) => notify(error.message, true));
+};
 $("#signOut").onclick = disconnectAuthentication;
 async function refresh({ resetSelection = false, preserveCaseId = null } = {}) {
   const request = ++state.inboxRequest;

@@ -6,7 +6,10 @@ import { startHarness, scenario, finishHarness } from "./ui-race-check.mjs";
 import { config, installProvider, password } from "./neon-provider-fixture.mjs";
 assert.ok(process.argv[2], "Provide explicit scratch report path");
 const storage = [];
+let scenarioCount = 0;
 async function run(name, options, test) {
+  if (process.env.NEON_CHECK_FILTER && !name.includes(process.env.NEON_CHECK_FILTER)) return;
+  scenarioCount++;
   let provider;
   await scenario(name, "fixture", async context => {
     if (!options.signedIn && !options.resetCallback) await context.page.locator("#loginEmail").waitFor();
@@ -107,7 +110,11 @@ try {
     assert.ok(await page.locator('#neonSignInForm').evaluate(el=>el.getBoundingClientRect().top<innerHeight),'Account form must be in the first screen');
     assert.doesNotMatch(await page.locator('.fixture-disclaimer').textContent(),/Synthetic retailer|No real order|Demo clock/);
   });
+  await run("Header Sign in returns from account creation to the sign-in form", {}, async ({ page }) => {
+    await page.getByRole("button", {name:"Create an account",exact:true}).click(); await page.locator("#loginPassword").fill(password); await page.locator("#signIn").click();
+    assert.equal(await page.locator("#neonSignInForm button[type=submit]").textContent(),"Sign in"); assert.equal(await page.locator("#loginName").count(),0); assert.equal(await page.locator("#loginPassword").inputValue(),"");
+  });
 } finally {
-  const report = await finishHarness(path.resolve(process.argv[2]), 15);
+  const report = await finishHarness(path.resolve(process.argv[2]), scenarioCount);
   await writeFile(path.resolve(process.argv[2]), JSON.stringify({ ...report, storage_checks: storage, external_identity_provider_tested: false }, null, 2) + "\n");
 }

@@ -29,19 +29,21 @@ jobs:
       EVALUATION_DATABASE_URL: postgresql+psycopg://resolvelab_app:ci-only-runtime-password@127.0.0.1:5432/resolvelab_evaluation
       ADMIN_EVALUATION_DATABASE_URL: postgresql+psycopg://postgres:ci-only-admin-password@127.0.0.1:5432/resolvelab_evaluation
     steps:
-      - uses: actions/checkout@v7.0.1
-      - uses: actions/setup-python@v7.1.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # verified v7.0.1
+        with: {persist-credentials: false}
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # verified v7.1.0
         with: {python-version: "3.12.14"}
       - run: pip install uv==0.11.25
-      - run: uv sync --frozen
+      - run: uv sync --frozen --group dev
       - run: .venv/bin/python scripts/container_setup.py
       - run: .venv/bin/python scripts/run_tests.py -q --junitxml=artifacts/checks/pytest.xml
       - run: .venv/bin/python scripts/evaluate.py --output artifacts/ci-evaluation
       - run: node --check web/app.js
-      - uses: actions/upload-artifact@v7.0.2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # verified v7.0.2
         if: always()
         with:
           name: postgres-acceptance-evidence
+          retention-days: 1
           path: |
             artifacts/checks
             artifacts/ci-evaluation
@@ -49,7 +51,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v7.0.1
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # verified v7.0.1
+        with: {persist-credentials: false}
       - run: python3 scripts/docker_env.py
       - run: docker compose --env-file .env.docker up --build -d
       - name: Verify container readiness
@@ -70,10 +73,11 @@ jobs:
       - run: npm run test:auth-callback
       - run: node scripts/operator-followup-check.mjs
       - run: npm run test:accessibility
-      - uses: actions/upload-artifact@v7.0.2
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # verified v7.0.2
         if: always()
         with:
           name: browser-and-authentication-evidence
+          retention-days: 1
           path: |
             artifacts/browser
             artifacts/accessibility
