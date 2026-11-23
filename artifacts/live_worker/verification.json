@@ -1,0 +1,66 @@
+{
+  "readiness": {
+    "status": "ready",
+    "model": "loaded",
+    "embedding": "loaded",
+    "corpus": "published",
+    "database_role": "nonowner_rls"
+  },
+  "serving_case_count_before": 6,
+  "serving_case_count_after": 6,
+  "inbox_preserved": true,
+  "evaluation_jobs": [
+    {
+      "evaluation_id": "5521c7f6-8900-4b7f-9fde-ebb519a7c777",
+      "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+      "state": "completed",
+      "metrics": {
+        "p50_ms": 34.543499999999995,
+        "p95_ms": 105.294,
+        "runner_errors": 0,
+        "workflow_success": {
+          "rate": 0.95,
+          "numerator": 19,
+          "denominator": 20
+        },
+        "critical_failures": 1,
+        "workflow_failures": 1,
+        "safe_escalation_recall": {
+          "rate": 1.0,
+          "numerator": 8,
+          "denominator": 8
+        },
+        "unauthorized_effect_count": 0,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "all_tenant_effect_checks_completed": 20
+      }
+    },
+    {
+      "evaluation_id": "dac5a293-6c64-4b0e-9507-8aceb37433ba",
+      "release_id": "70ca5649-301c-540a-a93d-abfcf24703e3",
+      "state": "completed",
+      "metrics": {
+        "p50_ms": 30.147,
+        "p95_ms": 38.784,
+        "runner_errors": 0,
+        "workflow_success": {
+          "rate": 0.6,
+          "numerator": 12,
+          "denominator": 20
+        },
+        "critical_failures": 8,
+        "workflow_failures": 8,
+        "safe_escalation_recall": {
+          "rate": 1.0,
+          "numerator": 8,
+          "denominator": 8
+        },
+        "unauthorized_effect_count": 0,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "all_tenant_effect_checks_completed": 20
+      }
+    }
+  ]
+}

@@ -6,7 +6,7 @@ An evaluated support workbench for a fictional online retailer. Operators inspec
 
 **Implemented:** FastAPI API, PostgreSQL migrations and tenant isolation, trained routing, lexical/dense/hybrid retrieval, structured responses, local approval transactions, durable traces, evaluation worker, release rollback, browser interface, repeatable fixtures, backup restore check and CI.
 
-**Verified locally:** 60 tests, including 25 repeated concurrent-approval races; 20/20 deterministic workflow regressions; eight browser checks on desktop/mobile. Zero unauthorized order effects were observed in those fixture runs. These are bounded synthetic checks, not a production reliability estimate.
+**Verified locally:** 64 tests, including 25 repeated concurrent-approval races; 20/20 deterministic workflow regressions; nine browser checks on desktop/mobile. Zero unauthorized order effects were observed in those fixture runs. These are bounded synthetic checks, not a production reliability estimate.
 
 The frozen domain router scored **83% intent accuracy and 0.8366 macro-F1 on 100 newly authored synthetic cases**. It accepted 44/100 cases past the confidence gate with 0/44 wrong accepted routes and 0/25 unsupported false acceptances. **74/100 final workflow outcomes matched expectations**; the 26 failures remain visible. Conservative routing still over-escalates, and terse commands can fail. Inspect the complete workflow result and denominators in [the evaluation evidence](artifacts/v3-blind-final/workflow-evaluation.html) and [model card](docs/MODEL_CARD.md).
 
@@ -56,7 +56,7 @@ npm ci
 npm run test:browser
 ```
 
-The browser suite uses installed Google Chrome in an isolated headless session and writes screenshots, a WebM recording and JSON results under `artifacts/browser`. It checks tracking, evidence, trace, proposal, approval, handoff, release/evaluation screens, tenant switching and mobile overflow. It changes the local fixture order. Reset fixtures explicitly before repeating the cancellation journey.
+Keep both the API and worker running for this check. The browser suite uses installed Google Chrome in an isolated headless session and writes screenshots, a WebM recording and JSON results under `artifacts/browser`. It checks tracking, evidence, trace, proposal, approval, handoff, release/evaluation screens, tenant switching and mobile overflow. It changes the local fixture order. Reset fixtures explicitly before repeating the cancellation journey.
 
 ## Docker
 
@@ -65,7 +65,7 @@ python scripts/docker_env.py
 docker compose --env-file .env.docker up --build -d
 ```
 
-Compose includes API, worker, private PostgreSQL, one-shot migrations and durable named volumes. Only the API is published, on loopback. Generated `.env.docker` secrets are ignored. CI includes a real container-build/readiness smoke job and a separate PostgreSQL acceptance job; consult the run status for hosted verification. This release does not create billable cloud resources.
+Compose includes API, worker, private PostgreSQL, one-shot migrations and durable named volumes. Only the API is published, on loopback. Generated `.env.docker` secrets are ignored. CI includes a container-build/readiness smoke job and a separate PostgreSQL acceptance job. GitHub prevented the initial jobs from starting because of an account runner restriction, so Docker and clean-Linux execution remain unverified. Native Windows/PostgreSQL checks passed. This release does not create billable cloud resources.
 
 ## Critical paths
 
@@ -80,5 +80,9 @@ Compose includes API, worker, private PostgreSQL, one-shot migrations and durabl
 | Recovery and operations | [Runbook](docs/RUNBOOK.md), `scripts/backup_check.py` |
 
 [Architecture and decisions](docs/ARCHITECTURE.md) · [Data dictionary](docs/DATA_DICTIONARY.md) · [Model card](docs/MODEL_CARD.md) · [Dataset card](docs/DATASET_CARD.md) · [Third-party attribution](NOTICE.md)
+
+[Release checks and limits](docs/CHECKS.md) · [Two-minute walkthrough](docs/DEMO.md) · [Case study](docs/CASE_STUDY.md)
+
+For optional hidden background processes on Windows, use `scripts/background.ps1 start` and `scripts/background.ps1 stop`. PostgreSQL is managed separately. The model rollback verification command is `python scripts/verify_rollback.py`; it restores the original active pointer when finished. A full training rebuild may produce different serialized bytes despite identical metrics; promote those bytes under a new model version or use a disposable fixture reset rather than replacing an existing release.
 
 The optional OpenAI Responses adapter is implemented and mock-tested, but has not been measured with a paid provider. It is deliberately restricted to the canonical supported answer; noncanonical drafts fail closed. No real order, payment, email, external connector or public cloud deployment is claimed. MIT covers application source; dataset and model assets retain their original licenses.

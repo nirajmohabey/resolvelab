@@ -1,0 +1,9 @@
+{
+  "previous_model": "domain-hybrid-v3",
+  "rollback_target": "tfidf-logistic-v1",
+  "target_tracking_verified": true,
+  "old_case_release_preserved": true,
+  "original_pointer_restored": true,
+  "old_case_id": "c107aa2f-b9bb-4c62-9ec3-16065e461cc1",
+  "new_case_id": "d3e0f58d-60c3-4ae5-9b33-78b483d9f439"
+}

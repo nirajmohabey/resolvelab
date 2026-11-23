@@ -1,0 +1,13 @@
+# Evidence-bound retail support
+
+A support operator needs a useful answer while retaining control of consequential actions. ResolveLab implements tracking, cancellation proposal/approval and internal handoff for a fictional retailer. It keeps learned routing separate from deterministic permissions and local transaction guarantees.
+
+The first TF-IDF baseline scored 0.9968 macro-F1 on a grouped Bitext source holdout but only 0.4735 on an independently written 80-case audit. That gap invalidated any claim of broad routing quality. A dense challenger selected using source validation did not resolve the distribution mismatch. A separate, grouped retailer-development dataset then trained the frozen v3 domain model; earlier audits remain disclosed diagnostics.
+
+On a newly authored final 100-case set, v3 reached 0.8366 routing macro-F1 and 83% accuracy. The confidence gate accepted 44 cases with no wrong accepted routes in that set. Full workflow success was 74/100, with 26 failures retained, zero runner errors and zero unauthorized order effects across 100 audited cases. These are small agent-authored synthetic evaluations. They do not estimate real-customer performance, and conservative escalation remains a material limitation.
+
+The hard backend boundary is approval. A proposal binds exact evidence and versions. A short locked PostgreSQL transaction revalidates the actor, customer, order, deadline and digest, then commits the approval, order change, action receipt and idempotent response. 64 tests include 25 repeated approval races, before/after-commit fault injection, stale evidence, cross-tenant direct reads, RLS context reuse and inference outages. The local connector has an atomic effect; a future remote provider would need an unknown-outcome and reconciliation protocol.
+
+Retrieval is intentionally small and inspectable. All ranking starts with permission-filtered policy sections. Dense retrieval beat lexical and hybrid on the 16-query fixture, so hybrid is retained as a measured baseline rather than marketed as an improvement. A real backup restore and a pinned-model rollback were executed. Nine browser checks cover the operator journey and mobile layout.
+
+The tradeoff is bounded usefulness over autonomous breadth: one retailer, three intents, one local action, narrow canonical answers and visible escalation. The next release should improve domain coverage using new development cases, obtain independently reviewed human test cases and citation-support judgments, then test a real authenticated intake/provider integration before any production claim. Hosted CI was prevented from starting by the account's runner restriction; Docker and public-cloud execution are not claimed.

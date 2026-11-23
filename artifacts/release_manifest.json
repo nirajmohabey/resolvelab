@@ -1,0 +1,182 @@
+{
+  "first_source_commit": "b8dfaf4cfebe55486018d61dc4d810d271804512",
+  "application_file_sha256": {
+    "src/resolvelab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/resolvelab/api.py": "7793f1abd1e9451727f7dccff9239ca0e80040688374c394c94302cf47154ae8",
+    "src/resolvelab/auth.py": "d548c570e35711a96779ac8e01d72eeb8febe29deeb048d74ce5f9dba3306469",
+    "src/resolvelab/db.py": "7bf835bbacfb5ae82cb82c8f4279749e2f21589c31d167442eec2ce871547d8e",
+    "src/resolvelab/evaluate.py": "2069b09d8a41c3fdb3a2a06587bfa4a94c24a306205b5d7082e197a179e54457",
+    "src/resolvelab/generation.py": "bb4708d1ec53be4520212a56e7196167b7f94a706223a47947a2b9584df64760",
+    "src/resolvelab/ml.py": "6222954275ecc5cee60e27d515d43384f1f1e1db30cff8a71689c97144a8f16c",
+    "src/resolvelab/retrieval.py": "6205034fa441c821b7b9cc688ea4bc30489b71e1943551cdde95d3385eab4d02",
+    "src/resolvelab/schemas.py": "b46fdc01671333a31c307e0df0cba1b765add6dcdc2bcc2ec4e53863d030af88",
+    "src/resolvelab/seed.py": "aa8b51e65e5930245159902411f16f40dc8ad145458b036d01b6aa5e98737b12",
+    "src/resolvelab/service.py": "5e04cc9463c6fb1dbc99c0d5ca1c1ac3dc754c14ec8e8938e4f3abf1c787ca1a",
+    "src/resolvelab/worker.py": "6417e1190d04ec94d30763bcb2e6812ad99e59f3e42ef94a779a1cdf686cb06d",
+    "web/app.css": "06fd42c42a0dc29e8e285062aa931fde92e7a76dde230f42e014946a08758fdb",
+    "web/app.js": "76a73f0cc69763ef3a5724a0ff290fe865da28ee91142fbca493e61e9d96a5b7",
+    "web/index.html": "fabeeb6566cf478883f5ae4e8ff39bbb2a7c0749f6fe7e303eba749a3676a3b7"
+  },
+  "dependency_lock_sha256": "8e0766142877b58113631effa9acfc0f30eabed183e394c380e8bb20f8a8d58a",
+  "model_artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "64",
+    "time": "15.055",
+    "timestamp": "2026-11-23T02:37:29.605737-05:00",
+    "hostname": "Niraj-16ARX8"
+  },
+  "browser": {
+    "passed": 9,
+    "errors": [],
+    "base_url": "http://127.0.0.1:8000",
+    "viewport": [
+      1440,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "generated_at": "2026-11-23T07:37:58.671Z"
+  },
+  "deterministic_workflows": {
+    "workflow_success": {
+      "numerator": 20,
+      "denominator": 20,
+      "rate": 1.0
+    },
+    "runner_errors": 0,
+    "critical_failures": 0,
+    "unauthorized_effect_count": 0,
+    "all_tenant_effect_checks_completed": 20,
+    "p50_ms": 37.8405,
+    "p95_ms": 61.215,
+    "estimated_provider_cost_usd": null,
+    "citation_support_human_review": null,
+    "safe_escalation_recall": {
+      "numerator": 8,
+      "denominator": 8,
+      "rate": 1.0
+    },
+    "workflow_failures": 0
+  },
+  "independent_final": {
+    "workflow_success": {
+      "numerator": 74,
+      "denominator": 100,
+      "rate": 0.74
+    },
+    "runner_errors": 0,
+    "critical_failures": 26,
+    "unauthorized_effect_count": 0,
+    "all_tenant_effect_checks_completed": 100,
+    "p50_ms": 36.429,
+    "p95_ms": 41.463,
+    "estimated_provider_cost_usd": null,
+    "citation_support_human_review": null,
+    "safe_escalation_recall": {
+      "numerator": 59,
+      "denominator": 59,
+      "rate": 1.0
+    },
+    "workflow_failures": 26
+  },
+  "backup_restore": {
+    "generated_at": "2026-11-23T07:18:27.011070+00:00",
+    "disposable_database": "resolvelab_restore_3dda4b5ff35b",
+    "restored": true,
+    "original_order_snapshot_verified": true,
+    "synthetic_restore_probe_used": true,
+    "tracking_verified": true,
+    "approval_verified": true,
+    "source_database_written_by_check": false,
+    "command_output": "Restored tracking and atomic approval verified."
+  },
+  "model_rollback": {
+    "previous_model": "domain-hybrid-v3",
+    "rollback_target": "tfidf-logistic-v1",
+    "target_tracking_verified": true,
+    "old_case_release_preserved": true,
+    "original_pointer_restored": true,
+    "old_case_id": "c107aa2f-b9bb-4c62-9ec3-16065e461cc1",
+    "new_case_id": "d3e0f58d-60c3-4ae5-9b33-78b483d9f439"
+  },
+  "live_worker": {
+    "readiness": {
+      "status": "ready",
+      "model": "loaded",
+      "embedding": "loaded",
+      "corpus": "published",
+      "database_role": "nonowner_rls"
+    },
+    "serving_case_count_before": 6,
+    "serving_case_count_after": 6,
+    "inbox_preserved": true,
+    "evaluation_jobs": [
+      {
+        "evaluation_id": "5521c7f6-8900-4b7f-9fde-ebb519a7c777",
+        "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+        "state": "completed",
+        "metrics": {
+          "p50_ms": 34.543499999999995,
+          "p95_ms": 105.294,
+          "runner_errors": 0,
+          "workflow_success": {
+            "rate": 0.95,
+            "numerator": 19,
+            "denominator": 20
+          },
+          "critical_failures": 1,
+          "workflow_failures": 1,
+          "safe_escalation_recall": {
+            "rate": 1.0,
+            "numerator": 8,
+            "denominator": 8
+          },
+          "unauthorized_effect_count": 0,
+          "estimated_provider_cost_usd": null,
+          "citation_support_human_review": null,
+          "all_tenant_effect_checks_completed": 20
+        }
+      },
+      {
+        "evaluation_id": "dac5a293-6c64-4b0e-9507-8aceb37433ba",
+        "release_id": "70ca5649-301c-540a-a93d-abfcf24703e3",
+        "state": "completed",
+        "metrics": {
+          "p50_ms": 30.147,
+          "p95_ms": 38.784,
+          "runner_errors": 0,
+          "workflow_success": {
+            "rate": 0.6,
+            "numerator": 12,
+            "denominator": 20
+          },
+          "critical_failures": 8,
+          "workflow_failures": 8,
+          "safe_escalation_recall": {
+            "rate": 1.0,
+            "numerator": 8,
+            "denominator": 8
+          },
+          "unauthorized_effect_count": 0,
+          "estimated_provider_cost_usd": null,
+          "citation_support_human_review": null,
+          "all_tenant_effect_checks_completed": 20
+        }
+      }
+    ]
+  },
+  "ci": {
+    "status": "not_started",
+    "reason": "account_runner_restriction",
+    "run_url": "https://github.com/nirajmohabey/resolvelab/actions/runs/45130660423"
+  },
+  "docker_execution": "unverified",
+  "public_cloud_deployment": null,
+  "paid_provider_measurement": null
+}

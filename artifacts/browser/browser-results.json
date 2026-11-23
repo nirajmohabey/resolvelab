@@ -1,5 +1,5 @@
 {
-  "passed": 8,
+  "passed": 9,
   "errors": [],
   "base_url": "http://127.0.0.1:8000",
   "viewport": [
@@ -10,5 +10,5 @@
     390,
     844
   ],
-  "generated_at": "2026-11-23T07:17:33.938Z"
+  "generated_at": "2026-11-23T07:37:58.671Z"
 }

@@ -225,6 +225,33 @@ def evaluation(evaluation_id: UUID, p=Depends(identity)):
     return service.get_evaluation(p, str(evaluation_id))
 
 
+@app.get("/v1/evaluations/{evaluation_id}/report")
+def evaluation_report(evaluation_id: UUID, p=Depends(identity)):
+    record = service.get_evaluation(p, str(evaluation_id))
+    if record["state"] != "completed":
+        raise DomainError(409, "report_not_ready", "The evaluation report is not ready.")
+    # The stored URI is diagnostic metadata, never permission to read a path.
+    # UUID parsing and this fixed layout bind the report to the authorized job.
+    path = ROOT / "artifacts/evaluation" / str(evaluation_id) / "workflow-evaluation.json"
+    try:
+        with path.open("rb") as report_file:
+            content = report_file.read(4 * 1024 * 1024 + 1)
+    except FileNotFoundError:
+        raise DomainError(409, "report_not_ready", "The evaluation report is not ready.") from None
+    except OSError:
+        raise DomainError(503, "report_unavailable", "The evaluation report is temporarily unavailable.", True) from None
+    if len(content) > 4 * 1024 * 1024:
+        raise DomainError(503, "report_invalid", "The evaluation report exceeds its 4 MiB limit.")
+    try:
+        report = json.loads(content.decode("utf-8"))
+        if not isinstance(report, dict) or not isinstance(report.get("metrics"), dict) or not isinstance(report.get("cases"), list):
+            raise ValueError("Invalid evaluation report structure")
+        json.dumps(report, ensure_ascii=False, allow_nan=False).encode("utf-8")
+    except (UnicodeError, ValueError, TypeError, RecursionError):
+        raise DomainError(503, "report_invalid", "The evaluation report is malformed.") from None
+    return report
+
+
 @app.get("/", include_in_schema=False)
 def index():
     return FileResponse(ROOT / "web/index.html")
