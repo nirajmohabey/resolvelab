@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-11-23T20:21:13.467364+00:00",
+  "status": "public_reviewed",
+  "functional_cloud_checks_passed": true,
+  "publication_gate": "Root approved narrow publication after final privacy checks",
+  "resolve": {
+    "live_url": "https://resolvelab-blush.vercel.app",
+    "native_tests": 210,
+    "current_backend_sha256": "8f2bdb8ea0e95ab78659630e1c6752d25731744af0284b83cf05b0f80a0f5637",
+    "hosted_evaluation_jobs": 2,
+    "hosted_cases": 40,
+    "owner_verified_and_enrolled": true,
+    "owner_role": "admin",
+    "cloud_restore_tables": 22,
+    "forced_rls_restored": 20
+  },
+  "orderflow": {
+    "live_url": "https://orderflow-hazel.vercel.app",
+    "batch_tested_commit": "d082edbd5db498bc49b41ca0e17f781607831048",
+    "latest_authenticated_ui_commit": "09efb3bbccffda56f7bbcfd667d127b536d56dc4",
+    "live_authenticated_ui_checks": 28,
+    "source_http_posts": 19,
+    "all_ingestion_oracles_passed": true,
+    "batch_scenario_jobs": 3,
+    "historical_unexpected_failed_jobs_preserved": 2,
+    "total_non_drain_jobs": 5,
+    "immutable_objects_checksum_verified": 19,
+    "last_good_retained": true,
+    "inventory_difference": -2,
+    "owner_verified_and_enrolled": true,
+    "owner_role": "operator",
+    "cloud_restore_tables": 25,
+    "forced_rls_restored": 23,
+    "restored_objects": 19
+  },
+  "frontend_review": {
+    "resolve_checks": 72,
+    "order_checks": 46,
+    "account_scans_combined": 65,
+    "public_mobile_navigation_scans": 12
+  },
+  "security_snapshot": {
+    "resolve_bandit_high": 0,
+    "resolve_bandit_medium": 7,
+    "resolve_bandit_low": 160,
+    "medium_call_sites_reviewed": 7,
+    "ruff_undefined_names": 0,
+    "observed_order_jwt_ttl_seconds": 900,
+    "provider_logout_immediately_revokes_issued_bearer": false,
+    "npm_known_advisories": {
+      "resolvelab": 0,
+      "orderflow": 0
+    },
+    "scope": "Saved-source/static/advisory snapshots, not zero-vulnerability."
+  },
+  "limitations": [
+    "Synthetic small fixtures; no production throughput, uptime, zero-vulnerability or full-WCAG guarantee.",
+    "Hosted job preconditions were reviewed internal SQL/service operations, not impersonated users or enrolled-user HTTP job submissions.",
+    "Resolve owner enrollment/provider verification is distinct from a complete live authenticated browser journey; frontend 69 checks used intercepted provider/API responses.",
+    "Restores cover application schema only; managed auth, warehouse and evaluation data are excluded. No PITR/full-account/cross-region/RPO/RTO claim.",
+    "The known historical routing failures and both unexpected hosted dbt failures remain disclosed; final expected failure is an actual quality-gate test, not an infrastructure success claim.",
+    "Archived executed runner code is for audit at its original workspace layout, not a relocated ready-to-run script. It references private credential filenames but includes no credential files/values."
+  ]
+}

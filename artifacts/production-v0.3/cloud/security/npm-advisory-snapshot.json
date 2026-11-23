@@ -1,0 +1,38 @@
+{
+  "projects": [
+    {
+      "project": "resolvelab",
+      "checked_at": "2026-11-23T20:00:00.668742+00:00",
+      "registry": "https://registry.npmjs.org",
+      "exit_code": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "lock_sha256": "f796d0f9175407652eef14070ac0e8955c4c842630500f64bad14111864cc84b",
+      "lock_unchanged": true
+    },
+    {
+      "project": "orderflow",
+      "checked_at": "2026-11-23T20:00:00.666741+00:00",
+      "registry": "https://registry.npmjs.org",
+      "exit_code": 0,
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0,
+        "total": 0
+      },
+      "lock_sha256": "72b5c7d6f21f21d072e58e6b8eeed1000e53bb658643234ae479386e0ddf7dca",
+      "lock_unchanged": true
+    }
+  ],
+  "original_summary_sha256": "c441bc5b0d016d691ca86a81febf6ba935cd62fc9fea9e459e692d25b48a4160",
+  "scope": "Known npm advisories at saved query times for unchanged exact lockfiles. No zero-vulnerability or host/container OS claim."
+}

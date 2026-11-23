@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-11-23T19:43:53.022674+00:00",
+  "password_saved": false,
+  "session_material_saved": false,
+  "emails_sent": false,
+  "provider_signin_status": 200,
+  "provider_session_status": 200,
+  "provider_jwt_status": 200,
+  "email_verified": true,
+  "actual_jwt_verified": true,
+  "application_session_status": 200,
+  "application_session_code": null,
+  "probe_provider_session_closed": true,
+  "proxy_signin_status": 200,
+  "proxy_get_session_status": 200,
+  "proxy_session_present": true,
+  "probe_proxy_session_closed": true,
+  "scope": "Owner-authorized one-service live sign-in/session/JWT/app verification; no credentials/session contents/identity IDs exported."
+}

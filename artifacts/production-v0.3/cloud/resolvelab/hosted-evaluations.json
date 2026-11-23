@@ -1,0 +1,71 @@
+{
+  "runs": [
+    {
+      "checked_at": "2026-11-23T18:48:59.735105+00:00",
+      "evaluation_id": "db25887c-0145-4d44-a498-7c1593aa9530",
+      "deployment": "https://resolvelab-puze3kxn1-niraj-mohabeys-projects.vercel.app",
+      "creation_scope": "reviewed internal service with existing synthetic membership; external JWT boundary not exercised",
+      "state": "completed",
+      "metrics": {
+        "p50_ms": 233.216,
+        "p95_ms": 330.708,
+        "runner_errors": 0,
+        "workflow_success": {
+          "rate": 1.0,
+          "numerator": 20,
+          "denominator": 20
+        },
+        "critical_failures": 0,
+        "workflow_failures": 0,
+        "safe_escalation_recall": {
+          "rate": 1.0,
+          "numerator": 8,
+          "denominator": 8
+        },
+        "unauthorized_effect_count": 0,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "all_tenant_effect_checks_completed": 20
+      },
+      "attempts": 1,
+      "last_runner_error": null,
+      "serving_business_unchanged": true,
+      "durable_report": true,
+      "reported_cases": 20
+    },
+    {
+      "checked_at": "2026-11-23T18:51:35.788138+00:00",
+      "evaluation_id": "b2ae2c1a-e5df-4ee9-9f10-5ff98c203fbe",
+      "deployment": "https://resolvelab-puze3kxn1-niraj-mohabeys-projects.vercel.app",
+      "creation_scope": "reviewed internal service with existing synthetic membership; external JWT boundary not exercised",
+      "state": "completed",
+      "metrics": {
+        "p50_ms": 232.7975,
+        "p95_ms": 370.242,
+        "runner_errors": 0,
+        "workflow_success": {
+          "rate": 1.0,
+          "numerator": 20,
+          "denominator": 20
+        },
+        "critical_failures": 0,
+        "workflow_failures": 0,
+        "safe_escalation_recall": {
+          "rate": 1.0,
+          "numerator": 8,
+          "denominator": 8
+        },
+        "unauthorized_effect_count": 0,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "all_tenant_effect_checks_completed": 20
+      },
+      "attempts": 1,
+      "last_runner_error": null,
+      "serving_business_unchanged": true,
+      "durable_report": true,
+      "reported_cases": 20
+    }
+  ],
+  "scope": "Actual earlier hosted 20-case invariant/live-model runs. Internal reviewed service preconditions; not user HTTP job-creation. The later cookie-only change is covered by current210 tests and unchanged core-model component evidence, not relabeled as a new evaluation run."
+}

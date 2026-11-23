@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-11-23T19:18:50.752782+00:00",
+  "disposable_database": "resolvelab_restore_9e4623b2d2d3",
+  "destination_verified": true,
+  "destination": {
+    "database": "resolvelab_restore_9e4623b2d2d3",
+    "server": "127.0.0.1/32",
+    "port": 55439
+  },
+  "restored": true,
+  "exported_snapshot_used": true,
+  "tables_verified": 22,
+  "table_snapshot": {
+    "actions": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "active_releases": {
+      "rows": 2,
+      "sha256": "9dbead10ceec910cb47d1a6ec32f35fbc1555f335f0af8b9c8f8533094bcccf3"
+    },
+    "approvals": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cases": {
+      "rows": 1,
+      "sha256": "28ab148dab0d13a950b656f6c8100c8000fd135a447af78f489504c32c7d04df"
+    },
+    "chunks": {
+      "rows": 5,
+      "sha256": "61838848821ab868ed6355713acccd011b1675a5a6846e572ea3a03b89c0e728"
+    },
+    "corpus_versions": {
+      "rows": 2,
+      "sha256": "8546df4193678d98015be36a1c56e3ce515f42a762cc72374e63529fcab59527"
+    },
+    "documents": {
+      "rows": 4,
+      "sha256": "d772ba169c4a71ecdfa455a017e15c6ba14127335aadb5fbbfc95c8c2e29d285"
+    },
+    "evaluation_outbox": {
+      "rows": 1,
+      "sha256": "5075d233dcb94e9c7b3748ba4c1062946248475cd04494a2c59c42da3e46abe1"
+    },
+    "evaluation_reports": {
+      "rows": 1,
+      "sha256": "58e63fb58e6080dfa213d56ec166deb2d34155777b29a932014c1bc164d5ef77"
+    },
+    "evaluation_runs": {
+      "rows": 1,
+      "sha256": "9fab9fd9776681b90a9de73056f8259117f443f05222169c008851481d4104da"
+    },
+    "external_identities": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixture_orders": {
+      "rows": 5,
+      "sha256": "182f8a7e66df483698f95234f5e2352c63a7cddad93ee40c98dbb5d83f7504fd"
+    },
+    "handoffs": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "idempotency_keys": {
+      "rows": 1,
+      "sha256": "17fa8b9ee006dcb2cf4512691c580cf4484e932ced50ddf3dee85440f815eb4d"
+    },
+    "memberships": {
+      "rows": 6,
+      "sha256": "db172eec1a6915dd60edfb3cc9ae1ed04ab51d07758d1ca6e9c992e23a572480"
+    },
+    "model_versions": {
+      "rows": 6,
+      "sha256": "d74cd22ab7e1a186edbc579c497b7845b55d5c01dd1b0a2d60360bacc2585708"
+    },
+    "proposal_evidence": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "proposals": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "releases": {
+      "rows": 6,
+      "sha256": "bedc2bdeb51ec97ed1329a0dbcb3c13d0e98d6a3e243491e04a095cff05117d4"
+    },
+    "request_limits": {
+      "rows": 101,
+      "sha256": "e992fd9ecd4653d000b712d73990e8b126939dfa79337452f74885d92e3436b7"
+    },
+    "tenants": {
+      "rows": 2,
+      "sha256": "91b17ef748fb70bcd5a1e3cdfa7707f94389adcc3bf109dea480607e816b0a0d"
+    },
+    "trace_events": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "original_order_snapshot_verified": true,
+  "synthetic_restore_probe_used": true,
+  "tracking_verified": true,
+  "approval_verified": true,
+  "source_database_written_by_check": false,
+  "command_output": "Restored tracking and atomic approval verified."
+}

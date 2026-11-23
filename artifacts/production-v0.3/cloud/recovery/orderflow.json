@@ -1,0 +1,127 @@
+{
+  "checked_at": "2026-11-23T19:54:32.053152+00:00",
+  "project": "orderflow",
+  "scope": "Actual Neon PostgreSQL 18 application-schema exported-snapshot recovery into a newly owned database on the same project. Excludes managed neon_auth accounts/schema and warehouse/evaluation databases.",
+  "source_database": "neondb",
+  "source_written_by_check": false,
+  "managed_auth_schema_exported": false,
+  "password_or_dump_persisted_in_evidence": false,
+  "passed": true,
+  "server_version": "18.7 (84da7d8)",
+  "exported_snapshot_used": true,
+  "private_dump_sha256": "913336936fd625d73394d958ad62e7ccc202d154248011471d5518d0f7521fb4",
+  "all_application_table_hashes_match": true,
+  "tables_verified": 25,
+  "table_snapshot": {
+    "connector_cursors": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "entity_current": {
+      "rows": 5,
+      "sha256": "164f3e6e857d09a36656852cd2e59677997051105beb9fee6b56e3322ed925bf"
+    },
+    "entity_revisions": {
+      "rows": 9,
+      "sha256": "55228329bd16f38daf4c09a0943343015308fbfcf077fbfc1fd11227829c9f5c"
+    },
+    "hosted_jobs": {
+      "rows": 7,
+      "sha256": "e725f184a84a175cd6f8fcbfe6c77f2af3ab454a18712aea3f849691024a9027"
+    },
+    "inbox_events": {
+      "rows": 11,
+      "sha256": "ae526dfe68e1e03f2459eac390a6dafa63e7abd594a7c17a774abea443f06cc8"
+    },
+    "ingestion_runs": {
+      "rows": 5,
+      "sha256": "cca5428ab3d9853b4323619c4989f76a94c146003c5f284b6ecef09b0bb75d76"
+    },
+    "inventory_snapshots": {
+      "rows": 1,
+      "sha256": "05cbacaac111521bf4404254868fc1757cc93ba615165c3321d05181ea1e644f"
+    },
+    "memberships": {
+      "rows": 1,
+      "sha256": "dd9666af8ef907e35a9e3e41ed46f2cb069ed3f3f905e5285c7936a9db7b1ad0"
+    },
+    "operator_audit": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "pipeline_expectations": {
+      "rows": 4,
+      "sha256": "07635914c09d66543a788bf0d40e65d5169c17e334cb7b9d60dba9debc354ac5"
+    },
+    "pipeline_expected_orders": {
+      "rows": 8,
+      "sha256": "033c69af028483542f27788958234b467b2d6d836cb373342e8b5e69a456f2d7"
+    },
+    "pipeline_snapshot_rows": {
+      "rows": 32,
+      "sha256": "29dcb2a5615b71ba86c2f7962c90fd2aa13fd60f4b808043099a06567d2c32d9"
+    },
+    "processing_partitions": {
+      "rows": 5,
+      "sha256": "11c8d1455d8edc4510a7a6e9154159267e6a23911a1c272328ecaa9b5ca13e8f"
+    },
+    "processing_receipts": {
+      "rows": 11,
+      "sha256": "df16f0f21376861551686d2c44eaef03a7f472300c71e592dcfb33d6548f4111"
+    },
+    "quality_results": {
+      "rows": 33,
+      "sha256": "228b0c387c599352db6bfa4f481667e65aaba3cac729797a9fc9b35be095319e"
+    },
+    "quarantines": {
+      "rows": 2,
+      "sha256": "7c1964948b6fabf12539ec7bc16b9f4a0bd35fe1667a07303e74fcb6fc7bbcc1"
+    },
+    "report_candidates": {
+      "rows": 4,
+      "sha256": "ffbecd5708c73482d3e195f4f3114aaefef2f1cec642515252d93223e28ceab9"
+    },
+    "report_locks": {
+      "rows": 1,
+      "sha256": "a9d423990983a30a5c33ddce5a1cfc166d616dbf83fb837ade837f4fe32d5fac"
+    },
+    "report_publications": {
+      "rows": 1,
+      "sha256": "34331d458ae473d114437e4b12533a916c3f3a268830264f83abbb9d2271b71d"
+    },
+    "request_budgets": {
+      "rows": 2,
+      "sha256": "948f571ea41063cf8545d131ec78e09d15a90aa7225b1e11330c835009fe4b50"
+    },
+    "source_authorities": {
+      "rows": 3,
+      "sha256": "94449bf0f1220307cd36a4b7071e1b24c21ed440cc8b0bbac80f8ec8b4835eb3"
+    },
+    "source_credentials": {
+      "rows": 4,
+      "sha256": "2d024aa79f6b6cbefd8e69b66b82bff499be9a318d252c2596cd4d582aa14945"
+    },
+    "sources": {
+      "rows": 4,
+      "sha256": "6a8fc771451ba438c13885b4dd6f2538cb32e95053ec2f429676880b31960226"
+    },
+    "stored_objects": {
+      "rows": 19,
+      "sha256": "cbc9e245752f0931ba67fe5cda36ddd1d9b7797173d81cf80a6f31d20afd660b"
+    },
+    "tenants": {
+      "rows": 2,
+      "sha256": "3820a8d40ae75b8cdcafb781636ae2a56e5b38f73f64b8cebe9cbeac9995309d"
+    }
+  },
+  "forced_rls_tables_restored": 23,
+  "immutable_object_checksums_verified": 19,
+  "restored_object_mutation_rejected": true,
+  "restricted_role_unscoped_tenants": 0,
+  "owned_restore_database_removed": true,
+  "private_dump_removed": true,
+  "restricted_role_scoped_context_counts": [
+    1,
+    1
+  ]
+}

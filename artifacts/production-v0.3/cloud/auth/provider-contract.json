@@ -1,0 +1,104 @@
+{
+  "checked_at": "2026-11-23T19:08:29.906463+00:00",
+  "emails_sent": false,
+  "accounts_created": false,
+  "projects": {
+    "resolvelab": {
+      "schema": {
+        "/open-api/generate-schema": {
+          "status": 200,
+          "content_type": "application/json; charset=utf-8",
+          "relevant_paths": [
+            "/sign-up/email",
+            "/reset-password",
+            "/verify-password",
+            "/change-password",
+            "/request-password-reset",
+            "/reset-password/{token}",
+            "/refresh-token",
+            "/get-access-token",
+            "/admin/set-user-password",
+            "/token",
+            "/email-otp/send-verification-otp",
+            "/email-otp/check-verification-otp",
+            "/email-otp/verify-email",
+            "/sign-in/email-otp",
+            "/email-otp/request-password-reset",
+            "/forget-password/email-otp",
+            "/email-otp/reset-password",
+            "/email-otp/request-email-change",
+            "/email-otp/change-email",
+            "/token/anonymous"
+          ]
+        },
+        "/reference": {
+          "status": 200,
+          "content_type": "text/html"
+        }
+      },
+      "origin_probe": {
+        "https://resolvelab-blush.vercel.app": {
+          "status": 401,
+          "code": "INVALID_EMAIL_OR_PASSWORD"
+        },
+        "http://localhost:3000": {
+          "status": 403,
+          "code": "INVALID_ORIGIN"
+        },
+        "https://untrusted.example.invalid": {
+          "status": 403,
+          "code": "INVALID_ORIGIN"
+        }
+      }
+    },
+    "orderflow": {
+      "schema": {
+        "/open-api/generate-schema": {
+          "status": 200,
+          "content_type": "application/json; charset=utf-8",
+          "relevant_paths": [
+            "/sign-up/email",
+            "/reset-password",
+            "/verify-password",
+            "/change-password",
+            "/request-password-reset",
+            "/reset-password/{token}",
+            "/refresh-token",
+            "/get-access-token",
+            "/admin/set-user-password",
+            "/token",
+            "/email-otp/send-verification-otp",
+            "/email-otp/check-verification-otp",
+            "/email-otp/verify-email",
+            "/sign-in/email-otp",
+            "/email-otp/request-password-reset",
+            "/forget-password/email-otp",
+            "/email-otp/reset-password",
+            "/email-otp/request-email-change",
+            "/email-otp/change-email",
+            "/token/anonymous"
+          ]
+        },
+        "/reference": {
+          "status": 200,
+          "content_type": "text/html"
+        }
+      },
+      "origin_probe": {
+        "https://orderflow-hazel.vercel.app": {
+          "status": 401,
+          "code": "INVALID_EMAIL_OR_PASSWORD"
+        },
+        "http://localhost:3000": {
+          "status": 403,
+          "code": "INVALID_ORIGIN"
+        },
+        "https://untrusted.example.invalid": {
+          "status": 403,
+          "code": "INVALID_ORIGIN"
+        }
+      }
+    }
+  },
+  "scope": "Anonymous live provider schema/origin contract. Approved-origin401 is expected without a session; untrusted/localhost403 denies origin. Not an authenticated-user journey."
+}

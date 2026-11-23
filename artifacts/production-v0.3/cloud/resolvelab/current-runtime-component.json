@@ -1,0 +1,46 @@
+{
+  "native_tests": 210,
+  "current_backend_sha256": "8f2bdb8ea0e95ab78659630e1c6752d25731744af0284b83cf05b0f80a0f5637",
+  "original_native_proof_sha256": "05827650022223920b6f0b36b3a0a44dffffcd2cc91cd9dd970ee4fd786e47f1",
+  "unchanged_protected_repository_inputs": 198,
+  "runtime_sql_dependencies_fixtures_python_tests_and_harness_unchanged": true,
+  "full_repository_tree_unchanged": false,
+  "authorized_non_runtime_differences": [
+    {
+      "path": "README.md",
+      "native_sha256": "d2b3a0c7a500e8f7e5a93f4ce530fd9748543c5f2a380dfe28e24f7124dfb433",
+      "current_sha256": "a17a98b29c49cca8a14a201903ec7b64fcba7309621f6a06e9699d4faf1751aa"
+    },
+    {
+      "path": "scripts/auth-code-check.mjs",
+      "native_sha256": null,
+      "current_sha256": "cf5b02c28fd5cd3ec75ae32a4dcd10c7d61a095c7909a9e7bcbd761011916856"
+    },
+    {
+      "path": "scripts/neon-browser-check.mjs",
+      "native_sha256": "ea7ab8c7762067209fa700243382f4a0e052c19ef59e3407a68bf9b31935c064",
+      "current_sha256": "c6dc2b8c3ad1aa5798291f6755f591880a94cbccea2466944e7ff44d9e15d173"
+    },
+    {
+      "path": "scripts/neon-provider-fixture.mjs",
+      "native_sha256": "30a93ed7c065838039ba9897fe3d20af5cbaba7db11507a9969405d00bfd836e",
+      "current_sha256": "8e8be1f522ac3714f44cf7dae8ed8a3b85598a0bd1f35b3809e9764b2e02cee9"
+    },
+    {
+      "path": "web/app.js",
+      "native_sha256": "e555752f5a9e83742b7241e36d2fd5c4096056eb34153eacc8b723ccd0f21901",
+      "current_sha256": "8afc8d32fe890aaaa63706404cc36cccde105bca4c4779a52c76a1006804fbde"
+    },
+    {
+      "path": "web/auth-client-src.js",
+      "native_sha256": "ac1c115f8c276533c924cd08121ab13de689e304b894798f8c08397843460008",
+      "current_sha256": "e25b23818e9254de40235d8480042f2623db7ebe0cad78efa82feb59f211fa3f"
+    },
+    {
+      "path": "web/auth-client.js",
+      "native_sha256": "5214bdf54179ae37dc384c1b684701188a399cc78c96a06079e09de353f0cd77",
+      "current_sha256": "0fd2bd70474f524febdd52fc14a1bafc4e4e296e53334ad76f555d454ab628f2"
+    }
+  ],
+  "scope": "Exact native210 runtime component comparison after authorized UI/Node-QA and docs changes. No claim of current whole204-file equality or a rerun of historical frozen reports. Native tests do not read or execute changed frontend scripts."
+}

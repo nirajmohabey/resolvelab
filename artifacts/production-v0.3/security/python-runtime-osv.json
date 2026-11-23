@@ -1,0 +1,326 @@
+{
+  "generated_at": "2026-11-23T18:35:07.336255+00:00",
+  "source": "https://api.osv.dev/v1/querybatch",
+  "lock": "requirements.lock",
+  "lock_sha256": "17c282258500809e4bdf3749af5537a7dd05d4029b2caa7aa041ed7df7b53b80",
+  "source_stable": true,
+  "queried_package_versions": 61,
+  "unique_matching_advisories": 0,
+  "packages": [
+    {
+      "name": "alembic",
+      "version": "1.20.1"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.7"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0"
+    },
+    {
+      "name": "anyio",
+      "version": "4.16.0"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.11.20"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1"
+    },
+    {
+      "name": "click",
+      "version": "8.5.1"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.3"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6"
+    },
+    {
+      "name": "cryptography",
+      "version": "50.0.2"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.165.0"
+    },
+    {
+      "name": "filelock",
+      "version": "4.3.0"
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0"
+    },
+    {
+      "name": "h2",
+      "version": "4.4.1"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.8.0"
+    },
+    {
+      "name": "hpack",
+      "version": "4.2.0"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9"
+    },
+    {
+      "name": "httpcore2",
+      "version": "2.16.2"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1"
+    },
+    {
+      "name": "httpx2",
+      "version": "2.16.2"
+    },
+    {
+      "name": "httpx2-jsfetch",
+      "version": "1.0"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "1.33.0"
+    },
+    {
+      "name": "hyperframe",
+      "version": "6.1.0"
+    },
+    {
+      "name": "idna",
+      "version": "3.20"
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0"
+    },
+    {
+      "name": "mako",
+      "version": "1.4.3"
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.4"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.29.0"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.5"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.32.0"
+    },
+    {
+      "name": "opentelemetry-api",
+      "version": "1.45.2"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2"
+    },
+    {
+      "name": "psycopg",
+      "version": "3.3.9"
+    },
+    {
+      "name": "psycopg-binary",
+      "version": "3.3.9"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.12"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.4"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.50.5"
+    },
+    {
+      "name": "pyjwt",
+      "version": "2.15.1"
+    },
+    {
+      "name": "python-dotenv",
+      "version": "1.2.4"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.34"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.4"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1"
+    },
+    {
+      "name": "sqlalchemy",
+      "version": "2.1.9"
+    },
+    {
+      "name": "starlette",
+      "version": "1.10.0"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.8.0"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.3"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1"
+    },
+    {
+      "name": "truststore",
+      "version": "0.10.5"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.5"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0"
+    },
+    {
+      "name": "vercel-headers",
+      "version": "0.8.0"
+    },
+    {
+      "name": "vercel-internal-core",
+      "version": "0.2.2"
+    },
+    {
+      "name": "vercel-oidc",
+      "version": "0.12.0"
+    },
+    {
+      "name": "vercel-queue",
+      "version": "0.10.0"
+    }
+  ],
+  "raw_results": [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+  ],
+  "findings": [],
+  "advisories": {},
+  "passed": true,
+  "scope": "Exact production runtime lock versions, including conditional platform versions; no local unpublished project, development group, model contents or operating-system packages.",
+  "limitations": [
+    "No matching known advisory is a time-bounded database result, not proof of security.",
+    "Live deployment configuration, authorization, hosted platform and operating-system vulnerabilities require separate evidence."
+  ]
+}

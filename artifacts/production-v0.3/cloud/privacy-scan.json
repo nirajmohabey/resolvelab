@@ -1,0 +1,10 @@
+{
+  "scanned_files": 22,
+  "known_private_variants_checked": 213,
+  "private_value_hits": 0,
+  "jwt_pattern_hits": 0,
+  "email_address_pattern_hits": 0,
+  "identity_ids_and_subject_digests_exported": false,
+  "credential_files_exported": false,
+  "scope": "In-memory known private file credential/URL password variants, identity digests, URL/JSON/HTML/base64 variants and token/email patterns. No private values or user-supplied passwords are loaded into this packet. This is not a universal secret-leak guarantee."
+}

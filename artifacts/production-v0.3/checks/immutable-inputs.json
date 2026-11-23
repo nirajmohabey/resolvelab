@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-11-23T19:02:34.408880+00:00",
+  "protected_assets": {
+    "artifacts/model_freeze-v2.json": "407145edeae35cad8213cf3eff1a6adcb27e6cd10bf9ba9133e9809097beb216",
+    "artifacts/model_freeze-v3-original.json": "c9f5da834ce1441e1b5a467461fb767cd7ccd86467650a0d90e191070259c3d6",
+    "artifacts/model_freeze-v3-published.json": "03c4f5f5ad4bd0a4dc20709027cf721304da029c86628cf3f8df43d150c40d82",
+    "artifacts/model_freeze.json": "b6059a574462c773d72559af332fc3ce0ae3c66d1fa2c68683fd8da6e5f69aad",
+    "artifacts/model_manifest-tfidf-v1.json": "00618a246af41b80b972457fd7c738398eed9a2d2cc2d91543f5b935963f343a",
+    "artifacts/model_manifest-v2.json": "6eacb1502ddaac3dc270a0da64d2c3190548834cf576f07311b303958be3c30c",
+    "artifacts/model_manifest-v3-frozen.json": "8cdd2594263146c8eaf3adb1b3e234d10b60fbdf502b982aa902362fde8f38a0",
+    "artifacts/model_manifest-v3.json": "d9012f185d359399e3069c97c780ce96c8bf7042bea09e300697d7a9160362f1",
+    "artifacts/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/router-domain-v3.joblib": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+    "artifacts/router-domain-v4.joblib": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "artifacts/router-hybrid-v2.joblib": "9436d538a989bc181c5000c0f6dc182e0f25a9fd4da22596bea787e1b533518d",
+    "artifacts/router-tfidf-v1.joblib": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827",
+    "artifacts/router.joblib": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "artifacts/v4/model_freeze-before-retrieval.json": "ff8a8975c35ab83b6dc8b90e43c3bed196fe06c0e51b59cd36486d46f0ebd021",
+    "artifacts/v4/model_freeze.json": "b6059a574462c773d72559af332fc3ce0ae3c66d1fa2c68683fd8da6e5f69aad",
+    "artifacts/v4/model_manifest-before-retrieval.json": "76f9ec79f5ece7cc8fd5f460cc6ee661444628350ced08933de1ba1a74a5cf07",
+    "artifacts/v4/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/v4/source_membership-v2.jsonl": "47e28db6acd2fbc3e75e66b3da73a2e16a0267136dbb0380903b9e0652b912ed",
+    "fixtures/blind_workflow_v1.jsonl": "8f3b298faa40ae7a43338cc82eb2ffb068bf97bc13286faabda8af4465045a11",
+    "fixtures/blind_workflow_v1.manifest.json": "0aae0bdfefe836c19c032c560e42035911dffd4d875bb0820302799136f95aab",
+    "fixtures/core_routing_development.json": "9b8c46b2009ee1005ede6e3d427c81e84c8955d369b6434e7ff8524b72b9c36d",
+    "fixtures/domain_development_v1.jsonl": "0c69864dd7c49f1f3de4780ec17b0d50848025c1aac68c752236c1824b454909",
+    "fixtures/domain_development_v2.jsonl": "5d8e43bbb76b20accfd649aa60be7b4b9aa28b32f35c7bdbd3920f0936dbfe8f",
+    "fixtures/evaluation_cases.json": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+    "fixtures/independent_routing_cases.jsonl": "f1e7db37aca77bbfaa57a865abd7076b4c4237e8a349e2c9c507cce6f447cf49",
+    "fixtures/retrieval_benchmark_v2.json": "ec1454bdbc46ef2f5f537de3b82f9bf33c14f35ffe5060bed30c5a0aa65b7f38",
+    "fixtures/retrieval_queries.json": "161385cc1d094190b1d8d5b9134b200b987f8f00dba298090f0ec8acce8dadd2",
+    "fixtures/v3_blind_v1.jsonl": "5434bbd26d16358d18f4dadc32a12444a602e4225f9fce106bed81f089571d2f",
+    "fixtures/v3_blind_v1_1.jsonl": "f51ebcc14b2bdf39778cfa8c6b01188a5f51142b615144f0cd7533314769bb85",
+    "fixtures/v4_blind_v1.jsonl": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0"
+  },
+  "unchanged_protected_assets": 31,
+  "embedding_artifacts": {
+    "model.onnx": {
+      "sha256": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+      "bytes": 23046789,
+      "expected_sha256": "b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21"
+    },
+    "tokenizer.json": {
+      "sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+      "bytes": 466247,
+      "expected_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037"
+    }
+  },
+  "all_pins_match": true,
+  "scope": "Byte comparison against prior frozen input proof for model weights/manifests/datasets plus immutable embedding pins. Application source changes are intentionally measured separately."
+}

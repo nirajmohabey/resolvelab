@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-11-23T20:21:21.398670+00:00",
+  "publication_files_scanned": 68,
+  "docs_scanned": 3,
+  "known_private_variants_checked": 213,
+  "known_private_variant_hits": 0,
+  "jwt_pattern_hits": 0,
+  "unexpected_email_pattern_hits": 0,
+  "reserved_synthetic_example_email_occurrences": 6,
+  "git_all_refs_text_patch_bytes_scanned": 53590232,
+  "git_text_history_private_variant_hits": 0,
+  "historical_failures_preserved": true,
+  "unexpected_hosted_failures_retained": 2,
+  "original_failed_native_checkpoint_retained": true,
+  "final_native_tests": 210,
+  "hosted_batch_objects_verified": 19,
+  "scope": "Known local/provider credentials, identity digests and encoded/escaped/base64 variants scanned in memory. All Git refs' text patches scanned; binary blobs are not expanded. Reserved example/test addresses are synthetic fixtures. No actual values are logged. Not a universal leak guarantee."
+}

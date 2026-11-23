@@ -1,0 +1,37 @@
+{
+  "generated_at": "2026-11-23T19:14:41.922185+00:00",
+  "changed_files": [
+    "scripts/backup_check.py",
+    "tests/test_backup_failure_cleanup.py"
+  ],
+  "before_observed": {
+    "passed": 1,
+    "failed": 2,
+    "failing_cases": [
+      "snapshot_close",
+      "database_drop"
+    ],
+    "source_revision": "7d1f9c0",
+    "failure_details": {
+      "snapshot_close": "Close failure skipped owned database drop and partial dump removal.",
+      "database_drop": "Drop failure skipped partial dump removal."
+    },
+    "evidence": "Actual pre-fix focused run in this task; source script copied byte-for-byte into an owned temporary fixture, database/process calls mocked."
+  },
+  "after_observed": {
+    "passed": 10,
+    "failed": 0,
+    "command": [
+      ".venv/Scripts/python.exe",
+      "-m",
+      "pytest",
+      "--noconftest",
+      "tests/test_backup_failure_cleanup.py",
+      "tests/test_backup_restore_bounds.py",
+      "-q",
+      "--junitxml=artifacts/production-v0.3/checks/backup-cleanup.xml"
+    ],
+    "junit_sha256": "18b4599d501a3845756e6073dc38f6ed9ea6ea3a068a9338b3f51ebf33f03cf8"
+  },
+  "scope": "CPU-only fault cleanup/destination guards. The real 22-table restore is recorded separately. DROP failure still propagates and can leave the owned database requiring cleanup, while private dump removal is attempted independently."
+}

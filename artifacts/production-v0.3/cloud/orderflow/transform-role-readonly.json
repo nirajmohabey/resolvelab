@@ -1,0 +1,8 @@
+{
+  "restricted_transform_non_super_non_bypass": true,
+  "direct_startup_pgoptions_accepted": true,
+  "warehouse_create_privilege": true,
+  "alpha_staged_rows_visible": 8,
+  "beta_rows_denied": true,
+  "scope": "Read-only psycopg3 direct-role/startup-option/privilege checks; not a dbt adapter execution pass."
+}

@@ -1,0 +1,300 @@
+{
+  "checked_at": "2026-11-23T19:22:39.610224+00:00",
+  "deployment": "https://orderflow-axo4ybn54-niraj-mohabeys-projects.vercel.app",
+  "scope": "actual Vercel API, native private Queue, and restricted Neon data",
+  "synthetic_fixtures": [
+    "happy_path.jsonl",
+    "duplicates.jsonl",
+    "late_versions.jsonl",
+    "equal_effective_times.jsonl",
+    "conflicting_versions.jsonl",
+    "invalid_payloads.jsonl",
+    "tenant_isolation.jsonl"
+  ],
+  "all_terminal_as_expected": true,
+  "oracle_checks": {
+    "distinct_inbox_events": {
+      "observed": 10,
+      "expected": 10,
+      "passed": true
+    },
+    "terminal_receipts": {
+      "observed": 10,
+      "expected": 10,
+      "passed": true
+    },
+    "quarantined_events": {
+      "observed": 2,
+      "expected": 2,
+      "passed": true
+    },
+    "entity_revisions": {
+      "observed": 8,
+      "expected": 8,
+      "passed": true
+    },
+    "current_products": {
+      "observed": 2,
+      "expected": 2,
+      "passed": true
+    },
+    "current_orders": {
+      "observed": 2,
+      "expected": 2,
+      "passed": true
+    }
+  },
+  "http": [
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "36dd9fde-9bc2-492a-9bb2-83a9466bb95c",
+      "duplicate": true
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "6404602e-25c9-4bb3-96ca-e8a4f8375fc9",
+      "duplicate": true
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "09d11d3a-17fb-4fd1-8414-dcfcad891a39",
+      "duplicate": true
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "69861f81-6ced-4f53-a9cc-239548d38bd1",
+      "duplicate": true
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "36dd9fde-9bc2-492a-9bb2-83a9466bb95c",
+      "duplicate": true
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "09d11d3a-17fb-4fd1-8414-dcfcad891a39",
+      "duplicate": true
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "36dd9fde-9bc2-492a-9bb2-83a9466bb95c",
+      "duplicate": true
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "e2399e62-ce84-4c5e-b49b-8b7513c6ef3b",
+      "duplicate": false
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "67938655-9799-41b2-acae-b1fdfe50c6e1",
+      "duplicate": false
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "662c57eb-1d7e-496f-8ba5-ced16c7ad49e",
+      "duplicate": false
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "0f7bab4d-a4c2-4bb4-9301-1678b970ad49",
+      "duplicate": false
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "94b40d17-14af-400c-91dc-831924fc68be",
+      "duplicate": false
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "965e0354-f3ba-4999-adf9-639b07adad32",
+      "duplicate": false
+    },
+    {
+      "kind": "frozen-happy-path",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "f2277ffc-33d4-4f78-97b8-05b9a2f685ab",
+      "duplicate": false
+    },
+    {
+      "kind": "identical-replay",
+      "status": 202,
+      "expected": 202,
+      "passed": true,
+      "code": null,
+      "event_id": "36dd9fde-9bc2-492a-9bb2-83a9466bb95c",
+      "duplicate": true
+    },
+    {
+      "kind": "identity-conflict",
+      "status": 409,
+      "expected": 409,
+      "passed": true,
+      "code": "event_identity_conflict",
+      "event_id": null,
+      "duplicate": null
+    },
+    {
+      "kind": "invalid-source-key",
+      "status": 401,
+      "expected": 401,
+      "passed": true,
+      "code": "invalid_credentials",
+      "event_id": null,
+      "duplicate": null
+    },
+    {
+      "kind": "source-tenant-mismatch",
+      "status": 403,
+      "expected": 403,
+      "passed": true,
+      "code": "source_scope_mismatch",
+      "event_id": null,
+      "duplicate": null
+    },
+    {
+      "kind": "invalid-envelope",
+      "status": 422,
+      "expected": 422,
+      "passed": true,
+      "code": "invalid_envelope",
+      "event_id": null,
+      "duplicate": null
+    }
+  ],
+  "events": [
+    {
+      "event_id": "36dd9fde-9bc2-492a-9bb2-83a9466bb95c",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "6404602e-25c9-4bb3-96ca-e8a4f8375fc9",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "09d11d3a-17fb-4fd1-8414-dcfcad891a39",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "69861f81-6ced-4f53-a9cc-239548d38bd1",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "36dd9fde-9bc2-492a-9bb2-83a9466bb95c",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "09d11d3a-17fb-4fd1-8414-dcfcad891a39",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "36dd9fde-9bc2-492a-9bb2-83a9466bb95c",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "e2399e62-ce84-4c5e-b49b-8b7513c6ef3b",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "67938655-9799-41b2-acae-b1fdfe50c6e1",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "662c57eb-1d7e-496f-8ba5-ced16c7ad49e",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "0f7bab4d-a4c2-4bb4-9301-1678b970ad49",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "event_id": "94b40d17-14af-400c-91dc-831924fc68be",
+      "status": "quarantined",
+      "attempts": 1
+    },
+    {
+      "event_id": "965e0354-f3ba-4999-adf9-639b07adad32",
+      "status": "quarantined",
+      "attempts": 1
+    },
+    {
+      "event_id": "f2277ffc-33d4-4f78-97b8-05b9a2f685ab",
+      "status": "completed",
+      "attempts": 1
+    }
+  ],
+  "jobs": [
+    {
+      "kind": "drain",
+      "status": "succeeded",
+      "attempts": 1,
+      "last_error_code": null
+    }
+  ]
+}

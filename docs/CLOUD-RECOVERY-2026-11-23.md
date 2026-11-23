@@ -10,7 +10,7 @@ The exercise passed these checks:
 - Source access was read-only. The owned restore destination was marked/verified before use, then removed; the private dump was also removed.
 - No password or dump content was persisted in the evidence.
 
-The generated administrative evidence is `work/production-2026-11-23/accounts/resolvelab-cloud-restore-proof.json` in the verification workspace. Its recorded application snapshot is a point-in-time exercise, rather than a promise that every subsequent change has been backed up.
+The [public allowlisted recovery proof](../artifacts/production-v0.3/cloud/recovery/resolvelab.json) records the checks. Its original administrative evidence remains in the private verification workspace. Its recorded application snapshot is a point-in-time exercise, rather than a promise that every subsequent change has been backed up.
 
 **Scope:** This covers the serving application's schema. It excludes managed `neon_auth` accounts/schema, warehouse schemas and the separate evaluation database. It does not establish restoration of provider sessions/passwords, full account/project recovery, provider PITR retention, cross-region failover, an RPO/RTO or uptime SLA. A complete recovery plan must separately cover those components and the actual account configuration.
 

@@ -1,0 +1,69 @@
+"""Full default native suite bound to unchanged production inputs."""
+from datetime import datetime, timezone
+from hashlib import sha256
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import xml.etree.ElementTree as ET
+
+ROOT = Path(__file__).resolve().parents[2] / "outputs/resolvelab"
+OUT = ROOT / "artifacts/production-v0.3/checks/auth-cookie-fix"
+
+
+def digest(path): return sha256(path.read_bytes()).hexdigest()
+
+
+def snapshot():
+    selected = set()
+    for name in ("src", "scripts", "tests", "migrations", "fixtures", "contracts", "web", "LICENSES", ".github", "infra", "artifacts/embeddings"):
+        for path in (ROOT/name).rglob("*"):
+            if path.is_file() and not any(part in {"__pycache__","node_modules"} for part in path.parts):
+                selected.add(path)
+    for name in ("app.py","queue_worker.py","vercel.json",".vercelignore",".python-version","pyproject.toml","uv.lock","requirements.lock","package.json","package-lock.json","Dockerfile","docker-compose.yml","alembic.ini","pytest.ini","README.md"):
+        if not (ROOT/name).is_file(): continue
+        selected.add(ROOT/name)
+    original = json.loads((Path(__file__).parent.parent/"recheck-resolvelab/evaluations/input_hashes.json").read_text())
+    selected.update(ROOT/name for name in original if not name.startswith("src/"))
+    files = {path.relative_to(ROOT).as_posix():digest(path) for path in sorted(selected)}
+    return {"files":files,"sha256":sha256(json.dumps(files,sort_keys=True).encode()).hexdigest()}
+
+
+def code_digest():
+    result = sha256()
+    for path in sorted((ROOT/"src/resolvelab").glob("*.py")):
+        result.update(path.name.encode());result.update(path.read_bytes())
+    return result.hexdigest()
+
+
+def main():
+    if not __debug__ or sys.flags.optimize or os.environ.get("PYTEST_ADDOPTS","").strip() or os.environ.get("PYTEST_PLUGINS","").strip():
+        raise RuntimeError("Full verification requires assertions and no hidden pytest selection/plugins")
+    OUT.mkdir(parents=True,exist_ok=True)
+    before = snapshot(); source = code_digest()
+    target = OUT/"native-full.xml"
+    if target.exists(): raise RuntimeError("Versioned full-suite output already exists; preserve it")
+    command = [sys.executable,str(ROOT/"scripts/run_tests.py"),"--junitxml="+str(target),"-q"]
+    print(json.dumps({"starting":"full-default-native-suite","source_sha256":source,"input_files":len(before["files"])}),flush=True)
+    completed = subprocess.run(command,cwd=ROOT,capture_output=True,text=True)
+    (Path(__file__).parent/"native-cookie.stdout.txt").write_text(completed.stdout,encoding="utf-8")
+    (Path(__file__).parent/"native-cookie.stderr.txt").write_text(completed.stderr,encoding="utf-8")
+    after = snapshot()
+    changed = [name for name in sorted(set(before["files"])|set(after["files"])) if before["files"].get(name)!=after["files"].get(name)]
+    suites = [s for s in ET.parse(target).getroot().iter("testsuite") if len(list(s.iter("testsuite")))==1]
+    counts = {key:sum(int(s.attrib[key]) for s in suites) for key in ("tests","errors","failures","skipped")}
+    report = {"generated_at":datetime.now(timezone.utc).isoformat(),"command":command,"complete_default_suite":True,
+              "exit_code":completed.returncode,"counts":counts,"source_tree_sha256":source,
+              "source_before":before,"source_after":after,"changed_paths":changed,
+              "junit_path":target.relative_to(ROOT).as_posix(),"junit_sha256":digest(target),"runner_sha256":digest(Path(__file__)),
+              "passed":completed.returncode==0 and counts["tests"]>0 and not changed and not any(counts[k] for k in ("errors","failures","skipped")),
+              "scope":"Full default native suite in guarded disposable databases; no serving reset or hosted-capacity claim."}
+    (OUT/"native-full.source-proof.json").write_text(json.dumps(report,indent=2)+"\n",encoding="utf-8")
+    print(json.dumps({key:report[key] for key in ("passed","counts","source_tree_sha256","changed_paths")}),flush=True)
+    if not report["passed"]:
+        print(completed.stdout[-20000:])
+        raise SystemExit(1)
+
+
+if __name__ == "__main__": main()

@@ -1,0 +1,21 @@
+{
+  "workflow_success": {
+    "numerator": 19,
+    "denominator": 20,
+    "rate": 0.95
+  },
+  "runner_errors": 0,
+  "critical_failures": 1,
+  "unauthorized_effect_count": 0,
+  "all_tenant_effect_checks_completed": 20,
+  "p50_ms": 50.057,
+  "p95_ms": 200.677,
+  "estimated_provider_cost_usd": null,
+  "citation_support_human_review": null,
+  "safe_escalation_recall": {
+    "numerator": 8,
+    "denominator": 8,
+    "rate": 1.0
+  },
+  "workflow_failures": 1
+}

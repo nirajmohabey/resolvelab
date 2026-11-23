@@ -1,0 +1,1212 @@
+{
+  "deployed_url": "https://orderflow-hazel.vercel.app",
+  "deployment_id": "dpl_2UpM3pWPeue5jTLfGEiAH7SXBuyU",
+  "deployment_commit": "d082edbd5db498bc49b41ca0e17f781607831048",
+  "deployment_metadata_source": "Root Vercel API READY acknowledgment; alias readiness/dispatch observed directly below.",
+  "hosted_readiness": {
+    "url": "https://orderflow-hazel.vercel.app/health/ready",
+    "status": 200,
+    "response_sha256": "d5fe025133852345d7a1b51eabada1e5211aeecb2d106ac9e5a317337bfc52c4",
+    "request_id": "iad1::iad1::zr7mt-1795463577267-b86a823d18eb",
+    "date": "Mon, 23 Nov 2026 19:52:17 GMT"
+  },
+  "scope": "Internal restricted-app synthetic job preconditions, deployed private Queue execution and Neon PostgreSQL bytea objects. This is not an enrolled operator/JWT/HTTP job submission test.",
+  "maximum_authorized_non_drain_jobs": 5,
+  "dispatches": [
+    {
+      "at": "2026-11-23T19:53:00.249178+00:00",
+      "status": 200,
+      "published": 1
+    },
+    {
+      "at": "2026-11-23T19:53:16.728776+00:00",
+      "status": 200,
+      "published": 1
+    },
+    {
+      "at": "2026-11-23T19:53:32.118212+00:00",
+      "status": 200,
+      "published": 1
+    }
+  ],
+  "note": "Historical fixture interval is old, so freshness may remain stale even for a successful report; success does not imply current-day data.",
+  "jobs": [
+    {
+      "name": "daily-good",
+      "job_id": "2c9a104f-e747-5203-8605-0dc54e49e6c9",
+      "kind": "daily",
+      "payload_sha256": "1fb216f5657747c7362dd42b109e8c8175c1684cf51022b8fe6c679b13f9dab4",
+      "canonical_helper_source_sha256": "034af2a8cb1a278c15a81c1f8bb29b2916a43a3eb96a1e16f1d9f82edb150f6e",
+      "states": [
+        {
+          "at": "2026-11-23T19:31:36.463109+00:00",
+          "state": {
+            "phase": "start",
+            "status": "pending",
+            "generation": 0,
+            "attempts": 0,
+            "published_generation": 0,
+            "last_error_code": null,
+            "lease_present": false
+          }
+        },
+        {
+          "at": "2026-11-23T19:31:39.777082+00:00",
+          "state": {
+            "phase": "check",
+            "status": "running",
+            "generation": 1,
+            "attempts": 1,
+            "published_generation": 1,
+            "last_error_code": null,
+            "lease_present": true
+          }
+        },
+        {
+          "at": "2026-11-23T19:31:44.209952+00:00",
+          "state": {
+            "phase": "done",
+            "status": "failed",
+            "generation": 1,
+            "attempts": 1,
+            "published_generation": 1,
+            "last_error_code": "dbt_run_failed",
+            "lease_present": false
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check_name": "dbt_run_execution",
+          "status": "error",
+          "observed": "2",
+          "expected": "0"
+        }
+      ],
+      "objects": [
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/2c9a104f-e747-5203-8605-0dc54e49e6c9/revisions-00000-f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587.jsonl",
+          "sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+          "bytes": 2688,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/2c9a104f-e747-5203-8605-0dc54e49e6c9/source_manifest.json",
+          "sha256": "c8d04cd6f8fd7b3cd426b0b3f586c07aadd426651e72148abe26736846f29380",
+          "bytes": 946,
+          "type": "bytea",
+          "checksum_verified": true
+        }
+      ],
+      "beta_read_only_rls_denial": {
+        "counts": {
+          "hosted_jobs": 0,
+          "stored_objects": 0,
+          "report_candidates": 0,
+          "report_publications": 0,
+          "inventory_snapshots": 0
+        },
+        "all_zero": true,
+        "scope": "Restricted-app SQL tenant context, not an enrolled Beta HTTP/JWT principal."
+      },
+      "final": {
+        "status": "failed",
+        "phase": "done",
+        "generation": 1,
+        "attempts": 1,
+        "published_generation": 1,
+        "last_error_code": "dbt_run_failed",
+        "result": {
+          "quality_passed": false
+        },
+        "lease_present": false
+      },
+      "candidate": {
+        "status": "failed",
+        "generation": 1,
+        "snapshot_sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+        "oracle_sha256": "7039db2bea659474dd72a7cd70409b07f65c616f66fdca362a0e8395f02ebe38",
+        "project_sha256": "0a2a34b9d045433a673a1e20e977845cbb11d11f6d94a5e68f78dd776ed5a87e",
+        "manifest_sha256": null
+      },
+      "report_summary": null,
+      "historical_unexpected_failure": true
+    },
+    {
+      "name": "daily-good-after-fix",
+      "job_id": "e37d5400-955f-57c1-abb7-b1002efe3f93",
+      "kind": "daily",
+      "payload_sha256": "1fb216f5657747c7362dd42b109e8c8175c1684cf51022b8fe6c679b13f9dab4",
+      "canonical_helper_source_sha256": "92b427e264783ce8a79b938a0c0a8707d4239bdb8ec7c4037a7a69ea6011d525",
+      "states": [
+        {
+          "at": "2026-11-23T19:40:41.552676+00:00",
+          "state": {
+            "phase": "start",
+            "status": "pending",
+            "generation": 0,
+            "attempts": 0,
+            "published_generation": 0,
+            "last_error_code": null,
+            "lease_present": false
+          }
+        },
+        {
+          "at": "2026-11-23T19:40:46.413525+00:00",
+          "state": {
+            "phase": "check",
+            "status": "running",
+            "generation": 1,
+            "attempts": 1,
+            "published_generation": 1,
+            "last_error_code": null,
+            "lease_present": true
+          }
+        },
+        {
+          "at": "2026-11-23T19:40:49.739570+00:00",
+          "state": {
+            "phase": "done",
+            "status": "failed",
+            "generation": 1,
+            "attempts": 1,
+            "published_generation": 1,
+            "last_error_code": "dbt_run_failed",
+            "lease_present": false
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check_name": "dbt_run_execution",
+          "status": "error",
+          "observed": "2",
+          "expected": "0"
+        }
+      ],
+      "objects": [
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/e37d5400-955f-57c1-abb7-b1002efe3f93/dbt-run-93ce6adc-4565-4bf9-b081-41e948bc7a63-diagnostic.json",
+          "sha256": "36cd351e3a0ce317122a31bf315f48c69ec53faed78ed45dc38d645e32d62996",
+          "bytes": 3805,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/e37d5400-955f-57c1-abb7-b1002efe3f93/revisions-00000-f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587.jsonl",
+          "sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+          "bytes": 2688,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/e37d5400-955f-57c1-abb7-b1002efe3f93/source_manifest.json",
+          "sha256": "f7a175602d80ec0ebccf2ce576129a19111a7519c3af15dfe1853b0a0f4a9d9b",
+          "bytes": 946,
+          "type": "bytea",
+          "checksum_verified": true
+        }
+      ],
+      "beta_read_only_rls_denial": {
+        "counts": {
+          "hosted_jobs": 0,
+          "stored_objects": 0,
+          "report_candidates": 0,
+          "report_publications": 0,
+          "inventory_snapshots": 0
+        },
+        "all_zero": true,
+        "scope": "Restricted-app SQL tenant context, not an enrolled Beta HTTP/JWT principal."
+      },
+      "final": {
+        "status": "failed",
+        "phase": "done",
+        "generation": 1,
+        "attempts": 1,
+        "published_generation": 1,
+        "last_error_code": "dbt_run_failed",
+        "result": {
+          "diagnostic": {
+            "key": "reports/11111111-1111-4111-8111-111111111111/e37d5400-955f-57c1-abb7-b1002efe3f93/dbt-run-93ce6adc-4565-4bf9-b081-41e948bc7a63-diagnostic.json",
+            "bytes": 3805,
+            "sha256": "36cd351e3a0ce317122a31bf315f48c69ec53faed78ed45dc38d645e32d62996"
+          },
+          "quality_passed": false
+        },
+        "lease_present": false
+      },
+      "candidate": {
+        "status": "failed",
+        "generation": 2,
+        "snapshot_sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+        "oracle_sha256": "7039db2bea659474dd72a7cd70409b07f65c616f66fdca362a0e8395f02ebe38",
+        "project_sha256": "c90e572cff3e09b3e1c403859c91d9b289aa1bbd08498b5969dd394c87ed7ba8",
+        "manifest_sha256": null
+      },
+      "report_summary": null,
+      "historical_unexpected_failure": true
+    },
+    {
+      "name": "daily-good-after-runtime-fix",
+      "job_id": "65ac6eba-2645-5adf-9619-6853b29d3dd9",
+      "kind": "daily",
+      "payload_sha256": "1fb216f5657747c7362dd42b109e8c8175c1684cf51022b8fe6c679b13f9dab4",
+      "canonical_helper_source_sha256": "92b427e264783ce8a79b938a0c0a8707d4239bdb8ec7c4037a7a69ea6011d525",
+      "states": [
+        {
+          "at": "2026-11-23T19:53:00.567776+00:00",
+          "state": {
+            "phase": "start",
+            "status": "pending",
+            "generation": 0,
+            "attempts": 0,
+            "published_generation": 0,
+            "last_error_code": null,
+            "lease_present": false
+          }
+        },
+        {
+          "at": "2026-11-23T19:53:03.914134+00:00",
+          "state": {
+            "phase": "check",
+            "status": "running",
+            "generation": 1,
+            "attempts": 1,
+            "published_generation": 1,
+            "last_error_code": null,
+            "lease_present": true
+          }
+        },
+        {
+          "at": "2026-11-23T19:53:15.293793+00:00",
+          "state": {
+            "phase": "done",
+            "status": "succeeded",
+            "generation": 2,
+            "attempts": 1,
+            "published_generation": 2,
+            "last_error_code": null,
+            "lease_present": false
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check_name": "dbt_run_execution",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.history_highest_equal_time",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.unique_order_facts_entity_id.c633b6ef54",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.history_nonoverlap",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_order_facts_entity_id.4e787c9833",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_product_history_valid_from.fd8fe17a1e",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.fact_relationship",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_stg_revisions_entity_version.aee8aa8831",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.order_reconciliation",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.total_reconciliation",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.expectation_row_count",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "dbt_test_execution",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_stg_revisions_entity_id.8edb0b70bc",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_order_facts_total_minor.84ed147d60",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.revision_key_unique",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        }
+      ],
+      "objects": [
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/65ac6eba-2645-5adf-9619-6853b29d3dd9/dbt-run-4e320d95-136f-457e-a4f6-513a2861ca7e-results.json",
+          "sha256": "cd07847f409ff957cc8fd59b73204bc8d0c3edef16c89bbaa9304905882abfe8",
+          "bytes": 8525,
+          "type": "bytea",
+          "checksum_verified": true,
+          "dbt": {
+            "version": "1.12.7",
+            "results": [
+              {
+                "unique_id": "model.orderflow_warehouse.expectations",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.26738882064819336
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.expected_orders",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.25595593452453613
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.stg_revisions",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.069854736328125
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.product_history",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.08553886413574219
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.order_facts",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.11326193809509277
+              }
+            ]
+          }
+        },
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/65ac6eba-2645-5adf-9619-6853b29d3dd9/dbt-test-4e320d95-136f-457e-a4f6-513a2861ca7e-results.json",
+          "sha256": "ebf935357d3f69d48dd6a8a723ae85d0c4aac51ec5e7689d9f074c0e69cc92b4",
+          "bytes": 14493,
+          "type": "bytea",
+          "checksum_verified": true,
+          "dbt": {
+            "version": "1.12.7",
+            "results": [
+              {
+                "unique_id": "test.orderflow_warehouse.expectation_row_count",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.10365867614746094
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.fact_relationship",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.1128542423248291
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.history_nonoverlap",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.04397845268249512
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.history_highest_equal_time",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.07697916030883789
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_order_facts_entity_id.4e787c9833",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.06542539596557617
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_order_facts_total_minor.84ed147d60",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.06778311729431152
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_product_history_valid_from.fd8fe17a1e",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.05032920837402344
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_stg_revisions_entity_id.8edb0b70bc",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.055831193923950195
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_stg_revisions_entity_version.aee8aa8831",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.0608210563659668
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.order_reconciliation",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.0485987663269043
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.revision_key_unique",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.05920052528381348
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.total_reconciliation",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.08004450798034668
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.unique_order_facts_entity_id.c633b6ef54",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.05204653739929199
+              }
+            ]
+          }
+        },
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/65ac6eba-2645-5adf-9619-6853b29d3dd9/report_manifest-4e320d95-136f-457e-a4f6-513a2861ca7e.json",
+          "sha256": "83cfdf5f955c30dff1556aed15407a67b69bf0027b7d6547b46b67eda8cf89db",
+          "bytes": 2056,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/65ac6eba-2645-5adf-9619-6853b29d3dd9/revisions-00000-f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587.jsonl",
+          "sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+          "bytes": 2688,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/65ac6eba-2645-5adf-9619-6853b29d3dd9/source_manifest.json",
+          "sha256": "2675e546ca6976e375b0c191351b8d41411dc2feaa00a42047c4adc5a4e830f6",
+          "bytes": 946,
+          "type": "bytea",
+          "checksum_verified": true
+        }
+      ],
+      "beta_read_only_rls_denial": {
+        "counts": {
+          "hosted_jobs": 0,
+          "stored_objects": 0,
+          "report_candidates": 0,
+          "report_publications": 0,
+          "inventory_snapshots": 0
+        },
+        "all_zero": true,
+        "scope": "Restricted-app SQL tenant context, not an enrolled Beta HTTP/JWT principal."
+      },
+      "final": {
+        "status": "succeeded",
+        "phase": "done",
+        "generation": 2,
+        "attempts": 1,
+        "published_generation": 2,
+        "last_error_code": null,
+        "result": {
+          "stale": true,
+          "run_id": "65ac6eba-2645-5adf-9619-6853b29d3dd9",
+          "has_success": true
+        },
+        "lease_present": false
+      },
+      "candidate": {
+        "status": "published",
+        "generation": 3,
+        "snapshot_sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+        "oracle_sha256": "7039db2bea659474dd72a7cd70409b07f65c616f66fdca362a0e8395f02ebe38",
+        "project_sha256": "c90e572cff3e09b3e1c403859c91d9b289aa1bbd08498b5969dd394c87ed7ba8",
+        "manifest_sha256": "83cfdf5f955c30dff1556aed15407a67b69bf0027b7d6547b46b67eda8cf89db"
+      },
+      "report_summary": {
+        "currency": "USD",
+        "order_count": 2,
+        "product_count": 2,
+        "order_total_minor": 8000,
+        "raw_revision_count": 8
+      },
+      "historical_unexpected_failure": false
+    },
+    {
+      "name": "daily-wrong-oracle",
+      "job_id": "61046e95-5e04-50ef-96a4-49c46a704bfb",
+      "kind": "daily",
+      "payload_sha256": "e13e1447f00036a0b9792f7ffaebd199b01e4db336030eb2af40e093077ec7a6",
+      "canonical_helper_source_sha256": "92b427e264783ce8a79b938a0c0a8707d4239bdb8ec7c4037a7a69ea6011d525",
+      "states": [
+        {
+          "at": "2026-11-23T19:53:17.049364+00:00",
+          "state": {
+            "phase": "check",
+            "status": "pending",
+            "generation": 1,
+            "attempts": 0,
+            "published_generation": 1,
+            "last_error_code": null,
+            "lease_present": false
+          }
+        },
+        {
+          "at": "2026-11-23T19:53:20.370920+00:00",
+          "state": {
+            "phase": "check",
+            "status": "running",
+            "generation": 1,
+            "attempts": 1,
+            "published_generation": 1,
+            "last_error_code": null,
+            "lease_present": true
+          }
+        },
+        {
+          "at": "2026-11-23T19:53:30.649809+00:00",
+          "state": {
+            "phase": "done",
+            "status": "failed",
+            "generation": 1,
+            "attempts": 1,
+            "published_generation": 1,
+            "last_error_code": "dbt_test_failed",
+            "lease_present": false
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check_name": "dbt_run_execution",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.order_reconciliation",
+          "status": "fail",
+          "observed": "1",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_product_history_valid_from.fd8fe17a1e",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.history_nonoverlap",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_stg_revisions_entity_version.aee8aa8831",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.revision_key_unique",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.unique_order_facts_entity_id.c633b6ef54",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.total_reconciliation",
+          "status": "fail",
+          "observed": "1",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.fact_relationship",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_order_facts_total_minor.84ed147d60",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_order_facts_entity_id.4e787c9833",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.expectation_row_count",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "dbt_test_execution",
+          "status": "error",
+          "observed": "1",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.not_null_stg_revisions_entity_id.8edb0b70bc",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        },
+        {
+          "check_name": "test.orderflow_warehouse.history_highest_equal_time",
+          "status": "pass",
+          "observed": "0",
+          "expected": "0"
+        }
+      ],
+      "objects": [
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/61046e95-5e04-50ef-96a4-49c46a704bfb/dbt-run-a906d30f-ed8d-4aec-92f5-ac8370e3b1e2-results.json",
+          "sha256": "8b20cb03f73e825d3282cdeca9c9c01aca488f88d93bc5d7d4be101c481b9918",
+          "bytes": 8527,
+          "type": "bytea",
+          "checksum_verified": true,
+          "dbt": {
+            "version": "1.12.7",
+            "results": [
+              {
+                "unique_id": "model.orderflow_warehouse.expected_orders",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.20636391639709473
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.expectations",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.20981216430664062
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.stg_revisions",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.07203459739685059
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.order_facts",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.08633732795715332
+              },
+              {
+                "unique_id": "model.orderflow_warehouse.product_history",
+                "status": "success",
+                "failures": null,
+                "execution_time": 0.08769011497497559
+              }
+            ]
+          }
+        },
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/61046e95-5e04-50ef-96a4-49c46a704bfb/dbt-test-a906d30f-ed8d-4aec-92f5-ac8370e3b1e2-diagnostic.json",
+          "sha256": "8b6c3b77d90d18ab1bcd20b87d66fab8362f922619edef2b9cc8ee1cbee82ce7",
+          "bytes": 4437,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/61046e95-5e04-50ef-96a4-49c46a704bfb/dbt-test-a906d30f-ed8d-4aec-92f5-ac8370e3b1e2-results.json",
+          "sha256": "9749e5b1466ae821160c6d1b0cd8fb6faa1641256bd4d08c4bb53e6eb0175118",
+          "bytes": 14574,
+          "type": "bytea",
+          "checksum_verified": true,
+          "dbt": {
+            "version": "1.12.7",
+            "results": [
+              {
+                "unique_id": "test.orderflow_warehouse.expectation_row_count",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.08453249931335449
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.fact_relationship",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.09871506690979004
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.history_highest_equal_time",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.037847280502319336
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.history_nonoverlap",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.05676436424255371
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_order_facts_entity_id.4e787c9833",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.06746315956115723
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_order_facts_total_minor.84ed147d60",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.057550668716430664
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_product_history_valid_from.fd8fe17a1e",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.06019282341003418
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_stg_revisions_entity_id.8edb0b70bc",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.05897831916809082
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.not_null_stg_revisions_entity_version.aee8aa8831",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.05110740661621094
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.order_reconciliation",
+                "status": "fail",
+                "failures": 1,
+                "execution_time": 0.057683706283569336
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.revision_key_unique",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.04521512985229492
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.total_reconciliation",
+                "status": "fail",
+                "failures": 1,
+                "execution_time": 0.04648470878601074
+              },
+              {
+                "unique_id": "test.orderflow_warehouse.unique_order_facts_entity_id.c633b6ef54",
+                "status": "pass",
+                "failures": 0,
+                "execution_time": 0.06513357162475586
+              }
+            ]
+          }
+        },
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/61046e95-5e04-50ef-96a4-49c46a704bfb/revisions-00000-f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587.jsonl",
+          "sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+          "bytes": 2688,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "staging/11111111-1111-4111-8111-111111111111/2026-11-06/61046e95-5e04-50ef-96a4-49c46a704bfb/source_manifest.json",
+          "sha256": "ad4e593997d40302030b376d73654dada97f619cb5ddfbb5a3ec7cf477844dac",
+          "bytes": 946,
+          "type": "bytea",
+          "checksum_verified": true
+        }
+      ],
+      "beta_read_only_rls_denial": {
+        "counts": {
+          "hosted_jobs": 0,
+          "stored_objects": 0,
+          "report_candidates": 0,
+          "report_publications": 0,
+          "inventory_snapshots": 0
+        },
+        "all_zero": true,
+        "scope": "Restricted-app SQL tenant context, not an enrolled Beta HTTP/JWT principal."
+      },
+      "final": {
+        "status": "failed",
+        "phase": "done",
+        "generation": 1,
+        "attempts": 1,
+        "published_generation": 1,
+        "last_error_code": "dbt_test_failed",
+        "result": {
+          "diagnostic": {
+            "key": "reports/11111111-1111-4111-8111-111111111111/61046e95-5e04-50ef-96a4-49c46a704bfb/dbt-test-a906d30f-ed8d-4aec-92f5-ac8370e3b1e2-diagnostic.json",
+            "bytes": 4437,
+            "sha256": "8b6c3b77d90d18ab1bcd20b87d66fab8362f922619edef2b9cc8ee1cbee82ce7"
+          },
+          "quality_passed": false
+        },
+        "lease_present": false
+      },
+      "candidate": {
+        "status": "failed",
+        "generation": 4,
+        "snapshot_sha256": "f35b14c0956f7ce0f16dfc1deaf850749e981d21134134c1045c86fa26b4d587",
+        "oracle_sha256": "7a00af58709580f5fa4b9a886b0ccab704ef9e92fe6420fcf45a0880312eda39",
+        "project_sha256": "c90e572cff3e09b3e1c403859c91d9b289aa1bbd08498b5969dd394c87ed7ba8",
+        "manifest_sha256": null
+      },
+      "report_summary": null,
+      "historical_unexpected_failure": false
+    },
+    {
+      "name": "inventory-mismatch",
+      "job_id": "f80b6855-ab64-5d33-96f9-f3770911fe2a",
+      "kind": "inventory",
+      "payload_sha256": "333ccd330dd34d5383db1389498e33574368725c07cfb94f8e5e54a0f0543859",
+      "canonical_helper_source_sha256": "92b427e264783ce8a79b938a0c0a8707d4239bdb8ec7c4037a7a69ea6011d525",
+      "states": [
+        {
+          "at": "2026-11-23T19:53:32.448801+00:00",
+          "state": {
+            "phase": "done",
+            "status": "succeeded",
+            "generation": 0,
+            "attempts": 1,
+            "published_generation": 0,
+            "last_error_code": null,
+            "lease_present": false
+          }
+        }
+      ],
+      "checks": [
+        {
+          "check_name": "inventory_quantity_reconciliation",
+          "status": "fail",
+          "observed": "20",
+          "expected": "22"
+        }
+      ],
+      "objects": [
+        {
+          "key": "raw/11111111-1111-4111-8111-111111111111/cccccccc-cccc-4ccc-8ccc-cccccccccccc/INV-001/a6a904b24bb43bb64b7768ee8973319dfacc6a8a2b7f6ef9597a290e6b710db0/observed.csv",
+          "sha256": "a6a904b24bb43bb64b7768ee8973319dfacc6a8a2b7f6ef9597a290e6b710db0",
+          "bytes": 116,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "raw/11111111-1111-4111-8111-111111111111/cccccccc-cccc-4ccc-8ccc-cccccccccccc/INV-001/e7301ac8f61e75185e200cabe7121fbaed7d15fcc57529496b561e2608a662c5/reference.csv",
+          "sha256": "e7301ac8f61e75185e200cabe7121fbaed7d15fcc57529496b561e2608a662c5",
+          "bytes": 117,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/cccccccc-cccc-4ccc-8ccc-cccccccccccc/INV-001/inventory_reconciliation.json",
+          "sha256": "8951e2406735d88d8553669eff1cdb8fbcc7ec99c5baa0c8a319ca0b0ae46df4",
+          "bytes": 602,
+          "type": "bytea",
+          "checksum_verified": true
+        },
+        {
+          "key": "reports/11111111-1111-4111-8111-111111111111/cccccccc-cccc-4ccc-8ccc-cccccccccccc/INV-001/manifest.json",
+          "sha256": "a10e693c6f7eb26180cf51520f6f6de0112a08686c73c1f6ca6f1552b17d672c",
+          "bytes": 938,
+          "type": "bytea",
+          "checksum_verified": true
+        }
+      ],
+      "beta_read_only_rls_denial": {
+        "counts": {
+          "hosted_jobs": 0,
+          "stored_objects": 0,
+          "report_candidates": 0,
+          "report_publications": 0,
+          "inventory_snapshots": 0
+        },
+        "all_zero": true,
+        "scope": "Restricted-app SQL tenant context, not an enrolled Beta HTTP/JWT principal."
+      },
+      "final": {
+        "status": "succeeded",
+        "phase": "done",
+        "generation": 0,
+        "attempts": 1,
+        "published_generation": 0,
+        "last_error_code": null,
+        "result": {
+          "run_id": "f80b6855-ab64-5d33-96f9-f3770911fe2a",
+          "quality_passed": false,
+          "difference_total": -2,
+          "comparison_status": "fail"
+        },
+        "lease_present": false
+      },
+      "candidate": {},
+      "report_summary": null,
+      "historical_unexpected_failure": false
+    }
+  ],
+  "expected_scenario_passed": true,
+  "historical_unexpected_failures": 2,
+  "total_non_drain_jobs": 5,
+  "daily_dbt_tests_passed": 13,
+  "required_dbt_tests_passed": 7,
+  "objects_checksum_verified": 19,
+  "last_good_pointer": {
+    "run_id": "65ac6eba-2645-5adf-9619-6853b29d3dd9",
+    "tenant_id": "11111111-1111-4111-8111-111111111111",
+    "generation": 3,
+    "report_key": "daily",
+    "interval_end": "2026-11-07T00:00:00+00:00",
+    "published_at": "2026-11-23T19:53:11.990627+00:00",
+    "interval_start": "2026-11-06T00:00:00+00:00",
+    "manifest_sha256": "83cfdf5f955c30dff1556aed15407a67b69bf0027b7d6547b46b67eda8cf89db"
+  },
+  "last_good_retained_after_failed_check": true,
+  "last_good_retained_after_inventory": true,
+  "business_fixture_tables_per_tenant": 11,
+  "tenant_contexts": 2,
+  "scoped_business_table_hashes": 22,
+  "fixture_business_data_unchanged": true,
+  "business_before": {
+    "Alpha": {
+      "tenants": {
+        "rows": 1,
+        "sha256": "d79a060009023cd035a246267313bf26292d8b48725cba0a06cbb0fdebf48acd"
+      },
+      "sources": {
+        "rows": 3,
+        "sha256": "37490ec9af55d7ea062da4fadb94d1fdd7931cb22019ac77503a654bf3fe8e32"
+      },
+      "source_authorities": {
+        "rows": 2,
+        "sha256": "e732d202e908a00ef9ee874acf1d1c9d3b78f1aed32a11132ee0ae5fbbbe8787"
+      },
+      "processing_partitions": {
+        "rows": 4,
+        "sha256": "708ef9b0a753d27eee6e39f7dae896b6dbe7098a89423ae4cd0a361fc5491681"
+      },
+      "inbox_events": {
+        "rows": 10,
+        "sha256": "ba4780a3fdd7c978e5635a34562354b6b030337d11d32a5db9328dcf16a328e0"
+      },
+      "entity_revisions": {
+        "rows": 8,
+        "sha256": "ad3ad04bedfe8eea6787bc130bbb071988822634ef522435eab8b860e06a299b"
+      },
+      "entity_current": {
+        "rows": 4,
+        "sha256": "91c941862f5688c040811001384f4d1535aa3702f942e56106d75c2df876564f"
+      },
+      "processing_receipts": {
+        "rows": 10,
+        "sha256": "4134a8165de4383b3395b610db1c32aae4d79bcea43e83f6c3d93573f778da1b"
+      },
+      "quarantines": {
+        "rows": 2,
+        "sha256": "7c1964948b6fabf12539ec7bc16b9f4a0bd35fe1667a07303e74fcb6fc7bbcc1"
+      },
+      "connector_cursors": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "operator_audit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "Beta": {
+      "tenants": {
+        "rows": 1,
+        "sha256": "2ab57624fb21c53319b54c7bf91dbbbbf1b2788a670bc31a236bd2a34a41be75"
+      },
+      "sources": {
+        "rows": 1,
+        "sha256": "1666e3e246b58bbacee3d97882309675996f84706c020615400cf3d7902ae485"
+      },
+      "source_authorities": {
+        "rows": 1,
+        "sha256": "f71214e36a7b14d58a0d03bbe1107c433afeda081a8cfcdad861283692548955"
+      },
+      "processing_partitions": {
+        "rows": 1,
+        "sha256": "db545826c962012027666d1913cfdcd338c06635a99829fb37c3249f807a8272"
+      },
+      "inbox_events": {
+        "rows": 1,
+        "sha256": "926a91f7e3312feafc6033d444719dc3122d83255959fcb206f7b4ebbd3ca2de"
+      },
+      "entity_revisions": {
+        "rows": 1,
+        "sha256": "58c4e687356db4c4fee87e0501ccd5ec6a2519601d4a1ee36ccb968f66b68a50"
+      },
+      "entity_current": {
+        "rows": 1,
+        "sha256": "4a3cb2f34bf012a482d0e9d572f4f67f08ed5d891cd833c1a5ab8bd7cec93ed1"
+      },
+      "processing_receipts": {
+        "rows": 1,
+        "sha256": "aa21957fc5cbe75060fc10f7132d25ac055ea09408feb4cf80ae39053074d24f"
+      },
+      "quarantines": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_cursors": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "operator_audit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "business_after": {
+    "Alpha": {
+      "tenants": {
+        "rows": 1,
+        "sha256": "d79a060009023cd035a246267313bf26292d8b48725cba0a06cbb0fdebf48acd"
+      },
+      "sources": {
+        "rows": 3,
+        "sha256": "37490ec9af55d7ea062da4fadb94d1fdd7931cb22019ac77503a654bf3fe8e32"
+      },
+      "source_authorities": {
+        "rows": 2,
+        "sha256": "e732d202e908a00ef9ee874acf1d1c9d3b78f1aed32a11132ee0ae5fbbbe8787"
+      },
+      "processing_partitions": {
+        "rows": 4,
+        "sha256": "708ef9b0a753d27eee6e39f7dae896b6dbe7098a89423ae4cd0a361fc5491681"
+      },
+      "inbox_events": {
+        "rows": 10,
+        "sha256": "ba4780a3fdd7c978e5635a34562354b6b030337d11d32a5db9328dcf16a328e0"
+      },
+      "entity_revisions": {
+        "rows": 8,
+        "sha256": "ad3ad04bedfe8eea6787bc130bbb071988822634ef522435eab8b860e06a299b"
+      },
+      "entity_current": {
+        "rows": 4,
+        "sha256": "91c941862f5688c040811001384f4d1535aa3702f942e56106d75c2df876564f"
+      },
+      "processing_receipts": {
+        "rows": 10,
+        "sha256": "4134a8165de4383b3395b610db1c32aae4d79bcea43e83f6c3d93573f778da1b"
+      },
+      "quarantines": {
+        "rows": 2,
+        "sha256": "7c1964948b6fabf12539ec7bc16b9f4a0bd35fe1667a07303e74fcb6fc7bbcc1"
+      },
+      "connector_cursors": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "operator_audit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "Beta": {
+      "tenants": {
+        "rows": 1,
+        "sha256": "2ab57624fb21c53319b54c7bf91dbbbbf1b2788a670bc31a236bd2a34a41be75"
+      },
+      "sources": {
+        "rows": 1,
+        "sha256": "1666e3e246b58bbacee3d97882309675996f84706c020615400cf3d7902ae485"
+      },
+      "source_authorities": {
+        "rows": 1,
+        "sha256": "f71214e36a7b14d58a0d03bbe1107c433afeda081a8cfcdad861283692548955"
+      },
+      "processing_partitions": {
+        "rows": 1,
+        "sha256": "db545826c962012027666d1913cfdcd338c06635a99829fb37c3249f807a8272"
+      },
+      "inbox_events": {
+        "rows": 1,
+        "sha256": "926a91f7e3312feafc6033d444719dc3122d83255959fcb206f7b4ebbd3ca2de"
+      },
+      "entity_revisions": {
+        "rows": 1,
+        "sha256": "58c4e687356db4c4fee87e0501ccd5ec6a2519601d4a1ee36ccb968f66b68a50"
+      },
+      "entity_current": {
+        "rows": 1,
+        "sha256": "4a3cb2f34bf012a482d0e9d572f4f67f08ed5d891cd833c1a5ab8bd7cec93ed1"
+      },
+      "processing_receipts": {
+        "rows": 1,
+        "sha256": "aa21957fc5cbe75060fc10f7132d25ac055ea09408feb4cf80ae39053074d24f"
+      },
+      "quarantines": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "connector_cursors": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "operator_audit": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  }
+}

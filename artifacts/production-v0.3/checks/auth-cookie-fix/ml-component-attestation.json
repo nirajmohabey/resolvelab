@@ -1,0 +1,121 @@
+{
+  "generated_at": "2026-11-23T19:39:35.874721+00:00",
+  "fresh_native210_proof_sha256": "05827650022223920b6f0b36b3a0a44dffffcd2cc91cd9dd970ee4fd786e47f1",
+  "current_whole_backend_sha256": "8f2bdb8ea0e95ab78659630e1c6752d25731744af0284b83cf05b0f80a0f5637",
+  "historical_evaluation_backend_sha256": "091147eeb2d6e4518aa147aaa5128514f6ef39884941c95bc86599689af35c6c",
+  "historical_evaluation_proof_sha256": "c0bed0ed1fc6ab92fff021218c9310d215359ccf31ebd2efe38ed7a1b92042ec",
+  "current_unchanged_evaluation_component_hashes": {
+    "artifacts/model_freeze-v2.json": "407145edeae35cad8213cf3eff1a6adcb27e6cd10bf9ba9133e9809097beb216",
+    "artifacts/model_freeze-v3-original.json": "c9f5da834ce1441e1b5a467461fb767cd7ccd86467650a0d90e191070259c3d6",
+    "artifacts/model_freeze-v3-published.json": "03c4f5f5ad4bd0a4dc20709027cf721304da029c86628cf3f8df43d150c40d82",
+    "artifacts/model_freeze.json": "b6059a574462c773d72559af332fc3ce0ae3c66d1fa2c68683fd8da6e5f69aad",
+    "artifacts/model_manifest-tfidf-v1.json": "00618a246af41b80b972457fd7c738398eed9a2d2cc2d91543f5b935963f343a",
+    "artifacts/model_manifest-v2.json": "6eacb1502ddaac3dc270a0da64d2c3190548834cf576f07311b303958be3c30c",
+    "artifacts/model_manifest-v3-frozen.json": "8cdd2594263146c8eaf3adb1b3e234d10b60fbdf502b982aa902362fde8f38a0",
+    "artifacts/model_manifest-v3.json": "d9012f185d359399e3069c97c780ce96c8bf7042bea09e300697d7a9160362f1",
+    "artifacts/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/router-domain-v3.joblib": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+    "artifacts/router-domain-v4.joblib": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "artifacts/router-hybrid-v2.joblib": "9436d538a989bc181c5000c0f6dc182e0f25a9fd4da22596bea787e1b533518d",
+    "artifacts/router-tfidf-v1.joblib": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827",
+    "artifacts/router.joblib": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "artifacts/v4/model_freeze-before-retrieval.json": "ff8a8975c35ab83b6dc8b90e43c3bed196fe06c0e51b59cd36486d46f0ebd021",
+    "artifacts/v4/model_freeze.json": "b6059a574462c773d72559af332fc3ce0ae3c66d1fa2c68683fd8da6e5f69aad",
+    "artifacts/v4/model_manifest-before-retrieval.json": "76f9ec79f5ece7cc8fd5f460cc6ee661444628350ced08933de1ba1a74a5cf07",
+    "artifacts/v4/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/v4/source_membership-v2.jsonl": "47e28db6acd2fbc3e75e66b3da73a2e16a0267136dbb0380903b9e0652b912ed",
+    "fixtures/blind_workflow_v1.jsonl": "8f3b298faa40ae7a43338cc82eb2ffb068bf97bc13286faabda8af4465045a11",
+    "fixtures/blind_workflow_v1.manifest.json": "0aae0bdfefe836c19c032c560e42035911dffd4d875bb0820302799136f95aab",
+    "fixtures/core_routing_development.json": "9b8c46b2009ee1005ede6e3d427c81e84c8955d369b6434e7ff8524b72b9c36d",
+    "fixtures/domain_development_v1.jsonl": "0c69864dd7c49f1f3de4780ec17b0d50848025c1aac68c752236c1824b454909",
+    "fixtures/domain_development_v2.jsonl": "5d8e43bbb76b20accfd649aa60be7b4b9aa28b32f35c7bdbd3920f0936dbfe8f",
+    "fixtures/evaluation_cases.json": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+    "fixtures/independent_routing_cases.jsonl": "f1e7db37aca77bbfaa57a865abd7076b4c4237e8a349e2c9c507cce6f447cf49",
+    "fixtures/retrieval_benchmark_v2.json": "ec1454bdbc46ef2f5f537de3b82f9bf33c14f35ffe5060bed30c5a0aa65b7f38",
+    "fixtures/retrieval_queries.json": "161385cc1d094190b1d8d5b9134b200b987f8f00dba298090f0ec8acce8dadd2",
+    "fixtures/v3_blind_v1.jsonl": "5434bbd26d16358d18f4dadc32a12444a602e4225f9fce106bed81f089571d2f",
+    "fixtures/v3_blind_v1_1.jsonl": "f51ebcc14b2bdf39778cfa8c6b01188a5f51142b615144f0cd7533314769bb85",
+    "fixtures/v4_blind_v1.jsonl": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+    "src/resolvelab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/resolvelab/api.py": "fc6d2241d72bf156a8984370c59a252a1a1dbef7a61362f6c5f47727388668fe",
+    "src/resolvelab/auth.py": "732be9d1f0360443a8a9707187ade450e81493e12740f10a920a785649e160ae",
+    "src/resolvelab/config.py": "3052c2fa2a33b74729a48c01e3a80b7f5c8f1149dfccd5e261df6e015ba16de1",
+    "src/resolvelab/db.py": "6ce6fdf628aed7a2615f35e86cb960abac211d9b2abf4e75ec03d4ac031ba858",
+    "src/resolvelab/evaluate.py": "b91eb8de65eef6d5be557feb8fbfd643f56999af03dfd84e4cc868af0c552926",
+    "src/resolvelab/evaluation_job.py": "00582a3738eb9bbc52e970f655c85d1851a3d22b2aedfb37f19020d658950271",
+    "src/resolvelab/generation.py": "248f364346c4b2419bf4da8e5b56f960302d9dc104e0281120994cb10de3796d",
+    "src/resolvelab/isolation.py": "cde5749b7df49fbccdb6c10e10df25ab3b45299ce8c6df5e22763c15a5181fd1",
+    "src/resolvelab/ml.py": "2c0e660a4dff0d0f752fcd1ab75cdcb66b712c2daa485b8c9a4e53c05353b3ee",
+    "src/resolvelab/processes.py": "8b60b7e1515f5fa46a070799e7a64a12e6e809fc1d009deb2a518543a1a009a1",
+    "src/resolvelab/provision.py": "29aefa56298dd3504167373b9745d2d9b4236ca9f4b01971237b2efe5b35de23",
+    "src/resolvelab/queue_jobs.py": "1f6fcb67328c06a9080a64c2574739944807f328cb9f551dcd3f906dbcabb2f3",
+    "src/resolvelab/retrieval.py": "65b9bd0ce871af1c665e67f43a79dcddaa846fbbd1f3fe7cd225281c7ddf6413",
+    "src/resolvelab/schemas.py": "2daa8cdfe69b6881dd905b106811389b41c4e238b7b4108e1142c6c7e8b92679",
+    "src/resolvelab/security.py": "f1f5d9b76a11a071d66e8fa667605b710a2ff3b204ae8396a3cdce47eb8a1189",
+    "src/resolvelab/seed.py": "e0a5c303b25995359fe5f662855ecdbf62907606c8ceb19fcaf14aa9590421ca",
+    "src/resolvelab/service.py": "6162c379c46827a59dd7ea5f9e0edb700db4aa887c026d1da569bbbcc9d76979",
+    "src/resolvelab/worker.py": "bd57fd69a57cf945ea7fbc6662979a8e5672e153822d1f2098fd45aa9c685107"
+  },
+  "changed_evaluation_module": [
+    "src/resolvelab/neon_auth.py"
+  ],
+  "auth_ast_diff": {
+    "added": [
+      "_proxy_cookie"
+    ],
+    "modified": [
+      "proxy_auth"
+    ]
+  },
+  "auth_proxy_cookie_before_failures": 3,
+  "auth_focused_after_passes": 28,
+  "fixture_path_review": "Frozen evaluators use fixture authentication and offline generation. The changed provider Set-Cookie helper and Neon /auth router are not called by those workflows. JWT claim validation functions and every other pipeline/model/retrieval/seed/evaluate/worker module remain unchanged.",
+  "frozen_results": [
+    {
+      "name": "v4-blind-final",
+      "workflow": {
+        "numerator": 139,
+        "denominator": 160,
+        "rate": 0.86875
+      },
+      "report_sha256": "8276fe7b467775a20c7c68165781deab96e21bed55bfe1bd85fddefb38a51908"
+    },
+    {
+      "name": "v3-paired",
+      "workflow": {
+        "numerator": 95,
+        "denominator": 160,
+        "rate": 0.59375
+      },
+      "report_sha256": "f4ab8833fa83411a1ec7d425518eb547f42ba8af6975d7cc1424d4d8fc893187"
+    },
+    {
+      "name": "v1-paired",
+      "workflow": {
+        "numerator": 76,
+        "denominator": 160,
+        "rate": 0.475
+      },
+      "report_sha256": "6169f3f0fcfdd464397940b84fb2ca6d73f109941c99fee2c75993242b62456a"
+    },
+    {
+      "name": "v1-fixture",
+      "workflow": {
+        "numerator": 19,
+        "denominator": 20,
+        "rate": 0.95
+      },
+      "report_sha256": "a749a693446d64fd8f119d183518a45de86a2689364e33cd68f6eaa38f132cc4"
+    },
+    {
+      "name": "deterministic-invariants",
+      "workflow": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0
+      },
+      "report_sha256": "2fbe15e49149aa847c086b79400b09850fd4b5fd54cd38c0fd350f2f48852866"
+    }
+  ],
+  "scope": "Component comparability attestation, not a fresh rerun of the five frozen reports on the new whole-backend hash. Native210 and focused synthetic provider/session tests verify the current auth fix; weights/thresholds/datasets remain byte-identical."
+}

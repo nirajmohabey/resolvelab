@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="3.348" timestamp="2026-11-23T14:26:34.964694-05:00" hostname="Niraj-16ARX8"><testcase classname="tests.test_neon_auth" name="test_neon_partitioned_priority_session_cookies_survive_proxy_and_session_read[sign-up/email]" time="1.255"><failure message="assert 503 == 200&#10; +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code">path = 'sign-up/email'
+neon = (&lt;function neon.&lt;locals&gt;.token at 0x000001A2E2F6B600&gt;, [])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A2E2F76180&gt;
+
+    @pytest.mark.parametrize("path", ["sign-up/email", "email-otp/verify-email", "sign-in/email"])
+    def test_neon_partitioned_priority_session_cookies_survive_proxy_and_session_read(path, neon, monkeypatch):
+        from resolvelab.api import app
+        from resolvelab import security
+        monkeypatch.setattr(security, "consume_budget", lambda *args: None)
+        monkeypatch.setenv("ALLOWED_HOSTS", "app.example.test")
+        monkeypatch.setenv("ALLOWED_ORIGINS", "https://app.example.test")
+        original = httpx.AsyncClient
+        seen = []
+    
+        def upstream(request):
+            seen.append(request.url.path)
+            if request.url.path.endswith("/get-session"):
+                cookie = request.headers["cookie"]
+                assert "__Secure-neon-auth.session_token=synthetic.signature" in cookie
+                assert "__Host-neon-auth.session_data=synthetic-data" in cookie
+                assert "Priority" not in cookie and "Partitioned" not in cookie
+                return httpx.Response(200, json={"session":{"id":"synthetic-session"}})
+            return httpx.Response(200, json={"ok":True}, headers=[
+                ("set-cookie", "__Secure-neon-auth.session_token=synthetic.signature; Domain=auth.example.test; Path=/; Max-Age=604800; Secure; HttpOnly; SameSite=None; Partitioned; Priority=High"),
+                ("set-cookie", "__Host-neon-auth.session_data=synthetic-data; Path=/; Secure; HttpOnly; SameSite=None; Partitioned"),
+            ])
+    
+        monkeypatch.setattr(neon_auth.httpx, "AsyncClient", lambda **kw: original(transport=httpx.MockTransport(upstream), **kw))
+    
+        async def run():
+            async with original(transport=httpx.ASGITransport(app=app), base_url="https://app.example.test") as client:
+                response = await client.post("/auth/"+path, json={"email":"synthetic@example.test"},
+                                             headers={"Origin":"https://app.example.test"})
+                assert response.status_code == 200
+                cookies = response.headers.get_list("set-cookie")
+                assert len(cookies) == 2
+                assert all("Domain=" not in value and "Secure" in value and "HttpOnly" in value
+                           and "SameSite=Lax" in value and "Partitioned" in value for value in cookies)
+                assert "Path=/auth" in cookies[0] and "Priority=High" in cookies[0] and "Max-Age=604800" in cookies[0]
+                assert "Path=/;" in cookies[1] and "Path=/auth" not in cookies[1]
+                session = await client.get("/auth/get-session")
+                assert session.status_code == 200 and session.json()["session"]["id"] == "synthetic-session"
+&gt;       asyncio.run(run())
+
+tests\test_neon_auth.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def run():
+        async with original(transport=httpx.ASGITransport(app=app), base_url="https://app.example.test") as client:
+            response = await client.post("/auth/"+path, json={"email":"synthetic@example.test"},
+                                         headers={"Origin":"https://app.example.test"})
+&gt;           assert response.status_code == 200
+E           assert 503 == 200
+E            +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code
+
+tests\test_neon_auth.py:206: AssertionError</failure></testcase><testcase classname="tests.test_neon_auth" name="test_neon_partitioned_priority_session_cookies_survive_proxy_and_session_read[email-otp/verify-email]" time="0.010"><failure message="assert 503 == 200&#10; +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code">path = 'email-otp/verify-email'
+neon = (&lt;function neon.&lt;locals&gt;.token at 0x000001A2E40E0CC0&gt;, [])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A2E4067F80&gt;
+
+    @pytest.mark.parametrize("path", ["sign-up/email", "email-otp/verify-email", "sign-in/email"])
+    def test_neon_partitioned_priority_session_cookies_survive_proxy_and_session_read(path, neon, monkeypatch):
+        from resolvelab.api import app
+        from resolvelab import security
+        monkeypatch.setattr(security, "consume_budget", lambda *args: None)
+        monkeypatch.setenv("ALLOWED_HOSTS", "app.example.test")
+        monkeypatch.setenv("ALLOWED_ORIGINS", "https://app.example.test")
+        original = httpx.AsyncClient
+        seen = []
+    
+        def upstream(request):
+            seen.append(request.url.path)
+            if request.url.path.endswith("/get-session"):
+                cookie = request.headers["cookie"]
+                assert "__Secure-neon-auth.session_token=synthetic.signature" in cookie
+                assert "__Host-neon-auth.session_data=synthetic-data" in cookie
+                assert "Priority" not in cookie and "Partitioned" not in cookie
+                return httpx.Response(200, json={"session":{"id":"synthetic-session"}})
+            return httpx.Response(200, json={"ok":True}, headers=[
+                ("set-cookie", "__Secure-neon-auth.session_token=synthetic.signature; Domain=auth.example.test; Path=/; Max-Age=604800; Secure; HttpOnly; SameSite=None; Partitioned; Priority=High"),
+                ("set-cookie", "__Host-neon-auth.session_data=synthetic-data; Path=/; Secure; HttpOnly; SameSite=None; Partitioned"),
+            ])
+    
+        monkeypatch.setattr(neon_auth.httpx, "AsyncClient", lambda **kw: original(transport=httpx.MockTransport(upstream), **kw))
+    
+        async def run():
+            async with original(transport=httpx.ASGITransport(app=app), base_url="https://app.example.test") as client:
+                response = await client.post("/auth/"+path, json={"email":"synthetic@example.test"},
+                                             headers={"Origin":"https://app.example.test"})
+                assert response.status_code == 200
+                cookies = response.headers.get_list("set-cookie")
+                assert len(cookies) == 2
+                assert all("Domain=" not in value and "Secure" in value and "HttpOnly" in value
+                           and "SameSite=Lax" in value and "Partitioned" in value for value in cookies)
+                assert "Path=/auth" in cookies[0] and "Priority=High" in cookies[0] and "Max-Age=604800" in cookies[0]
+                assert "Path=/;" in cookies[1] and "Path=/auth" not in cookies[1]
+                session = await client.get("/auth/get-session")
+                assert session.status_code == 200 and session.json()["session"]["id"] == "synthetic-session"
+&gt;       asyncio.run(run())
+
+tests\test_neon_auth.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def run():
+        async with original(transport=httpx.ASGITransport(app=app), base_url="https://app.example.test") as client:
+            response = await client.post("/auth/"+path, json={"email":"synthetic@example.test"},
+                                         headers={"Origin":"https://app.example.test"})
+&gt;           assert response.status_code == 200
+E           assert 503 == 200
+E            +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code
+
+tests\test_neon_auth.py:206: AssertionError</failure></testcase><testcase classname="tests.test_neon_auth" name="test_neon_partitioned_priority_session_cookies_survive_proxy_and_session_read[sign-in/email]" time="0.008"><failure message="assert 503 == 200&#10; +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code">path = 'sign-in/email'
+neon = (&lt;function neon.&lt;locals&gt;.token at 0x000001A2E40E19E0&gt;, [])
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000001A2E4066810&gt;
+
+    @pytest.mark.parametrize("path", ["sign-up/email", "email-otp/verify-email", "sign-in/email"])
+    def test_neon_partitioned_priority_session_cookies_survive_proxy_and_session_read(path, neon, monkeypatch):
+        from resolvelab.api import app
+        from resolvelab import security
+        monkeypatch.setattr(security, "consume_budget", lambda *args: None)
+        monkeypatch.setenv("ALLOWED_HOSTS", "app.example.test")
+        monkeypatch.setenv("ALLOWED_ORIGINS", "https://app.example.test")
+        original = httpx.AsyncClient
+        seen = []
+    
+        def upstream(request):
+            seen.append(request.url.path)
+            if request.url.path.endswith("/get-session"):
+                cookie = request.headers["cookie"]
+                assert "__Secure-neon-auth.session_token=synthetic.signature" in cookie
+                assert "__Host-neon-auth.session_data=synthetic-data" in cookie
+                assert "Priority" not in cookie and "Partitioned" not in cookie
+                return httpx.Response(200, json={"session":{"id":"synthetic-session"}})
+            return httpx.Response(200, json={"ok":True}, headers=[
+                ("set-cookie", "__Secure-neon-auth.session_token=synthetic.signature; Domain=auth.example.test; Path=/; Max-Age=604800; Secure; HttpOnly; SameSite=None; Partitioned; Priority=High"),
+                ("set-cookie", "__Host-neon-auth.session_data=synthetic-data; Path=/; Secure; HttpOnly; SameSite=None; Partitioned"),
+            ])
+    
+        monkeypatch.setattr(neon_auth.httpx, "AsyncClient", lambda **kw: original(transport=httpx.MockTransport(upstream), **kw))
+    
+        async def run():
+            async with original(transport=httpx.ASGITransport(app=app), base_url="https://app.example.test") as client:
+                response = await client.post("/auth/"+path, json={"email":"synthetic@example.test"},
+                                             headers={"Origin":"https://app.example.test"})
+                assert response.status_code == 200
+                cookies = response.headers.get_list("set-cookie")
+                assert len(cookies) == 2
+                assert all("Domain=" not in value and "Secure" in value and "HttpOnly" in value
+                           and "SameSite=Lax" in value and "Partitioned" in value for value in cookies)
+                assert "Path=/auth" in cookies[0] and "Priority=High" in cookies[0] and "Max-Age=604800" in cookies[0]
+                assert "Path=/;" in cookies[1] and "Path=/auth" not in cookies[1]
+                session = await client.get("/auth/get-session")
+                assert session.status_code == 200 and session.json()["session"]["id"] == "synthetic-session"
+&gt;       asyncio.run(run())
+
+tests\test_neon_auth.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\runners.py:195: in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\runners.py:118: in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1119-907-0_26.1119.907.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\base_events.py:691: in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    async def run():
+        async with original(transport=httpx.ASGITransport(app=app), base_url="https://app.example.test") as client:
+            response = await client.post("/auth/"+path, json={"email":"synthetic@example.test"},
+                                         headers={"Origin":"https://app.example.test"})
+&gt;           assert response.status_code == 200
+E           assert 503 == 200
+E            +  where 503 = &lt;Response [503 Service Unavailable]&gt;.status_code
+
+tests\test_neon_auth.py:206: AssertionError</failure></testcase></testsuite></testsuites>

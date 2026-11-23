@@ -1,0 +1,115 @@
+{
+  "generated_at": "2026-11-23T20:21:13.520114+00:00",
+  "status": "public_reviewed",
+  "files": {
+    "auth/orderflow-authenticated-ui.json": {
+      "bytes": 3432,
+      "sha256": "5e50c25bd430af2cd1a41cdf84513fe116e6f2a57995e1b777e2581ce567f492"
+    },
+    "auth/orderflow-jwt-lifecycle.json": {
+      "bytes": 828,
+      "sha256": "57a4d26137ace5fbd64bb9eead24ab761fb7602775ad5f5b0200fea0114268c9"
+    },
+    "auth/orderflow-live-session.json": {
+      "bytes": 686,
+      "sha256": "4d0a19bdc662a957c0b9c63b930d35125ed7ecf22a817df6caa1fa3186367ecb"
+    },
+    "auth/owner-enrollment.json": {
+      "bytes": 856,
+      "sha256": "474149bf56f3bee12fd42c8d73d5f944ddaec63058a72a26c6948e329e05179b"
+    },
+    "auth/provider-contract.json": {
+      "bytes": 3235,
+      "sha256": "dbe3c1b90a729f5b290ba7d077efad4c40a78e57fe17e742e054d8fafe3a6855"
+    },
+    "orderflow/hosted-batch.json": {
+      "bytes": 42998,
+      "sha256": "9e01350d9a0913715dd5e520cee8956017f60e53046eb9e0e4e14ce81c3fb7f6"
+    },
+    "orderflow/source-ingestion.json": {
+      "bytes": 6998,
+      "sha256": "ef9607ec1659424e2040c209fec7c04c1d748b882bf8cba3a5195cb9355aa926"
+    },
+    "orderflow/transform-role-readonly.json": {
+      "bytes": 313,
+      "sha256": "79e45dd3781fb8a65bccd3fd48222fd46ff2ae721b7735912a542b2f4988b51c"
+    },
+    "privacy-scan.json": {
+      "bytes": 518,
+      "sha256": "800a81c7c4afcdaf36b6029e93e0e69ff9dc2ea71e229a423b6c480c5714f019"
+    },
+    "PRODUCTION_TEST_REPORT.md": {
+      "bytes": 4301,
+      "sha256": "e9aaceb660af9b7b35002c8873d38a66e06fbe3847e7880e5b8ce0bdceff7576"
+    },
+    "recovery/orderflow-before-publication.json": {
+      "bytes": 4353,
+      "sha256": "d8f55516a30772a3eebe0a79a17b7353476e8eba48ad743511dc4bc0e813d9e8"
+    },
+    "recovery/orderflow.json": {
+      "bytes": 4356,
+      "sha256": "9da27021e6b01ff2a068e6e0cfa1bd0e3c3d7831837a044532fc7afcfde1dfeb"
+    },
+    "recovery/resolvelab.json": {
+      "bytes": 3788,
+      "sha256": "3e2165915f80a33455264b5ab2452a672f418dcf867034e5de5201b3c709f162"
+    },
+    "resolvelab/current-runtime-component.json": {
+      "bytes": 2270,
+      "sha256": "cfbb2d2c2b1231ca488552fec3b2c7b1c210c94cce72d2f525fed711ba808ca4"
+    },
+    "resolvelab/hosted-evaluations.json": {
+      "bytes": 2548,
+      "sha256": "8c5f4955f23b6d8b7e72bd73f08fd6b9d81a8132a8dbbcdecef3d74ff0265104"
+    },
+    "resolvelab/native-and-model-components.json": {
+      "bytes": 2168,
+      "sha256": "fbe956da3b78841f984648b56b0c497ff9dbf71e6088e0026c2660b7569ef9b6"
+    },
+    "runners/executed-orderflow-hosted.py.txt": {
+      "bytes": 17971,
+      "sha256": "424c7cdb00daca692b5337375e2b2132ce9b7d713f27f95ec44c179e840edcd6"
+    },
+    "runners/executed-resolvelab-native.py.txt": {
+      "bytes": 4247,
+      "sha256": "642d45b9bb174516622f5e8575e603b2e5d4c4e224a8094bdca8627478fad068"
+    },
+    "security/npm-advisory-snapshot.json": {
+      "bytes": 1146,
+      "sha256": "6994780338acd8ae5f665b2ee0c5c4bbb4fe32ec8b33dd02b98249ef207b16ad"
+    },
+    "security/resolve-static-review.json": {
+      "bytes": 11032,
+      "sha256": "8aadd65f042aba570a28bb810463232b2d903d5590e49ab60b4b9786541db73e"
+    },
+    "summary.json": {
+      "bytes": 2944,
+      "sha256": "525b4dd3996f93613b0bf381760dc80be94cfdcbac6d6b05a45339977414f753"
+    },
+    "ui/frontend-account-review.json": {
+      "bytes": 2806,
+      "sha256": "b98733d2ce2db679d71136b0e5f564b6ed21415a25b5dac798a18be172b204f8"
+    },
+    "ui/public-mobile-navigation.json": {
+      "bytes": 3607,
+      "sha256": "1a9bb325670e833832b2b287aac365f021db0c97a7a59df76bd88979946a288a"
+    }
+  },
+  "file_count": 23,
+  "total_bytes": 127401,
+  "original_account_proof_sha256": {
+    "auth-contract-proof.json": "5c5c76a48efb36554d1e1698db17480e41eda6dc17a06913380c244ca363bc32",
+    "resolve-owner-enrollment-redacted.json": "b8badc65d5d73f1328f93f8b73a1700abdb8d160fe61a07666e1692a7f680d3e",
+    "order-owner-enrollment-redacted.json": "8daad30b7d8e9b5f5418f7c51b256d24f8548ec70832d625846e98958fb0e63a",
+    "order-owner-ephemeral-redacted.json": "6624d00babfd669fe194650582d93c5486f06aa637eb6c031ec067471508587c",
+    "orderflow-positive-ui-redacted.json": "e4068859f9a60188d5cf736f02a1403caa517c7caaa3b759c743e53f5e1ce231",
+    "order-jwt-lifecycle-redacted.json": "e02c57d3074033e2251c9eb6e8fa68b58cbbbe529ef2f8c5dd7317b00f1289f9",
+    "orderflow-cloud-ingestion-full-proof.json": "fedbcfb90242ce1a4aec5cb522832ebb8948d3b7bcacd1e81b059e727c70a68c",
+    "resolvelab-cloud-evaluation-proof.json": "7f4b110dcf0b08830799bc512a8971cbeeaf3dbf8296a611c3e4fb48a4c8139b",
+    "resolvelab-cloud-evaluation-live-proof.json": "014fd6bf8e93cb593433f94cdb4c6a199516461c440e9f7587052269d636ae96",
+    "resolvelab-cloud-restore-proof.json": "486c9d09b47f67afe245cbbb939d39f7cdfc2bff87f523ca3a8d1c8462fa8556",
+    "orderflow-cloud-restore-proof.json": "2c214ece989397138ab20b6bfa1e598d5fcf7afeeb8907ab5d5508385bbd2161",
+    "orderflow-cloud-restore-before-publication.json": "4e84924f752b8a91e3e9255050a3dc2ae6e86c581273938c67064096bc336152"
+  },
+  "scope": "Allowlisted redacted public evidence; no credential directories or raw private dumps copied."
+}

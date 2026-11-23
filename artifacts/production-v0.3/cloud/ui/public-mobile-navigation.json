@@ -1,0 +1,127 @@
+{
+  "projects": {
+    "resolve": {
+      "recorded_at": "2026-11-23T20:04:23.148Z",
+      "base_url": "https://resolvelab-blush.vercel.app",
+      "passed": true,
+      "source_stable": true,
+      "positive_authentication_verified": false,
+      "full_wcag_conformance_verified": false,
+      "source_proof_sha256": "2280368cdd138452c0a4bed693d94f47e8875c5e3e22fc35ab2b54c4cfaf523f",
+      "scans": [
+        {
+          "flow": "signup",
+          "width": 375,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": []
+        },
+        {
+          "flow": "signup",
+          "width": 320,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": []
+        },
+        {
+          "flow": "verify",
+          "width": 375,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": []
+        },
+        {
+          "flow": "verify",
+          "width": 320,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": []
+        },
+        {
+          "flow": "reset-request",
+          "width": 375,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": []
+        },
+        {
+          "flow": "reset-request",
+          "width": 320,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": []
+        }
+      ],
+      "scope": "Actual public current anonymous frontend/provider; read-only form navigation, no account submission or interception."
+    },
+    "order": {
+      "recorded_at": "2026-11-23T20:10:29.110Z",
+      "base_url": "https://orderflow-hazel.vercel.app",
+      "passed": true,
+      "source_stable": true,
+      "positive_authentication_verified": false,
+      "full_wcag_conformance_verified": false,
+      "source_proof_sha256": "cfba9d856a5eb0165b55bb5076bae5e9820dbc94ad2041971797956792e82c05",
+      "scans": [
+        {
+          "flow": "signup",
+          "width": 375,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": [
+            "color-contrast"
+          ]
+        },
+        {
+          "flow": "signup",
+          "width": 320,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": [
+            "color-contrast"
+          ]
+        },
+        {
+          "flow": "verify",
+          "width": 375,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": [
+            "color-contrast"
+          ]
+        },
+        {
+          "flow": "verify",
+          "width": 320,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": [
+            "color-contrast"
+          ]
+        },
+        {
+          "flow": "reset-request",
+          "width": 375,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": [
+            "color-contrast"
+          ]
+        },
+        {
+          "flow": "reset-request",
+          "width": 320,
+          "overflow": false,
+          "automated_violation_count": 0,
+          "incomplete_rule_ids": [
+            "color-contrast"
+          ]
+        }
+      ],
+      "scope": "Actual public current anonymous frontend/provider; read-only form navigation, no account submission or interception."
+    }
+  },
+  "total_scans": 12,
+  "automated_violations": 0,
+  "full_wcag_conformance_verified": false
+}

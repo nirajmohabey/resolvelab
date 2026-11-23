@@ -1,0 +1,161 @@
+{
+  "passed": true,
+  "stage": "completed",
+  "browser_closed": true,
+  "cross_tenant_verified": true,
+  "cross_tenant_known_object_checked": true,
+  "asset_hashes": [
+    {
+      "status": 200,
+      "sha256": "2938554f10f4ef07d4a288c4383e9d0b25d838bbb8ef34ddb0f2cff7f168c19c",
+      "local_sha256": "2938554f10f4ef07d4a288c4383e9d0b25d838bbb8ef34ddb0f2cff7f168c19c",
+      "matches": true
+    },
+    {
+      "status": 200,
+      "sha256": "70c196e1a241c8cd1c8883c3043986302d6cea2351f9aa7bf224f3708342e6b2",
+      "local_sha256": "70c196e1a241c8cd1c8883c3043986302d6cea2351f9aa7bf224f3708342e6b2",
+      "matches": true
+    }
+  ],
+  "local_source_commit": "09efb3bbccffda56f7bbcfd667d127b536d56dc4",
+  "signed_out": true,
+  "forbidden_mutation": false,
+  "browser_error": false,
+  "storage_write": false,
+  "checked_at": "2026-11-23T20:02:34.049179+00:00",
+  "credentials_saved": false,
+  "session_material_saved": false,
+  "network_mocked": false,
+  "checks": [
+    {
+      "stage": "build_asset",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "build_asset",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "production_config",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "provider_signin",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "password_cleared",
+      "passed": true
+    },
+    {
+      "stage": "overview",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "expected_operator_session",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "storage_after_signin",
+      "passed": true
+    },
+    {
+      "stage": "tab_orders",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "tab_orders_rendered",
+      "passed": true
+    },
+    {
+      "stage": "tab_products",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "tab_products_rendered",
+      "passed": true
+    },
+    {
+      "stage": "tab_events",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "tab_events_rendered",
+      "passed": true
+    },
+    {
+      "stage": "tab_quarantines",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "tab_quarantines_rendered",
+      "passed": true
+    },
+    {
+      "stage": "tab_reports",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "tab_reports_rendered",
+      "passed": true
+    },
+    {
+      "stage": "tab_inventory",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "tab_inventory_rendered",
+      "passed": true
+    },
+    {
+      "stage": "storage_after_tabs",
+      "passed": true
+    },
+    {
+      "stage": "known_beta_object_denied",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "stage": "logout",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "anonymous_provider",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "stage": "anonymous_app",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "stage": "storage_after_logout",
+      "passed": true
+    },
+    {
+      "stage": "read_only_mutations",
+      "passed": true
+    },
+    {
+      "stage": "browser_no_page_errors",
+      "passed": true
+    }
+  ],
+  "scope": "Actual owner-authorized read-only hosted browser/API check on the recorded current frontend commit, with real provider/network; identifiers and session contents omitted."
+}

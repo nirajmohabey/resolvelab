@@ -1,0 +1,23 @@
+{
+  "resolvelab": {
+    "checked_at": "2026-11-23T19:44:45.396641+00:00",
+    "verified_owner_enrolled": true,
+    "role": "admin",
+    "provider_email_verified": true,
+    "separate_actor_from_seeded_fixtures": true,
+    "provider_admin_access_granted": false,
+    "password_used": false,
+    "session_material_saved": false,
+    "tenant": "Alpha"
+  },
+  "orderflow": {
+    "checked_at": "2026-11-23T19:35:07.500955+00:00",
+    "verified_owner_enrolled": true,
+    "role": "operator",
+    "fixture_alias": false,
+    "provider_admin_access_granted": false,
+    "tenant": "Alpha",
+    "verified_jwt_identity_matches_provider": true
+  },
+  "scope": "Real verified owner identities explicitly enrolled in Alpha. Identity IDs, email addresses, subject digests, credentials and sessions are omitted. App roles are server-maintained, not JWT role authority."
+}

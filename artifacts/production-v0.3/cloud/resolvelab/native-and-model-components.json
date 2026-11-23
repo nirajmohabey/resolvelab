@@ -1,0 +1,72 @@
+{
+  "native": {
+    "counts": {
+      "tests": 210,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "source_tree_sha256": "8f2bdb8ea0e95ab78659630e1c6752d25731744af0284b83cf05b0f80a0f5637",
+    "passed": true,
+    "changed_paths": []
+  },
+  "original_native_proof_sha256": "05827650022223920b6f0b36b3a0a44dffffcd2cc91cd9dd970ee4fd786e47f1",
+  "model_component_attestation_sha256": "cdfe141c2160e9d1b53bf58e64deffcd5b9d155162aa85f8f955ed010deb8146",
+  "historical_evaluation_backend_sha256": "091147eeb2d6e4518aa147aaa5128514f6ef39884941c95bc86599689af35c6c",
+  "auth_ast_diff": {
+    "added": [
+      "_proxy_cookie"
+    ],
+    "modified": [
+      "proxy_auth"
+    ]
+  },
+  "frozen_results": [
+    {
+      "name": "v4-blind-final",
+      "workflow": {
+        "numerator": 139,
+        "denominator": 160,
+        "rate": 0.86875
+      },
+      "report_sha256": "8276fe7b467775a20c7c68165781deab96e21bed55bfe1bd85fddefb38a51908"
+    },
+    {
+      "name": "v3-paired",
+      "workflow": {
+        "numerator": 95,
+        "denominator": 160,
+        "rate": 0.59375
+      },
+      "report_sha256": "f4ab8833fa83411a1ec7d425518eb547f42ba8af6975d7cc1424d4d8fc893187"
+    },
+    {
+      "name": "v1-paired",
+      "workflow": {
+        "numerator": 76,
+        "denominator": 160,
+        "rate": 0.475
+      },
+      "report_sha256": "6169f3f0fcfdd464397940b84fb2ca6d73f109941c99fee2c75993242b62456a"
+    },
+    {
+      "name": "v1-fixture",
+      "workflow": {
+        "numerator": 19,
+        "denominator": 20,
+        "rate": 0.95
+      },
+      "report_sha256": "a749a693446d64fd8f119d183518a45de86a2689364e33cd68f6eaa38f132cc4"
+    },
+    {
+      "name": "deterministic-invariants",
+      "workflow": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0
+      },
+      "report_sha256": "2fbe15e49149aa847c086b79400b09850fd4b5fd54cd38c0fd350f2f48852866"
+    }
+  ],
+  "scope": "Native 210-test runtime proof; later authorized frontend/Node-QA and documentation edits are separately identified below. Frozen reports retain their historical whole-backend hash; unchanged pipeline/model components are attested separately."
+}

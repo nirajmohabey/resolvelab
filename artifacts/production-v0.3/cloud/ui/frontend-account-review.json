@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-11-23T20:11:58.939Z",
+  "passed": true,
+  "source_stable": true,
+  "source_current": true,
+  "production_authenticated_ui_verified": false,
+  "full_wcag_conformance_verified": false,
+  "primary_checks": {
+    "resolve": 72,
+    "order": 46
+  },
+  "accessibility": {
+    "resolve": {
+      "account_form_scans": 35,
+      "automated_violations": 0,
+      "page_overflows": 0,
+      "incomplete_rules": [
+        "color-contrast"
+      ]
+    },
+    "order": {
+      "account_form_scans": 30,
+      "automated_violations": 0,
+      "page_overflows": 0,
+      "incomplete_rules": [
+        "color-contrast"
+      ]
+    }
+  },
+  "contrast": {
+    "resolve": {
+      "scans": 9,
+      "observations": 68,
+      "minimum_ratio": 3.2755482610530446,
+      "automated_violations": 0,
+      "scope": "Every color-contrast-incomplete target in recreated states; real DOM/CSS, all APIs intercepted. Flat backgrounds/opacity and applicable text/non-text thresholds checked. No complete WCAG claim."
+    },
+    "order": {
+      "scans": 8,
+      "observations": 134,
+      "minimum_ratio": 4.586624919477331,
+      "automated_violations": 0,
+      "scope": "Every color-contrast-incomplete target in recreated states; real DOM/CSS, all APIs intercepted. Flat backgrounds/opacity and applicable text/non-text thresholds checked. No complete WCAG claim."
+    }
+  },
+  "scope": [
+    "Real frontend files and pinned official Better Auth client; provider/domain API responses intercepted, except generic OIDC RSA signatures generated locally.",
+    "The SDK storage contract covers fictional signup, signin, profile/cookie session, explicit JWT fetch/refresh and signout. UI regressions cover OTP verification/reset and guarded link fallback.",
+    "No real account creation, password/reset email delivery or authenticated production tenant UI was tested.",
+    "Source hashes are raw current workspace inputs. Public alias/build provenance requires separate post-promotion verification."
+  ],
+  "limitations": [
+    "No full WCAG or complete assistive-technology conformance claim. Raw axe color-contrast incomplete findings are retained with computed-style follow-up.",
+    "Native backend, model evaluation, deployed queue workers, real provider account/settings and external/cloud data proofs belong to parent/other agents.",
+    "Pre-promotion public Order alias returned404; that incomplete observation does not test the protected candidate or establish an app defect."
+  ],
+  "original_proof_sha256": "5d261ca2f64f1949187ce65d3c94503b63ced30a009602d91a97c724ec485d01",
+  "scope_note": "Current 72/46 source-bound frontend checks and 35/30 account scans use intercepted provider/API. Separate actual hosted anonymous navigation and owner-authorized Order session proofs are distinguished."
+}

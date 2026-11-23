@@ -1,0 +1,259 @@
+"""Three authorized synthetic cloud jobs; never impersonates an external user."""
+from contextlib import contextmanager
+from datetime import datetime, timezone
+from hashlib import sha256
+import argparse
+import ast
+import copy
+import json
+from pathlib import Path
+import sys
+import time
+from uuid import NAMESPACE_URL, uuid4, uuid5
+
+import httpx
+from sqlalchemy import create_engine, text
+from sqlalchemy.engine import make_url
+from sqlalchemy.pool import NullPool
+
+HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[3] / "outputs/orderflow"
+ALPHA = "11111111-1111-4111-8111-111111111111"
+BETA = "22222222-2222-4222-8222-222222222222"
+ORDERS = "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb"
+CSV = "cccccccc-cccc-4ccc-8ccc-cccccccccccc"
+BASE = "https://orderflow-hazel.vercel.app"
+BUSINESS = ("tenants", "sources", "source_authorities", "processing_partitions", "inbox_events",
+            "entity_revisions", "entity_current", "processing_receipts", "quarantines", "connector_cursors", "operator_audit")
+REQUIRED = {"order_reconciliation", "total_reconciliation", "expectation_row_count", "history_nonoverlap",
+            "history_highest_equal_time", "revision_key_unique", "fact_relationship"}
+PROOF = {"deployed_url": BASE, "deployment_id":"dpl_2UpM3pWPeue5jTLfGEiAH7SXBuyU", "deployment_commit":"d082edbd5db498bc49b41ca0e17f781607831048",
+         "deployment_metadata_source":"Root Vercel API READY acknowledgment; alias readiness/dispatch observed directly below.",
+         "scope": "Internal restricted-app synthetic job preconditions, deployed private Queue execution and Neon PostgreSQL bytea objects. This is not an enrolled operator/JWT/HTTP job submission test.",
+         "jobs": [], "dispatches": [], "maximum_authorized_non_drain_jobs": 5}
+
+
+def primitive(value):
+    if isinstance(value, dict): return {key: primitive(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)): return [primitive(item) for item in value]
+    if isinstance(value, datetime): return value.astimezone(timezone.utc).isoformat()
+    if isinstance(value, (str, int, float, bool)) or value is None: return value
+    return str(value)
+
+
+def save():
+    HERE.mkdir(parents=True, exist_ok=True)
+    PROOF["updated_at"] = datetime.now(timezone.utc).isoformat()
+    (HERE / "proof.json").write_text(json.dumps(primitive(PROOF), indent=2) + "\n", encoding="utf-8")
+
+
+def setup():
+    credentials = json.loads((ROOT / ".runtime/production-credentials.json").read_text())
+    assert credentials["project_id"] == "red-dream-20673450", "Wrong authorized project"
+    role = credentials["roles"]["app"]
+    url = make_url(role["pooled_url"])
+    assert url.database == "neondb" and (url.host or "").endswith(".neon.tech"), "Wrong authorized cloud database"
+    assert url.username == role["name"], "Wrong runtime role"
+    engine = create_engine(url, poolclass=NullPool, connect_args={"connect_timeout":10})
+    with engine.connect() as conn:
+        row = conn.execute(text("SELECT current_database(),current_user,rolsuper,rolbypassrls FROM pg_roles WHERE rolname=current_user")).one()
+        assert row[0] == "neondb" and row[1] == role["name"] and not row[2] and not row[3], "Runtime role must be restricted"
+        assert conn.execute(text("SELECT count(*) FROM orderflow.tenants")).scalar_one() == 0, "Unscoped RLS must deny rows"
+    PROOF["database"] = {"project_id":credentials["project_id"], "database":"neondb", "restricted_app_non_super_non_bypass":True,"unscoped_tenants":0}
+    return engine, credentials["cron_secret"]
+
+
+@contextmanager
+def scoped(engine, tenant):
+    with engine.begin() as conn:
+        conn.execute(text("SELECT set_config('orderflow.tenant_id',:t,true),set_config('orderflow.actor_subject','internal-cloud-batch-verifier',true),set_config('orderflow.actor_role','pipeline',true),set_config('statement_timeout','15000',true),set_config('lock_timeout','3000',true)"), {"t":tenant})
+        yield conn
+
+
+def fixture_state(engine, tenant):
+    with scoped(engine, tenant) as conn:
+        counts = {name:conn.execute(text("SELECT count(*) FROM orderflow." + name)).scalar_one() for name in ("inbox_events","processing_receipts","entity_revisions","quarantines")}
+        counts["inbox_statuses"] = {row[0]:row[1] for row in conn.execute(text("SELECT status,count(*) FROM orderflow.inbox_events GROUP BY status"))}
+        return counts
+
+
+def fixture_hashes(engine):
+    result = {}
+    for tenant in (ALPHA, BETA):
+        with scoped(engine, tenant) as conn:
+            result[tenant] = {}
+            for table in BUSINESS:
+                digest = sha256(); count = 0
+                for value, in conn.execute(text('SELECT to_jsonb(t)::text FROM orderflow.' + table + ' t ORDER BY to_jsonb(t)::text COLLATE "C"')):
+                    raw = value.encode(); digest.update(len(raw).to_bytes(8,"big")); digest.update(raw); count += 1
+                result[tenant][table] = {"rows":count,"sha256":digest.hexdigest()}
+    return result
+
+
+def pointer(engine):
+    with scoped(engine, ALPHA) as conn:
+        row = conn.execute(text("SELECT to_jsonb(p) FROM orderflow.report_publications p WHERE report_key='daily'")).scalar_one_or_none()
+        return row
+
+
+def dispatch(secret):
+    with httpx.Client(timeout=30, follow_redirects=False, trust_env=False) as client:
+        response = client.get(BASE + "/_internal/outbox", headers={"Authorization":"Bearer " + secret})
+    assert response.status_code == 200, "Deployed outbox route failed"
+    data = response.json()
+    assert data.get("operation") == "outbox_dispatch_only" and type(data.get("published")) is int, "Wrong deployed dispatch operation"
+    PROOF["dispatches"].append({"at":datetime.now(timezone.utc).isoformat(),"status":200,"published":data["published"]})
+    save()
+
+
+def canonical(payload):
+    # Compile only the exact pure helper, without importing SDK/runtime settings.
+    source = (ROOT / "src/orderflow/hosted_jobs.py").read_text()
+    function = next(node for node in ast.parse(source).body if isinstance(node,ast.FunctionDef) and node.name == "_payload")
+    namespace = {"json":json}
+    exec(compile(ast.Module(body=[function],type_ignores=[]),"reviewed-_payload","exec"),namespace)
+    return namespace["_payload"](payload)
+
+
+def identities():
+    path = HERE / "job-identities.json"
+    values = json.loads(path.read_text()) if path.exists() else {}
+    for name in ("daily-good","daily-good-after-fix","daily-good-after-runtime-fix","daily-wrong-oracle","inventory-mismatch"):
+        if name not in values:
+            key = str(uuid4())
+            values[name] = {"idempotency_key":key,"job_id":str(uuid5(NAMESPACE_URL,"orderflow:"+ALPHA+":"+key))}
+    path.write_text(json.dumps(values,indent=2)+"\n")
+    return values
+
+
+def enqueue(engine, name, kind, payload, identity):
+    body = canonical(payload)
+    assert len(body.encode()) <= 65536
+    digest = sha256((kind+":"+body).encode()).hexdigest()
+    job = identity["job_id"]
+    with scoped(engine, ALPHA) as conn:
+        conn.execute(text("SELECT pg_advisory_xact_lock(hashtextextended(:key,0))"),{"key":ALPHA+":job-budget"})
+        rows = conn.execute(text("SELECT job_id::text,kind,payload_sha256 FROM orderflow.hosted_jobs WHERE kind!='drain'")).all()
+        own_ids = {value["job_id"] for value in identities().values()}
+        assert len(rows) <= 5 and all(row[0] in own_ids for row in rows), "Unexpected pre-existing batch job; stop for coordination"
+        old = next((row for row in rows if row[0] == job), None)
+        if old:
+            assert old[1:] == (kind,digest), "Existing synthetic job identity differs"
+        else:
+            assert len(rows) < 5, "Authorized five-job bound reached"
+            conn.execute(text("INSERT INTO orderflow.hosted_jobs(tenant_id,job_id,kind,payload,payload_sha256) VALUES(:t,:j,:kind,CAST(:p AS jsonb),:h)"),{"t":ALPHA,"j":job,"kind":kind,"p":body,"h":digest})
+    record = {"name":name,"job_id":job,"kind":kind,"payload_sha256":digest,"canonical_helper_source_sha256":sha256((ROOT/"src/orderflow/hosted_jobs.py").read_bytes()).hexdigest(),"states":[]}
+    PROOF["jobs"].append(record); save()
+    return record
+
+
+def collect(engine, record):
+    job = record["job_id"]
+    with scoped(engine, ALPHA) as conn:
+        row = conn.execute(text("SELECT job_id,kind,phase,status,generation,attempts,available_at,published_generation,published_at,result,last_error_code,created_at,updated_at,lease_token IS NOT NULL AS lease_present FROM orderflow.hosted_jobs WHERE job_id=:j"),{"j":job}).mappings().one()
+        ingestion = conn.execute(text("SELECT run_id,status,failure_code,started_at,finished_at FROM orderflow.ingestion_runs WHERE run_id=:j"),{"j":job}).mappings().one_or_none()
+        candidate = conn.execute(text("SELECT status,generation,snapshot_sha256,oracle_sha256,project_sha256,manifest_sha256,report_payload FROM orderflow.report_candidates WHERE run_id=:j"),{"j":job}).mappings().one_or_none()
+        checks = conn.execute(text("SELECT check_name,status,observed,expected FROM orderflow.quality_results WHERE run_id=:j ORDER BY checked_at,check_id"),{"j":job}).mappings().all()
+    return primitive(dict(row)), primitive(dict(ingestion)) if ingestion else None, primitive(dict(candidate)) if candidate else None, primitive([dict(v) for v in checks])
+
+
+def wait(engine, record, secret):
+    dispatch(secret); deadline=time.monotonic()+600; last_dispatch=time.monotonic()
+    while time.monotonic() < deadline:
+        row, run, candidate, checks = collect(engine, record)
+        marker = {key:row[key] for key in ("phase","status","generation","attempts","published_generation","last_error_code","lease_present")}
+        if not record["states"] or marker != record["states"][-1]["state"]:
+            record["states"].append({"at":datetime.now(timezone.utc).isoformat(),"state":marker})
+            print(json.dumps({"job":record["name"],"state":marker}),flush=True)
+        record.update(final=row,ingestion_run=run,candidate=candidate,checks=checks); save()
+        if row["status"] in {"succeeded","failed"}: return
+        if row["status"] == "pending" and row["published_generation"] != row["generation"] and time.monotonic()-last_dispatch>20:
+            dispatch(secret); last_dispatch=time.monotonic()
+        time.sleep(3)
+    raise RuntimeError("Synthetic hosted job exceeded bounded observer deadline")
+
+
+def objects(engine, record):
+    with scoped(engine, ALPHA) as conn:
+        pattern = "%"+record["job_id"]+"%" if record["kind"] == "daily" else "%/"+CSV+"/INV-001/%"
+        rows = conn.execute(text("SELECT object_key,sha256,content,pg_typeof(content)::text AS type FROM orderflow.stored_objects WHERE object_key LIKE :p ORDER BY object_key"),{"p":pattern}).all()
+    result=[]
+    for key,expected,content,kind in rows:
+        content=bytes(content); digest=sha256(content).hexdigest()
+        assert digest == expected and kind == "bytea", "Cloud object checksum/type mismatch"
+        entry={"key":key,"sha256":digest,"bytes":len(content),"type":kind,"checksum_verified":True}
+        if "/dbt-" in key and key.endswith("results.json"):
+            data=json.loads(content)
+            entry["dbt"]={"version":data.get("metadata",{}).get("dbt_version"),"results":[{k:item.get(k) for k in ("unique_id","status","failures","execution_time")} for item in data.get("results",[])]}
+        result.append(entry)
+    record["objects"]=result
+    with scoped(engine,BETA) as conn:
+        counts={table:conn.execute(text("SELECT count(*) FROM orderflow."+table+" WHERE tenant_id=:alpha"),{"alpha":ALPHA}).scalar_one() for table in ("hosted_jobs","stored_objects","report_candidates","report_publications","inventory_snapshots")}
+    assert not any(counts.values()), "Beta context observed Alpha pipeline data"
+    record["beta_read_only_rls_denial"]={"counts":counts,"all_zero":True,"scope":"Restricted-app SQL tenant context, not an enrolled Beta HTTP/JWT principal."}; save()
+
+
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument("--execute",action="store_true");args=parser.parse_args()
+    HERE.mkdir(parents=True,exist_ok=True)
+    prior=HERE/"proof.json"
+    if prior.exists() and json.loads(prior.read_text()).get("jobs"):
+        (HERE/("proof-preserved-"+datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")+".json")).write_bytes(prior.read_bytes())
+        previous=json.loads(prior.read_text())
+        old=[record for record in previous["jobs"] if record["name"].startswith("daily-good") and record["final"]["status"]=="failed"]
+        assert len(old)==2, "Preserve both failed hosted attempts"
+        PROOF["jobs"].extend(old)
+        PROOF["historical_failed_attempts_preserved"]=2
+        PROOF["original_attempt_project_bundle_diagnostic"]=previous.get("dbt_project_bundle_diagnostic") or previous.get("original_attempt_project_bundle_diagnostic")
+    engine,secret=setup()
+    try:
+        PROOF["fixtures_before"]={tenant:fixture_state(engine,tenant) for tenant in (ALPHA,BETA)}
+        save()
+        if not args.execute:
+            print(json.dumps({"restricted_role_verified":True,"fixtures":PROOF["fixtures_before"],"writes":False}));return
+        with httpx.Client(timeout=20,follow_redirects=False,trust_env=False) as client:
+            ready=client.get(BASE+"/health/ready")
+        assert ready.status_code==200,"Hosted deployment is not ready"
+        PROOF["hosted_readiness"]={"url":BASE+"/health/ready","status":200,"response_sha256":sha256(ready.content).hexdigest(),"request_id":ready.headers.get("x-vercel-id"),"date":ready.headers.get("date")}
+        a,b=PROOF["fixtures_before"][ALPHA],PROOF["fixtures_before"][BETA]
+        assert [a[key] for key in ("inbox_events","processing_receipts","entity_revisions","quarantines")] == [10,10,8,2], "Alpha fixture gate is incomplete"
+        assert [b[key] for key in ("inbox_events","processing_receipts","entity_revisions","quarantines")] == [1,1,1,0], "Beta fixture gate is incomplete"
+        assert not ({"pending","retry_wait"}&set(a["inbox_statuses"]) or {"pending","retry_wait"}&set(b["inbox_statuses"])), "Fixture stream is not terminal"
+        PROOF["business_before"]=fixture_hashes(engine); PROOF["daily_pointer_before"]=pointer(engine)
+        oracle=json.loads((ROOT/"fixtures/batch_oracle.json").read_bytes());wrong=copy.deepcopy(oracle)
+        alpha=next(item for item in wrong["tenants"] if item["tenant_id"]==ALPHA)
+        alpha["orders"][0]["total_minor"]+=1;alpha["order_total_minor"]+=1
+        assert sum(row["total_minor"] for row in alpha["orders"])==alpha["order_total_minor"]==8001
+        daily={"source_id":ORDERS,"start":"2026-11-06T00:00:00Z","end":"2026-11-07T00:00:00Z","oracle":oracle}
+        ids=identities()
+        good=enqueue(engine,"daily-good-after-runtime-fix","daily",daily,ids["daily-good-after-runtime-fix"]);wait(engine,good,secret);objects(engine,good)
+        assert good["final"]["status"]=="succeeded" and good["candidate"]["status"] in {"published","superseded"}, "Good daily job failed"
+        payload=good["candidate"]["report_payload"]
+        assert payload["storage"]=="postgres" and payload["summary"]["order_count"]==2 and payload["summary"]["order_total_minor"]==8000 and payload["summary"]["raw_revision_count"]==8, "Hosted frozen oracle summary mismatch"
+        passed={row["check_name"].split(".")[-1] for row in good["checks"] if row["status"]=="pass"}
+        assert REQUIRED <= passed, "Required actual dbt tests missing"
+        PROOF["daily_pointer_good"]=pointer(engine);save()
+        bad=enqueue(engine,"daily-wrong-oracle","daily",daily|{"oracle":wrong},ids["daily-wrong-oracle"]);wait(engine,bad,secret);objects(engine,bad)
+        assert bad["final"]["status"]=="failed" and bad["final"]["last_error_code"]=="dbt_test_failed", "Wrong internally consistent oracle did not fail actual dbt tests"
+        PROOF["daily_pointer_after_failure"]=pointer(engine)
+        assert PROOF["daily_pointer_after_failure"]==PROOF["daily_pointer_good"], "Failed daily run changed last-good pointer"
+        csv={"source_id":CSV,"observed_csv":(ROOT/"fixtures/inventory_snapshot.csv").read_bytes().decode(),"reference_csv":(ROOT/"fixtures/inventory_reference.csv").read_bytes().decode()}
+        inv=enqueue(engine,"inventory-mismatch","inventory",csv,ids["inventory-mismatch"]);wait(engine,inv,secret);objects(engine,inv)
+        assert inv["final"]["status"]=="succeeded" and inv["final"]["result"]["quality_passed"] is False and inv["final"]["result"]["difference_total"]==-2, "Inventory processing/quality outcome mismatch"
+        assert inv["ingestion_run"]["status"]=="failed" and inv["ingestion_run"]["failure_code"]=="inventory_difference"
+        PROOF["daily_pointer_after_inventory"]=pointer(engine)
+        assert PROOF["daily_pointer_after_inventory"]==PROOF["daily_pointer_good"], "Inventory changed daily pointer"
+        PROOF["business_after"]=fixture_hashes(engine)
+        assert PROOF["business_before"]==PROOF["business_after"], "Pipeline changed fixture business data"
+        PROOF.update(passed=True,fixture_business_data_unchanged=True,last_good_retained_after_actual_dbt_failure=True,
+          note="Historical fixture interval is old, so freshness may remain stale even for a successful report; success does not imply current-day data.")
+        save();print(json.dumps({"passed":True,"authorized_scenario_jobs":3,"total_jobs_with_original_failure":len(PROOF["jobs"]),"objects_verified":sum(len(record["objects"]) for record in PROOF["jobs"]),"last_good_retained":True}),flush=True)
+    finally:engine.dispose()
+
+
+if __name__ == "__main__":
+    try:main()
+    except Exception as error:
+        PROOF["passed"]=False;PROOF["safe_failure"]={"type":type(error).__name__}
+        save();print(json.dumps({"passed":False,"exception_type":type(error).__name__,"details":"Inspect redacted job state/check/object proof; raw exceptions and credentials are not logged."}),flush=True)
+        raise SystemExit(1) from None
