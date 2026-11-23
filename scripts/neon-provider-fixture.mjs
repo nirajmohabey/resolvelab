@@ -38,6 +38,9 @@ export async function installProvider(page, options = {}) {
       const body = JSON.parse(route.request().postData()); assert.ok(!("role" in body) && !("tenant_id" in body), "Signup must not assign app permissions");
       signedIn = !options.signupUnverified; return send({ token: opaque, user });
     }
+    if (pathname === "/auth/email-otp/send-verification-otp") {
+      const body = JSON.parse(route.request().postData()); assert.deepEqual(body, {email: "browser-fixture@example.invalid", type: "email-verification"}); return send({success: true});
+    }
     if (pathname === "/auth/send-verification-email") return send({ status: true });
     if (pathname === "/auth/email-otp/verify-email") { user.emailVerified = true; return send({ status: true, user }); }
     if (pathname === "/auth/email-otp/request-password-reset") return send({ success: true });

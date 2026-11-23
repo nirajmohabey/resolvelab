@@ -49,7 +49,7 @@ export async function accountAction(config, action, values) {
   const provider = neon(configuration(config));
   const result = action === "signup" ? await provider.signUp.email({ email: values.email, password: values.password, name: values.name, callbackURL: location.origin + "/" })
     : action === "verify" ? await provider.emailOtp.verifyEmail({ email: values.email, otp: values.code })
-    : action === "resend" ? await provider.sendVerificationEmail({ email: values.email, callbackURL: location.origin + "/" })
+    : action === "resend" ? await provider.emailOtp.sendVerificationOtp({ email: values.email, type: "email-verification" })
     : action === "reset-request" ? await provider.emailOtp.requestPasswordReset({ email: values.email })
     : action === "reset-code" ? await provider.emailOtp.resetPassword({ email: values.email, otp: values.code, password: values.password })
     : await provider.resetPassword({ newPassword: values.password, token: resetToken || "" });

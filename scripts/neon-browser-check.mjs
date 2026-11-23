@@ -72,7 +72,7 @@ try {
     await page.getByRole("button", { name: "Create an account", exact: true }).click();
     await page.locator("#loginName").fill("Fictional test user"); await page.locator("#loginEmail").fill("browser-fixture@example.invalid"); await page.locator("#loginPassword").fill(password);
     await page.getByRole("button", { name: "Create account", exact: true }).click(); await page.locator("#verificationCode").waitFor();
-    await page.getByRole("button", { name: "Resend verification email" }).click(); await page.locator("#notice").filter({ hasText: "new code or link" }).waitFor();
+    await page.getByRole("button", { name: "Resend verification code" }).click(); await page.locator("#notice").filter({ hasText: "new code" }).waitFor();
     await page.locator("#verificationCode").fill("123456"); await page.getByRole("button", { name: "Verify email", exact: true }).click();
     await page.locator("#notice").filter({ hasText: "Email verified" }).waitFor();
     assert.ok(provider.calls.some(call => call.path === "/auth/email-otp/verify-email")); assert.ok(!requests.some(request => request.pathname === "/v1/session"));
