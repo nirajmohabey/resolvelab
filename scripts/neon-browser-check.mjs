@@ -12,11 +12,11 @@ async function run(name, options, test) {
   scenarioCount++;
   let provider;
   await scenario(name, "fixture", async context => {
-    if (!options.signedIn && !options.resetCallback) await context.page.locator("#loginEmail").waitFor();
+    if (!options.signedIn && !options.resetCallback && !options.configFailure) await context.page.locator("#loginEmail").waitFor();
     await test({ ...context, provider });
     storage.push({ name, ...await provider.assertNoPersistence() });
   }, { signedIn: false, urlSuffix: options.urlSuffix, prepare: async ({ page, setReply }) => {
-    setReply("GET", "/v1/auth/config", () => ({ body: config }));
+    setReply("GET", "/v1/auth/config", () => options.configFailure ? ({status:503,body:{error:{code:"configuration_unavailable"}}}) : ({ body: config }));
     if (options.membershipDenied) setReply("GET", "/v1/session", () => ({ status: options.unregistered ? 401 : 403, body: { error: { code: options.unregistered ? "identity_not_registered" : "membership_required" } } }));
     provider = await installProvider(page, options);
   } });
@@ -113,6 +113,15 @@ try {
   await run("Header Sign in returns from account creation to the sign-in form", {}, async ({ page }) => {
     await page.getByRole("button", {name:"Create an account",exact:true}).click(); await page.locator("#loginPassword").fill(password); await page.locator("#signIn").click();
     assert.equal(await page.locator("#neonSignInForm button[type=submit]").textContent(),"Sign in"); assert.equal(await page.locator("#loginName").count(),0); assert.equal(await page.locator("#loginPassword").inputValue(),"");
+  });
+  for (const status of [403,503]) await run(`Initial provider profile${status} keeps configuration and a signed-out form`, {sessionFailure:status}, async ({page,requests}) => {
+    await page.locator('#notice').filter({hasText:'Existing sign-in could not be checked'}).waitFor();assert.equal(await page.locator('#loginEmail').isVisible(),true);assert.equal(await page.locator('#neonSignInForm button[type=submit]').isEnabled(),true);assert.ok(!requests.some(r=>r.pathname==='/v1/session'));
+  });
+  await run('Initial provider token failure keeps sign-in and sign-out controls', {signedIn:true,tokenFailure:503}, async ({page,requests})=>{
+    await page.locator('#loginEmail').waitFor();assert.equal(await page.locator('#providerSignOut').isVisible(),true);assert.ok(!requests.some(r=>r.pathname==='/v1/session'));
+  });
+  await run('Initial configuration failure offers an explicit safe retry', {configFailure:true}, async ({page,setReply,requests})=>{
+    await page.getByRole('button',{name:'Retry sign-in setup',exact:true}).waitFor();setReply('GET','/v1/auth/config',()=>({body:config}));await page.getByRole('button',{name:'Retry sign-in setup',exact:true}).click();await page.locator('#loginEmail').waitFor();assert.ok(!requests.some(r=>r.pathname==='/v1/session'));
   });
 } finally {
   const report = await finishHarness(path.resolve(process.argv[2]), scenarioCount);

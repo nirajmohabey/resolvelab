@@ -172,3 +172,68 @@ def test_neon_proxy_limits_target_headers_cookies_and_redirects(neon, monkeypatc
             assert (await client.post("/auth/sign-in/email",json={"callbackURL":"https://attacker.example/"},headers={"Origin":"https://app.example.test"})).status_code == 422
     asyncio.run(run())
     assert len(calls) == 1
+
+
+@pytest.mark.parametrize("path", ["sign-up/email", "email-otp/verify-email", "sign-in/email"])
+def test_neon_partitioned_priority_session_cookies_survive_proxy_and_session_read(path, neon, monkeypatch):
+    from resolvelab.api import app
+    from resolvelab import security
+    monkeypatch.setattr(security, "consume_budget", lambda *args: None)
+    monkeypatch.setenv("ALLOWED_HOSTS", "app.example.test")
+    monkeypatch.setenv("ALLOWED_ORIGINS", "https://app.example.test")
+    original = httpx.AsyncClient
+    seen = []
+
+    def upstream(request):
+        seen.append(request.url.path)
+        if request.url.path.endswith("/get-session"):
+            cookie = request.headers["cookie"]
+            assert "__Secure-neon-auth.session_token=synthetic.signature" in cookie
+            assert "__Host-neon-auth.session_data=synthetic-data" in cookie
+            assert "Priority" not in cookie and "Partitioned" not in cookie
+            return httpx.Response(200, json={"session":{"id":"synthetic-session"}})
+        return httpx.Response(200, json={"ok":True}, headers=[
+            ("set-cookie", "__Secure-neon-auth.session_token=synthetic.signature; Domain=auth.example.test; Path=/; Max-Age=604800; Secure; HttpOnly; SameSite=None; Partitioned; Priority=High"),
+            ("set-cookie", "__Host-neon-auth.session_data=synthetic-data; Path=/; Secure; HttpOnly; SameSite=None; Partitioned"),
+        ])
+
+    monkeypatch.setattr(neon_auth.httpx, "AsyncClient", lambda **kw: original(transport=httpx.MockTransport(upstream), **kw))
+
+    async def run():
+        async with original(transport=httpx.ASGITransport(app=app), base_url="https://app.example.test") as client:
+            response = await client.post("/auth/"+path, json={"email":"synthetic@example.test"},
+                                         headers={"Origin":"https://app.example.test"})
+            assert response.status_code == 200
+            cookies = response.headers.get_list("set-cookie")
+            assert len(cookies) == 2
+            assert all("Domain=" not in value and "Secure" in value and "HttpOnly" in value
+                       and "SameSite=Lax" in value and "Partitioned" in value for value in cookies)
+            assert "Path=/auth" in cookies[0] and "Priority=High" in cookies[0] and "Max-Age=604800" in cookies[0]
+            assert "Path=/;" in cookies[1] and "Path=/auth" not in cookies[1]
+            session = await client.get("/auth/get-session")
+            assert session.status_code == 200 and session.json()["session"]["id"] == "synthetic-session"
+    asyncio.run(run())
+    assert len(seen) == 2
+
+
+@pytest.mark.parametrize("value", [
+    "session=synthetic; Partitioned=true",
+    "session=synthetic; Priority=Urgent",
+    "session=synthetic; Partitioned; partitioned",
+    "session=synthetic; Priority=Low; Priority=High",
+    "session=synthetic; unexpected=another-cookie",
+    "session=synthetic\r\nSet-Cookie: another=synthetic",
+    "session=" + "a" * 8192,
+])
+def test_modern_cookie_support_retains_strict_format_and_size_bounds(value):
+    with pytest.raises((ValueError, neon_auth.CookieError)):
+        neon_auth._proxy_cookie(value)
+
+
+def test_partitioned_host_cookie_logout_keeps_expiry_and_prefix_invariants():
+    result = neon_auth._proxy_cookie("__Host-neon-auth.session_token=; Max-Age=0; "
+        "Expires=Thu, 01 Jan 1970 00:00:00 GMT; Domain=auth.example.test; Path=/old; Partitioned; Priority=Low")
+    assert "Domain=" not in result and "Path=/;" in result and "Path=/auth" not in result
+    assert "Max-Age=0" in result and "expires=thu, 01 jan 1970 00:00:00 gmt" in result.lower()
+    assert "Secure" in result and "HttpOnly" in result and "SameSite=Lax" in result
+    assert "Partitioned" in result and "Priority=Low" in result

@@ -61,6 +61,7 @@ const state = {
   evaluations: [],
   authFormMode: "signin",
   authEmail: "",
+  authBootstrapRequest: 0,
 };
 class SessionChanged extends Error {
   constructor() {
@@ -186,6 +187,7 @@ let searchTimer;
 async function applySession(token, principal, organization, preferredCaseId = null) {
   const generation = ++state.sessionGeneration;
   document.body.classList.remove("neon-login");
+  $("#retryAuthentication")?.remove();
   $("#detail").setAttribute("aria-label", "Selected case");
   state.pendingCreate = null;
   state.inlineKeys.clear();
@@ -249,6 +251,7 @@ async function applySession(token, principal, organization, preferredCaseId = nu
 }
 function requireSignIn(message = "Sign in to your support workspace.") {
   state.sessionGeneration++;
+  $("#retryAuthentication")?.remove();
   const neonMode = state.authConfig?.mode === "neon";
   document.body.classList.toggle("neon-login", neonMode);
   clearTimeout(expiryTimer);
@@ -319,6 +322,15 @@ function requireSignIn(message = "Sign in to your support workspace.") {
   $("#caseForm").reset();
   if ($("#caseDialog").open) $("#caseDialog").close();
   if ($("#evaluationDialog").open) $("#evaluationDialog").close();
+  if (!state.authConfig) {
+    const retry = document.createElement("button");
+    retry.id = "retryAuthentication";
+    retry.type = "button";
+    retry.className = "button secondary";
+    retry.textContent = "Retry sign-in setup";
+    retry.onclick = () => { retry.disabled = true; void bootstrapAuthentication(); };
+    $(".top-actions").append(retry);
+  }
   notify(message);
 }
 async function login() {
@@ -360,8 +372,10 @@ async function login() {
   }
 }
 async function bootstrapAuthentication() {
+  const request = ++state.authBootstrapRequest;
   try {
     const result = await readAuthentication();
+    if (request !== state.authBootstrapRequest) return;
     state.authConfig = result.config;
     if (result.resetPending) state.authFormMode = "reset-confirm";
     if (result.resetIssue) state.authFormMode = "reset-request";
@@ -371,19 +385,22 @@ async function bootstrapAuthentication() {
     }
     if (!result.token) {
       requireSignIn(
-        result.resetIssue ? "This reset link is invalid or expired. Request a new reset link." : result.config.configured
+        result.authenticationError || (result.resetIssue ? "This reset link is invalid or expired. Request a new reset link." : result.config.configured
           ? "Sign in with your organization’s identity provider."
           : result.config.message ||
-              "Workspace sign-in has not been configured.",
+              "Workspace sign-in has not been configured."),
       );
+      if (result.authenticationError) notify(result.authenticationError, true);
       return;
     }
     await connectAuthentication(result);
   } catch (error) {
+    if (request !== state.authBootstrapRequest) return;
     if (error instanceof SessionChanged) return;
     if (state.authConfig?.mode !== "neon") {
       try { state.authConfig = (await readAuthentication()).config; } catch {}
     }
+    if (request !== state.authBootstrapRequest) return;
     requireSignIn(authenticationMessage(error));
   }
 }

@@ -152,6 +152,47 @@ def _auth_cookies(value):
     return "; ".join(item.OutputString(attrs=[]) for name, item in cookie.items() if name.startswith(prefixes))
 
 
+def _proxy_cookie(value):
+    """Parse bounded modern Set-Cookie extensions absent from Python 3.12."""
+    if len(value) > 8192 or re.search(r"[\x00-\x1f\x7f]", value):
+        raise ValueError()
+    parts = value.split(";")
+    standard = [parts[0]]
+    extensions = {}
+    for part in parts[1:]:
+        name, separator, attribute = part.strip().partition("=")
+        lowered = name.lower()
+        if lowered in {"partitioned", "priority"}:
+            if lowered in extensions:
+                raise ValueError()
+            if lowered == "partitioned":
+                if separator:
+                    raise ValueError()
+                extensions[lowered] = "Partitioned"
+            else:
+                if not separator or attribute.lower() not in {"low", "medium", "high"}:
+                    raise ValueError()
+                extensions[lowered] = "Priority=" + attribute.capitalize()
+        else:
+            standard.append(part)
+    cookie = SimpleCookie()
+    cookie.load(";".join(standard))
+    # Each Set-Cookie header represents one cookie, never extension attributes
+    # silently interpreted as additional cookie identities.
+    if len(cookie) != 1 or next(iter(cookie)) != parts[0].partition("=")[0].strip():
+        raise ValueError()
+    item = next(iter(cookie.values()))
+    item["domain"] = ""
+    item["path"] = "/" if item.key.startswith("__Host-") else "/auth"
+    item["secure"] = True
+    item["httponly"] = True
+    item["samesite"] = "Lax"
+    result = "; ".join([item.OutputString(), *extensions.values()])
+    if len(result) > 8192:
+        raise ValueError()
+    return result
+
+
 @router.api_route("/auth/{path:path}", methods=["GET", "POST"])
 async def proxy_auth(path: str, request: Request):
     from .config import auth_mode, allowed_origins
@@ -226,19 +267,7 @@ async def proxy_auth(path: str, request: Request):
                 if len(cookies) > 16:
                     raise ValueError()
                 for value in cookies:
-                    if len(value) > 8192:
-                        raise ValueError()
-                    cookie = SimpleCookie()
-                    cookie.load(value)
-                    if not cookie:
-                        raise ValueError()
-                    for item in cookie.values():
-                        item["domain"] = ""
-                        item["path"] = "/" if item.key.startswith("__Host-") else "/auth"
-                        item["secure"] = True
-                        item["httponly"] = True
-                        item["samesite"] = "Lax"
-                        response.headers.append("set-cookie", item.OutputString())
+                    response.headers.append("set-cookie", _proxy_cookie(value))
                 return response
     except (httpx.HTTPError, ValueError, TypeError, KeyError, CookieError):
         raise DomainError(503, "identity_provider_unavailable", "Authentication is temporarily unavailable.", True) from None

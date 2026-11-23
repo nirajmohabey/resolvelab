@@ -153,7 +153,11 @@ export async function readAuthentication() {
     if (callback) throw new Error("Start a new workspace sign-in request.");
     if (resetToken) return { config, token: null, resetPending: true };
     if (resetIssue) return { config, token: null, resetIssue: true };
-    return config.configured ? neonAuthentication(config) : { config, token: null };
+    if (!config.configured) return { config, token: null };
+    try { return await neonAuthentication(config); }
+    catch {
+      return { config, token: null, authenticationError: "Existing sign-in could not be checked. Sign in again or try later." };
+    }
   }
   if (!callback) return { config, token: null };
   try {

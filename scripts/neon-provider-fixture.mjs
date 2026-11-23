@@ -57,8 +57,12 @@ export async function installProvider(page, options = {}) {
       if (options.resetToken) assert.equal(body.token, options.resetToken);
       assert.ok(body.newPassword.length >= 8); return send({ status: true });
     }
-    if (pathname === "/auth/get-session") return send(signedIn ? { user, session: { id: "synthetic-session", userId: user.id, token: opaque, expiresAt: new Date(Date.now() + 3600000).toISOString(), createdAt: user.createdAt, updatedAt: user.updatedAt } } : null);
+    if (pathname === "/auth/get-session") {
+      if (options.sessionFailure) return send({code:"SESSION_UNAVAILABLE"},options.sessionFailure);
+      return send(signedIn ? { user, session: { id: "synthetic-session", userId: user.id, token: opaque, expiresAt: new Date(Date.now() + 3600000).toISOString(), createdAt: user.createdAt, updatedAt: user.updatedAt } } : null);
+    }
     if (pathname === "/auth/token") {
+      if (options.tokenFailure) return send({code:"TOKEN_UNAVAILABLE"},options.tokenFailure);
       if (!signedIn) return send({ code: "UNAUTHORIZED" }, 401);
       const value = options.opaqueToken ? opaque : token(); sentTokens.push(value); return send({ token: value });
     }
