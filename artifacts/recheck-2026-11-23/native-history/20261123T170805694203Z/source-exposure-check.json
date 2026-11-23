@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-11-23T17:03:39.647442+00:00",
+  "text_files_scanned": 413,
+  "local_secret_values_checked": 7,
+  "local_secret_labels_checked": 17,
+  "local_secret_source_files": [
+    ".env",
+    ".env.local",
+    ".env.docker"
+  ],
+  "findings": [],
+  "limitations": [
+    "Checks the current Git-index and unignored working files, not deleted history or external services.",
+    "Known-prefix and exact-local-secret checks are not an exhaustive secret detector.",
+    "Binary model and media contents are excluded; their origin and checksums are documented separately."
+  ]
+}

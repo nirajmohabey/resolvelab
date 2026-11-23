@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+from hashlib import sha256
+from io import BytesIO
 from pathlib import Path
 import os
 import re
@@ -106,17 +108,23 @@ def keyword_predict(text: str) -> str:
 
 
 @lru_cache(maxsize=4)
-def _load(path: str):
+def _load(path: str, artifact_sha256: str):
     target = Path(path)
     # Only a local artifact produced by the reviewed training command is loaded.
     # Never accept uploaded pickle/joblib files.
-    return joblib.load(target)
+    # Cache identity includes the release pin. Verify the exact bytes that are
+    # deserialized so a path replacement cannot substitute another bundle.
+    content = target.read_bytes()
+    if sha256(content).hexdigest() != artifact_sha256:
+        raise RuntimeError("pinned routing artifact checksum mismatch")
+    return joblib.load(BytesIO(content))
 
 
 class Router:
-    def __init__(self, artifact_path: str | None = None):
+    def __init__(self, artifact_path: str | None = None, *, artifact_sha256: str | None = None):
         self.path = artifact_path or os.environ.get("ROUTER_ARTIFACT", str(ROOT / "artifacts/router.joblib"))
-        self.bundle = _load(self.path)
+        digest = artifact_sha256 or sha256(Path(self.path).read_bytes()).hexdigest()
+        self.bundle = _load(self.path, digest)
         self.version = self.bundle["version"]
         self.threshold = float(self.bundle["threshold"])
 

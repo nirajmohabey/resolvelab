@@ -1,4 +1,5 @@
 """Check publishable files for local secrets without printing their values."""
+import argparse
 import json
 from pathlib import Path
 import re
@@ -73,7 +74,12 @@ report = {
         "Binary model and media contents are excluded; their origin and checksums are documented separately.",
     ],
 }
-output = ROOT / "artifacts/security/source-exposure-check.json"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--output", type=Path, default=Path("artifacts/security/source-exposure-check.json"))
+output = parser.parse_args().output
+output = (ROOT / output).resolve() if not output.is_absolute() else output.resolve()
+if not output.is_relative_to(ROOT / "artifacts"):
+    raise SystemExit("Source-exposure reports must stay under artifacts/.")
 output.parent.mkdir(parents=True, exist_ok=True)
 output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(report, indent=2))

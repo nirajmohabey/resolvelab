@@ -8,7 +8,7 @@ from hashlib import sha256
 import json
 import os
 import time
-from uuid import uuid4
+from uuid import UUID, uuid4
 
 from pydantic import ValidationError
 from sqlalchemy import text
@@ -106,11 +106,90 @@ def _remember(conn, p, operation, key, payload, body, status=200):
                  {**_base(p), "operation": operation, "key": key, "hash": fingerprint(payload), "status": status, "body": _json(body)})
 
 
-def _replay(found):
+def _scoped_response(conn, p, value):
+    """Project retained evidence through the reader's current document access.
+
+    Stored decisions and idempotency receipts remain immutable. A privileged
+    writer's snapshot is not a capability granted to its later readers.
+    """
+    references = set()
+    has_references = False
+
+    def reference(corpus, chunk):
+        try:
+            return str(UUID(str(corpus))), str(UUID(str(chunk)))
+        except (ValueError, TypeError, AttributeError):
+            return None
+
+    def collect(node):
+        nonlocal has_references
+        if isinstance(node, dict):
+            has_references = has_references or "chunk_id" in node or "chunk_ids" in node
+            item = reference(node.get("corpus_id"), node.get("chunk_id"))
+            if item:
+                references.add(item)
+            if isinstance(node.get("chunk_ids"), list):
+                for chunk in node["chunk_ids"]:
+                    item = reference(node.get("corpus_id"), chunk)
+                    if item:
+                        references.add(item)
+            for child in node.values():
+                collect(child)
+        elif isinstance(node, list):
+            for child in node:
+                collect(child)
+
+    collect(value)
+    if not has_references:
+        return primitive(value)
+    visible = {(str(row[0]), str(row[1])) for row in conn.execute(text("""
+        SELECT c.corpus_id,c.chunk_id
+        FROM jsonb_to_recordset(CAST(:references AS jsonb)) AS wanted(corpus_id uuid,chunk_id uuid)
+        JOIN resolvelab.chunks c ON c.corpus_id=wanted.corpus_id AND c.chunk_id=wanted.chunk_id
+        JOIN resolvelab.documents d ON d.tenant_id=c.tenant_id
+            AND d.corpus_id=c.corpus_id AND d.document_id=c.document_id
+        WHERE c.tenant_id=:tenant AND (d.access_scope='support' OR :is_admin)
+        """), {"references": _json([{"corpus_id": corpus, "chunk_id": chunk} for corpus, chunk in sorted(references)]),
+                "tenant": p.tenant_id, "is_admin": p.role == "admin"})}
+
+    def project(node):
+        if isinstance(node, list):
+            output, restricted = [], False
+            for child in node:
+                projected, hidden = project(child)
+                restricted = restricted or hidden
+                if projected is not None:
+                    output.append(projected)
+            return output, restricted
+        if not isinstance(node, dict):
+            return node, False
+        if "chunk_id" in node:
+            item = reference(node.get("corpus_id"), node["chunk_id"])
+            if item not in visible:
+                return None, True
+        output, restricted = {}, False
+        for key, child in node.items():
+            if key == "chunk_ids" and isinstance(child, list):
+                filtered = [chunk for chunk in child if reference(node.get("corpus_id"), chunk) in visible]
+                output[key] = filtered
+                restricted = restricted or len(filtered) != len(child)
+            else:
+                output[key], hidden = project(child)
+                restricted = restricted or hidden
+        if restricted:
+            output["evidence_restricted"] = True
+            if "answer" in output and ("evidence_snapshot" in node or "citations" in node):
+                output["answer"] = "Some policy context is restricted for your current role. Request an administrator review."
+        return output, restricted
+
+    return primitive(project(value)[0])
+
+
+def _replay(found, conn, p):
     if found["response_status"] >= 400:
         body = found["response_body"]
         raise DomainError(found["response_status"], body["code"], body["message"], body.get("retryable", False))
-    return primitive(found["response_body"])
+    return _scoped_response(conn, p, found["response_body"])
 
 
 def _trace(conn, p, case_id, request_id, stage, outcome="ok", details=None, duration_ms=None, cost=None):
@@ -132,7 +211,7 @@ def create_case(principal, body, key, request_id=None):
         payload={"body":body,"verified_customer_subject":p.customer_subject}
         found = _idem(conn, p, "create_case", key, payload, legacy_body=body)
         if found:
-            return _replay(found)
+            return _replay(found, conn, p)
         active = _query_one(conn, "SELECT release_id FROM resolvelab.active_releases WHERE tenant_id=:tenant", _base(p))
         if not active:
             raise DomainError(503, "release_unavailable", "There is no active evaluated release.", True)
@@ -155,7 +234,7 @@ def get_case(principal, case_id):
         result["proposals"] = rows(conn.execute(text("SELECT * FROM resolvelab.proposals WHERE tenant_id=:tenant AND case_id=:case ORDER BY created_at"), {**_base(p), "case": case_id}))
         result["actions"] = rows(conn.execute(text("""SELECT a.* FROM resolvelab.actions a JOIN resolvelab.proposals p USING(tenant_id,proposal_id)
             WHERE a.tenant_id=:tenant AND p.case_id=:case ORDER BY a.created_at"""), {**_base(p), "case": case_id}))
-        return primitive(result)
+        return _scoped_response(conn, p, result)
 
 
 def update_case_context(principal, case_id, body, key, request_id=None):
@@ -167,7 +246,7 @@ def update_case_context(principal, case_id, body, key, request_id=None):
         p = assert_member(conn, principal, WRITE_ROLES)
         prior = _idem(conn, p, "update_context", key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         record = _case(conn, p, case_id, True)
         if record["state"] != "needs_info" or record["version"] != body["expected_case_version"]:
             raise DomainError(409, "stale_case", "Only a current case awaiting information can receive an order reference.")
@@ -190,7 +269,7 @@ def reject_proposal(principal, proposal_id, body, key, request_id=None):
         p = assert_member(conn, principal, {"approver", "admin"})
         prior = _idem(conn, p, "reject", key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         proposal = _query_one(conn, "SELECT * FROM resolvelab.proposals WHERE tenant_id=:tenant AND proposal_id=:proposal FOR UPDATE",
                               {**_base(p), "proposal": proposal_id})
         if not proposal:
@@ -238,7 +317,7 @@ def list_cases(principal, limit=50, offset=0, state=None, q=None):
                 FROM (SELECT * FROM resolvelab.cases WHERE {predicate}
                       ORDER BY created_at DESC,case_id LIMIT :limit OFFSET :offset) page),'[]'::jsonb) AS items""",
                           {**_base(p),"state":state,"limit":limit,"offset":offset,"empty_query":not query,"pattern":pattern,"escape":"\\"})
-        return {"items":primitive(result["items"]),"total":result["total"],"limit":limit,"offset":offset}
+        return _scoped_response(conn, p, {"items":result["items"],"total":result["total"],"limit":limit,"offset":offset})
 
 
 def load_pinned_router(release):
@@ -256,7 +335,7 @@ def load_pinned_router(release):
         raise RuntimeError("routing artifact is outside the reviewed artifact directory")
     if sha256(artifact.read_bytes()).hexdigest() != release["artifact_sha256"]:
         raise RuntimeError("pinned routing artifact checksum mismatch")
-    router = Router(artifact_path=str(artifact))
+    router = Router(artifact_path=str(artifact), artifact_sha256=release["artifact_sha256"])
     expected_version = release.get("model_version")
     if expected_version and router.version != expected_version:
         raise RuntimeError("pinned routing artifact version mismatch")
@@ -287,7 +366,7 @@ def _inference_failed(p, case_id, operation, key, payload, request_id, expected_
         p = assert_member(conn, p, WRITE_ROLES)
         prior = _idem(conn, p, operation, key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         record = _case(conn, p, case_id, True)
         if record["version"] != expected_version or not can_transition(record["state"], "failed"):
             raise DomainError(409, "stale_case", "The case changed while routing was attempted.")
@@ -311,19 +390,21 @@ def triage_case(principal, case_id, body, key, request_id=None, faults=None):
         p = assert_member(conn, principal, WRITE_ROLES)
         prior = _idem(conn, p, "triage", key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         record = _case(conn, p, case_id)
+        if record["version"] != body["expected_case_version"] or not can_transition(record["state"], "triaged"):
+            raise DomainError(409, "stale_case", "The case changed; refresh before triage.")
         release = _release(conn, p, record["release_id"])
     start = time.perf_counter()
     try:
         route = _routing(record["message"], release, faults)
     except Exception as exc:
-        return _inference_failed(p, case_id, "triage", key, payload, request_id, record["version"], type(exc).__name__)
+        return _inference_failed(p, case_id, "triage", key, payload, request_id, body["expected_case_version"], type(exc).__name__)
     with transaction(p) as conn:
         p = assert_member(conn, p, WRITE_ROLES)
         prior = _idem(conn, p, "triage", key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         record = _case(conn, p, case_id, True)
         if record["version"] != body["expected_case_version"] or not can_transition(record["state"], "triaged"):
             raise DomainError(409, "stale_case", "The case changed; refresh before triage.")
@@ -374,7 +455,7 @@ def get_evidence(principal, case_id, limit=4):
         record = _case(conn, p, case_id)
         release=_release(conn,p,record["release_id"])
         if record["resolution"] and record["resolution"].get("evidence_snapshot") is not None:
-            evidence = record["resolution"]["evidence_snapshot"]
+            evidence = _scoped_response(conn, p, record["resolution"]["evidence_snapshot"])
         else:
             try:
                 evidence = _retrieve(conn, p, record, release)
@@ -478,7 +559,7 @@ def resolve_case(principal, case_id, body, key, request_id=None, faults=None):
         p = assert_member(conn, principal, WRITE_ROLES)
         prior = _idem(conn, p, "resolve", key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         record = _case(conn, p, case_id)
         if record["version"] != body["expected_case_version"] or record["state"] not in {"new", "triaged", "needs_info", "draft_ready", "failed"}:
             raise DomainError(409, "stale_case", "The case changed or has already completed this workflow.")
@@ -541,7 +622,7 @@ def resolve_case(principal, case_id, body, key, request_id=None, faults=None):
         p = assert_member(conn, p, WRITE_ROLES)
         prior = _idem(conn, p, "resolve", key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         current = _case(conn, p, case_id, True)
         if current["version"] != record["version"] or current["release_id"] != record["release_id"]:
             raise DomainError(409, "stale_case", "The case changed while its draft was prepared. Refresh and retry.")
@@ -604,7 +685,7 @@ def approve_proposal(principal, proposal_id, body, key, request_id=None, faults=
         p = assert_member(conn, principal, {"approver", "admin"})
         prior = _idem(conn, p, "approve", key, payload)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         proposal = _query_one(conn, "SELECT * FROM resolvelab.proposals WHERE tenant_id=:tenant AND proposal_id=:proposal FOR UPDATE",
                               {**_base(p), "proposal": proposal_id})
         if not proposal:
@@ -670,8 +751,8 @@ def get_trace(principal, case_id):
     with transaction(principal) as conn:
         p = assert_member(conn, principal, READ_ROLES)
         _case(conn, p, case_id)
-        return {"case_id": str(case_id), "events": rows(conn.execute(text("""SELECT * FROM resolvelab.trace_events
-            WHERE tenant_id=:tenant AND case_id=:case ORDER BY created_at,trace_id"""), {**_base(p), "case": case_id}))}
+        return _scoped_response(conn, p, {"case_id": str(case_id), "events": rows(conn.execute(text("""SELECT * FROM resolvelab.trace_events
+            WHERE tenant_id=:tenant AND case_id=:case ORDER BY created_at,trace_id"""), {**_base(p), "case": case_id}))})
 
 
 def dashboard(principal):
@@ -743,7 +824,7 @@ def create_evaluation(principal, body, key, request_id=None):
             raise DomainError(503,"evaluation_not_isolated","The isolated evaluation database configuration could not be verified.") from None
         prior = _idem(conn, p, "create_evaluation", key, body)
         if prior:
-            return _replay(prior)
+            return _replay(prior, conn, p)
         _release(conn, p, body["release_id"])
         dataset_hash = sha256((ROOT / "fixtures/evaluation_cases.json").read_bytes()).hexdigest()
         result = _query_one(conn, """INSERT INTO resolvelab.evaluation_runs

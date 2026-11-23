@@ -1,0 +1,42 @@
+[
+  {
+    "scan": "desktop-inbox",
+    "rule": "aria-prohibited-attr",
+    "target": [
+      ".inbox-pagination"
+    ],
+    "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+  },
+  {
+    "scan": "evidence",
+    "rule": "aria-prohibited-attr",
+    "target": [
+      ".inbox-pagination"
+    ],
+    "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+  },
+  {
+    "scan": "trace",
+    "rule": "aria-prohibited-attr",
+    "target": [
+      ".inbox-pagination"
+    ],
+    "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+  },
+  {
+    "scan": "mobile-inbox",
+    "rule": "aria-prohibited-attr",
+    "target": [
+      ".inbox-pagination"
+    ],
+    "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+  },
+  {
+    "scan": "text-zoom-200-percent",
+    "rule": "aria-prohibited-attr",
+    "target": [
+      ".inbox-pagination"
+    ],
+    "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+  }
+]

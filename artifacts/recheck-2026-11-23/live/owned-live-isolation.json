@@ -1,0 +1,121 @@
+{
+  "source_database": "resolvelab",
+  "browser_database": "resolvelab_browser_recheck_8cf4d578e005",
+  "host": "127.0.0.1",
+  "port": 55439,
+  "base_url": "http://127.0.0.1:8120",
+  "source_reset": false,
+  "user_process_records_written": false,
+  "worker_shared_evaluation_database": "resolvelab_evaluation",
+  "reports_preserved": true,
+  "source_before": {
+    "counts": {
+      "tenants": 2,
+      "cases": 7,
+      "fixture_orders": 5,
+      "proposals": 1,
+      "actions": 0,
+      "evaluation_runs": 3
+    },
+    "orders": [
+      [
+        "A-100",
+        "pending",
+        1
+      ],
+      [
+        "B-100",
+        "pending",
+        1
+      ]
+    ]
+  },
+  "env_sha256_before": "2c19d354df627afaa72ef14fc6503a85aee6f4ee841f19feee2dbbeb5d8c6f60",
+  "user_process_record_hashes_before": {
+    "api.process.json": "d10834ce9f7586cac2f9495471658e11c9a0bfd6549f86453bfc0d1eac56695b",
+    "worker.process.json": "25af28c5192a4be1f0e43e3445ca4ae469725b63fb5572653cc5d9ab503ea7a8"
+  },
+  "phase": "completed",
+  "owned_api_pid": 843420,
+  "owned_worker_pid": 841208,
+  "owned_evaluation_ids": [
+    "b0bea428-f541-40dc-b8dc-124020c1caaf",
+    "f39e20d1-aa2e-4aa9-8f74-818418cf6d08"
+  ],
+  "passed": true,
+  "owned_database_removed": true,
+  "source_after": {
+    "counts": {
+      "tenants": 2,
+      "cases": 7,
+      "fixture_orders": 5,
+      "proposals": 1,
+      "actions": 0,
+      "evaluation_runs": 3
+    },
+    "orders": [
+      [
+        "A-100",
+        "pending",
+        1
+      ],
+      [
+        "B-100",
+        "pending",
+        1
+      ]
+    ]
+  },
+  "source_database_preserved": true,
+  "env_sha256_after": "2c19d354df627afaa72ef14fc6503a85aee6f4ee841f19feee2dbbeb5d8c6f60",
+  "env_unchanged": true,
+  "user_process_record_hashes_after": {
+    "api.process.json": "d10834ce9f7586cac2f9495471658e11c9a0bfd6549f86453bfc0d1eac56695b",
+    "worker.process.json": "25af28c5192a4be1f0e43e3445ca4ae469725b63fb5572653cc5d9ab503ea7a8"
+  },
+  "user_process_records_unchanged": true,
+  "preexisting_evaluation_directories_preserved": true,
+  "commands": [
+    {
+      "command": "migrate_owned_database",
+      "exit_code": 0
+    },
+    {
+      "command": "seed_owned_empty_database",
+      "exit_code": 0
+    },
+    {
+      "command": "populate_owned_demo",
+      "exit_code": 0
+    },
+    {
+      "command": "oidc_browser_9",
+      "exit_code": 0
+    },
+    {
+      "command": "actual_browser_11",
+      "exit_code": 0
+    },
+    {
+      "command": "accessibility_9",
+      "exit_code": 0
+    },
+    {
+      "command": "responsive_viewport",
+      "exit_code": 0
+    }
+  ],
+  "cleanup_verified_at": "2026-11-23T17:13:39.099623+00:00",
+  "owned_api_stopped": true,
+  "owned_worker_stopped": true,
+  "owned_processes_stopped": {
+    "826232": true,
+    "828676": true,
+    "837196": true,
+    "841208": true,
+    "843420": true
+  },
+  "owned_api_port_closed": true,
+  "owned_database_absent_verified": true,
+  "source_api_ready_after": true
+}

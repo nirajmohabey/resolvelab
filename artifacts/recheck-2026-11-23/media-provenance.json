@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-11-23T17:18:03.264218+00:00",
+  "source_video": "artifacts/recheck-2026-11-23/live/browser/page@8c1a771917916bc12cb38a191b52e8dc.webm",
+  "source_sha256": "18f0d654da8e598152dba3fb470caffeb467463d11acbafdf9b8d3a3f82f8503",
+  "encoded_video": "../ResolveLab_Demo.mp4",
+  "encoded_sha256": "99e2b30edeee6a3a0b568a42a9d58bc7a98190a117eeb4e0abe34d9b99ad6ec1",
+  "metadata": {
+    "ffmpeg_version": "9.0.2-essentials_build-www.gyan.dev built with gcc 16.2.0 (Rev3, Built by MSYS2 project)",
+    "codec": "h264",
+    "pix_fmt": "yuv420p(tv, bt470bg/unknown/unknown, progressive)",
+    "fps": 25.0,
+    "source_size": [
+      1440,
+      1000
+    ],
+    "size": [
+      1440,
+      1000
+    ],
+    "rotate": 0,
+    "duration": 54.04
+  },
+  "encoder_version": "9.0.2-essentials_build-www.gyan.dev",
+  "scope": "Actual current disposable-service browser recording, transcoded only. Silent automation demo; no fabricated scenes.",
+  "prior_release_assets_preserved": "../releases/resolvelab-v0.2.0/"
+}

@@ -1,0 +1,69 @@
+{
+  "passed": 11,
+  "total": 11,
+  "checks": [
+    {
+      "name": "tracking resolves with policy evidence",
+      "passed": true
+    },
+    {
+      "name": "trace stages visible",
+      "passed": true
+    },
+    {
+      "name": "missing order reference is attached to the same case before explicit resolution",
+      "passed": true
+    },
+    {
+      "name": "approver declines a proposal into handoff without executing cancellation",
+      "passed": true
+    },
+    {
+      "name": "cancellation stops for approval",
+      "passed": true
+    },
+    {
+      "name": "approver executes one local cancellation",
+      "passed": true
+    },
+    {
+      "name": "human request persists escalation",
+      "passed": true
+    },
+    {
+      "name": "evaluation and releases render",
+      "passed": true
+    },
+    {
+      "name": "evaluation comparison exposes scoped case reports",
+      "passed": true
+    },
+    {
+      "name": "tenant switch removes alpha case context",
+      "passed": true
+    },
+    {
+      "name": "mobile layout fits viewport",
+      "passed": true
+    }
+  ],
+  "source_hashes": {
+    "web/app.js": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+    "web/app.css": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+    "web/index.html": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+  },
+  "source_stable": true,
+  "errors": [],
+  "base_url": "http://127.0.0.1:8120",
+  "viewport": [
+    1440,
+    1000
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "generated_at": "2026-11-23T17:12:17.135Z"
+}

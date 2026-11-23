@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-11-23T17:06:25.402Z",
+  "read_only": true,
+  "backend_connected": false,
+  "initial_app_sha256": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+  "app_sha256": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+  "initial_source_hashes": {
+    "web/app.js": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+    "web/index.html": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+    "web/app.css": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+  },
+  "source_hashes": {
+    "web/app.js": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+    "web/index.html": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+    "web/app.css": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+  },
+  "source_stable": true,
+  "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
+  "passed": 5,
+  "total": 5,
+  "failures": 0,
+  "results": [
+    {
+      "name": "needs-info attachment retries once and requires explicit resolution",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 14,
+      "page_errors": [],
+      "duration_ms": 2666
+    },
+    {
+      "name": "decline is deliberate, idempotent, escalates and never approves or cancels",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 13,
+      "page_errors": [],
+      "duration_ms": 2129
+    },
+    {
+      "name": "read-only reviewers are not offered either follow-up mutation",
+      "passed": true,
+      "authentication": "synthetic OIDC adapter; real workbench session handling",
+      "api_requests_intercepted": 5,
+      "page_errors": [],
+      "duration_ms": 1325
+    },
+    {
+      "name": "switching cases during saved context or decline never retargets the write",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 9,
+      "page_errors": [],
+      "duration_ms": 1684
+    },
+    {
+      "name": "disconnect during context update cannot restore a private case or form",
+      "passed": true,
+      "authentication": "synthetic OIDC adapter; real workbench session handling",
+      "api_requests_intercepted": 5,
+      "page_errors": [],
+      "duration_ms": 1463
+    }
+  ],
+  "additional_evidence": {
+    "context_form_accessibility_violations": 0,
+    "decline_form_accessibility_violations": 0
+  }
+}

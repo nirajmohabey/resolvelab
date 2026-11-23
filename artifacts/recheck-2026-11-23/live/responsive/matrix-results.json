@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-11-23T17:06:47.610Z",
+  "base_url": "http://127.0.0.1:8120",
+  "case_mutations": 0,
+  "api_scope": "Actual private disposable fixture API; only session login and read-only GETs; new-case dialog never submitted",
+  "pagination_accessible_group": true,
+  "app_sha256": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+  "css_sha256": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+  "html_sha256": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+  "source_stable": true,
+  "checks": [
+    {
+      "width": 320,
+      "view": "inbox",
+      "scroll": 320,
+      "passed": true
+    },
+    {
+      "width": 320,
+      "view": "evaluation",
+      "scroll": 320,
+      "passed": true
+    },
+    {
+      "width": 320,
+      "view": "releases",
+      "scroll": 320,
+      "passed": true
+    },
+    {
+      "width": 360,
+      "view": "inbox",
+      "scroll": 360,
+      "passed": true
+    },
+    {
+      "width": 360,
+      "view": "evaluation",
+      "scroll": 360,
+      "passed": true
+    },
+    {
+      "width": 360,
+      "view": "releases",
+      "scroll": 360,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "view": "inbox",
+      "scroll": 390,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "view": "evaluation",
+      "scroll": 390,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "view": "releases",
+      "scroll": 390,
+      "passed": true
+    },
+    {
+      "width": 650,
+      "view": "inbox",
+      "scroll": 650,
+      "passed": true
+    },
+    {
+      "width": 650,
+      "view": "evaluation",
+      "scroll": 650,
+      "passed": true
+    },
+    {
+      "width": 650,
+      "view": "releases",
+      "scroll": 650,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "view": "inbox",
+      "scroll": 768,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "view": "evaluation",
+      "scroll": 768,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "view": "releases",
+      "scroll": 768,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "view": "inbox",
+      "scroll": 1024,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "view": "evaluation",
+      "scroll": 1024,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "view": "releases",
+      "scroll": 1024,
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "view": "inbox",
+      "scroll": 1440,
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "view": "evaluation",
+      "scroll": 1440,
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "view": "releases",
+      "scroll": 1440,
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "text_size_percent": 200,
+      "view": "inbox",
+      "scroll": 1280,
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "text_size_percent": 200,
+      "view": "evaluation",
+      "scroll": 1280,
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "text_size_percent": 200,
+      "view": "releases",
+      "scroll": 1280,
+      "passed": true
+    }
+  ],
+  "errors": []
+}

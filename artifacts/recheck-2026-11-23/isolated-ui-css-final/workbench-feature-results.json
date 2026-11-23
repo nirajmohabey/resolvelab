@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-11-23T17:06:12.446Z",
+  "read_only": true,
+  "backend_connected": false,
+  "initial_app_sha256": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+  "app_sha256": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+  "initial_source_hashes": {
+    "web/app.js": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+    "web/index.html": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+    "web/app.css": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+  },
+  "source_hashes": {
+    "web/app.js": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+    "web/index.html": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+    "web/app.css": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+  },
+  "source_stable": true,
+  "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
+  "passed": 8,
+  "total": 8,
+  "failures": 0,
+  "results": [
+    {
+      "name": "older cases are reachable through paging and server search/filter",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 29,
+      "page_errors": [],
+      "duration_ms": 2384
+    },
+    {
+      "name": "a slow old search cannot overwrite newer matching cases",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 10,
+      "page_errors": [],
+      "duration_ms": 2666
+    },
+    {
+      "name": "inbox failure removes stale actions and retry restores usable cases",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 13,
+      "page_errors": [],
+      "duration_ms": 2319
+    },
+    {
+      "name": "identity changes clear old context immediately and recover failed connections",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 19,
+      "page_errors": [],
+      "duration_ms": 1741
+    },
+    {
+      "name": "read-only production reviewers can inspect with keyboard tabs without fixture actions",
+      "passed": true,
+      "authentication": "synthetic OIDC adapter; real workbench session handling",
+      "api_requests_intercepted": 6,
+      "page_errors": [],
+      "duration_ms": 1328
+    },
+    {
+      "name": "pending creation protects the submitted draft and keyboard dialog recovery",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 9,
+      "page_errors": [],
+      "duration_ms": 1868
+    },
+    {
+      "name": "comparison snapshots survive refresh and partial retries create one job per release",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 15,
+      "page_errors": [],
+      "duration_ms": 1640
+    },
+    {
+      "name": "mobile dialogs, long identifiers and untrusted text remain usable",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 6,
+      "page_errors": [],
+      "duration_ms": 1720
+    }
+  ]
+}

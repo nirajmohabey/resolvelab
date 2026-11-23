@@ -1,0 +1,566 @@
+{
+  "generated_at": "2026-11-23T16:59:30.510623+00:00",
+  "source_tree_sha256": "b79f1d60e04cd0792d3e85a64104e9e6f23a30667290e0506b9965b0a938f645",
+  "runs": [
+    {
+      "name": "v4-blind-final",
+      "command": [
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\scripts\\evaluate.py",
+        "--mode",
+        "live_model",
+        "--dataset",
+        "v4-blind-v1",
+        "--release-id",
+        "84f8a907-04de-5257-af61-98f317392d01",
+        "--output",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v4-blind-final"
+      ],
+      "exit_code": 1,
+      "workflow": {
+        "numerator": 139,
+        "denominator": 160,
+        "rate": 0.86875
+      },
+      "model_version": "domain-router-v4",
+      "release_id": "84f8a907-04de-5257-af61-98f317392d01",
+      "mode": "live_model",
+      "code_tree_sha256": "b79f1d60e04cd0792d3e85a64104e9e6f23a30667290e0506b9965b0a938f645",
+      "code_changed_during_run": false,
+      "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+      "artifact_hash_matches_database": true,
+      "all_observed_case_releases_match_selected": true,
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 160,
+      "runner_errors": 0,
+      "report_path": "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v4-blind-final\\workflow-evaluation.json",
+      "report_sha256": "97a815b9995af33ce57f2efd29384cbb7b9376a4296395bdf705f4bb9eb9abeb",
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.8705458144796381,
+        "confusion_matrix": [
+          [
+            35,
+            0,
+            0,
+            5
+          ],
+          [
+            2,
+            37,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            28,
+            11
+          ],
+          [
+            1,
+            0,
+            0,
+            39
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 0.9210526315789473,
+            "recall": 0.875,
+            "f1-score": 0.8974358974358975,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.9736842105263158,
+            "recall": 0.925,
+            "f1-score": 0.9487179487179487,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.7,
+            "f1-score": 0.8235294117647058,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.6964285714285714,
+            "recall": 0.975,
+            "f1-score": 0.8125,
+            "support": 40.0
+          },
+          "accuracy": 0.86875,
+          "macro avg": {
+            "precision": 0.8977913533834587,
+            "recall": 0.86875,
+            "f1-score": 0.8705458144796381,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.8977913533834586,
+            "recall": 0.86875,
+            "f1-score": 0.870545814479638,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 104,
+          "denominator": 160,
+          "rate": 0.65
+        },
+        "accepted_routing_error": {
+          "numerator": 4,
+          "denominator": 104,
+          "rate": 0.038461538461538464
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 27,
+        "learned_model_decisions": 133,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      }
+    },
+    {
+      "name": "v3-paired",
+      "command": [
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\scripts\\evaluate.py",
+        "--mode",
+        "live_model",
+        "--dataset",
+        "v4-blind-v1",
+        "--release-id",
+        "70ca5649-301c-540a-a93d-abfcf24703e3",
+        "--output",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v3-paired"
+      ],
+      "exit_code": 1,
+      "workflow": {
+        "numerator": 95,
+        "denominator": 160,
+        "rate": 0.59375
+      },
+      "model_version": "domain-hybrid-v3",
+      "release_id": "70ca5649-301c-540a-a93d-abfcf24703e3",
+      "mode": "live_model",
+      "code_tree_sha256": "b79f1d60e04cd0792d3e85a64104e9e6f23a30667290e0506b9965b0a938f645",
+      "code_changed_during_run": false,
+      "artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+      "artifact_hash_matches_database": true,
+      "all_observed_case_releases_match_selected": true,
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 160,
+      "runner_errors": 0,
+      "report_path": "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v3-paired\\workflow-evaluation.json",
+      "report_sha256": "fd965fc9fa462864f75b68b2e3bc534e5fcb88fa35f6fd06008f34c2e01d8316",
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.8691047297297297,
+        "confusion_matrix": [
+          [
+            35,
+            0,
+            0,
+            5
+          ],
+          [
+            0,
+            32,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            34,
+            6
+          ],
+          [
+            0,
+            3,
+            0,
+            37
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1-score": 0.9333333333333333,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.9142857142857143,
+            "recall": 0.8,
+            "f1-score": 0.8533333333333334,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.85,
+            "f1-score": 0.918918918918919,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.6607142857142857,
+            "recall": 0.925,
+            "f1-score": 0.7708333333333334,
+            "support": 40.0
+          },
+          "accuracy": 0.8625,
+          "macro avg": {
+            "precision": 0.8937499999999999,
+            "recall": 0.8625,
+            "f1-score": 0.8691047297297297,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.89375,
+            "recall": 0.8625,
+            "f1-score": 0.8691047297297297,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 54,
+          "denominator": 160,
+          "rate": 0.3375
+        },
+        "accepted_routing_error": {
+          "numerator": 1,
+          "denominator": 54,
+          "rate": 0.018518518518518517
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 160,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      }
+    },
+    {
+      "name": "v1-paired",
+      "command": [
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\scripts\\evaluate.py",
+        "--mode",
+        "live_model",
+        "--dataset",
+        "v4-blind-v1",
+        "--release-id",
+        "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+        "--output",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v1-paired"
+      ],
+      "exit_code": 1,
+      "workflow": {
+        "numerator": 76,
+        "denominator": 160,
+        "rate": 0.475
+      },
+      "model_version": "tfidf-logistic-v1",
+      "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+      "mode": "live_model",
+      "code_tree_sha256": "b79f1d60e04cd0792d3e85a64104e9e6f23a30667290e0506b9965b0a938f645",
+      "code_changed_during_run": false,
+      "artifact_sha256": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+      "artifact_hash_matches_database": true,
+      "all_observed_case_releases_match_selected": true,
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 160,
+      "runner_errors": 0,
+      "report_path": "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v1-paired\\workflow-evaluation.json",
+      "report_sha256": "dcd9647716697ad4957967089295f80565a20c92f52f0fc069cecacc825f8055",
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.46378593386507144,
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            0,
+            31
+          ],
+          [
+            1,
+            17,
+            0,
+            22
+          ],
+          [
+            0,
+            1,
+            11,
+            28
+          ],
+          [
+            0,
+            1,
+            0,
+            39
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 0.9,
+            "recall": 0.225,
+            "f1-score": 0.36,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.8947368421052632,
+            "recall": 0.425,
+            "f1-score": 0.576271186440678,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.275,
+            "f1-score": 0.43137254901960786,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.325,
+            "recall": 0.975,
+            "f1-score": 0.4875,
+            "support": 40.0
+          },
+          "accuracy": 0.475,
+          "macro avg": {
+            "precision": 0.7799342105263158,
+            "recall": 0.475,
+            "f1-score": 0.46378593386507144,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.7799342105263157,
+            "recall": 0.475,
+            "f1-score": 0.4637859338650715,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 40,
+          "denominator": 160,
+          "rate": 0.25
+        },
+        "accepted_routing_error": {
+          "numerator": 3,
+          "denominator": 40,
+          "rate": 0.075
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 160,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      }
+    },
+    {
+      "name": "v1-fixture",
+      "command": [
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\scripts\\evaluate.py",
+        "--mode",
+        "live_model",
+        "--dataset",
+        "fixture-v1",
+        "--release-id",
+        "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+        "--output",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v1-fixture"
+      ],
+      "exit_code": 1,
+      "workflow": {
+        "numerator": 19,
+        "denominator": 20,
+        "rate": 0.95
+      },
+      "model_version": "tfidf-logistic-v1",
+      "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+      "mode": "live_model",
+      "code_tree_sha256": "b79f1d60e04cd0792d3e85a64104e9e6f23a30667290e0506b9965b0a938f645",
+      "code_changed_during_run": false,
+      "artifact_sha256": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827",
+      "dataset_sha256": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+      "artifact_hash_matches_database": true,
+      "all_observed_case_releases_match_selected": true,
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 20,
+      "runner_errors": 0,
+      "report_path": "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\v1-fixture\\workflow-evaluation.json",
+      "report_sha256": "7bfb98e5faf8cb03b3786475df13b9e689edb84c64a4341d0b1fa30a925b2260",
+      "routing_metrics": {
+        "N": 17,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.9222222222222223,
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1-score": 0.8888888888888888,
+            "support": 5.0
+          },
+          "cancel_request": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 9.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1.0
+          },
+          "out_of_scope": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1-score": 0.8,
+            "support": 2.0
+          },
+          "accuracy": 0.9411764705882353,
+          "macro avg": {
+            "precision": 0.9166666666666666,
+            "recall": 0.95,
+            "f1-score": 0.9222222222222223,
+            "support": 17.0
+          },
+          "weighted avg": {
+            "precision": 0.9607843137254901,
+            "recall": 0.9411764705882353,
+            "f1-score": 0.9437908496732026,
+            "support": 17.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 14,
+          "denominator": 17,
+          "rate": 0.8235294117647058
+        },
+        "accepted_routing_error": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": 0.0
+        },
+        "ood_false_acceptance": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 17,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      }
+    },
+    {
+      "name": "deterministic-invariants",
+      "command": [
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\.venv\\Scripts\\python.exe",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\outputs\\resolvelab\\scripts\\evaluate.py",
+        "--mode",
+        "deterministic_invariants",
+        "--dataset",
+        "fixture-v1",
+        "--release-id",
+        "84f8a907-04de-5257-af61-98f317392d01",
+        "--output",
+        "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\deterministic-invariants"
+      ],
+      "exit_code": 0,
+      "workflow": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0
+      },
+      "model_version": "domain-router-v4",
+      "release_id": "84f8a907-04de-5257-af61-98f317392d01",
+      "mode": "deterministic_invariants",
+      "code_tree_sha256": "b79f1d60e04cd0792d3e85a64104e9e6f23a30667290e0506b9965b0a938f645",
+      "code_changed_during_run": false,
+      "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+      "dataset_sha256": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+      "artifact_hash_matches_database": true,
+      "all_observed_case_releases_match_selected": true,
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 20,
+      "runner_errors": 0,
+      "report_path": "C:\\Users\\nmoha\\Documents\\Codex\\2026-11-23\\okay\\work\\recheck-resolvelab\\evaluations\\deterministic-invariants\\workflow-evaluation.json",
+      "report_sha256": "a304bdd170250d5171ec4864e9172302dcc380bf0eaf410f96b70d7bb5975488",
+      "routing_metrics": null
+    }
+  ],
+  "unchanged_input_files": 49,
+  "changed_input_files": [],
+  "scope": "Compatibility rerun of already-disclosed frozen cases; no training, tuning, new independent generalization claim, serving database reset, or paid provider calls.",
+  "guarded_database": "resolvelab_evaluation"
+}

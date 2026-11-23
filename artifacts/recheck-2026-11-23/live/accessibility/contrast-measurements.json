@@ -1,0 +1,1200 @@
+{
+  "generated_at": "2026-11-23T17:13:12.631Z",
+  "backend_connected": false,
+  "scope": "Real current index, app and CSS in Chrome; all API responses intercepted. These observations are computed-style checks, not screen-reader or pixel-level conformance testing.",
+  "source_hashes": {
+    "web/app.js": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+    "web/app.css": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+    "web/index.html": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+  },
+  "source_stable": true,
+  "measurements": [
+    {
+      "selector": "button[data-view=\"inbox\"] > span[aria-hidden=\"true\"]",
+      "context": "desktop-inbox",
+      "kind": "decorative navigation glyph",
+      "text": "▤",
+      "color": "rgb(234, 246, 235)",
+      "font_size": "20px",
+      "font_weight": "400",
+      "aria_hidden": "true",
+      "aria_label": null,
+      "rect": {
+        "left": 32,
+        "right": 50,
+        "top": 329,
+        "bottom": 349
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": ""
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BUTTON",
+          "class_name": "nav-item active",
+          "background": "rgb(41, 70, 77)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "NAV",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ASIDE",
+          "class_name": "sidebar",
+          "background": "rgb(16, 40, 48)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        41,
+        70,
+        77
+      ],
+      "computed_contrast_ratio": 9.088000390423344,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": "button[data-view=\"evaluation\"] > span[aria-hidden=\"true\"]",
+      "context": "desktop-inbox",
+      "kind": "decorative navigation glyph",
+      "text": "◫",
+      "color": "rgb(169, 189, 196)",
+      "font_size": "20px",
+      "font_weight": "400",
+      "aria_hidden": "true",
+      "aria_label": null,
+      "rect": {
+        "left": 32,
+        "right": 50,
+        "top": 380,
+        "bottom": 400
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": ""
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BUTTON",
+          "class_name": "nav-item",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "NAV",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ASIDE",
+          "class_name": "sidebar",
+          "background": "rgb(16, 40, 48)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        16,
+        40,
+        48
+      ],
+      "computed_contrast_ratio": 7.866482325931698,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": "button[data-view=\"releases\"] > span[aria-hidden=\"true\"]",
+      "context": "desktop-inbox",
+      "kind": "decorative navigation glyph",
+      "text": "◇",
+      "color": "rgb(169, 189, 196)",
+      "font_size": "20px",
+      "font_weight": "400",
+      "aria_hidden": "true",
+      "aria_label": null,
+      "rect": {
+        "left": 32,
+        "right": 50,
+        "top": 430,
+        "bottom": 450
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": ""
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BUTTON",
+          "class_name": "nav-item",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "NAV",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ASIDE",
+          "class_name": "sidebar",
+          "background": "rgb(16, 40, 48)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        16,
+        40,
+        48
+      ],
+      "computed_contrast_ratio": 7.866482325931698,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": ".shield",
+      "context": "desktop-inbox",
+      "kind": "decorative symbol",
+      "text": "◈",
+      "color": "rgb(199, 228, 159)",
+      "font_size": "25px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": null,
+      "rect": {
+        "left": 30,
+        "right": 214,
+        "top": 723.8125,
+        "bottom": 756.8125
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": "shield"
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "shield",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "scope-note",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "sidebar-bottom",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "ASIDE",
+          "class_name": "sidebar",
+          "background": "rgb(16, 40, 48)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        16,
+        40,
+        48
+      ],
+      "computed_contrast_ratio": 10.982393159375222,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": "#refreshInbox",
+      "context": "desktop-inbox",
+      "kind": "functional icon with accessible name",
+      "text": "\n                  ↻\n                ",
+      "color": "rgb(113, 137, 144)",
+      "font_size": "20px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": "Refresh inbox",
+      "rect": {
+        "left": 584.390625,
+        "right": 620.390625,
+        "top": 429.1875,
+        "bottom": 465.1875
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "BUTTON",
+        "id": "refreshInbox",
+        "class_name": "icon-button"
+      },
+      "background_chain": [
+        {
+          "tag": "BUTTON",
+          "class_name": "icon-button",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "panel-head",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "inbox-panel",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "workbench",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "view",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "app-shell",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        255,
+        255,
+        255
+      ],
+      "computed_contrast_ratio": 3.6951471816191614,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": ".selected > .case-meta > span:nth-child(2)",
+      "context": "desktop-inbox",
+      "kind": "normal text over selected row",
+      "text": "07:00 AM",
+      "color": "rgb(82, 105, 113)",
+      "font_size": "12px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": null,
+      "rect": {
+        "left": 565.84375,
+        "right": 620.390625,
+        "top": 591.1875,
+        "bottom": 607.1875
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": ""
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "case-meta",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BUTTON",
+          "class_name": "case-row selected",
+          "background": "rgb(240, 247, 244)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "case-list",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "inbox-panel",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "workbench",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "view",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "app-shell",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": {
+        "content": "\"\"",
+        "background": "rgb(22, 123, 115)",
+        "left": "0px",
+        "width": "3px",
+        "row_left": 283,
+        "text_left": 565.84375,
+        "estimated_pseudo_right": 286
+      },
+      "effective_background_rgb": [
+        240,
+        247,
+        244
+      ],
+      "computed_contrast_ratio": 5.338998746800114,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": ".selected > .case-bottom > .order-ref",
+      "context": "desktop-inbox",
+      "kind": "normal text over selected row",
+      "text": "A-100",
+      "color": "rgb(82, 105, 113)",
+      "font_size": "12px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": null,
+      "rect": {
+        "left": 587.390625,
+        "right": 620.390625,
+        "top": 651.1875,
+        "bottom": 665.1875
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": "order-ref"
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "order-ref",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "case-bottom",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BUTTON",
+          "class_name": "case-row selected",
+          "background": "rgb(240, 247, 244)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "case-list",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "inbox-panel",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "workbench",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "view",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "app-shell",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": {
+        "content": "\"\"",
+        "background": "rgb(22, 123, 115)",
+        "left": "0px",
+        "width": "3px",
+        "row_left": 283,
+        "text_left": 587.390625,
+        "estimated_pseudo_right": 286
+      },
+      "effective_background_rgb": [
+        240,
+        247,
+        244
+      ],
+      "computed_contrast_ratio": 5.338998746800114,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": ".trace-row:nth-child(3) > .trace-symbol",
+      "context": "desktop-trace",
+      "kind": "status symbol accompanied by textual stage/outcome",
+      "text": "✓",
+      "color": "rgb(76, 146, 112)",
+      "font_size": "12px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": null,
+      "rect": {
+        "left": 686.390625,
+        "right": 706.390625,
+        "top": 683.6875,
+        "bottom": 703.6875
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": "trace-symbol "
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "trace-symbol ",
+          "background": "rgb(230, 244, 236)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "trace-row",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "detail-body",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "detail-panel",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "workbench",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "view",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "app-shell",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        230,
+        244,
+        236
+      ],
+      "computed_contrast_ratio": 3.2755482610530446,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": ".trace-row:nth-child(4) > .trace-symbol",
+      "context": "desktop-trace",
+      "kind": "status symbol accompanied by textual stage/outcome",
+      "text": "·",
+      "color": "rgb(76, 146, 112)",
+      "font_size": "12px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": null,
+      "rect": {
+        "left": 686.390625,
+        "right": 706.390625,
+        "top": 737.6875,
+        "bottom": 757.6875
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": "trace-symbol "
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "trace-symbol ",
+          "background": "rgb(230, 244, 236)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "trace-row",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "detail-body",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "detail-panel",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "workbench",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "view",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "app-shell",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        230,
+        244,
+        236
+      ],
+      "computed_contrast_ratio": 3.2755482610530446,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": ".trace-row:nth-child(5) > .trace-symbol",
+      "context": "desktop-trace",
+      "kind": "status symbol accompanied by textual stage/outcome",
+      "text": "!",
+      "color": "rgb(177, 93, 89)",
+      "font_size": "12px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": null,
+      "rect": {
+        "left": 686.390625,
+        "right": 706.390625,
+        "top": 791.6875,
+        "bottom": 811.6875
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "",
+        "class_name": "trace-symbol error"
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "trace-symbol error",
+          "background": "rgb(253, 233, 232)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "trace-row",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "detail-body",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "detail-panel",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "workbench",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "SECTION",
+          "class_name": "view",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "MAIN",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "app-shell",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        253,
+        233,
+        232
+      ],
+      "computed_contrast_ratio": 3.9300496579825115,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": "#closeDialog",
+      "context": "new-case-dialog",
+      "kind": "functional close icon with accessible name",
+      "text": "\n            ×\n          ",
+      "color": "rgb(113, 137, 144)",
+      "font_size": "20px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": "Close new case",
+      "rect": {
+        "left": 945,
+        "right": 981,
+        "top": 238.609375,
+        "bottom": 274.609375
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "BUTTON",
+        "id": "closeDialog",
+        "class_name": "icon-button"
+      },
+      "background_chain": [
+        {
+          "tag": "BUTTON",
+          "class_name": "icon-button",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "dialog-head",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "FORM",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIALOG",
+          "class_name": "",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        255,
+        255,
+        255
+      ],
+      "computed_contrast_ratio": 3.6951471816191614,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": "#closeEvaluationDialog",
+      "context": "evaluation-dialog",
+      "kind": "functional close icon with accessible name",
+      "text": "\n          ×\n        ",
+      "color": "rgb(113, 137, 144)",
+      "font_size": "20px",
+      "font_weight": "400",
+      "aria_hidden": null,
+      "aria_label": "Close evaluation details",
+      "rect": {
+        "left": 1155,
+        "right": 1191,
+        "top": 373,
+        "bottom": 409
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "BUTTON",
+        "id": "closeEvaluationDialog",
+        "class_name": "icon-button"
+      },
+      "background_chain": [
+        {
+          "tag": "BUTTON",
+          "class_name": "icon-button",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "dialog-head",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIALOG",
+          "class_name": "evaluation-dialog",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        255,
+        255,
+        255
+      ],
+      "computed_contrast_ratio": 3.6951471816191614,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    },
+    {
+      "selector": "#avatar",
+      "context": "200-percent-text-size",
+      "kind": "initials text; center-point obscuration observation",
+      "text": "OP",
+      "color": "rgb(80, 112, 91)",
+      "font_size": "24px",
+      "font_weight": "600",
+      "aria_hidden": null,
+      "aria_label": null,
+      "rect": {
+        "left": 1133.484375,
+        "right": 1165.484375,
+        "top": 92.5,
+        "bottom": 124.5
+      },
+      "center_unobscured": true,
+      "top_at_center": {
+        "tag": "SPAN",
+        "id": "avatar",
+        "class_name": "avatar"
+      },
+      "background_chain": [
+        {
+          "tag": "SPAN",
+          "class_name": "avatar",
+          "background": "rgb(232, 237, 232)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "top-actions",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HEADER",
+          "class_name": "topbar",
+          "background": "rgb(255, 255, 255)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "DIV",
+          "class_name": "app-shell",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "BODY",
+          "class_name": "",
+          "background": "rgb(244, 247, 248)",
+          "background_image": "none",
+          "opacity": "1"
+        },
+        {
+          "tag": "HTML",
+          "class_name": "",
+          "background": "rgba(0, 0, 0, 0)",
+          "background_image": "none",
+          "opacity": "1"
+        }
+      ],
+      "row_pseudo": null,
+      "effective_background_rgb": [
+        232,
+        237,
+        232
+      ],
+      "computed_contrast_ratio": 4.648522137455637,
+      "background_images_present": false,
+      "partial_opacity_present": false,
+      "method": "Computed CSS colors; transparent ancestor backgrounds composited on white; WCAG sRGB relative-luminance contrast formula. No screenshot pixel sampling or font antialiasing measurement."
+    }
+  ]
+}

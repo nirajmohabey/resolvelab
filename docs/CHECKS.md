@@ -1,5 +1,7 @@
 # Release verification
 
+> Version note: The 157-test Linux/Windows and container results below are historical v0.2.0 evidence. The current v0.2.1 native review passed 173 tests; current Linux and container reruns were unavailable. See [the current review](REVIEW-2026-11-23.md) and its versioned manifest.
+
 The v0.2 backend suite was measured on Windows 11/PostgreSQL 17.12 and independently on clean Linux/PostgreSQL 18.6, both with Python 3.12.14 and locked dependencies. All retailer data is synthetic. Current-source model evaluation and browser verification are complete. The release manifest binds each result to its source and evidence files; historical reports remain separately archived.
 
 | Check | Executed result |

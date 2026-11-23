@@ -1,0 +1,1096 @@
+{
+  "schema_version": "1.0",
+  "review_id": "recheck-2026-11-23",
+  "release": "v0.2.1",
+  "generated_at": "2026-11-23T17:14:06.473138+00:00",
+  "git_head_at_collection": "e81b94ec8e7aec0d10c3cdbce45b15a684be6df5",
+  "python_source_tree_sha256": "b79f1d60e04cd0792d3e85a64104e9e6f23a30667290e0506b9965b0a938f645",
+  "application_file_sha256": {
+    "web/app.js": "07e1f445bf5c9f968a3f9eabf48990163b69d6ca9a2ffbd6b7e9ff5ae76fe7b7",
+    "web/app.css": "7eac585d733c2e526791d5ce734a2ece7825661f376e5328e8eae3a893a5ef95",
+    "web/index.html": "82a74fdb59f2057006b97585f6202510c6cfbfc788433d0029203c18a1405592",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+  },
+  "source_snapshot": {
+    "path": "artifacts/recheck-2026-11-23/source-hashes.json",
+    "sha256": "dc2043ec0b61592b84a2888cbbac40bd0b6e330665d05381ee2e91fef33661c2",
+    "bytes": 19350
+  },
+  "native_tests": {
+    "tests": 173,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_exposure": {
+    "findings": 0,
+    "text_files_scanned": 472
+  },
+  "browser_checks": {
+    "live/browser/browser-results.json": 11,
+    "live/security/oidc-browser-results.json": 9,
+    "isolated-ui-css-final/ui-race-results.json": 10,
+    "isolated-ui-css-final/workbench-feature-results.json": 8,
+    "isolated-ui-css-final/operator-followup-results.json": 5,
+    "isolated-ui-css-final/auth-callback-failure-results.json": 3,
+    "action-races-css-final/fresh-ui-review-results.json": 8
+  },
+  "browser_checks_total": 54,
+  "responsive_checks": 24,
+  "accessibility": {
+    "states": 9,
+    "violations": 0,
+    "keyboard_checks": [
+      "Enter opens new case",
+      "Escape closes dialog",
+      "focus returns to invoking button"
+    ],
+    "incomplete_findings": 9,
+    "triage": {
+      "path": "artifacts/recheck-2026-11-23/accessibility-triage.json",
+      "sha256": "3ffafbf43c82b03adc094c8400eb7349fa391aa21a9aaf4808e5d103a4aa6e3f",
+      "bytes": 28317
+    },
+    "incomplete_node_occurrences": 73,
+    "computed_style_observations": 13,
+    "manual_review_status": "remaining_inconclusive_contrast_and_obscuration_checks",
+    "pagination_aria_issue_resolved": true
+  },
+  "evaluations": {
+    "v4-blind-final": {
+      "metrics": {
+        "workflow_success": {
+          "numerator": 139,
+          "denominator": 160,
+          "rate": 0.86875
+        },
+        "runner_errors": 0,
+        "critical_failures": 21,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 160,
+        "p50_ms": 47.751000000000005,
+        "p95_ms": 59.948,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 95,
+          "denominator": 98,
+          "rate": 0.9693877551020408
+        },
+        "workflow_failures": 21
+      },
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.8705458144796381,
+        "confusion_matrix": [
+          [
+            35,
+            0,
+            0,
+            5
+          ],
+          [
+            2,
+            37,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            28,
+            11
+          ],
+          [
+            1,
+            0,
+            0,
+            39
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 0.9210526315789473,
+            "recall": 0.875,
+            "f1-score": 0.8974358974358975,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.9736842105263158,
+            "recall": 0.925,
+            "f1-score": 0.9487179487179487,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.7,
+            "f1-score": 0.8235294117647058,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.6964285714285714,
+            "recall": 0.975,
+            "f1-score": 0.8125,
+            "support": 40.0
+          },
+          "accuracy": 0.86875,
+          "macro avg": {
+            "precision": 0.8977913533834587,
+            "recall": 0.86875,
+            "f1-score": 0.8705458144796381,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.8977913533834586,
+            "recall": 0.86875,
+            "f1-score": 0.870545814479638,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 104,
+          "denominator": 160,
+          "rate": 0.65
+        },
+        "accepted_routing_error": {
+          "numerator": 4,
+          "denominator": 104,
+          "rate": 0.038461538461538464
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 27,
+        "learned_model_decisions": 133,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      },
+      "model_version": "domain-router-v4",
+      "model_artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+      "mode": "live_model"
+    },
+    "v3-paired": {
+      "metrics": {
+        "workflow_success": {
+          "numerator": 95,
+          "denominator": 160,
+          "rate": 0.59375
+        },
+        "runner_errors": 0,
+        "critical_failures": 65,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 160,
+        "p50_ms": 49.757999999999996,
+        "p95_ms": 58.293,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 97,
+          "denominator": 98,
+          "rate": 0.9897959183673469
+        },
+        "workflow_failures": 65
+      },
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.8691047297297297,
+        "confusion_matrix": [
+          [
+            35,
+            0,
+            0,
+            5
+          ],
+          [
+            0,
+            32,
+            0,
+            8
+          ],
+          [
+            0,
+            0,
+            34,
+            6
+          ],
+          [
+            0,
+            3,
+            0,
+            37
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 1.0,
+            "recall": 0.875,
+            "f1-score": 0.9333333333333333,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.9142857142857143,
+            "recall": 0.8,
+            "f1-score": 0.8533333333333334,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.85,
+            "f1-score": 0.918918918918919,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.6607142857142857,
+            "recall": 0.925,
+            "f1-score": 0.7708333333333334,
+            "support": 40.0
+          },
+          "accuracy": 0.8625,
+          "macro avg": {
+            "precision": 0.8937499999999999,
+            "recall": 0.8625,
+            "f1-score": 0.8691047297297297,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.89375,
+            "recall": 0.8625,
+            "f1-score": 0.8691047297297297,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 54,
+          "denominator": 160,
+          "rate": 0.3375
+        },
+        "accepted_routing_error": {
+          "numerator": 1,
+          "denominator": 54,
+          "rate": 0.018518518518518517
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 160,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      },
+      "model_version": "domain-hybrid-v3",
+      "model_artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+      "mode": "live_model"
+    },
+    "v1-paired": {
+      "metrics": {
+        "workflow_success": {
+          "numerator": 76,
+          "denominator": 160,
+          "rate": 0.475
+        },
+        "runner_errors": 0,
+        "critical_failures": 84,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 160,
+        "p50_ms": 46.685,
+        "p95_ms": 56.253,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 96,
+          "denominator": 98,
+          "rate": 0.9795918367346939
+        },
+        "workflow_failures": 84
+      },
+      "routing_metrics": {
+        "N": 160,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.46378593386507144,
+        "confusion_matrix": [
+          [
+            9,
+            0,
+            0,
+            31
+          ],
+          [
+            1,
+            17,
+            0,
+            22
+          ],
+          [
+            0,
+            1,
+            11,
+            28
+          ],
+          [
+            0,
+            1,
+            0,
+            39
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 0.9,
+            "recall": 0.225,
+            "f1-score": 0.36,
+            "support": 40.0
+          },
+          "cancel_request": {
+            "precision": 0.8947368421052632,
+            "recall": 0.425,
+            "f1-score": 0.576271186440678,
+            "support": 40.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 0.275,
+            "f1-score": 0.43137254901960786,
+            "support": 40.0
+          },
+          "out_of_scope": {
+            "precision": 0.325,
+            "recall": 0.975,
+            "f1-score": 0.4875,
+            "support": 40.0
+          },
+          "accuracy": 0.475,
+          "macro avg": {
+            "precision": 0.7799342105263158,
+            "recall": 0.475,
+            "f1-score": 0.46378593386507144,
+            "support": 160.0
+          },
+          "weighted avg": {
+            "precision": 0.7799342105263157,
+            "recall": 0.475,
+            "f1-score": 0.4637859338650715,
+            "support": 160.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 40,
+          "denominator": 160,
+          "rate": 0.25
+        },
+        "accepted_routing_error": {
+          "numerator": 3,
+          "denominator": 40,
+          "rate": 0.075
+        },
+        "ood_false_acceptance": {
+          "numerator": 1,
+          "denominator": 40,
+          "rate": 0.025
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 160,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      },
+      "model_version": "tfidf-logistic-v1",
+      "model_artifact_sha256": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827",
+      "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+      "mode": "live_model"
+    },
+    "v1-fixture": {
+      "metrics": {
+        "workflow_success": {
+          "numerator": 19,
+          "denominator": 20,
+          "rate": 0.95
+        },
+        "runner_errors": 0,
+        "critical_failures": 1,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 20,
+        "p50_ms": 54.256,
+        "p95_ms": 160.607,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 8,
+          "denominator": 8,
+          "rate": 1.0
+        },
+        "workflow_failures": 1
+      },
+      "routing_metrics": {
+        "N": 17,
+        "labels": [
+          "track_order",
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope"
+        ],
+        "macro_f1": 0.9222222222222223,
+        "confusion_matrix": [
+          [
+            4,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            9,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            2
+          ]
+        ],
+        "per_class": {
+          "track_order": {
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1-score": 0.8888888888888888,
+            "support": 5.0
+          },
+          "cancel_request": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 9.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 1.0
+          },
+          "out_of_scope": {
+            "precision": 0.6666666666666666,
+            "recall": 1.0,
+            "f1-score": 0.8,
+            "support": 2.0
+          },
+          "accuracy": 0.9411764705882353,
+          "macro avg": {
+            "precision": 0.9166666666666666,
+            "recall": 0.95,
+            "f1-score": 0.9222222222222223,
+            "support": 17.0
+          },
+          "weighted avg": {
+            "precision": 0.9607843137254901,
+            "recall": 0.9411764705882353,
+            "f1-score": 0.9437908496732026,
+            "support": 17.0
+          }
+        },
+        "zero_division_handling": "undefined precision/recall/F1 set to zero",
+        "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+        "accepted_coverage": {
+          "numerator": 14,
+          "denominator": 17,
+          "rate": 0.8235294117647058
+        },
+        "accepted_routing_error": {
+          "numerator": 0,
+          "denominator": 14,
+          "rate": 0.0
+        },
+        "ood_false_acceptance": {
+          "numerator": 0,
+          "denominator": 2,
+          "rate": 0.0
+        },
+        "scope_rule_decisions": 0,
+        "learned_model_decisions": 17,
+        "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+      },
+      "model_version": "tfidf-logistic-v1",
+      "model_artifact_sha256": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827",
+      "dataset_sha256": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+      "mode": "live_model"
+    },
+    "deterministic-invariants": {
+      "metrics": {
+        "workflow_success": {
+          "numerator": 20,
+          "denominator": 20,
+          "rate": 1.0
+        },
+        "runner_errors": 0,
+        "critical_failures": 0,
+        "unauthorized_effect_count": 0,
+        "all_tenant_effect_checks_completed": 20,
+        "p50_ms": 47.794,
+        "p95_ms": 133.768,
+        "estimated_provider_cost_usd": null,
+        "citation_support_human_review": null,
+        "safe_escalation_recall": {
+          "numerator": 8,
+          "denominator": 8,
+          "rate": 1.0
+        },
+        "workflow_failures": 0
+      },
+      "routing_metrics": null,
+      "model_version": "domain-router-v4",
+      "model_artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+      "dataset_sha256": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+      "mode": "deterministic_invariants"
+    }
+  },
+  "immutable_evaluation_inputs": 49,
+  "model": {
+    "version": "domain-router-v4",
+    "artifact_uri": "artifacts/router-domain-v4.joblib",
+    "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "threshold": 0.425
+  },
+  "current_environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "dependency_audit": {
+    "status": "current_locked_versions_checked",
+    "generated_at": "2026-11-23T17:02:34.957999+00:00",
+    "osv": {
+      "queried_python_versions": 63,
+      "queried_npm_versions": 33,
+      "packages_with_advisories": 0,
+      "unique_advisories": 0
+    },
+    "npm": {
+      "exit_code": 0,
+      "reported_vulnerabilities": 0,
+      "registry": "https://registry.npmjs.org"
+    },
+    "limitations": [
+      "This checks known advisories for exact application dependency versions as of the query time; it is not proof of security.",
+      "The OSV query includes all resolved PyPI package versions in uv.lock, including platform-specific and development dependencies, plus the npm lock graph.",
+      "This does not scan a built container's operating-system packages, deployment configuration, application authorization, or pretrained model contents.",
+      "No dependency or advisory was automatically suppressed or upgraded by the audit."
+    ]
+  },
+  "backup_restore": {
+    "status": "current_native_passed",
+    "destination_verified": true,
+    "tracking_verified": true,
+    "approval_verified": true,
+    "source_database_written_by_check": false,
+    "database_removed": true,
+    "dump_removed": true,
+    "exported_snapshot_used": true,
+    "tables_verified": 20
+  },
+  "unavailable_checks": {
+    "current_linux_suite": {
+      "status": "not_run",
+      "reason": "Free cloud execution quota exhausted; no configured WSL Linux distribution. No paid upgrade authorized."
+    },
+    "current_docker_startup": {
+      "status": "not_rechecked",
+      "reason": "Prior Linux container smoke is historical evidence only."
+    },
+    "hosted_backend": {
+      "status": "not_deployed",
+      "reason": "Review exercised a private native disposable service; no hosted backend deployment was performed."
+    },
+    "current_ci": {
+      "status": "not_verified",
+      "reason": "No successful current-source CI run is supplied by this local review."
+    },
+    "current_clean_install": {
+      "status": "not_rechecked",
+      "reason": "The existing native environment was used; no new dependency installation was performed."
+    }
+  },
+  "historical_evidence": [
+    {
+      "path": "artifacts/release_manifest.json",
+      "sha256": "61117560cea8e7a8c3208adc070b2ca3d1ee3b22483c0255b003f0367c98f804",
+      "bytes": 47740,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/checks/linux-acceptance.xml",
+      "sha256": "6d594d425fe871f7117c819ab45848213ea617019f97ec0cbd545d535b9120c4",
+      "bytes": 21836,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/checks/linux-environment.json",
+      "sha256": "a5d32bbfc52b7005e897768fb4e0cb2493e999636b1b726b6bfcb2a31e78e133",
+      "bytes": 308,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/checks/linux-docker-smoke.json",
+      "sha256": "05ad3b1d977102b3a88a77bf525f8b5429d5036c6cd01227da7087e9bffc6a7d",
+      "bytes": 671,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/checks/linux-serving-consistency.json",
+      "sha256": "c2395399758a6a2ade01c977153e4fad310c3be2757c372f69a662076d8129cb",
+      "bytes": 461,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/backup/linux-restore-report.json",
+      "sha256": "519f8874689c438ebb5eb2d237cc511b482fb59f400fa635c91f83dc3b8b215f",
+      "bytes": 394,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/backup/restore-report.json",
+      "sha256": "9458bfeebcdadd35ae3216d9a73c7ed78213afb71fd669ab2fd39727d161c7fa",
+      "bytes": 404,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/security/audit-summary.json",
+      "sha256": "01ee708b70ab9ce74f7348bec3a5c46da5e3de029af10f0807055fc1517d348c",
+      "bytes": 1495,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/checks/clean-install.json",
+      "sha256": "9d7bb70449b938f7b22dd79c9b402c96c166409754da6138d4ff1f1b2fe1a788",
+      "bytes": 450,
+      "status": "historical_not_rechecked_for_v0.2.1"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native-history/20261123T170805694203Z/history.json",
+      "sha256": "5a19af68af7d2c9743c861c941a0ba2599570331ce4698bb9c445571e53e78f6",
+      "bytes": 553,
+      "status": "superseded_native_run_not_current"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native-history/20261123T170805694203Z/native-tests.log",
+      "sha256": "8f897516ea3bb132f33f77eb8ab921245d8c699082f25e10d00bd1c13793be32",
+      "bytes": 2645,
+      "status": "superseded_native_run_not_current"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native-history/20261123T170805694203Z/native-tests.xml",
+      "sha256": "1ed85c6bc32355cbbf540d8e33d2778b65640674f85f6685fd120c6779015dd4",
+      "bytes": 24294,
+      "status": "superseded_native_run_not_current"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native-history/20261123T170805694203Z/source-exposure-check.json",
+      "sha256": "bce402effd1b06a23bc78fcfd8fdc26bf1d6dfed04377a53b6adcf3eeb3f00d5",
+      "bytes": 606,
+      "status": "superseded_native_run_not_current"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native-history/20261123T170805694203Z/source-exposure.log",
+      "sha256": "bce402effd1b06a23bc78fcfd8fdc26bf1d6dfed04377a53b6adcf3eeb3f00d5",
+      "bytes": 606,
+      "status": "superseded_native_run_not_current"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native-history/20261123T170805694203Z/verification.json",
+      "sha256": "e14c4a1f9044b15b19e199c1d1a7a8099661b6091d2fe003cad2101e23e85273",
+      "bytes": 40930,
+      "status": "superseded_native_run_not_current"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/historical/pagination-incomplete-before.json",
+      "sha256": "b0acc012c783f1b07484179d3f83db3b6963d67e8fb55651a92894b7a731a90f",
+      "bytes": 1349,
+      "status": "superseded_frontend_before_pagination_group"
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/historical/axe-results-before-pagination-group.json",
+      "sha256": "0ad74da0aff299c788205c8e93ab5c1d54ee6b17d88b7bf76e66aca00e45e621",
+      "bytes": 23055,
+      "status": "superseded_frontend_before_pagination_group"
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "artifacts/recheck-2026-11-23/accessibility-triage.json",
+      "sha256": "3ffafbf43c82b03adc094c8400eb7349fa391aa21a9aaf4808e5d103a4aa6e3f",
+      "bytes": 28317
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/action-races-css-final/fresh-ui-review-results.json",
+      "sha256": "297a303ebe4e9dca200fb6794678ee2caf6957d02063061172e772e906551aa3",
+      "bytes": 3654
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/backup/restore-report.json",
+      "sha256": "3ec20cb57c7d9a9e2bd37d1eaebc3cfb3161009c2cf71c819018fa5ca0f67e88",
+      "bytes": 3307
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/backup/verification.json",
+      "sha256": "63d4eb353afee838f3467cb4b2b937d57cd0fbb81918b6ce8952a9f1e2f0358d",
+      "bytes": 2308
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/dependencies/audit-summary.json",
+      "sha256": "c13cb32eb84965ce26a36fc305809bf07337d8204e8b4918ce0383f810df8407",
+      "bytes": 1495
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/dependencies/npm-audit.json",
+      "sha256": "242bdab8ed20678092d3288b74c6f2eeee5e401058e296c01195494dc17f630b",
+      "bytes": 383
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/dependencies/osv-audit.json",
+      "sha256": "f44fe5fba81602c078329bfcdc8e969c6fb455fd7c1702b2f67154742c65e5ab",
+      "bytes": 10735
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/deterministic-invariants/workflow-evaluation.html",
+      "sha256": "8272a04c57f1c7c4def72aae68ec59ba7cc61f04b813468ac5e72c7cc23d108b",
+      "bytes": 4864
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/deterministic-invariants/workflow-evaluation.json",
+      "sha256": "a304bdd170250d5171ec4864e9172302dcc380bf0eaf410f96b70d7bb5975488",
+      "bytes": 114190
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/input_hashes.json",
+      "sha256": "16f7e703d1b8b9d1d3ce81adde17dd63029aa8ffe9a03cff62bcce17ab4adb0e",
+      "bytes": 5185
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v1-fixture/workflow-evaluation.html",
+      "sha256": "7dd29f794b1416febaaa17032330125306ec5bbc41fcd8ec975a2b7398873511",
+      "bytes": 4808
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v1-fixture/workflow-evaluation.json",
+      "sha256": "7bfb98e5faf8cb03b3786475df13b9e689edb84c64a4341d0b1fa30a925b2260",
+      "bytes": 115555
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v1-paired/workflow-evaluation.html",
+      "sha256": "8d6c3a4b3ece88196b672e255153529e0cda0b56d9c4b77703a2b6e07346a677",
+      "bytes": 22799
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v1-paired/workflow-evaluation.json",
+      "sha256": "dcd9647716697ad4957967089295f80565a20c92f52f0fc069cecacc825f8055",
+      "bytes": 907461
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v3-paired/workflow-evaluation.html",
+      "sha256": "7fe1c56f51a34295de3d12160e812fb082e238025f35539160c7404ce3b4c630",
+      "bytes": 24427
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v3-paired/workflow-evaluation.json",
+      "sha256": "fd965fc9fa462864f75b68b2e3bc534e5fcb88fa35f6fd06008f34c2e01d8316",
+      "bytes": 948811
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v4-blind-final/workflow-evaluation.html",
+      "sha256": "a1887cddad817df4be34b7c7cab1993b37464504e4cbbf0b5ae6ee0b8b5d2aec",
+      "bytes": 26568
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/v4-blind-final/workflow-evaluation.json",
+      "sha256": "97a815b9995af33ce57f2efd29384cbb7b9376a4296395bdf705f4bb9eb9abeb",
+      "bytes": 992256
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/evaluations/verification.json",
+      "sha256": "459667ecbb11015c6bcf8277f92be4e868c15f9e9a9b113a8f4de507284f3f93",
+      "bytes": 19483
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/isolated-ui-css-final/auth-callback-failure-results.json",
+      "sha256": "678afb5914ec6eb03a4eaa9d943bfcde628e4fcc9a40a8df324b02ec2ecaa6fc",
+      "bytes": 3503
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/isolated-ui-css-final/operator-followup-results.json",
+      "sha256": "cdfa4b3d0291eca56134d7cf65fddc42122eb69b6573d86e592389174282ee67",
+      "bytes": 3030
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/isolated-ui-css-final/ui-race-results.json",
+      "sha256": "11626c43a80311bb216c948a90676e8551af6904672fd8bc6e5d84f3594106a7",
+      "bytes": 4125
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/isolated-ui-css-final/workbench-feature-results.json",
+      "sha256": "57fd548a6102d8fb2810495891bd999e439ef2c262e7cd7920c7fbd51b6136f6",
+      "bytes": 3684
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/accessibility/axe-results.json",
+      "sha256": "0420acf4a481fa0212aa76bcc4345faa9f780d22103c83e325a283eae88b63d4",
+      "bytes": 20800
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/accessibility/contrast-harness-results.json",
+      "sha256": "aaf8f5a1354332c7441734889ee6ee48beab1f1357edc3532dcec4cc8d0df3de",
+      "bytes": 1787
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/accessibility/contrast-measurements.json",
+      "sha256": "a8f9fdc2cc1d95db57ec564dcc51fab9d5967a5435056c5e276213fccbea8851",
+      "bytes": 34461
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/01-inbox.png",
+      "sha256": "277d6c7e628c998cbab42fc57f6386de2b52c59da77ff8872db2adc295d3da1b",
+      "bytes": 187303
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/02-evidence.png",
+      "sha256": "0d888e36e8ac80c3e6e2746080b6f97e881915a44d81591dbceb51dafe1cf87c",
+      "bytes": 213590
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/03-proposal.png",
+      "sha256": "7d59007ce207c8cc0c20716cd60609ab13e2ddad3c2fe4ec663df7d3e511445d",
+      "bytes": 190215
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/04-receipt.png",
+      "sha256": "1fd89eef3a8abf801ae69696bf208709fb23dfcfb30ec9659db1a2bb8213a27d",
+      "bytes": 179607
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/05-evaluations.png",
+      "sha256": "5d894e26c50f3502ef08fab31d9abc0dd5223acc23603f40513bd361952ddfd9",
+      "bytes": 154235
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/06-mobile.png",
+      "sha256": "cc061f99b068774a063acd007ccb795972bec5dda2868c0637c5cb31d8be46b2",
+      "bytes": 73932
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/07-evaluation-details.png",
+      "sha256": "666a5b8b595d42b4325363830234cc2dbdebe6128a3e0e252e5e0266e7ec9271",
+      "bytes": 185438
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/08-context-followup.png",
+      "sha256": "3e35bad7eee107c269f0414c37191f764c12d70d49d52e88bfdada69183b3cac",
+      "bytes": 168998
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/09-proposal-declined.png",
+      "sha256": "7fbac6b8894cb4bf210c073f64162df44646cbf605ba1f944544e68a3fb3db62",
+      "bytes": 188788
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/10-clean-followup-viewport.png",
+      "sha256": "c3dbdec93c138a233f7b9575e28169936ec022614288e8d8d9772b09ebf634be",
+      "bytes": 136570
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/browser-results.json",
+      "sha256": "2dd2fa135303b0cea7e808d1732342becf39ad42a68ebf230fcb2c0f639378f7",
+      "bytes": 1764
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/page@8c1a771917916bc12cb38a191b52e8dc.webm",
+      "sha256": "18f0d654da8e598152dba3fb470caffeb467463d11acbafdf9b8d3a3f82f8503",
+      "bytes": 4770659
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/browser/viewport-results.json",
+      "sha256": "d35b42afa7505479a3cde73559b8873fb0d406e0e682fc86fd3c6062cf01b5cf",
+      "bytes": 267
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/owned-live-isolation.json",
+      "sha256": "ccdb29c0273607e96a17025dcf1c0c024c17f243de543f78441f5a21ef88ad7b",
+      "bytes": 3080
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/postchecks.json",
+      "sha256": "6d4a9dd3dac40a45e6324b9a581ddd9b8633f2c4cc22d988515edbcbd2c35e33",
+      "bytes": 11034
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/responsive/dialog-320.png",
+      "sha256": "0fbb36650efdf2d19395a6afab1b125dd187c73f83605c9871287f6ea1f54e93",
+      "bytes": 155601
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/responsive/inbox-320.png",
+      "sha256": "56787b3ddaf6a7e47fb4115fff2989189aeceb9a20aaf0282a313b57877079fd",
+      "bytes": 130527
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/responsive/inbox-text-size-200.png",
+      "sha256": "32566eaa93b1609d415a78a5dad0e340037943fd8057786d0ee5eee7a587eab5",
+      "bytes": 419627
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/responsive/matrix-results.json",
+      "sha256": "ec5aaf8ee91d99ce6446d4539b2efeb32733f0160382b76b79eba1b595eb8889",
+      "bytes": 3120
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/security/oidc-browser-results.json",
+      "sha256": "22852f2557f6411d1fe9f0082f98abca459ec627eff0dfb03ac177c7b62d4342",
+      "bytes": 3194
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/live/source-freeze.json",
+      "sha256": "3a47bda258585406469529a38feb8db6fbc38a69d76b175d195adee0c6f16dff",
+      "bytes": 3178
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/media-provenance.json",
+      "sha256": "c319ddf2e2bf2f16dec5e6bc3825bb68269a56fd53951451724ea9ad9e07bdf0",
+      "bytes": 1044
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native/native-tests.log",
+      "sha256": "a30089d5cd227ea24a25c422f1f61a1824d7ad38b3998e8932b83cfb6a4a41f4",
+      "bytes": 2645
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native/native-tests.xml",
+      "sha256": "55825d4a147210ec10b65957c0aaf3f58ff6e7183b598bdc6e1940facaa98e6f",
+      "bytes": 24294
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native/source-exposure-check.json",
+      "sha256": "2d8051d0e7a4ce1fb345c6c06e6c863cbbbad91e07f18aeff3a37b7ebe1ce4f4",
+      "bytes": 606
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native/source-exposure.log",
+      "sha256": "2d8051d0e7a4ce1fb345c6c06e6c863cbbbad91e07f18aeff3a37b7ebe1ce4f4",
+      "bytes": 606
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/native/verification.json",
+      "sha256": "b3e64b98b8426ce1d4d2e49969fdee36ee0b8776d3e4e3fffeef36c2cdc7fc53",
+      "bytes": 41164
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/security/bandit.json",
+      "sha256": "de492ae33ead8013416eda28f3c36094c22444f2fe1f14b1506c5af991fd2f4c",
+      "bytes": 179382
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/security/ruff.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "bytes": 2
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/security/static-triage.json",
+      "sha256": "f4d765a429ff2d516672a299b0c1f9e6a887d5d746fbe4f3c2dfd20aae4c6e2a",
+      "bytes": 14325
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/serving-after.json",
+      "sha256": "3ef20dca6ae72145b5f64d106e46f4829d09dfe0e2788926e7b4bf466f9d408b",
+      "bytes": 2886
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/serving-before.json",
+      "sha256": "06882378366bdfe37a27aa112c365ee7ce3808310bc5697873c0736ea1cccf91",
+      "bytes": 2886
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/serving-preserved.json",
+      "sha256": "3f2369869bf1b7c448b993738376d9fd4002f276134739da5b402f5c7084a74a",
+      "bytes": 182
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/source-exposure-check.json",
+      "sha256": "709f4e1fc8027e8da100e50c28caa2b7838f12277a06b99e61ddbb87bf4f1e46",
+      "bytes": 606
+    },
+    {
+      "path": "artifacts/recheck-2026-11-23/source-hashes.json",
+      "sha256": "dc2043ec0b61592b84a2888cbbac40bd0b6e330665d05381ee2e91fef33661c2",
+      "bytes": 19350
+    }
+  ],
+  "limitations": [
+    "Current evidence is native Windows evidence; historical Linux, container and earlier backup reports do not establish v0.2.1 compatibility or freshness.",
+    "Frozen synthetic cases were rerun for compatibility; they are not new independent generalization or real-customer accuracy measurements.",
+    "V4 retains21/160 workflow failures; observed zero unauthorized effects is bounded evidence, not a guarantee.",
+    "OIDC uses a mocked HTTPS provider and actual signatures; no real provider account or hosted callback was exercised.",
+    "Automated axe scans plus limited keyboard, viewport and text-size checks do not establish complete WCAG conformance."
+  ],
+  "static_analysis": {
+    "status": "reviewed_findings_retained",
+    "scope": "Python src and scripts scanned by Bandit; src/scripts/migrations/tests checked by focused Ruff undefined-name rules.",
+    "tools": {
+      "bandit": "1.9.4",
+      "ruff": "0.17.6"
+    },
+    "bandit": {
+      "high": 0,
+      "medium": 6,
+      "low": 159,
+      "errors": 0,
+      "suppressed": 0
+    },
+    "focused_ruff_findings": 0,
+    "triage": {
+      "path": "artifacts/recheck-2026-11-23/security/static-triage.json",
+      "sha256": "f4d765a429ff2d516672a299b0c1f9e6a887d5d746fbe4f3c2dfd20aae4c6e2a",
+      "bytes": 14325
+    },
+    "limitations": [
+      "Static rules are heuristics; reviewed dispositions are scoped reasoning, not an independent penetration test.",
+      "No scanner output proves absence of vulnerabilities. Application behavior, cloud configuration, identity provider and dependency advisories require separate verification.",
+      "Raw findings remain available and none are suppressed. Built-image OS packages and public production operation were not established by these scans."
+    ]
+  },
+  "browser_media_scope": "Screenshots and recording from the final private actual-service browser run; source-bound through the final live pre/post checks. Prior v0.2.0 demo media remain separate historical assets.",
+  "supplemental_collection_at": "2026-11-23T17:15:36.315779+00:00",
+  "serving_preservation": {
+    "tables": 20,
+    "source_database_unchanged": true,
+    "env_unchanged": true,
+    "patched_api_version": "0.2.1",
+    "readiness_status": 200
+  }
+}

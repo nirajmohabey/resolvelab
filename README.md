@@ -2,11 +2,11 @@
 
 An evaluated support workbench for a fictional online retailer. Operators inspect a trained route and versioned policy evidence, resolve tracking questions, prepare cancellations for human approval, or create a handoff. A model never authorizes an order change.
 
-![Operator workbench](artifacts/browser/03-proposal.png)
+![Operator workbench](artifacts/recheck-2026-11-23/live/browser/03-proposal.png)
 
 **Implemented:** FastAPI API, PostgreSQL migrations and tenant isolation, trained routing, lexical/dense/hybrid retrieval, structured responses, local approval transactions, durable traces, evaluation worker, release rollback, browser interface, repeatable fixtures, backup restore check and CI.
 
-**v0.2 backend verification:** 157 PostgreSQL-backed tests passed on Windows/PostgreSQL 17.12 and independently on a clean Linux/PostgreSQL 18.6 environment. The suite covers tenant isolation, repeated approval races, real process termination/recovery, corpus admission bounds, malformed inputs, provider-response bounds and operator decisions. The final v0.2 run passed 11 live operator journeys, nine OIDC scenarios and 26 additional intercepted-API scenarios; nine accessibility states had zero automated violations. These checks do not establish complete accessibility conformance or production identity-provider interoperability.
+**v0.2.1 intensive review:** 173 native Windows/PostgreSQL tests passed with zero failures or skips; 54 browser checks, 24 responsive checks, and nine axe scans passed with zero automated violations. A real exported-snapshot restore matched all 20 tables, and frozen model evaluations retained their original outcomes. The patch fixes retained-evidence access control, stale triage failure handling, model-cache pinning, action races, mobile overflow, and backup destination/cleanup guards. [Read the source-bound review](docs/REVIEW-2026-11-23.md). Current Linux/container execution was unavailable; the earlier 157 Windows and 157 Linux tests belong to v0.2.0. Accessibility manual-review items and hosted backend/IdP setup remain open.
 
 The frozen v4 router achieved **0.8705 macro-F1 and 139/160 correct intents on a separately authored synthetic holdout**. Full workflow success was also **139/160 (86.9%)**. It accepted 104 routes, including **4 wrong accepted routes**; **1/40 unsupported requests was accepted**. All 160 order-effect audits completed with **zero unauthorized effects observed**. Seventeen supported requests were over-escalated. These are small, agent-authored synthetic tests, not customer accuracy or a reliability guarantee. [Inspect every outcome](artifacts/v4/blind-final/workflow-evaluation.html).
 

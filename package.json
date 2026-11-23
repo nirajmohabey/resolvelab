@@ -1,12 +1,13 @@
 {
   "name": "resolvelab-browser-checks",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "build:auth": "node scripts/build-auth.mjs",
     "test:browser": "node scripts/browser-check.mjs",
     "test:oidc": "node scripts/oidc-browser-check.mjs",
     "test:ui-races": "node scripts/ui-race-check.mjs",
+    "test:action-races": "node scripts/action-race-check.mjs",
     "test:accessibility": "node scripts/accessibility.mjs",
     "test:features": "node scripts/workbench-feature-check.mjs",
     "test:auth-callback": "node scripts/auth-callback-failure-check.mjs"

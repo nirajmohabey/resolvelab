@@ -1,0 +1,196 @@
+{
+  "reviewed_at": "2026-11-23T17:13:44.008174+00:00",
+  "scanner_generated_at": "2026-11-23T17:13:06Z",
+  "scope": "Python src and scripts scanned by Bandit; src/scripts/migrations/tests checked by focused Ruff undefined-name rules.",
+  "tools": {
+    "bandit": "1.9.4",
+    "ruff": "0.17.6"
+  },
+  "source_hashes": {
+    "src/resolvelab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/resolvelab/api.py": "aade4d130f1c0c6e4c342f2c98f688d5e504c37c2be4e7c0e3db71d39768e9e5",
+    "src/resolvelab/auth.py": "38f343cd0192865b542b33bc0e6fa7ef098a290a2cb6a077c0d2cfd031dc38b5",
+    "src/resolvelab/config.py": "84f03ea63ec982f213f0a38a3ee68b42644a022c9305df7cb90fbf3ef4eb0aec",
+    "src/resolvelab/db.py": "da076bdc2d995302cf5aea737597eb58c64bd18f45b38e088c95b1882772d8f7",
+    "src/resolvelab/evaluate.py": "d201d5049e7c8f27aede81074129b92d48412c691d937322f8e21d1bc1a30293",
+    "src/resolvelab/evaluation_job.py": "00582a3738eb9bbc52e970f655c85d1851a3d22b2aedfb37f19020d658950271",
+    "src/resolvelab/generation.py": "248f364346c4b2419bf4da8e5b56f960302d9dc104e0281120994cb10de3796d",
+    "src/resolvelab/isolation.py": "cde5749b7df49fbccdb6c10e10df25ab3b45299ce8c6df5e22763c15a5181fd1",
+    "src/resolvelab/ml.py": "2c0e660a4dff0d0f752fcd1ab75cdcb66b712c2daa485b8c9a4e53c05353b3ee",
+    "src/resolvelab/processes.py": "8b60b7e1515f5fa46a070799e7a64a12e6e809fc1d009deb2a518543a1a009a1",
+    "src/resolvelab/provision.py": "12b4e11cf88b91d45ac8b5e86961c69ba8a5c6da2c0f9a928b5def32b0df719d",
+    "src/resolvelab/retrieval.py": "2156fd7f7fe1401e1a510cb5631be02977d6ba37270b1a4c69d039195847599b",
+    "src/resolvelab/schemas.py": "2daa8cdfe69b6881dd905b106811389b41c4e238b7b4108e1142c6c7e8b92679",
+    "src/resolvelab/security.py": "f1f5d9b76a11a071d66e8fa667605b710a2ff3b204ae8396a3cdce47eb8a1189",
+    "src/resolvelab/seed.py": "f22412651d3cb36758b2db981d0e57c8f8d436b14f710cddab7c6c623fd9a4f3",
+    "src/resolvelab/service.py": "b44779581469cf3bbce16e8c84bb1ffafe25f01a087bace8d6d25a617a8fd87b",
+    "src/resolvelab/worker.py": "60f3d6fe5db1c2c7dc97f63d5f0e6fee868affb6621091977961ddc5dc1b2020",
+    "scripts/analyze_blind_v4.py": "49a9186584711e23207e0d75c9954e75bc502f853ba388aa01bc28b3a5c93ee5",
+    "scripts/analyze_v3.py": "752e7dc056fd9ebe7c82cb3480b6629f78cb9d392a8a2cca2afc37faaca2f6a2",
+    "scripts/analyze_v4.py": "c7334c89cf6d09470047cb0666f87a7297ce70b33323d6ac545c832f333f5241",
+    "scripts/audit_v4_splits.py": "f2b23cb34a79f181a6528244f7deba260f7c20222f35adc606162eb35aba588f",
+    "scripts/backup_check.py": "31f3701532f2456732060660bbe8221c37f12bb88c6e11f252233aca5990cf98",
+    "scripts/backup_guard.py": "f47ff6aa67146c0e7455752c26d0f920c8fc98dfe76c322feb99900773535acd",
+    "scripts/benchmark_routing.py": "eefcf9d9ff333101b3dd619484f81614ce9176a0dcc87cfe828f417aa12a9499",
+    "scripts/bootstrap.py": "982e5c240763a6d3bfa0f95d75dca77fbc812b020c7a1fd0dc871a6f5c2a1ed7",
+    "scripts/check_clean_install.py": "a957dc4eaa91527095d5eb9f2123b6e610c2d238d0f2de8804e563c976519527",
+    "scripts/check_source_exposure.py": "79c41639c7048f23377564c8efadcacdf951dddc984eeba3fd3d1b8cddd3ecc1",
+    "scripts/container_setup.py": "3704db9c993e8bd688a63b8764634f9c031336cb3addcf24429249a677bd989c",
+    "scripts/create_domain_data.py": "bc0f1273d02dae772471bb358bf769a75c15640081d4fe4812fe134cca785f08",
+    "scripts/create_domain_v2.py": "b8debe98ad9768288acafb4ca3c18be6feeca447d0414bc83dc30cee92bb0e29",
+    "scripts/docker_env.py": "3c0dde3bf4889b8e1a6f472ee6b838922cc0b820243478180db0c8f0e8f55f5b",
+    "scripts/evaluate.py": "fb65c93b1f2eb3140bbde720b69fb383930b3073d61368666ef6fd914293a565",
+    "scripts/evaluate_historical_routing.py": "c7e6d2a77d53e1c725e91c1a666c22f0ccb0845c851b1a803fde51fac08aa96d",
+    "scripts/evaluate_retrieval.py": "c7bcd0f7214d6ad206e34e7c6cdabef33910389527363fc25b23a7a262c7f5f1",
+    "scripts/evaluate_retrieval_v2.py": "aee0596e8d4f7721ce7b503783a1461c3356861d94ec1c2ce3d3677463894ba8",
+    "scripts/fetch_dataset.py": "73b607c4d10ddc48dd8077bb07e7415909aeaa0cb8761a9d3fcd1cfe0a36278a",
+    "scripts/make_retrieval_benchmark.py": "6cf09e820e1cd022de99d533409abea98daf7ff94e1877404590caaa802c26de",
+    "scripts/model_artifacts.py": "d411d3172c5d08cd13b3c8cde1a7a030ef4a1256421ea8548781b489692ba46d",
+    "scripts/package_release.py": "ef5fe04321cdf94930a8ddf0ddc0cba5fee0be4a0c0860135ec1506e062072ba",
+    "scripts/package_reports.py": "370ba9e6d936bff6438cc791127c87822bae19d834990c7302678663dbe979c1",
+    "scripts/plot_domain.py": "866fecd657ae501fd418b174515f29179e5bac9dad141fbe123d6467f04b5b8e",
+    "scripts/plot_model.py": "d115be028bfe0f6d92bae77ba2555ec1aa5c9b5ad32ba72f0f6bc90f0e6d5524",
+    "scripts/plot_retrieval_v2.py": "3937eec0d04fc787e8aa0458a1076ea20ca2bf74dffc6e73802ea49616b5466b",
+    "scripts/populate_demo.py": "47ce4256890379a09fca35451e331bbf22fda98e81abc30f6c99b4006e0ba774",
+    "scripts/production_setup.py": "e27429c71c5393981f0e6e652fdeefa1f8c39eab101596d852d1c75115705a98",
+    "scripts/publish_model_reports.py": "427aa5c24d5252af5e972c50048b09fdda830a8f33e6d282a0e226a8c3b1144f",
+    "scripts/rebuild_models.py": "91d2553985f4a863bc55ee875f262cd700190d8c5ea83958407b52bdaa04be28",
+    "scripts/register_identity.py": "26b02f847b20fcf1cf4b1bbbdac0429fe35208296d22c79212ca5c4e5ddea0fb",
+    "scripts/release_manifest.py": "afe9adb592ab66f8e54582424a1dd886bbfb96b1e369003f7238097a5a1b05bf",
+    "scripts/review_native.py": "15dc3776b3e2783af8fd52b418d324a2abe4b04ef57790c65c4d30defe2cd1ec",
+    "scripts/review_release.py": "2d8f32e6913662e70cfc45bd02ee9653b0552a36528110f62cbf47dc07eb4b73",
+    "scripts/rollback.py": "537bdcebbb93ff2219ef32024efc439eb2795f2a7061f7420a9eeb32206aa0f6",
+    "scripts/run_final_paired_evaluation.py": "7d13876e51c1db6301fbe5f7eb1f880421c17e2d471d30aef8a27680bc3e541d",
+    "scripts/run_tests.py": "398d6b8f219009ce67cacd02767cbeb50341e5a447a7404d4e13f93421711722",
+    "scripts/serve.py": "27cab283dd6933da6e21c0e97f0dd0cdd94e0f89a49865d585da1ab091ef4ad3",
+    "scripts/train.py": "62ec6e94c897956e5ed987fac15fe103cb62630eb794e92426ea894cbe9a10b1",
+    "scripts/train_all.py": "3f7b5fa600432e7cf2f05b0a1439e9ccab501c2646868ca6e5cdba04c42635c3",
+    "scripts/train_challenger.py": "a6d46353e974577768985ddf26635d2a1b383d982d68631e54b5c743fd59e7dd",
+    "scripts/train_domain.py": "7f046765c9d805ff4bc7a7725fdb15be93835407f84c3204621322fc91000bc0",
+    "scripts/train_v4.py": "96dbb43e7583f12cef1b8377a052f032fbee0ea1cfe60e874a01586630781b53",
+    "scripts/verify_live.py": "d770bbbe371956b146d8020385aeecf023256584dcb316cda3f6d9e30d89e79d",
+    "scripts/verify_rollback.py": "a62e00c1800bdeb2fe9f7c208d3acc548668b991aacf39bee79b06ed64823fa8",
+    "scripts/verify_serving_v4.py": "8792fd15d4e406b36d3a2b4c6aa02d55c5060469461251a795ad1e047442d7c1"
+  },
+  "raw_reports": {
+    "bandit.json": "de492ae33ead8013416eda28f3c36094c22444f2fe1f14b1506c5af991fd2f4c",
+    "ruff.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "bandit_severity": {
+    "LOW": 159,
+    "MEDIUM": 6
+  },
+  "bandit_categories": {
+    "B101": 98,
+    "B105": 3,
+    "B310": 1,
+    "B311": 2,
+    "B314": 3,
+    "B404": 18,
+    "B405": 2,
+    "B603": 32,
+    "B607": 4,
+    "B608": 2
+  },
+  "bandit_errors": [],
+  "findings_suppressed": 0,
+  "medium_findings": [
+    {
+      "test_id": "B310",
+      "path": "scripts/fetch_dataset.py",
+      "line": 24,
+      "scanner_message": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "disposition": "reviewed build-time trust boundary",
+      "assessment": "The main function constructs fixed HTTPS Hugging Face URLs with pinned revisions; no HTTP request supplies a URL. Frozen dataset/model bytes are SHA-256 checked. The download helper itself is not a general-purpose safe URL fetcher: it follows urllib redirects and reads a full response, so this review does not approve exposing it to untrusted URLs or treating build-host compromise as covered."
+    },
+    {
+      "test_id": "B314",
+      "path": "scripts/release_manifest.py",
+      "line": 20,
+      "scanner_message": "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "disposition": "reviewed local artifact trust boundary",
+      "assessment": "Inputs are fixed repository-local Windows/Linux JUnit reports generated by pytest, not runtime uploads. Keep release inputs trusted. ElementTree is not approved here for arbitrary untrusted XML. Packaging checks the expected count and absence of failures; this does not make arbitrary external XML trusted."
+    },
+    {
+      "test_id": "B314",
+      "path": "scripts/release_manifest.py",
+      "line": 21,
+      "scanner_message": "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "disposition": "reviewed local artifact trust boundary",
+      "assessment": "Inputs are fixed repository-local Windows/Linux JUnit reports generated by pytest, not runtime uploads. Keep release inputs trusted. ElementTree is not approved here for arbitrary untrusted XML. Packaging checks the expected count and absence of failures; this does not make arbitrary external XML trusted."
+    },
+    {
+      "test_id": "B314",
+      "path": "scripts/review_release.py",
+      "line": 80,
+      "scanner_message": "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "disposition": "reviewed local artifact trust boundary",
+      "assessment": "The versioned collector parses the fixed local native/native-tests.xml generated by the full pytest runner. This file is never accepted through a request or user upload. Count, individual result, source snapshot and SHA checks bind this trusted verification artifact. ElementTree is not approved for arbitrary external XML; a compromised local test/build host remains outside this boundary."
+    },
+    {
+      "test_id": "B608",
+      "path": "src/resolvelab/service.py",
+      "line": 63,
+      "scanner_message": "Possible SQL injection vector through string-based query construction.",
+      "disposition": "reviewed parameterized construction",
+      "assessment": "The case lookup appends only a constant FOR UPDATE clause. Inbox list SQL interpolates one application-owned constant predicate. All tenant/case/filter/pagination values are SQLAlchemy bind parameters; search metacharacters are escaped. No request-derived text becomes SQL structure at these call sites. This assessment is scoped to the captured source."
+    },
+    {
+      "test_id": "B608",
+      "path": "src/resolvelab/service.py",
+      "line": 315,
+      "scanner_message": "Possible SQL injection vector through string-based query construction.",
+      "disposition": "reviewed parameterized construction",
+      "assessment": "The case lookup appends only a constant FOR UPDATE clause. Inbox list SQL interpolates one application-owned constant predicate. All tenant/case/filter/pagination values are SQLAlchemy bind parameters; search metacharacters are escaped. No request-derived text becomes SQL structure at these call sites. This assessment is scoped to the captured source."
+    }
+  ],
+  "low_category_review": [
+    {
+      "ids": [
+        "B101"
+      ],
+      "count": 98,
+      "assessment": "Assertions occur in evaluation, training, release and verification tooling. Runtime request authorization is not implemented as assert. The evaluator and release-manifest generator explicitly refuse Python optimized mode so their outcome checks cannot silently disappear. Other maintenance scripts must still be invoked without optimization and with trusted inputs; their asserts are not a production security boundary."
+    },
+    {
+      "ids": [
+        "B404",
+        "B603",
+        "B607"
+      ],
+      "count": 54,
+      "assessment": "Subprocess imports/calls are maintenance/evaluation commands with argument lists and no shell=True at the captured sites. Some resolve git/taskkill through PATH; the build/worker host and PATH remain trusted. Owned child PIDs and project process handshakes bound termination. This is not a claim that arbitrary commands or a compromised PATH are safe."
+    },
+    {
+      "ids": [
+        "B311"
+      ],
+      "count": 2,
+      "assessment": "Seeded Random shuffles assign deterministic synthetic dataset families; they do not generate credentials. Credentials use secrets instead."
+    },
+    {
+      "ids": [
+        "B105"
+      ],
+      "count": 3,
+      "assessment": "Captured matches are the core_pass metric and token_type/token_endpoint protocol field names, not embedded credential values. Source-exposure scanning remains a separate limited check."
+    },
+    {
+      "ids": [
+        "B405"
+      ],
+      "count": 2,
+      "assessment": "ElementTree imports in the frozen legacy and current versioned collectors use the fixed trusted JUnit boundary described for B314; they are not approved for untrusted uploads."
+    }
+  ],
+  "ruff_findings": [],
+  "verification": {
+    "current_windows_postgresql": "173 passed with stable source; versioned native verification",
+    "historical_linux_postgresql": "157 passed on v0.2.0; current 0.2.1 Linux not rerun"
+  },
+  "limitations": [
+    "Static rules are heuristics; reviewed dispositions are scoped reasoning, not an independent penetration test.",
+    "No scanner output proves absence of vulnerabilities. Application behavior, cloud configuration, identity provider and dependency advisories require separate verification.",
+    "Raw findings remain available and none are suppressed. Built-image OS packages and public production operation were not established by these scans."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "observed_at": "2026-11-23T17:08:26.386015+00:00",
+  "exit_code": 0,
+  "source_stable": true,
+  "source_hashes": {
+    "src/resolvelab/api.py": "aade4d130f1c0c6e4c342f2c98f688d5e504c37c2be4e7c0e3db71d39768e9e5",
+    "src/resolvelab/auth.py": "38f343cd0192865b542b33bc0e6fa7ef098a290a2cb6a077c0d2cfd031dc38b5",
+    "src/resolvelab/config.py": "84f03ea63ec982f213f0a38a3ee68b42644a022c9305df7cb90fbf3ef4eb0aec",
+    "src/resolvelab/db.py": "da076bdc2d995302cf5aea737597eb58c64bd18f45b38e088c95b1882772d8f7",
+    "src/resolvelab/evaluate.py": "d201d5049e7c8f27aede81074129b92d48412c691d937322f8e21d1bc1a30293",
+    "src/resolvelab/evaluation_job.py": "00582a3738eb9bbc52e970f655c85d1851a3d22b2aedfb37f19020d658950271",
+    "src/resolvelab/generation.py": "248f364346c4b2419bf4da8e5b56f960302d9dc104e0281120994cb10de3796d",
+    "src/resolvelab/isolation.py": "cde5749b7df49fbccdb6c10e10df25ab3b45299ce8c6df5e22763c15a5181fd1",
+    "src/resolvelab/ml.py": "2c0e660a4dff0d0f752fcd1ab75cdcb66b712c2daa485b8c9a4e53c05353b3ee",
+    "src/resolvelab/processes.py": "8b60b7e1515f5fa46a070799e7a64a12e6e809fc1d009deb2a518543a1a009a1",
+    "src/resolvelab/provision.py": "12b4e11cf88b91d45ac8b5e86961c69ba8a5c6da2c0f9a928b5def32b0df719d",
+    "src/resolvelab/retrieval.py": "2156fd7f7fe1401e1a510cb5631be02977d6ba37270b1a4c69d039195847599b",
+    "src/resolvelab/schemas.py": "2daa8cdfe69b6881dd905b106811389b41c4e238b7b4108e1142c6c7e8b92679",
+    "src/resolvelab/security.py": "f1f5d9b76a11a071d66e8fa667605b710a2ff3b204ae8396a3cdce47eb8a1189",
+    "src/resolvelab/seed.py": "f22412651d3cb36758b2db981d0e57c8f8d436b14f710cddab7c6c623fd9a4f3",
+    "src/resolvelab/service.py": "b44779581469cf3bbce16e8c84bb1ffafe25f01a087bace8d6d25a617a8fd87b",
+    "src/resolvelab/worker.py": "60f3d6fe5db1c2c7dc97f63d5f0e6fee868affb6621091977961ddc5dc1b2020",
+    "src/resolvelab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "scripts/backup_check.py": "31f3701532f2456732060660bbe8221c37f12bb88c6e11f252233aca5990cf98",
+    "scripts/backup_guard.py": "f47ff6aa67146c0e7455752c26d0f920c8fc98dfe76c322feb99900773535acd"
+  },
+  "report_sha256": "3ec20cb57c7d9a9e2bd37d1eaebc3cfb3161009c2cf71c819018fa5ca0f67e88",
+  "database_removed": true,
+  "dump_removed": true
+}

@@ -1,0 +1,89 @@
+{
+  "observed_at": "2026-11-23T17:14:13.065682+00:00",
+  "read_only": true,
+  "database": "resolvelab",
+  "port": 55439,
+  "tables": {
+    "actions": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "active_releases": {
+      "rows": 2,
+      "sha256": "35704e1672b5e61e407c57a1d681e89c165bfe029f872eee2655904e3c04b0e9"
+    },
+    "approvals": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cases": {
+      "rows": 7,
+      "sha256": "f3dfbe55591938d700fd723c28a85c4b762f56c7d3a816ab5a90838035667259"
+    },
+    "chunks": {
+      "rows": 5,
+      "sha256": "61838848821ab868ed6355713acccd011b1675a5a6846e572ea3a03b89c0e728"
+    },
+    "corpus_versions": {
+      "rows": 2,
+      "sha256": "1a43e8ebdae96c8c06264f168d02627a9b3c75262301de605ad7152a6333d335"
+    },
+    "documents": {
+      "rows": 4,
+      "sha256": "d772ba169c4a71ecdfa455a017e15c6ba14127335aadb5fbbfc95c8c2e29d285"
+    },
+    "evaluation_runs": {
+      "rows": 3,
+      "sha256": "5b54d383829b1e02f51d73aa3c0d2746b77fe82c63c5f1a146efeadcaba7eccb"
+    },
+    "external_identities": {
+      "rows": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixture_orders": {
+      "rows": 5,
+      "sha256": "a5a5c98bae874d7134686cc48e1261d721953e8041c4ccd431a5fca27ca32feb"
+    },
+    "handoffs": {
+      "rows": 1,
+      "sha256": "72a427e58a64e0b70bbf4df86a6e1758cf892d38a6d6a0ab5dee1a5fb555baa7"
+    },
+    "idempotency_keys": {
+      "rows": 15,
+      "sha256": "89643a5990a8996d97021aa737f25687b97c63721720144774f9615a5540722c"
+    },
+    "memberships": {
+      "rows": 6,
+      "sha256": "db172eec1a6915dd60edfb3cc9ae1ed04ab51d07758d1ca6e9c992e23a572480"
+    },
+    "model_versions": {
+      "rows": 6,
+      "sha256": "2e832fc30209b1a3f3e6ce4ebfa7049aff4c82fd6aa54b040b2ba26c22e92be3"
+    },
+    "proposal_evidence": {
+      "rows": 2,
+      "sha256": "367cb9b5449129a643128a2f2f62576183ec0220e40614ff5434e1ee41b2d21e"
+    },
+    "proposals": {
+      "rows": 1,
+      "sha256": "67da224b937cceb0243827f18e391e5f2dedd9d893d116ea6d39c969f4b3fd4a"
+    },
+    "releases": {
+      "rows": 6,
+      "sha256": "189e8fee2f1237c347d345c554830202c27b01a59c57a4e58dd62fcfdc864fa0"
+    },
+    "request_limits": {
+      "rows": 36,
+      "sha256": "bb0c60f30ab055908e4b24512f621b4af0160d72833db8e648b7f6c9b76b95c9"
+    },
+    "tenants": {
+      "rows": 2,
+      "sha256": "548e811d36324a4175755f41fa549dba449452614130adb890e49d032a0f6855"
+    },
+    "trace_events": {
+      "rows": 31,
+      "sha256": "5bddd07f5faa5f4c556fca8d9c115a2c65b2ad3830cf4e73fad6dbd728a2256a"
+    }
+  },
+  "env_sha256": "2c19d354df627afaa72ef14fc6503a85aee6f4ee841f19feee2dbbeb5d8c6f60"
+}

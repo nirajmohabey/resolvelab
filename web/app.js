@@ -28,6 +28,7 @@ const labels = {
 const state = {
   sessionGeneration: 0,
   caseSelectionRequest: 0,
+  detailRenderRequest: 0,
   evaluationReportRequest: 0,
   inboxRequest: 0,
   evaluationViewRequest: 0,
@@ -481,6 +482,7 @@ async function selectCase(id) {
 function renderDetail() {
   const c = state.selected;
   if (!c) return;
+  const request = ++state.detailRenderRequest;
   const resolution = c.resolution;
   $("#detail").innerHTML =
     `<div class="detail-head"><div class="detail-topline"><span class="case-id">CASE ${short(c.case_id)}</span>${badge(c.state)}</div><h2>${esc(c.message)}</h2><div class="detail-subtitle"><span>Customer ${esc(c.customer_subject)}</span><span>Order ${esc(c.order_ref || "not provided")}</span><span>Version ${c.version}</span></div></div><div class="detail-tabs" role="tablist" aria-label="Case details">${[["summary", "Resolution"], ["evidence", "Policy evidence"], ["trace", "Execution trace"]].map(([tab, label]) => `<button id="tab-${tab}" class="${state.tab === tab ? "active" : ""}" data-tab="${tab}" role="tab" aria-selected="${state.tab === tab}" aria-controls="detailBody" tabindex="${state.tab === tab ? 0 : -1}">${label}</button>`).join("")}</div><div class="detail-body" id="detailBody" role="tabpanel" aria-labelledby="tab-${state.tab}" tabindex="0"></div>`;
@@ -499,11 +501,11 @@ function renderDetail() {
     if (next) { event.preventDefault(); activateDetailTab(next); }
   };
   if (state.tab === "evidence") {
-    loadEvidence(c);
+    loadEvidence(c, request);
     return;
   }
   if (state.tab === "trace") {
-    loadTrace(c);
+    loadTrace(c, request);
     return;
   }
   if (!resolution) {
@@ -643,14 +645,18 @@ function activateDetailTab(tab) {
 async function resolveSelected() {
   const selected = state.selected;
   if (!selected || !canWrite() || state.inlineOperation) return;
+  const operation = { kind: "resolve", caseId: selected.case_id, generation: state.sessionGeneration, token: state.token };
+  state.inlineOperation = operation;
   const button = $("#resolveCase");
   setBusy(button, true, "Checking route and evidence…");
+  syncInlineControls();
   try {
     await api(`/v1/cases/${selected.case_id}/resolve`, {
       method: "POST",
       body: { expected_case_version: selected.version },
     });
     await refresh();
+    checkSession(operation.generation, operation.token);
     notify(
       "Resolution saved. Evidence and decision stages are ready to inspect.",
     );
@@ -660,6 +666,7 @@ async function resolveSelected() {
     if ((state.selected?.case_id || state.selectingId) === selected.case_id) await selectCase(selected.case_id);
   } finally {
     setBusy(button, false);
+    if (state.inlineOperation === operation) { state.inlineOperation = null; syncInlineControls(); }
   }
 }
 async function approve(p) {
@@ -671,8 +678,11 @@ async function approve(p) {
     )
   )
     return;
+  const operation = { kind: "approve", caseId: selected.case_id, generation: state.sessionGeneration, token: state.token };
+  state.inlineOperation = operation;
   const button = $("#approveProposal");
   setBusy(button, true, "Approving…");
+  syncInlineControls();
   try {
     await api(`/v1/proposals/${p.proposal_id}/approve`, {
       method: "POST",
@@ -683,6 +693,7 @@ async function approve(p) {
       },
     });
     await refresh();
+    checkSession(operation.generation, operation.token);
     notify(
       "Cancellation completed. The approval, order change, and action receipt committed together.",
     );
@@ -692,34 +703,35 @@ async function approve(p) {
     if ((state.selected?.case_id || state.selectingId) === selected.case_id) await selectCase(selected.case_id);
   } finally {
     setBusy(button, false);
+    if (state.inlineOperation === operation) { state.inlineOperation = null; syncInlineControls(); }
   }
 }
-function currentDetail(c, tab) {
-  return state.selected?.case_id === c.case_id && state.selected?.version === c.version && state.tab === tab ? $("#detailBody") : null;
+function currentDetail(c, tab, request = state.detailRenderRequest) {
+  return request === state.detailRenderRequest && state.selected?.case_id === c.case_id && state.selected?.version === c.version && state.tab === tab ? $("#detailBody") : null;
 }
-async function loadEvidence(c) {
+async function loadEvidence(c, request) {
   $("#detailBody").innerHTML =
     '<p class="muted">Loading permitted evidence…</p>';
   try {
     const result = await api(`/v1/cases/${c.case_id}/evidence`);
-    const target = currentDetail(c, "evidence");
+    const target = currentDetail(c, "evidence", request);
     if (!target) return;
     const items = result.items || result.evidence || result.citations || [];
     target.innerHTML =
       `<div class="section-label">PERMISSION-FILTERED POLICY EVIDENCE</div><p class="muted">Organization, published corpus, and access scope are checked before ranking.</p>${items.length ? items.map((e) => `<article class="evidence-card"><h3>${esc(e.title || e.source_label || "Retail policy")} · ${esc(e.locator)}</h3><p>${esc(e.body || e.excerpt)}</p><code>${esc(e.chunk_id)}</code></article>`).join("") : '<div class="empty">No permitted evidence is available for this case.</div>'}`;
   } catch (e) {
     if (e instanceof SessionChanged) return;
-    const target = currentDetail(c, "evidence");
+    const target = currentDetail(c, "evidence", request);
     if (!target) return;
     target.innerHTML =
       `<div class="form-error">${esc(e.message)}</div>`;
   }
 }
-async function loadTrace(c) {
+async function loadTrace(c, request) {
   $("#detailBody").innerHTML = '<p class="muted">Loading structured trace…</p>';
   try {
     const result = await api(`/v1/cases/${c.case_id}/trace`);
-    const target = currentDetail(c, "trace");
+    const target = currentDetail(c, "trace", request);
     if (!target) return;
     const items = result.events || result.items || [];
     target.innerHTML =
@@ -742,7 +754,7 @@ async function loadTrace(c) {
       }`;
   } catch (e) {
     if (e instanceof SessionChanged) return;
-    const target = currentDetail(c, "trace");
+    const target = currentDetail(c, "trace", request);
     if (!target) return;
     target.innerHTML =
       `<div class="form-error">${esc(e.message)}</div>`;
@@ -763,6 +775,7 @@ async function createCase(event) {
     return;
   }
   const request = ++state.createRequest;
+  const generation = state.sessionGeneration, token = state.token;
   setCreating(true);
   try {
     const body = {
@@ -786,6 +799,7 @@ async function createCase(event) {
     state.tab = "summary";
     resetInboxCriteria();
     await refresh();
+    checkSession(generation, token);
     notify(
       "Case created with verified customer context. Run resolution to inspect its route.",
     );

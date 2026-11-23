@@ -35,7 +35,7 @@ async def lifespan(app):
     yield
 
 
-app = FastAPI(title="ResolveLab", version="0.2.0", description="Evidence-backed fixture support workflow. Routing scores do not authorize actions.", lifespan=lifespan,
+app = FastAPI(title="ResolveLab", version="0.2.1", description="Evidence-backed fixture support workflow. Routing scores do not authorize actions.", lifespan=lifespan,
               docs_url="/docs" if environment() == "local" else None, redoc_url=None)
 
 
