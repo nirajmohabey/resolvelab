@@ -1,6 +1,8 @@
 """Explicit deployment settings; an omitted environment is never a local identity."""
 import os
+import re
 from urllib.parse import urlsplit
+from uuid import UUID
 
 
 def environment():
@@ -13,12 +15,32 @@ def auth_mode():
 
 def allowed_hosts():
     configured = os.environ.get("ALLOWED_HOSTS", "")
-    return [v.strip().lower() for v in configured.split(",") if v.strip()] or (["127.0.0.1", "localhost", "testserver", "[::1]"] if environment() == "local" else [])
+    hosts = [v.strip().lower() for v in configured.split(",") if v.strip()] or (["127.0.0.1", "localhost", "testserver", "[::1]"] if environment() == "local" else [])
+    if os.environ.get("VERCEL") == "1":
+        for key in ("VERCEL_URL", "VERCEL_PROJECT_PRODUCTION_URL"):
+            value = os.environ.get(key, "").lower()
+            if len(value) <= 253 and re.fullmatch(r"[a-z0-9](?:[a-z0-9.-]*[a-z0-9])?", value) and "." in value and ".." not in value:
+                hosts.append(value)
+    return list(dict.fromkeys(hosts))
 
 
 def allowed_origins():
     configured = os.environ.get("ALLOWED_ORIGINS", "")
     return [v.strip().rstrip("/") for v in configured.split(",") if v.strip()] or (["http://127.0.0.1:8000", "http://localhost:8000", "http://testserver"] if environment() == "local" else [])
+
+
+def deployment_tenants():
+    value = os.environ.get("DEPLOYMENT_TENANTS", "")
+    if value:
+        result = list(dict.fromkeys(str(UUID(item.strip())) for item in value.split(",") if item.strip()))
+        if not 1 <= len(result) <= 32:
+            raise RuntimeError("DEPLOYMENT_TENANTS must contain between one and 32 reviewed tenant UUIDs")
+        return result
+    if environment() != "local":
+        raise RuntimeError("Production requires explicit DEPLOYMENT_TENANTS")
+    from .db import ROOT
+    import json
+    return [item["tenant_id"] for item in json.loads((ROOT / "fixtures/evaluation_cases.json").read_text())["organizations"]]
 
 
 def trusted_https_url(value):
@@ -27,6 +49,11 @@ def trusted_https_url(value):
 
 
 def public_auth_config():
+    if auth_mode() == "neon":
+        from .neon_auth import settings
+        settings()
+        return {"mode": "neon", "local": environment() == "local", "configured": True,
+                "demo": False, "auth_base_url": "/auth"}
     if auth_mode() == "fixture":
         enabled = environment() == "local" and os.environ.get("DEMO_MODE", "false").lower() == "true"
         return {"mode":"fixture","local":environment()=="local","configured":enabled,"demo":enabled}
@@ -48,7 +75,8 @@ def validate_configuration():
     if not os.environ.get("DATABASE_URL"):
         raise RuntimeError("DATABASE_URL is required")
     for key, default, minimum, maximum in (("BODY_TIMEOUT_SECONDS", 5, .1, 30), ("LOGIN_REQUESTS_PER_MINUTE", 30, 1, 10000),
-                                          ("IP_REQUESTS_PER_MINUTE", 1200, 1, 10000), ("ACTOR_REQUESTS_PER_MINUTE", 300, 1, 10000)):
+                                          ("IP_REQUESTS_PER_MINUTE", 1200, 1, 10000), ("ACTOR_REQUESTS_PER_MINUTE", 300, 1, 10000),
+                                          ("EVALUATION_JOBS_PER_HOUR", 5, 1, 100)):
         try:
             parsed = float(os.environ.get(key, default)) if key == "BODY_TIMEOUT_SECONDS" else int(os.environ.get(key, default))
             valid = minimum <= parsed <= maximum
@@ -56,13 +84,14 @@ def validate_configuration():
             valid = False
         if not valid:
             raise RuntimeError(f"{key} is outside its supported range")
-    if auth_mode() not in {"fixture", "oidc"}:
-        raise RuntimeError("AUTH_MODE must be fixture or oidc")
+    if auth_mode() not in {"fixture", "oidc", "neon"}:
+        raise RuntimeError("AUTH_MODE must be fixture, oidc or neon")
     if environment() != "local":
         if os.environ.get("DEMO_MODE", "false").lower() == "true" or os.environ.get("FIXTURE_CLOCK"):
             raise RuntimeError("Fixture identities and clocks are forbidden in production")
-        if auth_mode() != "oidc":
-            raise RuntimeError("Production requires AUTH_MODE=oidc")
+        if auth_mode() not in {"oidc", "neon"}:
+            raise RuntimeError("Production requires AUTH_MODE=oidc or neon")
+        deployment_tenants()
         if not allowed_hosts() or any("*" in host or "/" in host or "://" in host for host in allowed_hosts()):
             raise RuntimeError("Production requires explicit ALLOWED_HOSTS without wildcards")
         if not allowed_origins():
@@ -71,7 +100,10 @@ def validate_configuration():
             parsed = urlsplit(origin)
             if parsed.scheme != "https" or not parsed.netloc or parsed.path or parsed.query or parsed.fragment or parsed.username:
                 raise RuntimeError("ALLOWED_ORIGINS must contain exact HTTPS origins")
-    if auth_mode() == "oidc":
+    if auth_mode() == "neon":
+        from .neon_auth import settings
+        settings()
+    elif auth_mode() == "oidc":
         for key in ("OIDC_ISSUER", "OIDC_JWKS_URL"):
             parsed = urlsplit(os.environ.get(key, ""))
             if parsed.scheme != "https" or not parsed.netloc or parsed.username or parsed.fragment:

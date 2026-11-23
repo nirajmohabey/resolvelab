@@ -264,8 +264,9 @@ select:focus-visible {
   background: #fff;
 }
 .avatar {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
   border-radius: 50%;
   background: #e8ede8;
   color: #50705b;
@@ -312,6 +313,8 @@ h1 {
 }
 .heading-actions {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
   gap: 9px;
 }
 .button {
@@ -320,7 +323,10 @@ h1 {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 11px 17px;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  min-width: 0;
+  max-width: 100%;
 }
 .primary {
   background: var(--teal);
@@ -493,12 +499,17 @@ h1 {
 }
 .case-meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 6px;
   font-size: 0.75rem;
   color: #526971;
   margin-bottom: 9px;
+}
+.case-meta > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .case-row h3 {
   font-size: 0.75rem;
@@ -530,7 +541,9 @@ h1 {
   border-radius: 4px;
   background: #eef2f4;
   color: #4c646e;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 .badge.awaiting_approval {
   background: #fff4d6;
@@ -684,6 +697,7 @@ h1 {
 }
 .detail-topline {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 15px;
   align-items: center;
@@ -692,6 +706,8 @@ h1 {
   color: #526971;
   font-size: 0.75rem;
   font-family: ui-monospace, monospace;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .detail-head h2 {
   font: 700 1.0625rem/1.5 Manrope;
@@ -707,6 +723,7 @@ h1 {
 }
 .detail-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 22px;
   padding: 0 25px;
   border-bottom: 1px solid var(--line);
@@ -718,6 +735,9 @@ h1 {
   font-size: 0.75rem;
   color: #526971;
   padding: 14px 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 .detail-tabs button.active {
   border-color: var(--teal);
@@ -1474,6 +1494,11 @@ td code {
     min-height: 25rem;
   }
 }
+@container (max-width:18rem) {
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 @media (max-width: 1150px) {
   :root {
     --sidebar-width: 12.8125rem;
@@ -1520,11 +1545,12 @@ td code {
 }
 .inbox-pagination {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: space-between;
 }
 .inbox-pagination .button {
-  flex: 1;
+  flex: 1 1 6rem;
   min-width: 0;
 }
 dialog {
@@ -1558,6 +1584,39 @@ dialog {
 }
 .inline-review-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
 .inline-review-footer [role="status"] { flex: 1 1 12rem; }
+.workspace-sign-in {
+  display: grid;
+  gap: 0.75rem;
+  width: min(100%, 24rem);
+  text-align: left;
+  padding: 0 1rem;
+}
+.workspace-sign-in input {
+  min-width: 0;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #718990;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+}
+.workspace-sign-in p { margin: 0; font-size: 0.875rem; }
+.neon-login .page-heading,
+.neon-login .stats,
+.neon-login .inbox-panel {
+  display: none;
+}
+.neon-login .workbench {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 36rem;
+  margin: 2rem auto;
+  min-height: 0;
+}
+.neon-login .welcome-state {
+  min-height: 0;
+  padding: 2rem 1rem;
+  margin-bottom: 0;
+}
 @media (max-width: 650px) {
   dialog { padding: 18px; }
 }

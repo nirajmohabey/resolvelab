@@ -67,6 +67,7 @@ def fixture_mutate(actor, query, params=None):
     """Administrative fault setup only; observations always use the runtime role."""
     from resolvelab.db import admin_engine
     with admin_engine.begin() as conn:
+        conn.execute(text("SELECT set_config('app.tenant_id',:tenant,true)"), {"tenant":actor.tenant_id})
         return conn.execute(text(query), {"tenant": actor.tenant_id, **(params or {})})
 
 

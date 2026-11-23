@@ -101,8 +101,12 @@ def authenticate(token):
     if len(token) > 8192:
         raise DomainError(401, "invalid_token", "The bearer token is invalid or expired.")
     try:
-        if auth_mode() == "oidc":
-            claims = _oidc_claims(token)
+        if auth_mode() in {"oidc", "neon"}:
+            if auth_mode() == "neon":
+                from .neon_auth import claims as neon_claims
+                claims = neon_claims(token)
+            else:
+                claims = _oidc_claims(token)
             subject = claims["sub"]
             if not isinstance(subject, str) or not 1 <= len(subject) <= 300:
                 raise ValueError("Invalid external subject")
@@ -114,6 +118,10 @@ def authenticate(token):
             if not mapped:
                 raise DomainError(401, "identity_not_registered", "The external identity has no active support membership.")
             principal = Principal(str(mapped["tenant_id"]), str(mapped["actor_id"]), "", mapped["customer_subject"])
+            if environment() == "production":
+                from .config import deployment_tenants
+                if principal.tenant_id not in deployment_tenants():
+                    raise DomainError(401, "identity_not_registered", "The identity has no active membership in this deployment.")
             with transaction(principal) as conn:
                 return assert_member(conn, principal)
         if not demo_enabled():

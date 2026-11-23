@@ -19,7 +19,7 @@ from starlette.concurrency import run_in_threadpool
 from starlette.requests import ClientDisconnect
 
 from . import service
-from .config import allowed_hosts, allowed_origins, environment, public_auth_config, validate_configuration
+from .config import allowed_hosts, allowed_origins, deployment_tenants, environment, public_auth_config, validate_configuration
 from .security import actor_budget, browser_policy, consume_budget, strict_request_json
 from .auth import Principal, authenticate, demo_enabled, fixture_principal, issue_token
 from .db import ROOT, engine, transaction
@@ -35,7 +35,7 @@ async def lifespan(app):
     yield
 
 
-app = FastAPI(title="ResolveLab", version="0.2.1", description="Evidence-backed fixture support workflow. Routing scores do not authorize actions.", lifespan=lifespan,
+app = FastAPI(title="ResolveLab", version="0.3.0", description="Evidence-backed fixture support workflow. Routing scores do not authorize actions.", lifespan=lifespan,
               docs_url="/docs" if environment() == "local" else None, redoc_url=None)
 
 
@@ -120,7 +120,7 @@ async def request_context(request, call_next):
     if environment() == "production":
         response.headers["Strict-Transport-Security"] = "max-age=31536000"
     logger.info(json.dumps({"request_id": request.state.request_id, "operation": request.method,
-                            "path": request.url.path, "status": response.status_code,
+                            "path": "/auth/*" if request.url.path.startswith("/auth/") else request.url.path, "status": response.status_code,
                             "duration_ms": round((time.perf_counter()-started)*1000, 3)}))
     return response
 
@@ -177,6 +177,7 @@ def preflight(path: str, request: Request):
 
 @app.get("/health/ready", tags=["health"])
 def ready():
+    stage = "database_role"
     try:
         with engine.connect() as conn:
             role = conn.execute(text("SELECT rolsuper,rolbypassrls FROM pg_roles WHERE rolname=current_user")).mappings().one()
@@ -186,11 +187,13 @@ def ready():
             if owned:
                 raise DomainError(503, "unsafe_database_role", "The application role must not own its tables.")
         from .retrieval import _encoder
+        stage = "embedding_load"
         _encoder()
-        tenants = json.loads((ROOT / "fixtures/evaluation_cases.json").read_text(encoding="utf-8"))["organizations"]
-        for tenant in tenants:
-            p = Principal(tenant["tenant_id"], "00000000-0000-4000-8000-000000000000", "", "")
+        stage = "deployment_tenants"
+        for tenant in deployment_tenants():
+            p = Principal(tenant, "00000000-0000-4000-8000-000000000000", "", "")
             with transaction(p) as conn:
+                stage = "active_release"
                 active = conn.execute(text("SELECT release_id FROM resolvelab.active_releases WHERE tenant_id=:tenant"),
                                       {"tenant": p.tenant_id}).mappings().first()
                 if not active:
@@ -199,13 +202,41 @@ def ready():
                 if release["corpus_state"] != "published":
                     raise DomainError(503, "corpus_unavailable", "A published active corpus is missing.")
                 from .retrieval import retrieve
+                stage = "corpus_admission"
                 if not retrieve(conn, p.tenant_id, release["corpus_id"], "policy", "admin", mode="lexical", limit=1):
                     raise DomainError(503, "corpus_unavailable", "The active policy corpus has no admitted evidence.")
+            stage = "routing_model_load"
             service.load_pinned_router(release)
         return {"status": "ready", "model": "loaded", "embedding": "loaded", "corpus": "published", "database_role": "nonowner_rls"}
     except DomainError:
         raise
     except Exception as exc:
+        diagnostic = {"event":"readiness_dependency_failed","stage":stage,"exception_type":type(exc).__name__}
+        if isinstance(exc, ModuleNotFoundError):
+            import re
+            if isinstance(exc.name,str) and re.fullmatch(r"[A-Za-z0-9_.]{1,160}",exc.name):
+                diagnostic["missing_module"] = exc.name
+        if isinstance(exc, FileNotFoundError) and exc.filename:
+            from pathlib import Path
+            try:
+                relative = Path(exc.filename).resolve().relative_to(ROOT.resolve()).as_posix()
+                if relative.startswith(("artifacts/", "fixtures/")):
+                    diagnostic["missing_asset"] = relative
+            except (ValueError,OSError):
+                pass
+        reviewed_errors = {
+            "Embedding artifact missing. Run python scripts/fetch_dataset.py during setup.":"embedding_artifact_missing",
+            "Pinned embedding artifact checksum mismatch":"embedding_checksum_mismatch",
+            "pinned routing artifact checksum mismatch":"router_checksum_mismatch",
+            "pinned routing artifact version mismatch":"router_version_mismatch",
+            "pinned routing artifact threshold mismatch":"router_threshold_mismatch",
+        }
+        if str(exc) in reviewed_errors:
+            diagnostic["reason_code"] = reviewed_errors[str(exc)]
+        if stage == "embedding_load":
+            from .retrieval import embedding_artifact_diagnostics
+            diagnostic["embedding_assets"] = embedding_artifact_diagnostics()
+        logger.error(json.dumps(diagnostic))
         raise DomainError(503, "not_ready", "Database, model, or corpus readiness has not passed.", True) from exc
 
 
@@ -294,13 +325,20 @@ def evaluations(p=Depends(identity)):
 
 
 @app.post("/v1/evaluations", status_code=202)
-def evaluate(body: EvaluationRequest, request: Request, p=Depends(identity), key=Depends(idempotency_key)):
-    return service.create_evaluation(p, body.model_dump(), key, request.state.request_id)
+async def evaluate(body: EvaluationRequest, request: Request, p=Depends(identity), key=Depends(idempotency_key)):
+    result = await run_in_threadpool(service.create_evaluation, p, body.model_dump(), key, request.state.request_id)
+    from .queue_jobs import dispatch_pending
+    await dispatch_pending(p.tenant_id, result["evaluation_id"], limit=1)
+    return result
 
 
 @app.get("/v1/evaluations/{evaluation_id}")
-def evaluation(evaluation_id: UUID, p=Depends(identity)):
-    return service.get_evaluation(p, str(evaluation_id))
+async def evaluation(evaluation_id: UUID, p=Depends(identity)):
+    result = await run_in_threadpool(service.get_evaluation, p, str(evaluation_id))
+    if result["state"] in {"queued", "running"}:
+        from .queue_jobs import dispatch_pending
+        await dispatch_pending(p.tenant_id, str(evaluation_id), limit=1)
+    return result
 
 
 @app.get("/v1/evaluations/{evaluation_id}/report")
@@ -308,6 +346,15 @@ def evaluation_report(evaluation_id: UUID, p=Depends(identity)):
     record = service.get_evaluation(p, str(evaluation_id))
     if record["state"] != "completed":
         raise DomainError(409, "report_not_ready", "The evaluation report is not ready.")
+    with transaction(p) as conn:
+        from .auth import assert_member
+        assert_member(conn, p, service.READ_ROLES)
+        stored = conn.execute(text("SELECT report FROM resolvelab.evaluation_reports WHERE tenant_id=:tenant AND evaluation_id=:id"),
+                              {"tenant":p.tenant_id,"id":evaluation_id}).scalar_one_or_none()
+    if stored is not None:
+        return stored
+    if environment() != "local":
+        raise DomainError(409, "report_not_ready", "The durable evaluation report is not ready.")
     # The stored URI is diagnostic metadata, never permission to read a path.
     # UUID parsing and this fixed layout bind the report to the authorized job.
     path = ROOT / "artifacts/evaluation" / str(evaluation_id) / "workflow-evaluation.json"
@@ -330,6 +377,15 @@ def evaluation_report(evaluation_id: UUID, p=Depends(identity)):
     return report
 
 
+@app.get("/v1/evaluations/{evaluation_id}/report.html", include_in_schema=False)
+def evaluation_report_html(evaluation_id: UUID, p=Depends(identity)):
+    import html
+    from fastapi.responses import HTMLResponse
+    report = evaluation_report(evaluation_id, p)
+    document = "<!doctype html><html lang='en'><meta charset='utf-8'><title>ResolveLab evaluation</title><h1>ResolveLab evaluation</h1><pre>" + html.escape(json.dumps(report, indent=2)) + "</pre></html>"
+    return HTMLResponse(document)
+
+
 @app.get("/", include_in_schema=False)
 def index():
     return FileResponse(ROOT / "web/index.html")
@@ -338,3 +394,8 @@ def index():
 if (ROOT / "web").exists():
     app.mount("/assets", StaticFiles(directory=ROOT / "web"), name="assets")
     app.mount("/static", StaticFiles(directory=ROOT / "web"), name="static")
+
+from .neon_auth import router as neon_auth_router
+from .queue_jobs import router as queue_router
+app.include_router(neon_auth_router)
+app.include_router(queue_router)

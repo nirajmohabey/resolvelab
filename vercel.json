@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "fastapi",
+  "regions": ["iad1"],
+  "buildCommand": "npm ci && npm run build:auth",
+  "functions": {
+    "app.py": {"maxDuration": 270},
+    "queue_worker.py": {"maxDuration": 270}
+  },
+  "crons": [{"path": "/internal/queue/reconcile", "schedule": "0 3 * * *"}]
+}

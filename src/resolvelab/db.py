@@ -15,7 +15,7 @@ load_dotenv(ROOT / ".env")
 if not os.environ.get("DATABASE_URL"):
     raise RuntimeError("DATABASE_URL must be explicitly configured")
 engine = create_engine(os.environ["DATABASE_URL"], pool_pre_ping=True,
-                       pool_size=int(os.environ.get("DB_POOL_SIZE", "5")), max_overflow=int(os.environ.get("DB_MAX_OVERFLOW", "5")),
+                       pool_size=int(os.environ.get("DB_POOL_SIZE", "1" if os.environ.get("VERCEL") else "5")), max_overflow=int(os.environ.get("DB_MAX_OVERFLOW", "0" if os.environ.get("VERCEL") else "5")),
                        pool_timeout=5, connect_args={"connect_timeout": 5})
 admin_engine = create_engine(
     os.environ["ADMIN_DATABASE_URL"], pool_pre_ping=True, connect_args={"connect_timeout": 5},

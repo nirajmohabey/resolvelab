@@ -44,15 +44,18 @@ def seed(reset=False,write_manifest=True):
             conn.exec_driver_sql('TRUNCATE ' + ','.join('resolvelab.'+x for x in ['tenants']) + ' CASCADE')
         for org in data['organizations']:
             alias, tid = org['alias'], org['tenant_id']
+            conn.execute(text("SELECT set_config('app.tenant_id',:tenant,true)"), {'tenant':tid})
             manifest['organizations'][alias] = tid
             conn.execute(text('INSERT INTO resolvelab.tenants(tenant_id,display_name) VALUES(:t,:n) ON CONFLICT DO NOTHING'), {'t':tid,'n':alias.title()+' Retail'})
         actors=data['actors']+[{'alias':'alpha-admin','organization':'alpha','role':'admin','customer_subject':'customer-001'}]
         for a in actors:
             tid=manifest['organizations'][a['organization']]
+            conn.execute(text("SELECT set_config('app.tenant_id',:tenant,true)"), {'tenant':tid})
             aid=fixture_id(a['organization'],a['alias'])
             manifest['actors'][a['alias']]={'tenant_id':tid,'actor_id':aid,'role':a['role'],'customer_subject':a['customer_subject'],'alias':a['alias']}
             conn.execute(text('INSERT INTO resolvelab.memberships(tenant_id,actor_id,role) VALUES(:t,:a,:r) ON CONFLICT DO NOTHING'), {'t':tid,'a':aid,'r':a['role']})
         for org,tid in manifest['organizations'].items():
+            conn.execute(text("SELECT set_config('app.tenant_id',:tenant,true)"), {'tenant':tid})
             docs=[d for d in data['policy_documents'] if d['organization']==org and d['corpus']!='adversarial-fixture-only']
             corpus_alias=org+'-published-v1'
             cid=fixture_id(org,corpus_alias)
@@ -92,9 +95,11 @@ def seed(reset=False,write_manifest=True):
         for order in data['orders']:
             p={k:v for k,v in order.items() if k!='organization'}
             p['tenant_id']=manifest['organizations'][order['organization']]
+            conn.execute(text("SELECT set_config('app.tenant_id',:tenant,true)"), {'tenant':p['tenant_id']})
             conn.execute(text('INSERT INTO resolvelab.fixture_orders(tenant_id,order_ref,customer_subject,status,tracking_summary,cancel_deadline,version) VALUES(:tenant_id,:order_ref,:customer_subject,:status,:tracking_summary,:cancel_deadline,:version) ON CONFLICT DO NOTHING'),p)
         for case in data.get('seed_cases',[]):
             org=case['organization']; cid=fixture_id(org,case['alias']); manifest['cases'][case['alias']]=cid
+            conn.execute(text("SELECT set_config('app.tenant_id',:tenant,true)"), {'tenant':manifest['organizations'][org]})
             conn.execute(text("INSERT INTO resolvelab.cases(tenant_id,case_id,release_id,created_by,customer_subject,order_ref,message,state) VALUES(:t,:c,:r,:a,:s,:o,:m,'new') ON CONFLICT DO NOTHING"), {'t':manifest['organizations'][org],'c':cid,'r':manifest['releases'][org+'-active-release'],'a':manifest['actors'][case['created_by']]['actor_id'],'s':case['customer_subject'],'o':case['order_ref'],'m':case['message']})
     (ROOT/'artifacts').mkdir(exist_ok=True)
     if write_manifest:

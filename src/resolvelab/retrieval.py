@@ -21,6 +21,29 @@ MAX_TITLE_BYTES = 512
 MAX_SOURCE_LABEL_BYTES = 256
 MAX_LOCATOR_BYTES = 256
 EMBEDDING_NORM_TOLERANCE = 1e-3
+EMBEDDING_FILES = {
+    "model.onnx":"b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
+    "tokenizer.json":"be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+}
+
+
+def embedding_artifact_diagnostics():
+    """Public pinned-asset metadata only; never include environment/path values."""
+    directory = Path(os.environ.get("EMBEDDING_DIRECTORY", ROOT / "artifacts/embeddings"))
+    result = []
+    for filename, expected in EMBEDDING_FILES.items():
+        info = {"name":filename}
+        try:
+            path = directory / filename
+            info["present"] = path.is_file()
+            if info["present"]:
+                info["bytes"] = path.stat().st_size
+                info["sha256"] = hashlib.sha256(path.read_bytes()).hexdigest()
+                info["matches_pin"] = info["sha256"] == expected
+        except OSError as error:
+            info["inspection_error_type"] = type(error).__name__
+        result.append(info)
+    return result
 
 
 class CorpusAdmissionError(RuntimeError):
@@ -58,9 +81,7 @@ def _encoder():
     directory = Path(os.environ.get("EMBEDDING_DIRECTORY", ROOT / "artifacts/embeddings"))
     if not (directory / "model.onnx").exists():
         raise RuntimeError("Embedding artifact missing. Run python scripts/fetch_dataset.py during setup.")
-    for filename,expected in {
-        "model.onnx":"b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21",
-        "tokenizer.json":"be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037"}.items():
+    for filename,expected in EMBEDDING_FILES.items():
         if hashlib.sha256((directory/filename).read_bytes()).hexdigest()!=expected:
             raise RuntimeError("Pinned embedding artifact checksum mismatch")
     options = ort.SessionOptions()

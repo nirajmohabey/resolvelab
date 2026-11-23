@@ -1,18 +1,33 @@
 [project]
 name = "resolvelab"
-version = "0.2.1"
+version = "0.3.0"
 description = "Evaluated, evidence-bound retail support workflows"
-requires-python = ">=3.12,<3.14"
+requires-python = ">=3.12,<3.13"
 dependencies = [
-  "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlalchemy>=2.0,<3",
-  "psycopg[binary]>=3.2,<4", "alembic>=1.14,<2", "pydantic>=2.10,<3",
-  "PyJWT[crypto]>=2.10,<3", "scikit-learn>=1.6,<2", "scipy>=1.15,<2",
-  "numpy>=2.2,<3", "joblib>=1.4,<2", "httpx>=0.28,<1",
-  "onnxruntime>=1.20,<2", "tokenizers>=0.21,<1", "python-dotenv>=1,<2", "jinja2>=3.1,<4"
+  "fastapi>=0.115,<1",
+  "uvicorn>=0.34,<1",
+  "sqlalchemy>=2.0,<3",
+  "psycopg[binary]>=3.2,<4",
+  "alembic>=1.14,<2",
+  "pydantic>=2.10,<3",
+  "PyJWT[crypto]>=2.10,<3",
+  "scikit-learn>=1.6,<2",
+  "scipy>=1.15,<2",
+  "numpy>=2.2,<3",
+  "joblib>=1.4,<2",
+  "httpx>=0.28,<1",
+  "onnxruntime>=1.20,<2",
+  "tokenizers>=0.21,<1",
+  "python-dotenv>=1,<2",
+  "jinja2>=3.1,<4",
+  "vercel-queue==0.10.0",
 ]
 
 [dependency-groups]
 dev = ["pytest>=8.3,<10", "pytest-cov>=6,<8", "matplotlib>=3.10,<4"]
+
+[tool.uv]
+default-groups = []
 
 [build-system]
 requires = ["hatchling"]
@@ -20,6 +35,9 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/resolvelab"]
+
+[[tool.vercel.subscribers]]
+entrypoint = "queue_worker"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

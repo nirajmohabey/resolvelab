@@ -1,8 +1,8 @@
 """Reviewed runtime grants shared by native and container administration."""
 from psycopg import sql
 
-READ_TABLES = ("tenants", "memberships", "corpus_versions", "documents", "chunks", "model_versions", "releases", "active_releases", "fixture_orders", "cases", "trace_events", "proposals", "proposal_evidence", "approvals", "actions", "handoffs", "idempotency_keys", "evaluation_runs")
-WRITE_TABLES = ("fixture_orders", "cases", "trace_events", "proposals", "proposal_evidence", "approvals", "actions", "handoffs", "idempotency_keys", "evaluation_runs")
+READ_TABLES = ("tenants", "memberships", "corpus_versions", "documents", "chunks", "model_versions", "releases", "active_releases", "fixture_orders", "cases", "trace_events", "proposals", "proposal_evidence", "approvals", "actions", "handoffs", "idempotency_keys", "evaluation_runs", "evaluation_reports", "evaluation_outbox")
+WRITE_TABLES = ("fixture_orders", "cases", "trace_events", "proposals", "proposal_evidence", "approvals", "actions", "handoffs", "idempotency_keys", "evaluation_runs", "evaluation_reports", "evaluation_outbox")
 
 
 def grant_runtime(conn, role_name):

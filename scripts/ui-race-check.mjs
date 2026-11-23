@@ -20,7 +20,7 @@ const EVAL_A = "dddddddd-dddd-4ddd-8ddd-dddddddddddd";
 const EVAL_B = "eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee";
 const RELEASE = "ffffffff-ffff-4fff-8fff-ffffffffffff";
 const initialAppHash = createHash("sha256").update(await readFile(path.join(ROOT, "web/app.js"))).digest("hex");
-const reviewedWebFiles = ["web/app.js", "web/index.html", "web/app.css", "web/auth-client-src.js", "web/auth-client.js"];
+const reviewedWebFiles = ["web/app.js", "web/index.html", "web/app.css", "web/auth-client-src.js", "web/auth-client.js", "package.json", "package-lock.json"];
 const webHashes = async () => Object.fromEntries(await Promise.all(reviewedWebFiles.map(async file => [file, createHash("sha256").update(await readFile(path.join(ROOT, file))).digest("hex")])));
 const initialWebHashes = await webHashes();
 const principal = { tenant_id: "11111111-1111-4111-8111-111111111111", role: "operator", subject: "ui-race-harness" };
@@ -90,6 +90,9 @@ export async function scenario(name, mode, run, options = {}) {
       export async function readAuthentication() { return { config: { mode: "oidc", configured: true }, token: "synthetic-oidc-token", expiresAt: Date.now() + 600000 }; }
       export async function beginSignIn() {}
       export function clearAuthentication() { window.__raceAuthCleared = true; }
+      export async function signInWithPassword() { throw new Error("Not a Neon scenario"); }
+      export async function signOutAuthentication() {}
+      export async function accountAction() { throw new Error("Not a Neon scenario"); }
     ` }));
   }
   await page.route("**/static/reports/summary.json", route => route.fulfill({ contentType: "application/json", body: "{}" }));

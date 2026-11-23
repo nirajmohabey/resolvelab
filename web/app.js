@@ -2,6 +2,9 @@ import {
   readAuthentication,
   beginSignIn,
   clearAuthentication,
+  signInWithPassword,
+  signOutAuthentication,
+  accountAction,
 } from "./auth-client.js";
 ("use strict");
 const $ = (s) => document.querySelector(s),
@@ -56,6 +59,8 @@ const state = {
   tab: "summary",
   releases: [],
   evaluations: [],
+  authFormMode: "signin",
+  authEmail: "",
 };
 class SessionChanged extends Error {
   constructor() {
@@ -108,20 +113,25 @@ async function api(path, options = {}) {
   if (!result || typeof result !== "object" || Array.isArray(result)) result = {};
   checkSession(generation, token);
   if (!response.ok) {
+    const err = result.error || result.detail || result;
+    const code = typeof err === "object" ? err.code : null;
     if (
       response.status === 401 &&
-      state.authConfig?.mode === "oidc" &&
+      ["oidc", "neon"].includes(state.authConfig?.mode) &&
+      code !== "identity_not_registered" &&
       state.token
     ) {
       requireSignIn("Your session expired. Sign in again.");
       throw new SessionChanged();
     }
-    const err = result.error || result.detail || result;
-    throw new Error(
+    const error = new Error(
       typeof err === "string"
         ? err
         : err.message || err.code || `Request failed (${response.status})`,
     );
+    error.status = response.status;
+    error.code = code;
+    throw error;
   }
   return result;
 }
@@ -175,6 +185,8 @@ let expiryTimer;
 let searchTimer;
 async function applySession(token, principal, organization, preferredCaseId = null) {
   const generation = ++state.sessionGeneration;
+  document.body.classList.remove("neon-login");
+  $("#detail").setAttribute("aria-label", "Selected case");
   state.pendingCreate = null;
   state.inlineKeys.clear();
   state.inlineOperation = null;
@@ -190,7 +202,7 @@ async function applySession(token, principal, organization, preferredCaseId = nu
   $$("#search, [data-filter], #refresh, #refreshInbox, #refreshEvaluations").forEach(control => control.disabled = false);
   const fixture = state.authConfig?.mode === "fixture";
   $("#apiReference").hidden = !fixture;
-  $(".build-label").textContent = fixture ? "v0.2 · Fixture retailer" : "v0.2 · Verified workspace";
+  $(".build-label").textContent = fixture ? "v0.3.0 · Fixture retailer" : "v0.3.0 · Verified workspace";
   $("#customerContextNote").textContent = fixture ? "Customer identity comes from the signed fixture session." : "Customer identity comes from the verified server session.";
   $(".examples").hidden = !fixture;
   const name =
@@ -211,7 +223,7 @@ async function applySession(token, principal, organization, preferredCaseId = nu
   $("#signOut").hidden = fixture;
   $("#actor").hidden = !fixture;
   $(".identity-label").hidden = !fixture;
-  $("#environmentTag").textContent = fixture ? "LOCAL" : "OIDC";
+  $("#environmentTag").textContent = fixture ? "LOCAL" : state.authConfig?.mode === "neon" ? "NEON" : "OIDC";
   $("#responseMode").textContent = fixture
     ? "Fixture workflow"
     : "Verified session";
@@ -237,6 +249,8 @@ async function applySession(token, principal, organization, preferredCaseId = nu
 }
 function requireSignIn(message = "Sign in to your support workspace.") {
   state.sessionGeneration++;
+  const neonMode = state.authConfig?.mode === "neon";
+  document.body.classList.toggle("neon-login", neonMode);
   clearTimeout(expiryTimer);
   clearAuthentication();
   state.token = null;
@@ -263,21 +277,22 @@ function requireSignIn(message = "Sign in to your support workspace.") {
   setCreating(false);
   renderPagination();
   $("#apiReference").hidden = true;
-  $(".build-label").textContent = "v0.2 · Verified workspace";
+  $(".build-label").textContent = "v0.3.0 · Verified workspace";
+  if (state.authConfig?.mode !== "fixture") $(".fixture-disclaimer").textContent = "Access is limited to your verified organization and server-managed permissions.";
   $("#actor").hidden = true;
   $(".identity-label").hidden = true;
   $("#signOut").hidden = true;
   $("#signIn").hidden = false;
   $("#signIn").textContent = "Sign in";
   $("#signIn").disabled = !(
-    state.authConfig?.mode === "oidc" && state.authConfig?.configured
+    ["oidc", "neon"].includes(state.authConfig?.mode) && state.authConfig?.configured
   );
   $("#newCase").disabled = true;
   $$("#search, [data-filter], #refresh, #refreshInbox, #refreshEvaluations").forEach(control => control.disabled = true);
   $$("[data-view]").forEach((button) => (button.disabled = true));
   $("#tenantName").innerHTML =
     "Support workspace<small>Sign-in required</small>";
-  $("#environmentTag").textContent = "OIDC";
+  $("#environmentTag").textContent = state.authConfig?.mode === "neon" ? "NEON" : "OIDC";
   $("#responseMode").textContent = "Sign-in required";
   [
     "#statTotal",
@@ -291,6 +306,13 @@ function requireSignIn(message = "Sign in to your support workspace.") {
   $("#caseCount").textContent = "—";
   $("#detail").innerHTML =
     '<div class="welcome-state"><div class="eyebrow">VERIFIED ACCESS</div><h2>Sign in to continue.</h2><p>Your organization and permissions are verified by the server.</p></div>';
+  if (neonMode) {
+    changeView("inbox");
+    $("#pageLabel").textContent = "Workspace access";
+    $("#detail").setAttribute("aria-label", "Workspace access");
+    $("#detail h2").outerHTML = "<h1>Sign in to your workspace.</h1>";
+  }
+  if (state.authConfig?.mode === "neon" && state.authConfig.configured) renderNeonForm();
   $("#evaluationContent").textContent = "";
   $("#releaseContent").textContent = "";
   $("#evaluationDetails").textContent = "";
@@ -310,7 +332,7 @@ async function login() {
   $("#signIn").hidden = true;
   $("#environmentTag").textContent = "LOCAL";
   $("#responseMode").textContent = "Connecting workspace";
-  $(".build-label").textContent = "v0.2 · Fixture retailer";
+  $(".build-label").textContent = "v0.3.0 · Fixture retailer";
   try {
     const result = await api("/v1/demo/session", {
       method: "POST",
@@ -341,40 +363,116 @@ async function bootstrapAuthentication() {
   try {
     const result = await readAuthentication();
     state.authConfig = result.config;
+    if (result.resetPending) state.authFormMode = "reset-confirm";
+    if (result.resetIssue) state.authFormMode = "reset-request";
     if (result.config.mode === "fixture") {
       await login();
       return;
     }
     if (!result.token) {
       requireSignIn(
-        result.config.configured
+        result.resetIssue ? "This reset link is invalid or expired. Request a new reset link." : result.config.configured
           ? "Sign in with your organization’s identity provider."
           : result.config.message ||
               "Workspace sign-in has not been configured.",
       );
       return;
     }
-    state.token = result.token;
-    state.sessionGeneration++;
-    const session = await api("/v1/session");
-    await applySession(result.token, session.principal, session.organization);
-    if (result.expiresAt)
-      expiryTimer = setTimeout(
-        () => requireSignIn("Your session expired. Sign in again to continue."),
-        Math.max(0, result.expiresAt - Date.now()),
-      );
+    await connectAuthentication(result);
   } catch (error) {
     if (error instanceof SessionChanged) return;
-    try {
-      state.authConfig = (await readAuthentication()).config;
-    } catch {}
-    requireSignIn(error.message);
+    if (state.authConfig?.mode !== "neon") {
+      try { state.authConfig = (await readAuthentication()).config; } catch {}
+    }
+    requireSignIn(authenticationMessage(error));
   }
 }
+function authenticationMessage(error) {
+  return state.authConfig?.mode === "neon" && (error.status === 403 || error.code === "identity_not_registered")
+    ? "You are signed in, but this account has no active workspace membership. Ask the workspace owner to grant access, then sign in again."
+    : error.message;
+}
+function renderNeonForm() {
+  const mode = state.authFormMode;
+  const labels = { signin: "Sign in", signup: "Create account", verify: "Verify email", "reset-request": "Send reset code", "reset-code": "Set new password", "reset-confirm": "Set new password" };
+  $("#detail .welcome-state").insertAdjacentHTML("beforeend", `<form id="neonSignInForm" class="workspace-sign-in" aria-label="Workspace account"><h2>${labels[mode]}</h2>${mode === "signup" ? '<label for="loginName">Name</label><input id="loginName" autocomplete="name" required>' : ""}${mode !== "reset-confirm" ? `<label for="loginEmail">Email</label><input id="loginEmail" type="email" autocomplete="username" value="${esc(state.authEmail)}" required>` : ""}${["signin", "signup", "reset-code", "reset-confirm"].includes(mode) ? `<label for="loginPassword">${mode.startsWith("reset-") ? "New password" : "Password"}</label><input id="loginPassword" type="password" autocomplete="${mode === "signin" ? "current-password" : "new-password"}" ${mode === "signin" ? "" : 'minlength="8"'} required>` : ""}${mode === "verify" ? '<label for="verificationCode">Verification code</label><input id="verificationCode" inputmode="numeric" autocomplete="one-time-code" required><p>If your email contains a verification link, open it instead.</p>' : ""}${mode === "reset-code" ? '<label for="resetCode">Password reset code</label><input id="resetCode" inputmode="numeric" autocomplete="one-time-code" required>' : ""}<button class="button primary" type="submit">${labels[mode]}</button><p>Use your verified workspace account. Access requires a membership granted by the workspace owner.</p>${mode === "signin" ? '<button class="button secondary" type="button" data-auth-mode="signup">Create an account</button><button class="button secondary" type="button" data-auth-mode="reset-request">Forgot password?</button><button class="button secondary" type="button" data-auth-mode="verify">Verify your email</button>' : '<button class="button secondary" type="button" data-auth-mode="signin">Back to sign in</button>'}${mode === "verify" ? '<button class="button secondary" type="button" id="resendVerification">Resend verification email</button>' : ""}<button class="button secondary" type="button" id="providerSignOut">Sign out of identity provider</button></form>`);
+  const values = () => ({ email: $("#loginEmail")?.value || state.authEmail, password: $("#loginPassword")?.value || "", name: $("#loginName")?.value || "", code: $("#verificationCode")?.value || $("#resetCode")?.value || "" });
+  $("#neonSignInForm").onsubmit = event => {
+    event.preventDefault(); if ($("#neonSignInForm").getAttribute("aria-busy") === "true") return;
+    const submitted = values(); state.authEmail = submitted.email;
+    if ($("#loginPassword")) $("#loginPassword").value = "";
+    if (mode === "signin") void passwordSignIn(submitted);
+    else void requestAccountAction(mode, submitted);
+  };
+  $$("[data-auth-mode]").forEach(button => button.onclick = () => {
+    state.authEmail = values().email; state.authFormMode = button.dataset.authMode;
+    requireSignIn("Your organization and permissions are verified by the server.");
+    $("#loginEmail, #loginPassword")?.focus();
+  });
+  if ($("#resendVerification")) $("#resendVerification").onclick = () => {
+    if (!$("#loginEmail").reportValidity()) return;
+    const submitted = values(); state.authEmail = submitted.email; void requestAccountAction("resend", submitted);
+  };
+  $("#providerSignOut").onclick = disconnectAuthentication;
+}
+async function requestAccountAction(action, values) {
+  requireSignIn("Working…"); const generation = state.sessionGeneration; authenticationBusy();
+  try {
+    const unverified = await accountAction(state.authConfig, action, values);
+    if (generation !== state.sessionGeneration) return;
+    let message;
+    if (action === "signup") { state.authFormMode = unverified ? "verify" : "signin"; message = unverified ? "Account created. Check your email for a verification code or link. Workspace access still requires approval from the owner." : "Account created. Ask the workspace owner to grant access, then sign in."; }
+    else if (action === "verify") { state.authFormMode = "signin"; message = "Email verified. Sign in after the workspace owner grants access."; }
+    else if (action === "resend") message = "If verification is available for this account, check your email for a new code or link.";
+    else if (action === "reset-request") { state.authFormMode = "reset-code"; message = "If the account exists, a password reset code has been sent. Check your email."; }
+    else { state.authFormMode = "signin"; message = "Password reset. Sign in with your new password."; }
+    requireSignIn(message);
+  } catch (error) { if (generation === state.sessionGeneration) requireSignIn(error.message); }
+}
+async function connectAuthentication(result, advanceGeneration = true) {
+  state.token = result.token;
+  if (advanceGeneration) state.sessionGeneration++;
+  const session = await api("/v1/session");
+  await applySession(result.token, session.principal, session.organization);
+  if (result.expiresAt) expiryTimer = setTimeout(
+    () => requireSignIn("Your session expired. Sign in again to continue."),
+    Math.max(0, result.expiresAt - Date.now()));
+}
+function authenticationBusy() {
+  $("#signIn").disabled = true;
+  $$("#neonSignInForm input, #neonSignInForm button").forEach(element => element.disabled = true);
+  $("#neonSignInForm")?.setAttribute("aria-busy", "true");
+}
+async function passwordSignIn(credentials) {
+  state.authEmail = credentials.email;
+  requireSignIn("Signing in…");
+  const generation = state.sessionGeneration;
+  authenticationBusy();
+  try {
+    const result = await signInWithPassword(state.authConfig, credentials);
+    if (generation !== state.sessionGeneration) return;
+    if (!result.token) throw new Error("Your sign-in could not be verified. Try again.");
+    await connectAuthentication(result, false);
+  } catch (error) {
+    if (error instanceof SessionChanged) return;
+    if (state.sessionGeneration !== generation) return;
+    requireSignIn(authenticationMessage(error));
+  }
+}
+async function disconnectAuthentication() {
+  const config = state.authConfig;
+  requireSignIn(config?.mode === "neon" ? "Signing out…" : "This workbench session is disconnected.");
+  if (config?.mode !== "neon") return;
+  const generation = state.sessionGeneration;
+  authenticationBusy();
+  try {
+    await signOutAuthentication(config);
+    if (generation === state.sessionGeneration) requireSignIn("You have signed out of the workbench and identity provider.");
+  } catch (error) { if (generation === state.sessionGeneration) requireSignIn(error.message); }
+}
 $("#signIn").onclick = () => state.authConfig?.mode === "fixture" ? login() :
-  beginSignIn(state.authConfig).catch((error) => notify(error.message, true));
-$("#signOut").onclick = () =>
-  requireSignIn("This workbench session is disconnected.");
+  state.authConfig?.mode === "neon" ? $("#loginEmail")?.focus() : beginSignIn(state.authConfig).catch((error) => notify(error.message, true));
+$("#signOut").onclick = disconnectAuthentication;
 async function refresh({ resetSelection = false, preserveCaseId = null } = {}) {
   const request = ++state.inboxRequest;
   const selectedId = preserveCaseId || (resetSelection ? null : state.selected?.case_id || state.selectingId);

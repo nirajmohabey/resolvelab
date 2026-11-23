@@ -13,7 +13,11 @@ parser.add_argument('--actor-id',type=UUID,required=True)
 parser.add_argument('--customer-subject',required=True)
 args=parser.parse_args()
 if admin_engine is None:raise SystemExit('ADMIN_DATABASE_URL is required for reviewed enrollment.')
-if args.issuer!=os.environ.get('OIDC_ISSUER') or not args.issuer.startswith('https://'):
+expected_issuer=os.environ.get('OIDC_ISSUER')
+if os.environ.get('AUTH_MODE')=='neon':
+    from resolvelab.neon_auth import settings
+    expected_issuer=settings()[1]
+if args.issuer!=expected_issuer or not args.issuer.startswith('https://'):
     raise SystemExit('Issuer must exactly match the configured trusted OIDC_ISSUER.')
 if not 1<=len(args.subject)<=300 or not 1<=len(args.customer_subject)<=200:
     raise SystemExit('Identity fields exceed supported lengths.')

@@ -808,7 +808,13 @@ def create_evaluation(principal, body, key, request_id=None):
     body = primitive(EvaluationRequest.model_validate(body).model_dump())
     with transaction(principal) as conn:
         p = assert_member(conn, principal, {"evaluator", "admin"})
-        if p.tenant_id != "11111111-1111-4111-8111-111111111111":
+        from .config import environment, deployment_tenants
+        benchmark_tenant = os.environ.get("EVALUATION_TENANT_ID")
+        if environment() == "local":
+            benchmark_tenant = benchmark_tenant or "11111111-1111-4111-8111-111111111111"
+        elif not benchmark_tenant or benchmark_tenant not in deployment_tenants():
+            raise DomainError(503, "evaluation_not_configured", "A reviewed benchmark tenant must be explicitly configured.")
+        if p.tenant_id != benchmark_tenant:
             raise DomainError(422, "fixture_dataset_organization_unsupported", "The fixture-v1 benchmark is defined only for Alpha Retail. No evaluation was queued.")
         if not os.environ.get("EVALUATION_DATABASE_URL") or not os.environ.get("ADMIN_EVALUATION_DATABASE_URL"):
             raise DomainError(503, "evaluation_not_configured", "A dedicated evaluation database must be configured before scheduling a run.", False)
@@ -825,6 +831,16 @@ def create_evaluation(principal, body, key, request_id=None):
         prior = _idem(conn, p, "create_evaluation", key, body)
         if prior:
             return _replay(prior, conn, p)
+        if environment() != "local":
+            quota = int(os.environ.get("EVALUATION_JOBS_PER_HOUR", "5"))
+            if not 1 <= quota <= 100:
+                raise DomainError(503, "evaluation_not_configured", "The evaluation request quota is invalid.")
+            budget = conn.execute(text("SELECT * FROM resolvelab.consume_rate_limit(:key,:quota,3600)"),
+                {"key":sha256(f"evaluation:{p.tenant_id}:{p.actor_id}".encode()).hexdigest(),"quota":quota}).mappings().one()
+            if not budget["allowed"]:
+                error = DomainError(429, "rate_limited", "The evaluation compute budget is exhausted. Retry later.")
+                error.retry_after = budget["retry_after"]
+                raise error
         _release(conn, p, body["release_id"])
         dataset_hash = sha256((ROOT / "fixtures/evaluation_cases.json").read_bytes()).hexdigest()
         result = _query_one(conn, """INSERT INTO resolvelab.evaluation_runs
@@ -833,5 +849,8 @@ def create_evaluation(principal, body, key, request_id=None):
                             {**_base(p), "release": body["release_id"], "hash": dataset_hash, "mode": body["mode"],
                              "environment": _json({"dataset_key": body["dataset_key"], "request_id": request_id or str(uuid4()), "attempts": 0})})
         result = primitive(result)
+        conn.execute(text("""INSERT INTO resolvelab.evaluation_outbox(tenant_id,evaluation_id)
+            VALUES(:tenant,:evaluation) ON CONFLICT DO NOTHING"""),
+                     {"tenant":p.tenant_id,"evaluation":result["evaluation_id"]})
         _remember(conn, p, "create_evaluation", key, body, result, 202)
         return result

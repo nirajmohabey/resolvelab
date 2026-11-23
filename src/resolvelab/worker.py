@@ -41,7 +41,8 @@ def _tenants():
     configured = os.environ.get("WORKER_TENANTS")
     if configured:
         return [str(UUID(value.strip())) for value in configured.split(",") if value.strip()]
-    return [x["tenant_id"] for x in json.loads((ROOT / "fixtures/evaluation_cases.json").read_text(encoding="utf-8"))["organizations"]]
+    from .config import deployment_tenants
+    return deployment_tenants()
 
 
 def _claim():
@@ -80,6 +81,12 @@ def _complete(principal, job, token, state, metrics, report=None, destination=No
             return False
         uri = None
         if report is not None:
+            conn.execute(text("""INSERT INTO resolvelab.evaluation_reports(tenant_id,evaluation_id,report)
+                VALUES(:tenant,:id,CAST(:report AS jsonb)) ON CONFLICT(tenant_id,evaluation_id)
+                DO UPDATE SET report=EXCLUDED.report"""),
+                {"tenant":principal.tenant_id,"id":job["evaluation_id"],"report":json.dumps(primitive(report),allow_nan=False)})
+            uri = "db:evaluation_reports/" + str(job["evaluation_id"])
+        if report is not None and os.environ.get("APP_ENV", "local") == "local":
             destination = destination or ROOT / "artifacts/evaluation" / str(job["evaluation_id"])
             destination.mkdir(parents=True,exist_ok=True)
             temporary = destination / ("workflow-evaluation."+token+".tmp")

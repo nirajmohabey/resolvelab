@@ -1,10 +1,76 @@
 /* Browser OIDC code flow. Provider secrets and access tokens never enter persistent storage. */
 import * as oauth from "oauth4webapi";
+import { createAuthClient } from "better-auth/client";
+import { emailOTPClient, jwtClient } from "better-auth/client/plugins";
 
 const PENDING_KEY = "resolvelab.oidc.pending.v1";
 const MAX_AGE_MS = 10 * 60 * 1000;
+let neonClient = null;
+let resetToken = null;
+let resetIssue = false;
+const resetCallback = new URL(location.href);
+if (resetCallback.searchParams.has("reset_password")) {
+  const value = resetCallback.searchParams.get("token");
+  resetToken = value && value.length <= 4096 ? value : null;
+  resetIssue = !resetToken;
+  resetCallback.searchParams.delete("token"); resetCallback.searchParams.delete("reset_password");
+  resetCallback.searchParams.delete("error");
+  history.replaceState({}, "", resetCallback);
+}
+
+function neon(value) {
+  if (value?.mode !== "neon" || !value.configured || value.auth_base_url !== "/auth")
+    throw new Error("Workspace sign-in is not configured.");
+  return neonClient ??= createAuthClient({ baseURL: new URL("/auth", location.origin).href,
+    plugins: [jwtClient(), emailOTPClient()], fetchOptions: { timeout: 15000, retry: 0 } });
+}
+async function neonAuthentication(config, credentials) {
+  const client = neon(config);
+  if (credentials) {
+    const result = await client.signIn.email(credentials);
+    if (result.error) throw new Error(result.error.status === 403
+      ? "Verify your email before signing in. Contact the workspace owner if you need access."
+      : "Sign-in failed. Check your email and password, then try again.");
+  }
+  const session = await client.getSession();
+  if (session.error) throw new Error("Sign-in is temporarily unavailable. Try again.");
+  if (!session.data?.session) return { config, token: null };
+  // The opaque provider cookie-session token never authorizes an app request.
+  const result = await client.token();
+  const token = result.data?.token;
+  if (result.error || typeof token !== "string" || token.split(".").length !== 3)
+    throw new Error("Your sign-in could not be verified. Sign in again.");
+  let expiresAt = null;
+  try { const claims = JSON.parse(atob(token.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))); if (Number.isFinite(claims.exp)) expiresAt = claims.exp * 1000; } catch {}
+  return { config, token, expiresAt };
+}
+export function signInWithPassword(config, credentials) { return neonAuthentication(configuration(config), credentials); }
+export async function accountAction(config, action, values) {
+  const provider = neon(configuration(config));
+  const result = action === "signup" ? await provider.signUp.email({ email: values.email, password: values.password, name: values.name, callbackURL: location.origin + "/" })
+    : action === "verify" ? await provider.emailOtp.verifyEmail({ email: values.email, otp: values.code })
+    : action === "resend" ? await provider.sendVerificationEmail({ email: values.email, callbackURL: location.origin + "/" })
+    : action === "reset-request" ? await provider.emailOtp.requestPasswordReset({ email: values.email })
+    : action === "reset-code" ? await provider.emailOtp.resetPassword({ email: values.email, otp: values.code, password: values.password })
+    : await provider.resetPassword({ newPassword: values.password, token: resetToken || "" });
+  if (result.error) throw new Error(action === "reset-confirm" ? "The password could not be reset. Check the new password or request a fresh reset link." : "The request could not be completed. Check your details and try again.");
+  if (action === "reset-confirm") { resetToken = null; resetIssue = false; }
+  return action === "signup" && result.data?.user && !result.data.user.emailVerified;
+}
+export async function signOutAuthentication(config) {
+  clearAuthentication();
+  if (config?.mode === "neon") {
+    const result = await neon(config).signOut();
+    if (result.error) throw new Error("The workbench disconnected, but provider sign-out failed. Try signing out again.");
+  }
+}
 
 function configuration(value) {
+  if (value?.mode === "neon") {
+    if (typeof value.configured !== "boolean" || value.auth_base_url !== "/auth")
+      throw new Error("Workspace sign-in configuration is invalid.");
+    return value;
+  }
   if (value?.mode === "fixture") {
     if (value.local !== true || value.demo !== true || value.configured !== true)
       throw new Error("Fixture sign-in is not available in this environment.");
@@ -83,6 +149,12 @@ export async function readAuthentication() {
   if (!response.ok)
     throw new Error("Workspace sign-in is temporarily unavailable.");
   const config = configuration(await response.json());
+  if (config.mode === "neon") {
+    if (callback) throw new Error("Start a new workspace sign-in request.");
+    if (resetToken) return { config, token: null, resetPending: true };
+    if (resetIssue) return { config, token: null, resetIssue: true };
+    return config.configured ? neonAuthentication(config) : { config, token: null };
+  }
   if (!callback) return { config, token: null };
   try {
     const pending = stored ? JSON.parse(stored) : null;
