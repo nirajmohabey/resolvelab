@@ -2,25 +2,31 @@
 
 An evaluated support workbench for a fictional online retailer. Operators inspect a trained route and versioned policy evidence, resolve tracking questions, prepare cancellations for human approval, or create a handoff. A model never authorizes an order change.
 
+**Live v0.3.0:** [Open ResolveLab](https://resolvelab-blush.vercel.app). The FastAPI backend and private evaluation consumer run on Vercel, with restricted Neon PostgreSQL roles, separate serving/evaluation databases, and Neon Managed Better Auth. A real verified owner identity is explicitly enrolled as an Alpha administrator. Public signup does not grant a membership; production fixture login is disabled. The retailer, orders and policies remain synthetic demonstration data.
+
 ![Operator workbench](artifacts/recheck-2026-11-23/live/browser/03-proposal.png)
 
 **Implemented:** FastAPI API, PostgreSQL migrations and tenant isolation, trained routing, lexical/dense/hybrid retrieval, structured responses, local approval transactions, durable traces, evaluation worker, release rollback, browser interface, repeatable fixtures, backup restore check and CI.
 
-**v0.2.1 intensive review:** 173 native Windows/PostgreSQL tests passed with zero failures or skips; 54 browser checks, 24 responsive checks, and nine axe scans passed with zero automated violations. A real exported-snapshot restore matched all 20 tables, and frozen model evaluations retained their original outcomes. The patch fixes retained-evidence access control, stale triage failure handling, model-cache pinning, action races, mobile overflow, and backup destination/cleanup guards. [Read the source-bound review](docs/REVIEW-2026-11-23.md). Current Linux/container execution was unavailable; the earlier 157 Windows and 157 Linux tests belong to v0.2.0. Accessibility manual-review items and hosted backend/IdP setup remain open.
+**Current verification:** 210 native Windows/PostgreSQL tests passed without failures or skips after the provider-cookie fix; the 210-test GitHub-hosted Linux CI run is also green. The frontend review passed 69 ResolveLab checks against the real frontend with intercepted provider/API responses. It includes 35 ResolveLab account-form accessibility scans; the combined ResolveLab/OrderFlow total is 65, not 65 ResolveLab scans. These checks are separate from the live provider/account proof and do not establish full WCAG conformance. A fresh exported-snapshot restore matched all **22 tables**, including populated durable evaluation report/outbox tables, and verified tracking and approval in an owned disposable database. [Native proof](artifacts/production-v0.3/checks/auth-cookie-fix/native-full.source-proof.json) · [Backup proof](artifacts/production-v0.3/backup/verification.json) · [Production scope](docs/PRODUCTION.md).
+
+**Historical v0.2.1:** The sealed review and its original test, browser and 20-table recovery evidence remain available in [the review note](docs/REVIEW-2026-11-23.md). Its hosted/IdP and Linux availability limits describe that earlier release, rather than the current deployment.
 
 The frozen v4 router achieved **0.8705 macro-F1 and 139/160 correct intents on a separately authored synthetic holdout**. Full workflow success was also **139/160 (86.9%)**. It accepted 104 routes, including **4 wrong accepted routes**; **1/40 unsupported requests was accepted**. All 160 order-effect audits completed with **zero unauthorized effects observed**. Seventeen supported requests were over-escalated. These are small, agent-authored synthetic tests, not customer accuracy or a reliability guarantee. [Inspect every outcome](artifacts/v4/blind-final/workflow-evaluation.html).
 
 On the **same 160 cases**, retained v1/v3/v4 releases completed 76/95/139 expected workflows respectively. This paired comparison is distinct from older 80- and 100-case audits. Historical failures, models and provenance remain available. See the [model card](docs/MODEL_CARD.md) and [analysis](artifacts/v4/analysis.json).
 
-The workbench supports OIDC Authorization Code + PKCE for a configured provider. Production API tokens are signature-verified and mapped to server-maintained memberships; token-supplied roles do not grant permissions. A hardened TLS/OIDC deployment template is included. A separate Vercel project is linked; the selected free Neon integration still requires account-side terms acceptance before provisioning. **A hosted backend, real merchant connector, real IdP integration and paid-provider benchmark have not been executed.** The portfolio uses the recorded local demonstration.
+The five frozen evaluations were refreshed before the final auth-cookie patch: V4/V3/V1 retained **139/95/76 of 160**, the baseline retained **19/20**, and deterministic invariants passed **20/20**. All 520 effect audits completed with zero runner errors or unauthorized effects observed. Those reports retain their original whole-backend hash. The final 210-test proof and [component attestation](artifacts/production-v0.3/checks/auth-cookie-fix/ml-component-attestation.json) identify the later cookie-proxy change and verify that the model, retrieval, worker, fixture and evaluation components stayed unchanged. No weights, thresholds or evaluation cases were tuned.
+
+Production uses the same-origin Neon Auth proxy and verifies Ed25519 JWT signatures, issuer, audience and expiry before resolving a server-maintained membership. Token-supplied roles do not grant permissions. Generic OIDC Authorization Code + PKCE remains supported for separately configured providers. Actual Vercel-to-private-Queue-to-Neon evaluations completed both a 20-case invariant job and a 20-case live-model job, with durable database reports and unchanged serving business data. Those jobs used an explicitly reviewed internal precondition; they are separate from an enrolled-user HTTP job-submission test. No real merchant connector or paid-provider benchmark is claimed.
 
 ## Run on Windows
 
 Prerequisites: Python 3.12, PostgreSQL 17 command-line tools, and uv. The verified environment used Python 3.12.14, PostgreSQL 17.12 and uv 0.11.25. The lockfile fixes library versions. Setup downloads pinned public source files; the running fixture demo needs no paid provider or external merchant account.
 
 ```powershell
-uv sync --frozen
 .\scripts\local.ps1 setup
+uv sync --frozen --group dev
 .venv\Scripts\python.exe scripts/populate_demo.py
 .\scripts\local.ps1 run
 ```
@@ -39,7 +45,7 @@ If PostgreSQL is installed elsewhere, set `PG_BIN` to its `bin` directory. API r
 
 For a case awaiting information, attach an order reference to the same case, then explicitly resolve again. The customer and release stay pinned; the new reference does not establish ownership. An approver can decline a pending proposal with a fixed reason, producing an escalation and immutable decision trace without executing the cancellation. Both paths require the expected case version and idempotency key. See [v0.2 hardening](docs/HARDENING.md).
 
-These signed local fixture identities are disabled outside `APP_ENV=local`. Production uses the separate OIDC flow and requires a real provider plus registered server-side memberships. See [production setup](docs/PRODUCTION.md).
+These signed local fixture identities are disabled outside `APP_ENV=local`. The hosted app uses Neon Auth and registered server-side memberships. See [production setup](docs/PRODUCTION.md).
 
 ## Reproduce checks and model results
 
@@ -77,18 +83,18 @@ python scripts/docker_env.py
 docker compose --env-file .env.docker up --build -d
 ```
 
-Compose includes API, worker, private PostgreSQL, one-shot migrations and durable named volumes. Only the API is published, on loopback. Generated `.env.docker` secrets are ignored. A private Linux microVM built and started the Compose stack with Docker 29.1.3: PostgreSQL 17.12 became healthy, API readiness returned HTTP 200 and the worker was running. The owned stack/volumes were then removed. This startup smoke does not establish containerized browser acceptance, an image OS audit or a production deployment. The same private Linux environment independently passed all 157 backend tests outside the containers. GitHub-hosted jobs remain blocked before execution by an account billing/runner restriction. See `artifacts/checks/linux-docker-smoke.json`.
+Compose includes API, worker, private PostgreSQL, one-shot migrations and durable named volumes. Only the API is published, on loopback. Generated `.env.docker` secrets are ignored. The earlier private Linux Docker startup smoke remains historical evidence in `artifacts/checks/linux-docker-smoke.json`; it is distinct from the current managed Vercel/Neon deployment. The public repository now runs free [GitHub Actions](https://github.com/nirajmohabey/resolvelab/actions), including Linux backend and container/browser jobs. An application test result does not audit the container or host operating system.
 
 ## Critical paths
 
 | Area | Implementation / evidence |
 |---|---|
 | Atomic proposal approval and idempotency | `src/resolvelab/service.py`; `tests/test_security_and_transactions.py` |
-| OIDC, server-side membership and RLS | `auth.py`, `config.py`, `db.py`, `migrations/versions/0002_security.py` |
+| Neon Auth/OIDC, server-side membership and RLS | `neon_auth.py`, `auth.py`, `config.py`, `db.py`, security migrations |
 | Immutable release pinning | `load_pinned_router`, `tests/test_pinned_artifacts.py`, `scripts/rollback.py` |
 | Training and leakage checks | `scripts/train*.py`, `artifacts/*manifest*.json`, split membership |
 | Release-pinned filtered retrieval | `src/resolvelab/retrieval.py`, `artifacts/retrieval-v2/report.json` |
-| Evaluation and recoverable jobs | `evaluate.py`, `worker.py`, `scripts/evaluate.py` |
+| Evaluation and recoverable jobs | `queue_jobs.py`, `queue_worker.py`, `evaluate.py`, `worker.py`, serverless jobs migration |
 | Recovery and operations | [Runbook](docs/RUNBOOK.md), `scripts/backup_check.py` |
 
 [Architecture and decisions](docs/ARCHITECTURE.md) · [Data dictionary](docs/DATA_DICTIONARY.md) · [Model card](docs/MODEL_CARD.md) · [Dataset card](docs/DATASET_CARD.md) · [Third-party attribution](NOTICE.md)
@@ -97,6 +103,6 @@ Compose includes API, worker, private PostgreSQL, one-shot migrations and durabl
 
 For optional hidden background processes on Windows, use `scripts/background.ps1 start` and `scripts/background.ps1 stop`. PostgreSQL is managed separately. The model rollback verification command is `python scripts/verify_rollback.py`; it restores the original active pointer when finished. A full training rebuild may produce different serialized bytes despite identical metrics; promote those bytes under a new model version or use a disposable fixture reset rather than replacing an existing release.
 
-The optional OpenAI Responses adapter is implemented and mock-tested, but has not been measured with a paid provider. It is deliberately restricted to the canonical supported answer; noncanonical drafts fail closed. No real order, payment, email, merchant connector or public backend deployment is claimed. MIT covers application source; dataset and model assets retain their original licenses.
+The optional OpenAI Responses adapter is implemented and mock-tested, but has not been measured with a paid provider. It is deliberately restricted to the canonical supported answer; noncanonical drafts fail closed. Hosted authentication is real; retailer operations remain synthetic and do not execute real merchant orders, refunds or payments. Free-plan quotas, cold starts and provider availability remain operating limits. No uptime SLA, production capacity result or zero-vulnerability guarantee is claimed. MIT covers application source; dataset and model assets retain their original licenses.
 
 [Production deployment](docs/PRODUCTION.md) · [Dependency audit](artifacts/security/README.md)
