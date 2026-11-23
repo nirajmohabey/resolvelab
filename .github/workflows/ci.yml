@@ -60,6 +60,20 @@ jobs:
           done
           docker compose --env-file .env.docker logs --no-color
           exit 1
+      - run: npm ci
+      - run: npx playwright install --with-deps chrome
+      - run: docker compose --env-file .env.docker exec -T api python scripts/populate_demo.py
+      - run: npm run test:browser
+      - run: npm run test:oidc
+      - run: npm run test:accessibility
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: browser-and-authentication-evidence
+          path: |
+            artifacts/browser
+            artifacts/accessibility
+            artifacts/security/oidc-browser-results.json
       - if: always()
         run: docker compose --env-file .env.docker down -v
 
