@@ -94,10 +94,15 @@ print('Restored tracking and atomic approval verified.')
     (out/'restore-report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     print(json.dumps(report,indent=2))
 finally:
-    if source_snapshot is not None:
-        source_snapshot.close()
-    if created:
-        with psycopg.connect(**config,dbname='postgres',autocommit=True) as conn:
-            # A failed CREATE must never authorize deleting a pre-existing DB.
-            conn.execute(sql.SQL('DROP DATABASE {} WITH (FORCE)').format(sql.Identifier(database)))
-    archive.unlink(missing_ok=True)
+    try:
+        if source_snapshot is not None:
+            source_snapshot.close()
+    finally:
+        try:
+            if created:
+                with psycopg.connect(**config,dbname='postgres',autocommit=True) as conn:
+                    # A failed CREATE must never authorize deleting a pre-existing DB.
+                    conn.execute(sql.SQL('DROP DATABASE {} WITH (FORCE)').format(sql.Identifier(database)))
+        finally:
+            # A failed connection close or DROP must not retain a private dump.
+            archive.unlink(missing_ok=True)
