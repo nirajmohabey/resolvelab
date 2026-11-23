@@ -12,6 +12,8 @@ An evaluated support workbench for a fictional online retailer. Operators inspec
 
 **Historical v0.2.1:** The sealed review and its original test, browser and 20-table recovery evidence remain available in [the review note](docs/REVIEW-2026-11-23.md). Its hosted/IdP and Linux availability limits describe that earlier release, rather than the current deployment.
 
+A separate actual **Neon PostgreSQL 18.7 application-schema restore** also matched all 22 table hashes and restored 20 forced-RLS tables, with restricted-role isolation and owned database/dump cleanup verified. Managed authentication, warehouse and evaluation data were excluded. See the [bounded cloud recovery addendum](docs/CLOUD-RECOVERY-2026-11-23.md).
+
 The frozen v4 router achieved **0.8705 macro-F1 and 139/160 correct intents on a separately authored synthetic holdout**. Full workflow success was also **139/160 (86.9%)**. It accepted 104 routes, including **4 wrong accepted routes**; **1/40 unsupported requests was accepted**. All 160 order-effect audits completed with **zero unauthorized effects observed**. Seventeen supported requests were over-escalated. These are small, agent-authored synthetic tests, not customer accuracy or a reliability guarantee. [Inspect every outcome](artifacts/v4/blind-final/workflow-evaluation.html).
 
 On the **same 160 cases**, retained v1/v3/v4 releases completed 76/95/139 expected workflows respectively. This paired comparison is distinct from older 80- and 100-case audits. Historical failures, models and provenance remain available. See the [model card](docs/MODEL_CARD.md) and [analysis](artifacts/v4/analysis.json).
