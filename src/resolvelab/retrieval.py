@@ -14,6 +14,41 @@ ROOT = Path(__file__).resolve().parents[2]
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
 EMBEDDING_DIMENSION = 384
 RRF_K = 60
+MAX_CORPUS_SECTIONS = 64
+MAX_SECTION_BYTES = 16 * 1024
+MAX_CORPUS_BYTES = 256 * 1024
+MAX_TITLE_BYTES = 512
+MAX_SOURCE_LABEL_BYTES = 256
+MAX_LOCATOR_BYTES = 256
+EMBEDDING_NORM_TOLERANCE = 1e-3
+
+
+class CorpusAdmissionError(RuntimeError):
+    """The pinned corpus cannot safely be ranked; publish a corrected version."""
+
+
+def _validate_embedding(vector, dimension):
+    if vector is None or dimension != EMBEDDING_DIMENSION:
+        raise CorpusAdmissionError("Corpus embedding dimension/version mismatch; rebuild a new corpus version")
+    try:
+        value = np.asarray(vector, dtype=np.float64)
+    except (TypeError, ValueError) as error:
+        raise CorpusAdmissionError("Corpus embedding must be a finite unit vector") from error
+    if (value.shape != (EMBEDDING_DIMENSION,) or not np.isfinite(value).all()
+            or abs(float(np.linalg.norm(value)) - 1.0) > EMBEDDING_NORM_TOLERANCE):
+        raise CorpusAdmissionError("Corpus embedding must be a finite unit vector")
+
+
+def _validate_corpus_size(section_count, section_bytes, total_bytes):
+    if (section_count > MAX_CORPUS_SECTIONS or section_bytes > MAX_SECTION_BYTES
+            or total_bytes > MAX_CORPUS_BYTES):
+        raise CorpusAdmissionError("Corpus exceeds the published section/byte admission limits")
+
+
+def _validate_metadata_size(title_bytes, source_label_bytes, locator_bytes):
+    if (title_bytes > MAX_TITLE_BYTES or source_label_bytes > MAX_SOURCE_LABEL_BYTES
+            or locator_bytes > MAX_LOCATOR_BYTES):
+        raise CorpusAdmissionError("Corpus exceeds the published metadata byte admission limits")
 
 
 @lru_cache(maxsize=1)
@@ -71,9 +106,47 @@ def retrieve(conn, tenant_id, corpus_id, query: str, role: str, mode: str = "hyb
     if lexical_mode not in {"all","any"}:raise ValueError("Unsupported lexical query semantics")
     limit = max(1, min(int(limit), 20))
     lexical_query=" OR ".join(re.findall(r"\w+",query)[:128]) if lexical_mode=="any" else query
+    # Measure bounded, tenant-scoped metadata before materializing any body or
+    # vector. Count all access scopes: admin sections share the corpus budget.
+    # Existing immutable historical corpora are not rewritten by the migration;
+    # an out-of-policy historical version must fail admission, not lose evidence.
+    admission = conn.execute(text("""
+        SELECT v.embedding_model_revision, v.embedding_dimension,
+               a.section_count, a.section_bytes, a.total_bytes,
+               a.title_bytes, a.source_label_bytes, a.locator_bytes
+        FROM resolvelab.corpus_versions v
+        CROSS JOIN LATERAL (
+            SELECT count(*) AS section_count,
+                   coalesce(max(b.body_bytes), 0) AS section_bytes,
+                   coalesce(sum(b.body_bytes), 0) AS total_bytes,
+                   coalesce(max(b.title_bytes), 0) AS title_bytes,
+                   coalesce(max(b.source_label_bytes), 0) AS source_label_bytes,
+                   coalesce(max(b.locator_bytes), 0) AS locator_bytes
+            FROM (SELECT octet_length(c.body) AS body_bytes,
+                         octet_length(d.title) AS title_bytes,
+                         octet_length(d.source_label) AS source_label_bytes,
+                         octet_length(c.locator) AS locator_bytes
+                  FROM resolvelab.chunks c
+                  JOIN resolvelab.documents d USING (tenant_id, corpus_id, document_id)
+                  WHERE c.tenant_id=v.tenant_id AND c.corpus_id=v.corpus_id
+                  LIMIT :candidate_limit) b
+        ) a
+        WHERE v.tenant_id=:tenant AND v.corpus_id=:corpus AND v.state='published'
+    """), {"tenant": str(tenant_id), "corpus": str(corpus_id),
+           "candidate_limit": MAX_CORPUS_SECTIONS + 1}).mappings().one_or_none()
+    if admission is None:
+        return []
+    _validate_corpus_size(admission["section_count"], admission["section_bytes"], admission["total_bytes"])
+    _validate_metadata_size(admission["title_bytes"], admission["source_label_bytes"], admission["locator_bytes"])
+    if (admission["embedding_model_revision"] != EMBEDDING_MODEL
+            or admission["embedding_dimension"] != EMBEDDING_DIMENSION):
+        raise CorpusAdmissionError("Corpus embedding dimension/version mismatch; rebuild a new corpus version")
     rows = conn.execute(text("""
         SELECT c.chunk_id, c.document_id, c.corpus_id, c.locator, c.body,
-               c.embedding, c.embedding_dimension, d.source_label, d.title,
+               CASE WHEN c.embedding_dimension=384 AND cardinality(c.embedding)=384
+                         AND array_ndims(c.embedding)=1 THEN c.embedding
+                    ELSE NULL END AS embedding,
+               c.embedding_dimension, d.source_label, d.title,
                v.embedding_model_revision, v.embedding_dimension AS corpus_dimension,
                CASE WHEN :lexical_any THEN ts_rank_cd(c.lexical,websearch_to_tsquery('english',:lexical_query))
                     ELSE ts_rank_cd(c.lexical,plainto_tsquery('english',:query)) END AS lexical_score
@@ -84,22 +157,29 @@ def retrieve(conn, tenant_id, corpus_id, query: str, role: str, mode: str = "hyb
           AND v.state = 'published'
           AND (d.access_scope = 'support' OR :is_admin)
         ORDER BY c.chunk_id
+        LIMIT :candidate_limit
     """), {"tenant": str(tenant_id), "corpus": str(corpus_id), "query": query,
-           "is_admin": role == "admin","lexical_any":lexical_mode=="any","lexical_query":lexical_query}).mappings().all()
+           "is_admin": role == "admin","lexical_any":lexical_mode=="any","lexical_query":lexical_query,
+           "candidate_limit": MAX_CORPUS_SECTIONS + 1}).mappings().all()
     if not rows:
         return []
     candidates = [dict(row) for row in rows]
+    body_sizes = [len(row["body"].encode("utf-8")) for row in candidates]
+    _validate_corpus_size(len(candidates), max(body_sizes), sum(body_sizes))
+    for candidate in candidates:
+        _validate_metadata_size(*(len(candidate[field].encode("utf-8")) for field in ("title", "source_label", "locator")))
+        if (candidate["corpus_dimension"] != EMBEDDING_DIMENSION
+                or candidate["embedding_model_revision"] != EMBEDDING_MODEL):
+            raise CorpusAdmissionError("Corpus embedding dimension/version mismatch; rebuild a new corpus version")
+        _validate_embedding(candidate["embedding"], candidate["embedding_dimension"])
     lexical = sorted(range(len(candidates)), key=lambda i: (-float(candidates[i]["lexical_score"]), str(candidates[i]["chunk_id"])))
     if lexical_mode=="any":lexical=[i for i in lexical if float(candidates[i]["lexical_score"])>0]
     dense = []
     if mode in {"dense", "hybrid"}:
         query_vector = embed([query])[0]
+        _validate_embedding(query_vector, EMBEDDING_DIMENSION)
         for candidate in candidates:
             vector = candidate["embedding"]
-            if (vector is None or candidate["embedding_dimension"] != EMBEDDING_DIMENSION
-                    or candidate["corpus_dimension"] != EMBEDDING_DIMENSION
-                    or candidate["embedding_model_revision"] != EMBEDDING_MODEL or len(vector) != EMBEDDING_DIMENSION):
-                raise RuntimeError("Corpus embedding dimension/version mismatch; rebuild a new corpus version")
             candidate["dense_score"] = float(np.dot(np.asarray(vector, dtype=np.float32), query_vector))
         dense = sorted(range(len(candidates)), key=lambda i: (-candidates[i]["dense_score"], str(candidates[i]["chunk_id"])))
     if mode == "lexical":

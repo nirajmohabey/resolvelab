@@ -1,0 +1,20 @@
+{
+  "reason": "Static v0.1 report snapshots before source-only v0.2 refresh.",
+  "files_sha256": {
+    "analysis.json": "cc9d7c50c45594afd86c8087a94f8953080aacd81957f8b3f45638b7413ff9de",
+    "assets/retrieval-benchmark-v2.png": "7f9ba7b468437a8d75bc94c001c0e22006c8cf0ff31eb12f6b6c7e5c31c6355d",
+    "assets/retrieval-benchmark-v2.svg": "4b4dc1fbd71f5591fb7705ebeb345164d910a60f8807afbd7ca177ca815d592b",
+    "assets/routing-blind-comparison-v4.png": "8c9a42faef0bcebd10d8534c52130227272e96773864c0d9dd937c0d9eff5e2c",
+    "assets/routing-blind-comparison-v4.svg": "26de1a1f1d2fb9023604b2c7f9ce1aabd19529634aaa7bcb4be9d2a16cf292c0",
+    "assets/routing-development-v4.png": "82371656a668ad10850b9a476133c6b60afd0164f37d6bb5e886337b905dbe2f",
+    "assets/routing-development-v4.svg": "946bbb09685200aa767211308eafc42a1d683028b0c9358ae3715c502abb2d52",
+    "assets/routing-error-v3.png": "7d20b4c0b8fc0656aae491e3b1485c989d4e0c42143a9b517101bf708f931721",
+    "assets/routing-error-v3.svg": "9e8acac7d5edd95d5f925effba328244c6921418743c510bc038c8a89b990100",
+    "assets/routing-resources-v4.png": "10f1c0db2c3259b89d8c4255c83c527b6162a0c9c787ae97ce442d0f3682fd94",
+    "assets/routing-resources-v4.svg": "2364fd301c786b84fc4a5d3ab9940a61ebcf07a6dfaf249806a6506343eeb1a5",
+    "independent-evaluation.html": "27453126e53c2f4dc6a8bc10dde6360d3e3e3881bb6cc48f0c8b915f7c3e0a1b",
+    "model_report.json": "65133e2b420cad5f4a3183eb331296f94c731bf3404dd58e4dc63b83513a9f05",
+    "summary.json": "0412d1442bb4b2b80265a79bffa0af613f1fd66cc3c67336dfa843461c72c35b",
+    "workflow-evaluation.html": "ca428aceb38a29322d5824943803bcc6b4df80a825f90219cb6b3c8a12296c43"
+  }
+}

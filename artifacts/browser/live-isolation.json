@@ -1,0 +1,86 @@
+{
+  "source_database": "resolvelab",
+  "browser_database": "resolvelab_browser_627c7011f53e",
+  "host": "127.0.0.1",
+  "port": 55439,
+  "source_reset": false,
+  "test_database_used": false,
+  "browser_worker_evaluation_database": "resolvelab_evaluation",
+  "source_before": {
+    "counts": {
+      "tenants": 2,
+      "cases": 7,
+      "fixture_orders": 5,
+      "proposals": 1,
+      "actions": 0,
+      "evaluation_runs": 3
+    },
+    "orders": [
+      [
+        "A-100",
+        "pending",
+        1
+      ],
+      [
+        "B-100",
+        "pending",
+        1
+      ]
+    ]
+  },
+  "env_sha256_before": "2c19d354df627afaa72ef14fc6503a85aee6f4ee841f19feee2dbbeb5d8c6f60",
+  "api_pid": 613144,
+  "worker_pid": 616460,
+  "owned_browser_database_removed": true,
+  "source_after": {
+    "counts": {
+      "tenants": 2,
+      "cases": 7,
+      "fixture_orders": 5,
+      "proposals": 1,
+      "actions": 0,
+      "evaluation_runs": 3
+    },
+    "orders": [
+      [
+        "A-100",
+        "pending",
+        1
+      ],
+      [
+        "B-100",
+        "pending",
+        1
+      ]
+    ]
+  },
+  "source_database_preserved": true,
+  "env_sha256_after": "2c19d354df627afaa72ef14fc6503a85aee6f4ee841f19feee2dbbeb5d8c6f60",
+  "env_unchanged": true,
+  "commands": [
+    {
+      "command": "migrate_fresh_browser_database",
+      "exit_code": 0
+    },
+    {
+      "command": "seed_empty_browser_database",
+      "exit_code": 0
+    },
+    {
+      "command": "populate_browser_demo",
+      "exit_code": 0
+    },
+    {
+      "command": "live_browser_11",
+      "exit_code": 0
+    },
+    {
+      "command": "oidc_browser_9",
+      "exit_code": 0
+    },
+    {
+      "command": "accessibility_9",
+      "exit_code": 0
+    }
+  ]
+}

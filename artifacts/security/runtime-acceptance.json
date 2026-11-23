@@ -1,0 +1,83 @@
+{
+  "generated_at": "2026-11-23T09:25:33.028352+00:00",
+  "scope": "In-process HTTP+real PostgreSQL in a fresh disposable audit DB; no serving/test/evaluation database reset, no external provider calls.",
+  "checks": [
+    {
+      "name": "64 simultaneous create attempts preserve one identity",
+      "passed": true,
+      "attempts": 64
+    },
+    {
+      "name": "other tenant cannot read same existing case",
+      "passed": true
+    },
+    {
+      "name": "24 parallel approvals commit exactly one effect",
+      "passed": true,
+      "successful_replay_responses": 24,
+      "effects": 1
+    },
+    {
+      "name": "input rejection: null-message",
+      "passed": true,
+      "status": 422
+    },
+    {
+      "name": "input rejection: duplicate-key",
+      "passed": true,
+      "status": 422
+    },
+    {
+      "name": "input rejection: nonfinite",
+      "passed": true,
+      "status": 422
+    },
+    {
+      "name": "input rejection: deep-json",
+      "passed": true,
+      "status": 422
+    },
+    {
+      "name": "input rejection: invalid-utf8",
+      "passed": true,
+      "status": 422
+    },
+    {
+      "name": "oversized body rejected",
+      "passed": true,
+      "status": 413
+    },
+    {
+      "name": "bounded literal search: \"' OR 1=1 --\"",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "bounded literal search: '%_\\\\'",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "bounded literal search: 'bad\\x00query'",
+      "passed": true,
+      "status": 422
+    },
+    {
+      "name": "API stays ready after bounded concurrency and malformed inputs",
+      "passed": true
+    }
+  ],
+  "passed": 13,
+  "total": 13,
+  "concurrency": {
+    "create_attempts": 64,
+    "create_parallelism": 16,
+    "approval_attempts": 24,
+    "approval_parallelism": 12,
+    "create_p50_ms": 87.88075001211837,
+    "create_p95_ms": 210.01529996283352
+  },
+  "limitations": [
+    "Bounded fixture acceptance/concurrency proof, not production capacity or general vulnerability absence."
+  ]
+}

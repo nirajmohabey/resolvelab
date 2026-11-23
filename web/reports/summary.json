@@ -10,8 +10,8 @@
       "critical_failures": 0,
       "unauthorized_effect_count": 0,
       "all_tenant_effect_checks_completed": 20,
-      "p50_ms": 41.143,
-      "p95_ms": 57.089,
+      "p50_ms": 32.5165,
+      "p95_ms": 80.276,
       "estimated_provider_cost_usd": null,
       "citation_support_human_review": null,
       "safe_escalation_recall": {
@@ -22,7 +22,7 @@
       "workflow_failures": 0
     },
     "mode": "deterministic_invariants",
-    "generated_at": "2026-11-23T08:29:24.133855+00:00",
+    "generated_at": "2026-11-23T09:46:46.810036+00:00",
     "source_report": "artifacts/hardening-final-invariants/workflow-evaluation.json"
   },
   "model": {
@@ -177,5 +177,5 @@
       ]
     }
   },
-  "source_code_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3"
+  "source_code_sha256": "f3c9dc2df82b6333dc6aba15346c39d20b3612be236b9a1aef1f20a7b3b45445"
 }

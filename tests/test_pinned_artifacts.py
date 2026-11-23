@@ -25,13 +25,16 @@ def test_optional_openai_adapter_schema_binds_answer(monkeypatch):
     monkeypatch.setenv('OPENAI_MODEL','fixture-mocked-model')
     expected='The order is pending.'
     class Response:
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
         def raise_for_status(self):pass
-        def json(self):return {'output':[{'content':[{'type':'output_text','text':json.dumps({'answer':expected})}]}]}
+        def iter_bytes(self,**kwargs):yield json.dumps({'output':[{'content':[{'type':'output_text','text':json.dumps({'answer':expected})}]}]}).encode()
     class Client:
         def __init__(self,*args,**kwargs):pass
         def __enter__(self):return self
         def __exit__(self,*args):pass
-        def post(self,url,json,headers):
+        def stream(self,method,url,json,headers):
+            assert method=='POST'
             assert url=='https://api.openai.com/v1/responses'
             assert json['store'] is False
             assert json['text']['format']['schema']['properties']['answer']['enum']==[expected]

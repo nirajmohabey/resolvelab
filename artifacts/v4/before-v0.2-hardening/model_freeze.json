@@ -1,0 +1,14 @@
+{
+  "version": "domain-router-v4",
+  "artifact_uri": "artifacts/router-domain-v4.joblib",
+  "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+  "threshold": 0.425,
+  "model_manifest_sha256": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+  "new_blind_audit": "not opened; evaluate only after this freeze",
+  "active_pointer": "unchanged",
+  "retrieval_config": {
+    "mode": "dense",
+    "version": "dense-minilm-v1"
+  },
+  "metadata_update": "Retrieval release configuration added before fresh blind evaluation; model bytes and threshold unchanged."
+}

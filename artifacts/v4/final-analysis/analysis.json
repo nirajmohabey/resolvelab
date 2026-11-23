@@ -4,7 +4,7 @@
   "semantic_groups": 87,
   "replicates": 5000,
   "bootstrap_seed": 42,
-  "uncertainty_method": "Percentile paired cluster bootstrap; resample87 authored semantic groups with replacement, retain all their case variants; same resample for all releases. These nonrandom synthetic groups are not a representative customer sample, so intervals describe this audit's group sensitivity rather than production generalization.",
+  "uncertainty_method": "Percentile paired cluster bootstrap; resample 87 authored semantic groups with replacement, retain all their case variants; same resample for all releases. These nonrandom synthetic groups are not a representative customer sample, so intervals describe this audit's group sensitivity rather than production generalization.",
   "points": {
     "TF-IDF v1": {
       "workflow_success": 0.475,
@@ -237,8 +237,8 @@
       "model_manifest_sha256": "00618a246af41b80b972457fd7c738398eed9a2d2cc2d91543f5b935963f343a",
       "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
       "retrieval_version": "hybrid-rrf-v1",
-      "source_report_sha256": "3f961e7edc014a94573108fb5dcb2d3657a10ee9cf52ece8ba705792303382b3",
-      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "source_report_sha256": "c661b0444fa6f5df6657abc29f8ed3e23881f67b608349b9dc99a1c3192f50e8",
+      "code_tree_sha256": "f3c9dc2df82b6333dc6aba15346c39d20b3612be236b9a1aef1f20a7b3b45445",
       "unauthorized_effect_count": 0,
       "effect_audits_completed": 160,
       "runner_errors": 0
@@ -249,8 +249,8 @@
       "model_manifest_sha256": "d9012f185d359399e3069c97c780ce96c8bf7042bea09e300697d7a9160362f1",
       "release_id": "70ca5649-301c-540a-a93d-abfcf24703e3",
       "retrieval_version": "hybrid-rrf-v1",
-      "source_report_sha256": "bb05e78659f48a143d6af33fe434f315a07ce5e35203a4632f62c47c98b32647",
-      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "source_report_sha256": "acd6558541bbd6e7171e23e30d1a77242361b10740e6bbc228850a589701d36b",
+      "code_tree_sha256": "f3c9dc2df82b6333dc6aba15346c39d20b3612be236b9a1aef1f20a7b3b45445",
       "unauthorized_effect_count": 0,
       "effect_audits_completed": 160,
       "runner_errors": 0
@@ -261,8 +261,8 @@
       "model_manifest_sha256": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
       "release_id": "84f8a907-04de-5257-af61-98f317392d01",
       "retrieval_version": "dense-minilm-v1",
-      "source_report_sha256": "1271b20677672f9d81ab7b437a8e6f6330367d288ee05e6b8ac0f90195f5d5af",
-      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "source_report_sha256": "0e48fe43e30a3785b62069dd8f1d98e6232747dfde37dab0087eb47a4eeaf797",
+      "code_tree_sha256": "f3c9dc2df82b6333dc6aba15346c39d20b3612be236b9a1aef1f20a7b3b45445",
       "unauthorized_effect_count": 0,
       "effect_audits_completed": 160,
       "runner_errors": 0
@@ -278,8 +278,8 @@
     "critical_failures": 21,
     "unauthorized_effect_count": 0,
     "all_tenant_effect_checks_completed": 160,
-    "p50_ms": 36.643,
-    "p95_ms": 47.395,
+    "p50_ms": 36.6785,
+    "p95_ms": 49.508,
     "estimated_provider_cost_usd": null,
     "citation_support_human_review": null,
     "safe_escalation_recall": {
@@ -680,6 +680,6 @@
       "failure": "routing mismatch: expected out_of_scope, got track_order"
     }
   ],
-  "interpretation": "V4 improves paired workflow coverage but accepts4 wrong routes/104 and1 unsupported case/40.27 rule denials are not model probabilities;6 human requests were over-denied into unsupported scope. Every cancellation still needs an authorized exact-proposal approval. No model tuning followed this audit.",
+  "interpretation": "V4 improves paired workflow coverage but accepts 4 wrong routes/104 and 1 unsupported case/40. 27 rule denials are not model probabilities; 6 human requests were over-denied into unsupported scope. Every cancellation still needs an authorized exact-proposal approval. No model tuning followed this audit.",
   "claim_support_human_review": null
 }

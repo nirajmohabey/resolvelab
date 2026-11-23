@@ -1,11 +1,47 @@
 """Shared request budgets and browser policy without trusting forwarded clients."""
 from hashlib import sha256
+import json
 import os
 
 from sqlalchemy import text
 
 from .db import engine
 from .schemas import DomainError
+
+
+def strict_request_json(body: bytes):
+    """Bound JSON nesting and reject ambiguous/nonstandard values before routing."""
+    value = body.decode("utf-8")
+    depth, quoted, escaped = 0, False, False
+    for character in value:
+        if quoted:
+            if escaped:
+                escaped = False
+            elif character == "\\":
+                escaped = True
+            elif character == '"':
+                quoted = False
+        elif character == '"':
+            quoted = True
+        elif character in "[{":
+            depth += 1
+            if depth > 32:
+                raise ValueError("JSON nesting exceeds the request contract")
+        elif character in "]}":
+            depth -= 1
+
+    def pairs(items):
+        result = {}
+        for key, item in items:
+            if key in result:
+                raise ValueError("Duplicate JSON object key")
+            result[key] = item
+        return result
+
+    def invalid_constant(value):
+        raise ValueError("Nonfinite JSON constant")
+
+    return json.loads(value, object_pairs_hook=pairs, parse_constant=invalid_constant)
 
 
 def consume_budget(scope, quota, window=60):

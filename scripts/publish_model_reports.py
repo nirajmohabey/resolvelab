@@ -43,7 +43,7 @@ def main():
                   "paired_final_analysis":analysis,"development_analysis":load("artifacts/v4/analysis.json"),"split_audit":load("artifacts/v4/split_audit.json"),
                   "retrieval_benchmark":load("artifacts/retrieval-v2/report.json"),"cpu_resources":load("artifacts/v4/resources.json"),
                   "source_baseline":load("artifacts/routing_report.json"),"human_claim_support_review":None,"paid_provider_quality_and_cost":None,
-                  "interpretation":"V4 primarily improves accepted workflow coverage versus v3, while raw paired macro-F1 is similar. Accepted errors4/104 and unsupported acceptance1/40 remain. Scope-rule decisions are not calibrated probabilities. Synthetic agent-authored groups do not establish real-customer or unattended-production quality."}
+                  "interpretation":"V4 primarily improves accepted workflow coverage versus v3, while raw paired macro-F1 is similar. Accepted errors 4/104 and unsupported acceptance 1/40 remain. Scope-rule decisions are not calibrated probabilities. Synthetic agent-authored groups do not establish real-customer or unattended-production quality."}
     write(DEST/"summary.json",summary);write(DEST/"model_report.json",model_report)
     shutil.copy2(ROOT/"artifacts/v4/blind-final/workflow-evaluation.html",DEST/"independent-evaluation.html")
     shutil.copy2(invariant_path.with_suffix(".html"),DEST/"workflow-evaluation.html")

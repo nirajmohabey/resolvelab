@@ -20,6 +20,9 @@ const EVAL_A = "dddddddd-dddd-4ddd-8ddd-dddddddddddd";
 const EVAL_B = "eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee";
 const RELEASE = "ffffffff-ffff-4fff-8fff-ffffffffffff";
 const initialAppHash = createHash("sha256").update(await readFile(path.join(ROOT, "web/app.js"))).digest("hex");
+const reviewedWebFiles = ["web/app.js", "web/index.html", "web/app.css", "web/auth-client-src.js", "web/auth-client.js"];
+const webHashes = async () => Object.fromEntries(await Promise.all(reviewedWebFiles.map(async file => [file, createHash("sha256").update(await readFile(path.join(ROOT, file))).digest("hex")])));
+const initialWebHashes = await webHashes();
 const principal = { tenant_id: "11111111-1111-4111-8111-111111111111", role: "operator", subject: "ui-race-harness" };
 const organization = { display_name: "Read-only race harness" };
 const cases = [A, B].map((case_id, i) => ({
@@ -48,8 +51,7 @@ const server = createServer(async (request, response) => {
     response.end(await readFile(path.join(ROOT, "web", file[0])));
   } catch { response.writeHead(500); response.end(); }
 });
-await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
-const origin = `http://127.0.0.1:${server.address().port}`;
+let origin;
 const results = [];
 let browser;
 
@@ -74,9 +76,9 @@ function defaultReply(method, pathname) {
   throw new Error(`Unexpected mock endpoint: ${method} ${pathname}`);
 }
 
-async function scenario(name, mode, run) {
+export async function scenario(name, mode, run, options = {}) {
   const started = performance.now();
-  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+  const context = await browser.newContext({ viewport: options.viewport || { width: 1440, height: 1000 }, reducedMotion: "reduce" });
   const page = await context.newPage();
   page.setDefaultTimeout(8000);
   page.setDefaultNavigationTimeout(10000);
@@ -94,14 +96,16 @@ async function scenario(name, mode, run) {
   await page.route("**/v1/**", async route => {
     const method = route.request().method(), pathname = new URL(route.request().url()).pathname;
     requests.push({ method, pathname });
-    const gate = gates.find(item => !item.used && item.method === method && item.pathname === pathname);
+    const gate = gates.find(item => !item.used && item.method === method && item.pathname === pathname && (!item.match || item.match(route.request())));
     try {
       if (gate) { gate.used = true; gate.observed.resolve(); await gate.release.promise; }
       if (gate?.abort) { await route.abort("failed"); return; }
       const custom = replies.get(`${method} ${pathname}`);
       const reply = custom ? await custom(route.request()) : null;
       if (reply?.abort) { await route.abort("failed"); return; }
-      await route.fulfill({ status: gate?.status || reply?.status || 200, contentType: "application/json", body: JSON.stringify(gate?.body ?? reply?.body ?? defaultReply(method, pathname)) });
+      let body = gate?.body ?? reply?.body ?? defaultReply(method, pathname);
+      if (options.role && ["/v1/demo/session", "/v1/session"].includes(pathname)) body = { ...body, principal: { ...body.principal, role: options.role } };
+      await route.fulfill({ status: gate?.status || reply?.status || 200, contentType: "application/json", body: JSON.stringify(body) });
       gate?.finished.resolve();
     } catch (error) { if (!page.isClosed()) harnessErrors.push(error.message); }
   });
@@ -114,9 +118,10 @@ async function scenario(name, mode, run) {
   const waitBody = text => page.waitForFunction(expected => document.querySelector("#detailBody")?.textContent.includes(expected), text);
   const setReply = (method, pathname, handler) => replies.set(`${method} ${pathname}`, handler);
   try {
-    await page.goto(origin, { waitUntil: "networkidle" });
-    await waitHeader("A");
-    await run({ page, hold, release, waitHeader, waitBody, setReply });
+    await options.prepare?.({ page, hold, setReply });
+    await page.goto(origin + (options.urlSuffix || ""), { waitUntil: "networkidle" });
+    if (options.signedIn !== false) await waitHeader("A");
+    await run({ page, hold, release, waitHeader, waitBody, setReply, requests, origin });
     await page.waitForTimeout(100);
     assert.deepEqual(pageErrors, [], "Uncaught browser errors");
     assert.deepEqual(harnessErrors, [], "Harness transport errors");
@@ -129,8 +134,29 @@ async function scenario(name, mode, run) {
   }
 }
 
-try {
+export async function startHarness() {
+  await new Promise(resolve => server.listen(0, "127.0.0.1", resolve));
+  origin = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({ channel: "chrome", headless: true });
+}
+export async function finishHarness(output = OUTPUT, expected = 10) {
+  if (browser) await browser.close();
+  await new Promise(resolve => server.close(resolve));
+  const appBytes = await readFile(path.join(ROOT, "web/app.js"));
+  const finalAppHash = createHash("sha256").update(appBytes).digest("hex");
+  const finalWebHashes = await webHashes();
+  const report = { generated_at: new Date().toISOString(), read_only: true, backend_connected: false, initial_app_sha256: initialAppHash, app_sha256: finalAppHash, initial_source_hashes: initialWebHashes, source_hashes: finalWebHashes, source_stable: finalAppHash === initialAppHash && JSON.stringify(initialWebHashes) === JSON.stringify(finalWebHashes), scope: "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test", passed: results.filter(result => result.passed).length, total: results.length, failures: results.filter(result => !result.passed).length, results };
+  await mkdir(path.dirname(output), { recursive: true });
+  await writeFile(output, JSON.stringify(report, null, 2) + "\n");
+  console.log(JSON.stringify(report, null, 2));
+  if (report.failures || report.total !== expected || !report.source_stable) process.exitCode = 1;
+  return report;
+}
+export { ROOT, A, B, C, EVAL_A, EVAL_B, RELEASE, cases, principal, organization, within };
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+try {
+  await startHarness();
   await scenario("latest case selection wins over an older case response", "fixture", async ({ page, hold, release, waitHeader }) => {
     const old = hold("GET", `/v1/cases/${A}`);
     await page.locator(`[data-case="${A}"]`).click(); await within(old.observed.promise, "older case request");
@@ -234,13 +260,6 @@ try {
     assert.doesNotMatch(await page.locator("#evaluationDetails").textContent(), /REPORT-A/);
   });
 } finally {
-  if (browser) await browser.close();
-  await new Promise(resolve => server.close(resolve));
-  const appBytes = await readFile(path.join(ROOT, "web/app.js"));
-  const finalAppHash = createHash("sha256").update(appBytes).digest("hex");
-  const report = { generated_at: new Date().toISOString(), read_only: true, backend_connected: false, initial_app_sha256: initialAppHash, app_sha256: finalAppHash, source_stable: finalAppHash === initialAppHash, scope: "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test", passed: results.filter(result => result.passed).length, total: results.length, failures: results.filter(result => !result.passed).length, results };
-  await mkdir(path.dirname(OUTPUT), { recursive: true });
-  await writeFile(OUTPUT, JSON.stringify(report, null, 2) + "\n");
-  console.log(JSON.stringify(report, null, 2));
-  if (report.failures || report.total !== 10 || !report.source_stable) process.exitCode = 1;
+  await finishHarness();
+}
 }

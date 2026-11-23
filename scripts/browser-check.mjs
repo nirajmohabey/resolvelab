@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 import { createHash } from "node:crypto";
 const base = process.env.BASE_URL || "http://127.0.0.1:8000";
 const output = new URL("../artifacts/browser/", import.meta.url);
-const sourceFiles = ["web/app.js", "web/app.css", "web/index.html", "web/auth-client.js"];
+const sourceFiles = ["web/app.js", "web/app.css", "web/index.html", "web/auth-client-src.js", "web/auth-client.js"];
 const sourceHashes = async () => Object.fromEntries(await Promise.all(sourceFiles.map(async (name) => [name,createHash("sha256").update(await fs.readFile(new URL("../"+name,import.meta.url))).digest("hex")])));
 const initialHashes = await sourceHashes();
 await fs.mkdir(output, { recursive: true });
@@ -22,17 +22,21 @@ const context = await browser.newContext({
 });
 const page = await context.newPage();
 const errors = [];
+const checks = [];
 page.on("pageerror", (e) => errors.push(e.message));
 page.on("dialog", (dialog) => dialog.accept());
 const wait = () => page.waitForTimeout(900);
 const check = async (name, fn) => {
   await fn();
+  checks.push({ name, passed: true });
   console.log("PASS " + name);
 };
 async function create(example) {
   await page.getByRole("button", { name: "＋ New case", exact: true }).click();
   await page.getByRole("button", { name: example, exact: true }).click();
+  const createdResponse = page.waitForResponse(response => new URL(response.url()).pathname === "/v1/cases" && response.request().method() === "POST" && response.status() === 201);
   await page.getByRole("button", { name: "Create case", exact: true }).click();
+  const created = await (await createdResponse).json();
   await page
     .getByRole("button", { name: "Resolve this case", exact: true })
     .waitFor();
@@ -40,6 +44,7 @@ async function create(example) {
   await page
     .getByRole("button", { name: "Resolve this case", exact: true })
     .click();
+  return created;
 }
 try {
   await page.goto(base);
@@ -52,7 +57,7 @@ try {
     await create("Track an order");
     await page.locator("#detail .badge.resolved").waitFor();
     await page
-      .getByRole("button", { name: "Policy evidence", exact: true })
+      .getByRole("tab", { name: "Policy evidence", exact: true })
       .click();
     await page.locator(".evidence-card").first().waitFor();
     assert(
@@ -69,7 +74,7 @@ try {
   });
   await check("trace stages visible", async () => {
     await page
-      .getByRole("button", { name: "Execution trace", exact: true })
+      .getByRole("tab", { name: "Execution trace", exact: true })
       .click();
     await page.locator(".trace-row").first().waitFor();
     assert(
@@ -77,6 +82,79 @@ try {
         .toLowerCase()
         .includes("validate"),
     );
+    await wait();
+  });
+  await check("missing order reference is attached to the same case before explicit resolution", async () => {
+    await page.getByRole("button", { name: "＋ New case", exact: true }).click();
+    await page.locator("#message").fill("Where is my order?");
+    await page.locator("#orderRef").fill("");
+    const createdResponse = page.waitForResponse(response => new URL(response.url()).pathname === "/v1/cases" && response.request().method() === "POST" && response.status() === 201);
+    await page.getByRole("button", { name: "Create case", exact: true }).click();
+    const created = await (await createdResponse).json();
+    let resolutionRequests = 0;
+    const countResolution = request => {
+      if (new URL(request.url()).pathname === `/v1/cases/${created.case_id}/resolve` && request.method() === "POST") resolutionRequests++;
+    };
+    page.on("request", countResolution);
+    try {
+      await page.getByRole("button", { name: "Resolve this case", exact: true }).click();
+      await page.locator("#detail .badge.needs_info").waitFor();
+      await page.locator("#contextOrderRef").fill("A-101");
+      const contextResponse = page.waitForResponse(response => new URL(response.url()).pathname === `/v1/cases/${created.case_id}/context` && response.request().method() === "POST" && response.status() === 200);
+      await page.getByRole("button", { name: "Save order reference", exact: true }).click();
+      const updated = await (await contextResponse).json();
+      assert.equal(updated.case_id, created.case_id);
+      assert.equal(updated.order_ref, "A-101");
+      assert.equal(updated.state, "needs_info");
+      assert.equal(updated.resolution, null);
+      assert.equal(updated.customer_subject, created.customer_subject);
+      assert.equal(updated.release_id, created.release_id);
+      assert(updated.version > created.version);
+      await page.locator("#notice").filter({ hasText: "order reference saved" }).waitFor();
+      assert.equal(resolutionRequests, 1, "Attaching order context must not automatically resolve the case");
+      await page.getByRole("button", { name: "Resolve this case", exact: true }).click();
+      await page.locator("#detail .badge.resolved").waitFor();
+      assert.equal(resolutionRequests, 2);
+      assert((await page.locator("#detail .case-id").textContent()).includes(created.case_id.slice(0, 8).toUpperCase()));
+      assert((await page.locator("#detail .detail-subtitle").textContent()).includes("A-101"));
+      assert.equal(await page.locator("#contextForm").count(), 0);
+      await page.screenshot({ path: new URL("08-context-followup.png", output).pathname.replace(/^\/([A-Z]:)/, "$1"), fullPage: true });
+    } finally {
+      page.off("request", countResolution);
+    }
+  });
+  await check("approver declines a proposal into handoff without executing cancellation", async () => {
+    const created = await create("Request cancellation");
+    await page.locator("#detail .badge.awaiting_approval").waitFor();
+    const beforeResponse = page.waitForResponse(response => new URL(response.url()).pathname === `/v1/cases/${created.case_id}` && response.request().method() === "GET" && response.status() === 200);
+    await page.locator("#actor").selectOption("alpha-approver-one");
+    const before = await (await beforeResponse).json();
+    const proposal = before.proposals.find(item => item.state === "pending");
+    assert(proposal, "The selected case must contain its pending proposal");
+    await page.locator("#declineReason").selectOption("needs_manual_review");
+    const acknowledgement = page.waitForResponse(response => new URL(response.url()).pathname === `/v1/proposals/${proposal.proposal_id}/reject` && response.request().method() === "POST" && response.status() === 200);
+    const afterResponse = page.waitForResponse(response => new URL(response.url()).pathname === `/v1/cases/${created.case_id}` && response.request().method() === "GET" && response.status() === 200);
+    await page.getByRole("button", { name: "Decline proposal", exact: true }).click();
+    const receipt = await (await acknowledgement).json();
+    assert.equal(receipt.case_id, created.case_id);
+    assert.equal(receipt.proposal_id, proposal.proposal_id);
+    assert.equal(receipt.state, "rejected");
+    assert.equal(receipt.case_state, "escalated");
+    assert.equal(receipt.reason_code, "needs_manual_review");
+    assert.equal(receipt.order_changed, false);
+    const after = await (await afterResponse).json();
+    assert.equal(after.state, "escalated");
+    assert.equal(after.proposals.find(item => item.proposal_id === proposal.proposal_id).state, "rejected");
+    assert.equal(after.actions.length, 0);
+    await page.locator("#detail .badge.escalated").waitFor();
+    assert.equal(await page.locator("#approveProposal").count(), 0);
+    assert.equal(await page.locator("#declineForm").count(), 0);
+    assert((await page.locator("#detailBody").textContent()).includes("decline operation did not execute a cancellation"));
+    await page.screenshot({ path: new URL("09-proposal-declined.png", output).pathname.replace(/^\/([A-Z]:)/, "$1"), fullPage: true });
+    const operatorResponse = page.waitForResponse(response => new URL(response.url()).pathname === `/v1/cases/${created.case_id}` && response.request().method() === "GET" && response.status() === 200);
+    await page.locator("#actor").selectOption("alpha-operator");
+    await operatorResponse;
+    await page.locator("#detail .badge.escalated").waitFor();
     await wait();
   });
   await check("cancellation stops for approval", async () => {
@@ -242,12 +320,15 @@ try {
     });
   });
   assert.deepEqual(errors, [], "browser JavaScript errors");
+  assert.equal(checks.length, 11, "All nine retained and two follow-up checks must run");
   assert.deepEqual(await sourceHashes(), initialHashes, "Browser source changed during acceptance");
   await fs.writeFile(
     new URL("browser-results.json", output),
     JSON.stringify(
       {
-        passed: 9,
+        passed: checks.length,
+        total: 11,
+        checks,
         source_hashes: initialHashes,
         source_stable: true,
         errors,

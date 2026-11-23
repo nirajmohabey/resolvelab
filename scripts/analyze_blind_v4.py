@@ -79,10 +79,10 @@ def main():
                           {"predicted_intent":route["predicted"],"observed_disposition":result["observed"].get("disposition"),"score_source":route.get("score_source"),
                            "routing_score":None if route.get("score_source")=="scope_rule" else route.get("score"),"scope_guard_reason":route.get("scope_guard_reason"),"failure":result.get("error")})
     summary={"dataset_sha256":hashlib.sha256(fixture.read_bytes()).hexdigest(),"N":len(cases),"semantic_groups":len(groups),"replicates":replicates,"bootstrap_seed":42,
-             "uncertainty_method":"Percentile paired cluster bootstrap; resample87 authored semantic groups with replacement, retain all their case variants; same resample for all releases. These nonrandom synthetic groups are not a representative customer sample, so intervals describe this audit's group sensitivity rather than production generalization.",
+             "uncertainty_method":"Percentile paired cluster bootstrap; resample 87 authored semantic groups with replacement, retain all their case variants; same resample for all releases. These nonrandom synthetic groups are not a representative customer sample, so intervals describe this audit's group sensitivity rather than production generalization.",
              "points":points,"group_bootstrap95":intervals,"paired_v4_differences":differences,"provenance":provenance,
              "v4_raw_metrics":current["metrics"],"v4_routing_metrics":current["routing_metrics"],"v4_failures":errors,
-             "interpretation":"V4 improves paired workflow coverage but accepts4 wrong routes/104 and1 unsupported case/40.27 rule denials are not model probabilities;6 human requests were over-denied into unsupported scope. Every cancellation still needs an authorized exact-proposal approval. No model tuning followed this audit.",
+             "interpretation":"V4 improves paired workflow coverage but accepts 4 wrong routes/104 and 1 unsupported case/40. 27 rule denials are not model probabilities; 6 human requests were over-denied into unsupported scope. Every cancellation still needs an authorized exact-proposal approval. No model tuning followed this audit.",
              "claim_support_human_review":None}
     (OUT/"analysis.json").write_text(json.dumps(summary,indent=2)+"\n",encoding="utf-8")
     with (OUT/"human_claim_review_queue.csv").open("w",encoding="utf-8",newline="") as stream:

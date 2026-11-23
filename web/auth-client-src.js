@@ -63,6 +63,18 @@ function protocol(config) {
 }
 
 export async function readAuthentication() {
+  const current = new URL(location.href);
+  const callback = current.searchParams.has("code") || current.searchParams.has("error");
+  let stored = null;
+  if (callback) {
+    // Consume callback credentials before a configuration request can fail.
+    try {
+      stored = sessionStorage.getItem(PENDING_KEY);
+    } finally {
+      try { sessionStorage.removeItem(PENDING_KEY); }
+      finally { history.replaceState({}, "", new URL("/", location.origin)); }
+    }
+  }
   const response = await fetch("/v1/auth/config", {
     credentials: "same-origin",
     cache: "no-store",
@@ -71,12 +83,7 @@ export async function readAuthentication() {
   if (!response.ok)
     throw new Error("Workspace sign-in is temporarily unavailable.");
   const config = configuration(await response.json());
-  const current = new URL(location.href);
-  if (!current.searchParams.has("code") && !current.searchParams.has("error"))
-    return { config, token: null };
-  const stored = sessionStorage.getItem(PENDING_KEY);
-  sessionStorage.removeItem(PENDING_KEY);
-  history.replaceState({}, "", new URL("/", location.origin));
+  if (!callback) return { config, token: null };
   try {
     const pending = stored ? JSON.parse(stored) : null;
     if (

@@ -558,6 +558,14 @@ h1 {
   color: #526971;
   border-top: 1px solid var(--line);
 }
+.detail-subtitle span,
+.order-ref {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.case-bottom { flex-wrap: wrap; }
+.case-row h3 { overflow-wrap: anywhere; }
 .welcome-state {
   text-align: center;
   padding: 27px 10px 24px;
@@ -1500,4 +1508,54 @@ td code {
 }
 .skip-link:focus {
   transform: translateY(0);
+}
+
+.inbox-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+}
+.inbox-pagination {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+.inbox-pagination .button {
+  flex: 1;
+  min-width: 0;
+}
+dialog {
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.detail-tabs [role="tab"]:focus-visible,
+[role="tabpanel"]:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
+}
+.inline-review {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 18px;
+  margin: 18px 0;
+  background: #fff;
+}
+.inline-review h3 { margin: 0 0 10px; font-size: 1rem; }
+.inline-review select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid #d7e3e5;
+  border-radius: 7px;
+  padding: 10px;
+  color: var(--ink);
+  background: #fff;
+  font-size: 0.875rem;
+}
+.inline-review-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
+.inline-review-footer [role="status"] { flex: 1 1 12rem; }
+@media (max-width: 650px) {
+  dialog { padding: 18px; }
 }

@@ -1,0 +1,21 @@
+{
+  "archived_at": "2026-11-23T09:43:35.602066+00:00",
+  "reason": "Preserve the v0.1 reports before source-only v0.2 hardening verification; no model tuning.",
+  "files_sha256": {
+    "baseline-fixture-final/workflow-evaluation.html": "814d9a9b36ced6e9fe77b865206a715a2132d772de321bd64e5488d3513f4e25",
+    "baseline-fixture-final/workflow-evaluation.json": "b09ce7b62e8f00226453696d1d37903e23fe90f42dfafa43e5ab2bd9e4992f85",
+    "blind-final/workflow-evaluation.html": "27453126e53c2f4dc6a8bc10dde6360d3e3e3881bb6cc48f0c8b915f7c3e0a1b",
+    "blind-final/workflow-evaluation.json": "1271b20677672f9d81ab7b437a8e6f6330367d288ee05e6b8ac0f90195f5d5af",
+    "final-analysis/analysis.json": "be17d58c531753150f636c870c5af3c370a4d0a550dd7e34414d1d1b5a533e09",
+    "final-analysis/human_claim_review_queue.csv": "b34cb776da241be63102980cea8c1711914b6930aecd49983eec3dbeae2c8373",
+    "final-analysis/paired_comparison.png": "8c9a42faef0bcebd10d8534c52130227272e96773864c0d9dd937c0d9eff5e2c",
+    "final-analysis/paired_comparison.svg": "26de1a1f1d2fb9023604b2c7f9ce1aabd19529634aaa7bcb4be9d2a16cf292c0",
+    "final_source_verification.json": "9fcb416572ed0e844e7b54061af0facc3cc90d7444c0a9707b817433a1e7cd93",
+    "model_freeze.json": "b6059a574462c773d72559af332fc3ce0ae3c66d1fa2c68683fd8da6e5f69aad",
+    "model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "paired-baseline/workflow-evaluation.html": "7c55144fcac1ae1d47e93d0db2bc4295cc9d9e55f6895fcb98d2c321393fdf53",
+    "paired-baseline/workflow-evaluation.json": "3f961e7edc014a94573108fb5dcb2d3657a10ee9cf52ece8ba705792303382b3",
+    "paired-v3/workflow-evaluation.html": "675fadbb6dc14204b0da42f1ad568b1579566efe15f78fc26e58423c487953ea",
+    "paired-v3/workflow-evaluation.json": "bb05e78659f48a143d6af33fe434f315a07ce5e35203a4632f62c47c98b32647"
+  }
+}

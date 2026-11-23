@@ -1,0 +1,75 @@
+RESOLVELAB V0.2 WORKBENCH REVIEW
+Date: 2026-11-23
+Scope: Browser interface, session transitions, operator journeys, request/response handling, responsive layout, and local portfolio integration. Frozen V4 models, training data, evaluation cases, and published model/workflow measurements were not changed.
+
+USER STORY
+An authenticated operator must find a tenant-scoped case, inspect the correct case's policy evidence and execution trace, and propose or approve only permitted actions. Read-only evaluators must be able to inspect results without being offered write actions. Transient failures and delayed responses must not mix contexts or duplicate logical requests.
+
+CORRECTNESS FIXES
+
+1. Cases beyond the first 100 were unreachable. The inbox now uses server-backed search, state filters, 25-case pages, and filtered totals. Search resets paging, Enter submits immediately, and a request sequence prevents older queries from replacing newer results. Backend q/total support is maintained separately by the root/backend owner.
+   Code: web/app.js refresh, searchInbox, renderPagination; web/index.html search and page controls.
+
+2. A fixture identity change left the previous tenant's data and actions visible while the new session request was pending. Switching identity now clears the workspace immediately, disables dependent controls, rejects stale responses, and offers an explicit reconnect action on failure. A verified same-tenant role change can restore the previous case/page context after the new identity is established.
+   Code: web/app.js login, applySession, requireSignIn.
+
+3. Case selection could leave the previous case's actions available while another case was loading. Selection now clears the action surface immediately, shows a loading state, and offers a targeted retry on failure. A concurrent inbox refresh does not steal a newer manual selection.
+   Code: web/app.js selectCase, refresh.
+
+4. Evaluators were offered a Resolve action despite backend write-role denial. Write affordances now honor the role immediately. Production sessions hide fixture examples and the local API-reference link; the new-case explanation refers to the verified server session.
+   Code: web/app.js canWrite, setCreating, renderDetail, applySession.
+
+5. A pending create request could be followed by closing/editing the dialog, then a late response could reset a newer draft. Submitted fields and close/cancel controls are now protected until the request completes; Escape cannot close a pending submission. Failed or incomplete responses retain the logical creation's RAM-only idempotency key. Whitespace-only messages are rejected locally, and choosing an example clears that validation error.
+   Code: web/app.js createCase, setCreating, caseDialog cancel handler, example handler.
+
+6. Release comparisons could read changed options between two awaited requests, and retrying after a partial success could queue the first job twice. The complete comparison configuration is captured before sending, controls stay disabled across a results refresh, and each release retains its idempotency key for a retry. Incomplete responses preserve the pending comparison. Whole evaluation/release refreshes also reject obsolete responses.
+   Code: web/app.js queueEvaluation, rememberEvaluationSelection, syncEvaluationControls, evaluationView, releasesView.
+
+7. Detail tabs did not retain keyboard focus or expose tab semantics. They now have tab/tablist/tabpanel roles, selected state, roving focus, and Arrow/Home/End navigation. Long customer/order identifiers wrap instead of clipping. Short mobile dialogs scroll, and their submit button remains keyboard reachable.
+   Code: web/app.js renderDetail, activateDetailTab; web/app.css identifier and dialog rules.
+
+8. An authentication-configuration failure could retain an authorization code/state in the address bar and pending PKCE credentials in session storage. Callback capture, pending-state consumption, and address cleanup now occur before the first configuration request. The pinned OAuth browser bundle was rebuilt.
+   Code: web/auth-client-src.js readAuthentication; web/auth-client.js generated bundle.
+
+9. A needs_info case now supports a bounded inline order-reference update through the matching /context API. The browser captures case/version/session, retains a payload-specific RAM key for retry, verifies the acknowledgement, and reloads the captured case without changing another selected case. Customer identity and release remain pinned. Saving never triggers resolution automatically; the operator explicitly runs it afterward.
+   Code: web/app.js contextForm, saveOrderReference, syncInlineControls.
+
+10. Authorized approvers can decline a pending cancellation proposal through the matching /reject API. The UI offers four fixed reason codes with no free-text reason, confirms escalation and the fact that this operation does not execute cancellation, and captures proposal digest plus case version. Failed replies retain the same logical request key; rejected cases no longer show approval controls. Session/case changes cannot retarget the operation or restore another case's form.
+    Code: web/app.js declineForm, declineProposal, inlineKey, inlineError.
+
+VERIFICATION
+
+- scripts/ui-race-check.mjs: 10/10 passed, zero page errors.
+  Report: artifacts/browser/ui-race-results.json
+  Covers out-of-order cases, case/tab evidence and trace races, stale errors, 401 expiry paths, disconnect/network rejection, a lost create response followed by a stable-key retry, and late evaluation reports.
+
+- scripts/workbench-feature-check.mjs: 8/8 operator journeys passed, zero page errors.
+  Report: artifacts/browser/workbench-feature-results.json
+  Covers 123-case paging and search/filter access beyond 100; slow old search; inbox/totals outage recovery; tenant-switch/reconnect/out-of-order identity; read-only production affordances and keyboard tabs; pending-create protection and dialog focus recovery; partially queued comparison retries; untrusted markup, long identifiers, responsive widths 320/375/768, a short mobile dialog, and 200 percent desktop text size.
+
+- scripts/auth-callback-failure-check.mjs: 3/3 passed, zero page errors.
+  Report: artifacts/browser/auth-callback-failure-results.json
+  HTTP 503, network rejection, and malformed configuration each removed callback parameters and pending PKCE data, with zero token/session/demo requests.
+
+- scripts/operator-followup-check.mjs: 5/5 bounded operator journeys passed, zero page errors.
+  Report: artifacts/browser/operator-followup-results.json
+  Covers needs_info attachment followed by explicit resolution; lost context-response retry; deliberate decline, dismissal, lost-response retry, escalation and no approval/order effect; read-only role affordances; both operations across case navigation; and disconnect during an update. Both new forms were checked at 375px, with zero targeted axe violations. Their screenshots were visually reviewed.
+
+These suites use the real workbench DOM/application modules with intercepted API responses. They do not connect to serving, test, or evaluation databases. The creation/evaluation retry fixtures persist only in an in-memory mock Map. The OIDC session-path adapter is synthetic; the separate full OIDC harness covers the protocol with mocked HTTPS endpoints and real signatures. These browser results do not establish real identity-provider interoperability, physical-device behavior, or complete accessibility conformance.
+
+All reviewed web source hashes remained stable during the final runs. JavaScript syntax checks passed. Screenshots were inspected for the mobile dialog and 200 percent text layout; keyboard focus successfully scrolls the dialog footer into view.
+
+Independent read-only portfolio check found no confirmed integration issue in the selected content, evidence-data and dedicated case-study files. The local demo anchor, metric labels/denominators, conditional repository links, and all 12 referenced local assets were verified. No published deployment was claimed or modified by this review.
+
+FINAL WEB SOURCE SHA256
+web/app.js: a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95
+web/index.html: c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81
+web/app.css: 61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749
+web/auth-client-src.js: ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0
+web/auth-client.js: 9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd
+
+REMAINING PRODUCT-SCOPE BOUNDARIES
+
+- Evaluation history currently returns the latest 100 runs without pagination. This differs from the now-paginated primary case inbox.
+
+Evaluation-history paging is deferred scope rather than a demonstrated failure of the frozen V4 evaluation contract. The two bounded follow-up API features were implemented separately by the root/backend owner. Real authorization, immutable traces, order-effect behavior, and the q/total query contract require the separately owned PostgreSQL-backed acceptance checks and a restarted API before the final live browser run. The frozen V4 model, cases, and 139/160 workflow result were not changed by this UI work.

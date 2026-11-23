@@ -29,6 +29,11 @@ def _configuration():
     parsed, admin_parsed = make_url(target), make_url(admin_target)
     if not parsed.database or parsed.database == serving.database or admin_parsed.database != parsed.database:
         raise RuntimeError("Evaluation runtime/admin URLs must share a dedicated database name different from the serving database")
+    from .isolation import connected_identity,validate_disposable_urls
+    target_identity=validate_disposable_urls(target,admin_target,"resolvelab_evaluation")
+    with engine.connect() as conn:
+        if connected_identity(conn)==target_identity:
+            raise RuntimeError("The evaluation database must be physically separate from the serving database.")
     return target, admin_target
 
 

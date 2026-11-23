@@ -50,7 +50,8 @@ def validate_configuration():
     for key, default, minimum, maximum in (("BODY_TIMEOUT_SECONDS", 5, .1, 30), ("LOGIN_REQUESTS_PER_MINUTE", 30, 1, 10000),
                                           ("IP_REQUESTS_PER_MINUTE", 1200, 1, 10000), ("ACTOR_REQUESTS_PER_MINUTE", 300, 1, 10000)):
         try:
-            valid = minimum <= float(os.environ.get(key, default)) <= maximum
+            parsed = float(os.environ.get(key, default)) if key == "BODY_TIMEOUT_SECONDS" else int(os.environ.get(key, default))
+            valid = minimum <= parsed <= maximum
         except ValueError:
             valid = False
         if not valid:

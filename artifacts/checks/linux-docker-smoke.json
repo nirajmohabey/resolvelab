@@ -1,0 +1,31 @@
+{
+  "scope": "Private Vercel Sandbox; no published VM ports",
+  "passed": true,
+  "docker_version": "29.1.3",
+  "compose_exit_code": 0,
+  "readiness_status": 200,
+  "containers": [
+    {
+      "ExitCode": 0,
+      "Health": "starting",
+      "Image": "resolvelab-api",
+      "Service": "api",
+      "State": "running"
+    },
+    {
+      "ExitCode": 0,
+      "Health": "healthy",
+      "Image": "postgres:17.12",
+      "Service": "db",
+      "State": "running"
+    },
+    {
+      "ExitCode": 0,
+      "Health": "",
+      "Image": "resolvelab-worker",
+      "Service": "worker",
+      "State": "running"
+    }
+  ],
+  "cleanup_exit_code": 0
+}

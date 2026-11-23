@@ -1,10 +1,58 @@
 {
-  "passed": 9,
+  "passed": 11,
+  "total": 11,
+  "checks": [
+    {
+      "name": "tracking resolves with policy evidence",
+      "passed": true
+    },
+    {
+      "name": "trace stages visible",
+      "passed": true
+    },
+    {
+      "name": "missing order reference is attached to the same case before explicit resolution",
+      "passed": true
+    },
+    {
+      "name": "approver declines a proposal into handoff without executing cancellation",
+      "passed": true
+    },
+    {
+      "name": "cancellation stops for approval",
+      "passed": true
+    },
+    {
+      "name": "approver executes one local cancellation",
+      "passed": true
+    },
+    {
+      "name": "human request persists escalation",
+      "passed": true
+    },
+    {
+      "name": "evaluation and releases render",
+      "passed": true
+    },
+    {
+      "name": "evaluation comparison exposes scoped case reports",
+      "passed": true
+    },
+    {
+      "name": "tenant switch removes alpha case context",
+      "passed": true
+    },
+    {
+      "name": "mobile layout fits viewport",
+      "passed": true
+    }
+  ],
   "source_hashes": {
-    "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
-    "web/app.css": "68ba80da21a69156128e2947d649d4c6731022b0e6967650119209a9edd17bd6",
-    "web/index.html": "b4196e3efc5baa6d7567a2931238049df6cc30b107551bb925cc6d25478eb5e8",
-    "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb"
+    "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+    "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+    "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
   },
   "source_stable": true,
   "errors": [],
@@ -17,5 +65,5 @@
     390,
     844
   ],
-  "generated_at": "2026-11-23T08:44:46.677Z"
+  "generated_at": "2026-11-23T09:52:36.577Z"
 }

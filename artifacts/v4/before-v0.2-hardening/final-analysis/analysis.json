@@ -1,0 +1,685 @@
+{
+  "dataset_sha256": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+  "N": 160,
+  "semantic_groups": 87,
+  "replicates": 5000,
+  "bootstrap_seed": 42,
+  "uncertainty_method": "Percentile paired cluster bootstrap; resample87 authored semantic groups with replacement, retain all their case variants; same resample for all releases. These nonrandom synthetic groups are not a representative customer sample, so intervals describe this audit's group sensitivity rather than production generalization.",
+  "points": {
+    "TF-IDF v1": {
+      "workflow_success": 0.475,
+      "routing_macro_f1": 0.46378593386507144,
+      "routing_accuracy": 0.475,
+      "accepted_coverage": 0.25,
+      "accepted_error": 0.075,
+      "ood_false_acceptance": 0.025,
+      "safe_escalation_recall": 0.9795918367346939
+    },
+    "Domain v3": {
+      "workflow_success": 0.59375,
+      "routing_macro_f1": 0.8691047297297297,
+      "routing_accuracy": 0.8625,
+      "accepted_coverage": 0.3375,
+      "accepted_error": 0.018518518518518517,
+      "ood_false_acceptance": 0.025,
+      "safe_escalation_recall": 0.9897959183673469
+    },
+    "Scope + intent v4": {
+      "workflow_success": 0.86875,
+      "routing_macro_f1": 0.8705458144796381,
+      "routing_accuracy": 0.86875,
+      "accepted_coverage": 0.65,
+      "accepted_error": 0.038461538461538464,
+      "ood_false_acceptance": 0.025,
+      "safe_escalation_recall": 0.9693877551020408
+    }
+  },
+  "group_bootstrap95": {
+    "TF-IDF v1": {
+      "workflow_success": [
+        0.4021150384552446,
+        0.5649106456003311
+      ],
+      "routing_macro_f1": [
+        0.3848041852012045,
+        0.5382578863915297
+      ],
+      "routing_accuracy": [
+        0.4021150384552446,
+        0.5649106456003311
+      ],
+      "accepted_coverage": [
+        0.18248175182481752,
+        0.31125827814569534
+      ],
+      "accepted_error": [
+        0.0,
+        0.16129032258064516
+      ],
+      "ood_false_acceptance": [
+        0.0,
+        0.08333333333333333
+      ],
+      "safe_escalation_recall": [
+        0.9499910071942446,
+        1.0
+      ]
+    },
+    "Domain v3": {
+      "workflow_success": [
+        0.5086705202312138,
+        0.6809815950920245
+      ],
+      "routing_macro_f1": [
+        0.8149703143822681,
+        0.9180076895046528
+      ],
+      "routing_accuracy": [
+        0.8051907212284571,
+        0.91525647923953
+      ],
+      "accepted_coverage": [
+        0.24161073825503357,
+        0.42138959714431407
+      ],
+      "accepted_error": [
+        0.0,
+        0.06898556535685617
+      ],
+      "ood_false_acceptance": [
+        0.0,
+        0.08333333333333333
+      ],
+      "safe_escalation_recall": [
+        0.9647058823529412,
+        1.0
+      ]
+    },
+    "Scope + intent v4": {
+      "workflow_success": [
+        0.8085074531787488,
+        0.9230769230769231
+      ],
+      "routing_macro_f1": [
+        0.8103446099141411,
+        0.9196612929300314
+      ],
+      "routing_accuracy": [
+        0.8085074531787488,
+        0.9230769230769231
+      ],
+      "accepted_coverage": [
+        0.5373134328358209,
+        0.735632183908046
+      ],
+      "accepted_error": [
+        0.008333333333333333,
+        0.08108657437925723
+      ],
+      "ood_false_acceptance": [
+        0.0,
+        0.08333333333333333
+      ],
+      "safe_escalation_recall": [
+        0.9333333333333333,
+        1.0
+      ]
+    }
+  },
+  "paired_v4_differences": {
+    "TF-IDF v1": {
+      "workflow_success": {
+        "difference": 0.39375000000000004,
+        "group_bootstrap95": [
+          0.30000000000000004,
+          0.4736842105263158
+        ]
+      },
+      "routing_macro_f1": {
+        "difference": 0.40675988061456664,
+        "group_bootstrap95": [
+          0.327296293549514,
+          0.4835454128926632
+        ]
+      },
+      "routing_accuracy": {
+        "difference": 0.39375000000000004,
+        "group_bootstrap95": [
+          0.30000000000000004,
+          0.4736842105263158
+        ]
+      },
+      "accepted_coverage": {
+        "difference": 0.4,
+        "group_bootstrap95": [
+          0.30595978441127697,
+          0.4817073170731707
+        ]
+      },
+      "accepted_error": {
+        "difference": -0.036538461538461534,
+        "group_bootstrap95": [
+          -0.10630751707406759,
+          0.02551347462061743
+        ]
+      },
+      "ood_false_acceptance": {
+        "difference": 0.0,
+        "group_bootstrap95": [
+          -0.07142857142857142,
+          0.07317073170731707
+        ]
+      },
+      "safe_escalation_recall": {
+        "difference": -0.010204081632653073,
+        "group_bootstrap95": [
+          -0.04819277108433728,
+          0.023809523809523836
+        ]
+      }
+    },
+    "Domain v3": {
+      "workflow_success": {
+        "difference": 0.275,
+        "group_bootstrap95": [
+          0.17730496453900713,
+          0.37499999999999994
+        ]
+      },
+      "routing_macro_f1": {
+        "difference": 0.001441084749908339,
+        "group_bootstrap95": [
+          -0.06614020736759325,
+          0.06169191390210455
+        ]
+      },
+      "routing_accuracy": {
+        "difference": 0.006249999999999978,
+        "group_bootstrap95": [
+          -0.06338028169014087,
+          0.07499999999999996
+        ]
+      },
+      "accepted_coverage": {
+        "difference": 0.3125,
+        "group_bootstrap95": [
+          0.20731271777003482,
+          0.40909853569249527
+        ]
+      },
+      "accepted_error": {
+        "difference": 0.019943019943019946,
+        "group_bootstrap95": [
+          -0.03846236559139785,
+          0.0707070707070707
+        ]
+      },
+      "ood_false_acceptance": {
+        "difference": 0.0,
+        "group_bootstrap95": [
+          -0.07317073170731707,
+          0.07142857142857142
+        ]
+      },
+      "safe_escalation_recall": {
+        "difference": -0.020408163265306145,
+        "group_bootstrap95": [
+          -0.060869565217391286,
+          0.021058230683090578
+        ]
+      }
+    }
+  },
+  "provenance": {
+    "TF-IDF v1": {
+      "model_version": "tfidf-logistic-v1",
+      "model_artifact_sha256": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827",
+      "model_manifest_sha256": "00618a246af41b80b972457fd7c738398eed9a2d2cc2d91543f5b935963f343a",
+      "release_id": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+      "retrieval_version": "hybrid-rrf-v1",
+      "source_report_sha256": "3f961e7edc014a94573108fb5dcb2d3657a10ee9cf52ece8ba705792303382b3",
+      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 160,
+      "runner_errors": 0
+    },
+    "Domain v3": {
+      "model_version": "domain-hybrid-v3",
+      "model_artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+      "model_manifest_sha256": "d9012f185d359399e3069c97c780ce96c8bf7042bea09e300697d7a9160362f1",
+      "release_id": "70ca5649-301c-540a-a93d-abfcf24703e3",
+      "retrieval_version": "hybrid-rrf-v1",
+      "source_report_sha256": "bb05e78659f48a143d6af33fe434f315a07ce5e35203a4632f62c47c98b32647",
+      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 160,
+      "runner_errors": 0
+    },
+    "Scope + intent v4": {
+      "model_version": "domain-router-v4",
+      "model_artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+      "model_manifest_sha256": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+      "release_id": "84f8a907-04de-5257-af61-98f317392d01",
+      "retrieval_version": "dense-minilm-v1",
+      "source_report_sha256": "1271b20677672f9d81ab7b437a8e6f6330367d288ee05e6b8ac0f90195f5d5af",
+      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "unauthorized_effect_count": 0,
+      "effect_audits_completed": 160,
+      "runner_errors": 0
+    }
+  },
+  "v4_raw_metrics": {
+    "workflow_success": {
+      "numerator": 139,
+      "denominator": 160,
+      "rate": 0.86875
+    },
+    "runner_errors": 0,
+    "critical_failures": 21,
+    "unauthorized_effect_count": 0,
+    "all_tenant_effect_checks_completed": 160,
+    "p50_ms": 36.643,
+    "p95_ms": 47.395,
+    "estimated_provider_cost_usd": null,
+    "citation_support_human_review": null,
+    "safe_escalation_recall": {
+      "numerator": 95,
+      "denominator": 98,
+      "rate": 0.9693877551020408
+    },
+    "workflow_failures": 21
+  },
+  "v4_routing_metrics": {
+    "N": 160,
+    "labels": [
+      "track_order",
+      "cancel_request",
+      "human_handoff",
+      "out_of_scope"
+    ],
+    "macro_f1": 0.8705458144796381,
+    "confusion_matrix": [
+      [
+        35,
+        0,
+        0,
+        5
+      ],
+      [
+        2,
+        37,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        28,
+        11
+      ],
+      [
+        1,
+        0,
+        0,
+        39
+      ]
+    ],
+    "per_class": {
+      "track_order": {
+        "precision": 0.9210526315789473,
+        "recall": 0.875,
+        "f1-score": 0.8974358974358975,
+        "support": 40.0
+      },
+      "cancel_request": {
+        "precision": 0.9736842105263158,
+        "recall": 0.925,
+        "f1-score": 0.9487179487179487,
+        "support": 40.0
+      },
+      "human_handoff": {
+        "precision": 1.0,
+        "recall": 0.7,
+        "f1-score": 0.8235294117647058,
+        "support": 40.0
+      },
+      "out_of_scope": {
+        "precision": 0.6964285714285714,
+        "recall": 0.975,
+        "f1-score": 0.8125,
+        "support": 40.0
+      },
+      "accuracy": 0.86875,
+      "macro avg": {
+        "precision": 0.8977913533834587,
+        "recall": 0.86875,
+        "f1-score": 0.8705458144796381,
+        "support": 160.0
+      },
+      "weighted avg": {
+        "precision": 0.8977913533834586,
+        "recall": 0.86875,
+        "f1-score": 0.870545814479638,
+        "support": 160.0
+      }
+    },
+    "zero_division_handling": "undefined precision/recall/F1 set to zero",
+    "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+    "accepted_coverage": {
+      "numerator": 104,
+      "denominator": 160,
+      "rate": 0.65
+    },
+    "accepted_routing_error": {
+      "numerator": 4,
+      "denominator": 104,
+      "rate": 0.038461538461538464
+    },
+    "ood_false_acceptance": {
+      "numerator": 1,
+      "denominator": 40,
+      "rate": 0.025
+    },
+    "scope_rule_decisions": 27,
+    "learned_model_decisions": 133,
+    "score_semantics": "Scope-rule decisions are deterministic scope denials, not model probabilities. Probability calibration must exclude those decisions."
+  },
+  "v4_failures": [
+    {
+      "id": "V4-B003",
+      "group_id": "tracking_nonarrival",
+      "message": "There's nothing on my doorstep for A-102 yet; what does the order record show?",
+      "slice": "owned_tracking_implicit",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.83495,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected track_order, got out_of_scope"
+    },
+    {
+      "id": "V4-B014",
+      "group_id": "tracking_delivery_progress",
+      "message": "When you open A-102, does it show any shipping progress?",
+      "slice": "owned_tracking_standard",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.94207,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected track_order, got out_of_scope"
+    },
+    {
+      "id": "V4-B016",
+      "group_id": "tracking_nonarrival",
+      "message": "pls look at A-101, it hasnt turned up",
+      "slice": "owned_tracking_typos",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.51725,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected track_order, got out_of_scope"
+    },
+    {
+      "id": "V4-B021",
+      "group_id": "tracking_delivery_progress",
+      "message": "Any shipping news for my A-100 purchase? I'm planning the week around it.",
+      "slice": "owned_tracking_context",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.87375,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected track_order, got out_of_scope"
+    },
+    {
+      "id": "V4-B033",
+      "group_id": "unknown_order_reference",
+      "message": "Search A-999 and tell me whether there is any shipping activity.",
+      "slice": "tracking_unknown_reference",
+      "expected_intent": "track_order",
+      "expected_disposition": "needs_info",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.5227,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected track_order, got out_of_scope"
+    },
+    {
+      "id": "V4-B051",
+      "group_id": "cancellation_not_tracking",
+      "message": "Don't just check A-100's status; put in the cancellation.",
+      "slice": "eligible_cancellation_negation",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "predicted_intent": "track_order",
+      "observed_disposition": "resolved_read_only",
+      "score_source": "calibrated_model",
+      "routing_score": 0.74102,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected cancel_request, got track_order"
+    },
+    {
+      "id": "V4-B059",
+      "group_id": "cancellation_after_dispatch",
+      "message": "Call off A-101 if you can; I see a shipping update but no longer need it.",
+      "slice": "shipped_cancellation",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "escalated",
+      "predicted_intent": "track_order",
+      "observed_disposition": "resolved_read_only",
+      "score_source": "calibrated_model",
+      "routing_score": 0.53104,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected cancel_request, got track_order"
+    },
+    {
+      "id": "V4-B069",
+      "group_id": "missing_order_reference",
+      "message": "I need to undo the purchase I just submitted. I haven't copied its reference yet.",
+      "slice": "cancellation_missing_reference",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "needs_info",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.56117,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected cancel_request, got out_of_scope"
+    },
+    {
+      "id": "V4-B084",
+      "group_id": "human_direct_transfer",
+      "message": "Can you put me in touch with a live customer-care adviser?",
+      "slice": "human_explicit",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.61695,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B094",
+      "group_id": "human_direct_transfer",
+      "message": "I'd like somebody from customer relations to help me.",
+      "slice": "human_explicit",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.95898,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B097",
+      "group_id": "human_order_assistance",
+      "message": "Could a customer service employee check on A-101 with me?",
+      "slice": "human_tracking_priority",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.70489,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B098",
+      "group_id": "human_order_assistance",
+      "message": "Please ask a human to help cancel A-100.",
+      "slice": "human_cancellation_priority",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "cancel_request",
+      "observed_disposition": "awaiting_approval",
+      "score_source": "calibrated_model",
+      "routing_score": 0.99183,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected human_handoff, got cancel_request"
+    },
+    {
+      "id": "V4-B103",
+      "group_id": "human_tracking_return_mix",
+      "message": "I need a human to check one shipment and help return a different item.",
+      "slice": "human_mixed_requests",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "scope_rule",
+      "routing_score": null,
+      "scope_guard_reason": "explicit_unsupported_topic",
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B105",
+      "group_id": "human_cancellation_account_mix",
+      "message": "I'd like a person to help cancel a purchase and update my account email.",
+      "slice": "human_mixed_requests",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "scope_rule",
+      "routing_score": null,
+      "scope_guard_reason": "explicit_unsupported_topic",
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B106",
+      "group_id": "human_tracking_exchange_mix",
+      "message": "Can a live rep sort out a missing delivery and an exchange together?",
+      "slice": "human_mixed_requests",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "scope_rule",
+      "routing_score": null,
+      "scope_guard_reason": "explicit_unsupported_topic",
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B110",
+      "group_id": "human_multiorder_billing_mix",
+      "message": "An employee please; there are two orders and a billing question involved.",
+      "slice": "human_mixed_requests",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.56321,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B111",
+      "group_id": "human_return_assistance",
+      "message": "I want a customer care person to talk through my return options, not a bot.",
+      "slice": "human_return_priority",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "scope_rule",
+      "routing_score": null,
+      "scope_guard_reason": "explicit_unsupported_topic",
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B113",
+      "group_id": "human_account_assistance",
+      "message": "Please hand this to an agent who can discuss account access.",
+      "slice": "human_account_priority",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "scope_rule",
+      "routing_score": null,
+      "scope_guard_reason": "explicit_unsupported_topic",
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B115",
+      "group_id": "human_order_change_assistance",
+      "message": "I need a person to help change an address on an order.",
+      "slice": "human_address_priority",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "scope_rule",
+      "routing_score": null,
+      "scope_guard_reason": "explicit_unsupported_topic",
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B116",
+      "group_id": "human_product_assistance",
+      "message": "Can a real representative help me choose the right product?",
+      "slice": "human_product_priority",
+      "expected_intent": "human_handoff",
+      "expected_disposition": "escalated",
+      "predicted_intent": "out_of_scope",
+      "observed_disposition": "escalated",
+      "score_source": "calibrated_model",
+      "routing_score": 0.9319,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected human_handoff, got out_of_scope"
+    },
+    {
+      "id": "V4-B159",
+      "group_id": "missing_component",
+      "message": "The box arrived without one of the parts. Can you send the missing piece?",
+      "slice": "unsupported_replacement",
+      "expected_intent": "out_of_scope",
+      "expected_disposition": "escalated",
+      "predicted_intent": "track_order",
+      "observed_disposition": "needs_info",
+      "score_source": "calibrated_model",
+      "routing_score": 0.43566,
+      "scope_guard_reason": null,
+      "failure": "routing mismatch: expected out_of_scope, got track_order"
+    }
+  ],
+  "interpretation": "V4 improves paired workflow coverage but accepts4 wrong routes/104 and1 unsupported case/40.27 rule denials are not model probabilities;6 human requests were over-denied into unsupported scope. Every cancellation still needs an authorized exact-proposal approval. No model tuning followed this audit.",
+  "claim_support_human_review": null
+}

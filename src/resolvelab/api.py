@@ -20,10 +20,10 @@ from starlette.requests import ClientDisconnect
 
 from . import service
 from .config import allowed_hosts, allowed_origins, environment, public_auth_config, validate_configuration
-from .security import actor_budget, browser_policy, consume_budget
+from .security import actor_budget, browser_policy, consume_budget, strict_request_json
 from .auth import Principal, authenticate, demo_enabled, fixture_principal, issue_token
 from .db import ROOT, engine, transaction
-from .schemas import ApproveRequest, CreateCase, DemoLogin, DomainError, EvaluationRequest, ResolveRequest
+from .schemas import ApproveRequest, CaseContextRequest, CreateCase, DemoLogin, DomainError, EvaluationRequest, RejectProposalRequest, ResolveRequest
 
 logger = logging.getLogger("resolvelab.http")
 bearer = HTTPBearer(auto_error=False)
@@ -35,7 +35,7 @@ async def lifespan(app):
     yield
 
 
-app = FastAPI(title="ResolveLab", version="0.1.0", description="Evidence-backed fixture support workflow. Routing scores do not authorize actions.", lifespan=lifespan,
+app = FastAPI(title="ResolveLab", version="0.2.0", description="Evidence-backed fixture support workflow. Routing scores do not authorize actions.", lifespan=lifespan,
               docs_url="/docs" if environment() == "local" else None, redoc_url=None)
 
 
@@ -75,7 +75,7 @@ async def request_context(request, call_next):
             raise DomainError(400, "ambiguous_request_length", "Multiple content-length headers are not allowed.")
         if request.method in {"POST", "PUT", "PATCH"} and request.url.path.startswith("/v1/") and request.headers.get("content-type", "").split(";", 1)[0].lower() != "application/json":
             raise DomainError(415, "unsupported_media_type", "API request bodies must use application/json.")
-        if length and (not length.isdigit() or int(length) > 32768):
+        if length and (not length.isascii() or not length.isdecimal() or len(length) > 10 or int(length) > 32768):
             response = error_body(request, 413, "body_too_large", "The request body exceeds 32 KiB.")
         else:
             body = bytearray()
@@ -89,6 +89,11 @@ async def request_context(request, call_next):
                 response = error_body(request, 413, "body_too_large", "The request body exceeds 32 KiB.")
             else:
                 request._body = bytes(body)
+                if request.method in {"POST", "PUT", "PATCH"} and request.url.path.startswith("/v1/"):
+                    try:
+                        strict_request_json(request._body)
+                    except (ValueError, UnicodeError, RecursionError):
+                        raise DomainError(422, "invalid_json", "The body must contain valid, unambiguous JSON within the request limits.") from None
                 response = await call_next(request)
     except SQLAlchemyError:
         response = error_body(request, 503, "storage_unavailable", "The database is temporarily unavailable.", True)
@@ -193,6 +198,9 @@ def ready():
                 release = service._release(conn, p, active["release_id"])
                 if release["corpus_state"] != "published":
                     raise DomainError(503, "corpus_unavailable", "A published active corpus is missing.")
+                from .retrieval import retrieve
+                if not retrieve(conn, p.tenant_id, release["corpus_id"], "policy", "admin", mode="lexical", limit=1):
+                    raise DomainError(503, "corpus_unavailable", "The active policy corpus has no admitted evidence.")
             service.load_pinned_router(release)
         return {"status": "ready", "model": "loaded", "embedding": "loaded", "corpus": "published", "database_role": "nonowner_rls"}
     except DomainError:
@@ -220,8 +228,9 @@ def authentication_config():
 
 
 @app.get("/v1/cases")
-def cases(limit: int = Query(default=50, ge=1, le=100), offset: int = Query(default=0, ge=0), state: str | None = None, p=Depends(identity)):
-    return service.list_cases(p, limit, offset, state)
+def cases(limit: int = Query(default=50, ge=1, le=100), offset: int = Query(default=0, ge=0,le=1_000_000),
+          state: str | None = None,q: str | None = Query(default=None,max_length=200),p=Depends(identity)):
+    return service.list_cases(p, limit, offset, state,q)
 
 
 @app.post("/v1/cases", status_code=201)
@@ -257,6 +266,16 @@ def trace(case_id: UUID, p=Depends(identity)):
 @app.post("/v1/proposals/{proposal_id}/approve")
 def approve(proposal_id: UUID, body: ApproveRequest, request: Request, p=Depends(identity), key=Depends(idempotency_key)):
     return service.approve_proposal(p, str(proposal_id), body.model_dump(), key, request.state.request_id)
+
+
+@app.post("/v1/cases/{case_id}/context")
+def update_context(case_id: UUID, body: CaseContextRequest, request: Request, p=Depends(identity), key=Depends(idempotency_key)):
+    return service.update_case_context(p, str(case_id), body.model_dump(), key, request.state.request_id)
+
+
+@app.post("/v1/proposals/{proposal_id}/reject")
+def reject(proposal_id: UUID, body: RejectProposalRequest, request: Request, p=Depends(identity), key=Depends(idempotency_key)):
+    return service.reject_proposal(p, str(proposal_id), body.model_dump(), key, request.state.request_id)
 
 
 @app.get("/v1/dashboard")

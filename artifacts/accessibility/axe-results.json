@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T08:45:28.260Z",
+  "generated_at": "2026-11-23T09:52:53.014Z",
   "standards": [
     "wcag2a",
     "wcag2aa",
@@ -10,8 +10,21 @@
     {
       "name": "desktop-inbox",
       "violations": [],
-      "passes": 22,
+      "passes": 27,
       "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "help": "Elements must only use permitted ARIA attributes",
+          "nodes": [
+            {
+              "target": [
+                ".inbox-pagination"
+              ],
+              "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+            }
+          ]
+        },
         {
           "id": "color-contrast",
           "impact": "serious",
@@ -66,8 +79,21 @@
     {
       "name": "evidence",
       "violations": [],
-      "passes": 22,
+      "passes": 27,
       "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "help": "Elements must only use permitted ARIA attributes",
+          "nodes": [
+            {
+              "target": [
+                ".inbox-pagination"
+              ],
+              "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+            }
+          ]
+        },
         {
           "id": "color-contrast",
           "impact": "serious",
@@ -122,8 +148,21 @@
     {
       "name": "trace",
       "violations": [],
-      "passes": 22,
+      "passes": 27,
       "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "help": "Elements must only use permitted ARIA attributes",
+          "nodes": [
+            {
+              "target": [
+                ".inbox-pagination"
+              ],
+              "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+            }
+          ]
+        },
         {
           "id": "color-contrast",
           "impact": "serious",
@@ -204,6 +243,30 @@
             {
               "target": [
                 ".trace-row:nth-child(8) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(9) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(10) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(11) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(12) > .trace-symbol"
               ],
               "summary": "Fix any of the following:\n  Element content contains only non-text characters"
             }
@@ -330,8 +393,21 @@
     {
       "name": "mobile-inbox",
       "violations": [],
-      "passes": 22,
+      "passes": 27,
       "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "help": "Elements must only use permitted ARIA attributes",
+          "nodes": [
+            {
+              "target": [
+                ".inbox-pagination"
+              ],
+              "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+            }
+          ]
+        },
         {
           "id": "color-contrast",
           "impact": "serious",
@@ -364,12 +440,6 @@
             {
               "target": [
                 ".selected > .case-meta > span:nth-child(2)"
-              ],
-              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
-            },
-            {
-              "target": [
-                ".selected > .case-bottom > .order-ref"
               ],
               "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
             },
@@ -408,6 +478,30 @@
                 ".trace-row:nth-child(8) > .trace-symbol"
               ],
               "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(9) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(10) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(11) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(12) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
             }
           ]
         }
@@ -416,8 +510,21 @@
     {
       "name": "text-zoom-200-percent",
       "violations": [],
-      "passes": 23,
+      "passes": 28,
       "incomplete": [
+        {
+          "id": "aria-prohibited-attr",
+          "impact": "serious",
+          "help": "Elements must only use permitted ARIA attributes",
+          "nodes": [
+            {
+              "target": [
+                ".inbox-pagination"
+              ],
+              "summary": "Fix all of the following:\n  aria-label attribute is not well supported on \"div\" elements with no valid role attribute."
+            }
+          ]
+        },
         {
           "id": "color-contrast",
           "impact": "serious",
@@ -461,6 +568,12 @@
             },
             {
               "target": [
+                ".selected > .case-bottom > .order-ref"
+              ],
+              "summary": "Fix any of the following:\n  Element's background color could not be determined due to a pseudo element"
+            },
+            {
+              "target": [
                 ".trace-row:nth-child(3) > .trace-symbol"
               ],
               "summary": "Fix any of the following:\n  Element content contains only non-text characters"
@@ -492,6 +605,30 @@
             {
               "target": [
                 ".trace-row:nth-child(8) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(9) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(10) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(11) > .trace-symbol"
+              ],
+              "summary": "Fix any of the following:\n  Element content contains only non-text characters"
+            },
+            {
+              "target": [
+                ".trace-row:nth-child(12) > .trace-symbol"
               ],
               "summary": "Fix any of the following:\n  Element content contains only non-text characters"
             }

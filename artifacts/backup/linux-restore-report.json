@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-11-23T09:36:05.473413+00:00",
+  "disposable_database": "resolvelab_restore_a3917eb7e957",
+  "restored": true,
+  "original_order_snapshot_verified": true,
+  "synthetic_restore_probe_used": true,
+  "tracking_verified": true,
+  "approval_verified": true,
+  "source_database_written_by_check": false,
+  "command_output": "Restored tracking and atomic approval verified."
+}

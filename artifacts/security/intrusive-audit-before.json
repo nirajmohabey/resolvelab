@@ -1,0 +1,12 @@
+{
+  "scope": "TEST DB only; no worker spawned and no serving/eval reset",
+  "textual_eval_database": "resolvelab_evaluation",
+  "actual_runtime_and_admin_databases": [
+    "resolvelab_test",
+    "resolvelab_test"
+  ],
+  "actual_application_database": "resolvelab_test",
+  "old_worker_guard_accepted": true,
+  "old_api_queue_state": "queued",
+  "direct_pytest_reset_guard_present": false
+}

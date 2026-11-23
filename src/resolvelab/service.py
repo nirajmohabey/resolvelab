@@ -15,7 +15,7 @@ from sqlalchemy import text
 
 from .auth import assert_member
 from .db import primitive, rows, transaction
-from .schemas import ApproveRequest, CreateCase, DomainError, Draft, ResolveRequest
+from .schemas import ApproveRequest, CaseContextRequest, CreateCase, DomainError, Draft, RejectProposalRequest, ResolveRequest
 
 WRITE_ROLES = {"operator", "approver", "admin"}
 READ_ROLES = WRITE_ROLES | {"evaluator"}
@@ -158,13 +158,87 @@ def get_case(principal, case_id):
         return primitive(result)
 
 
-def list_cases(principal, limit=50, offset=0, state=None):
+def update_case_context(principal, case_id, body, key, request_id=None):
+    """Attach a claimed reference; ownership and eligibility are checked on resolve."""
+    body = CaseContextRequest.model_validate(body).model_dump()
+    payload = {"case_id": str(case_id), **body}
+    request_id = request_id or str(uuid4())
+    with transaction(principal) as conn:
+        p = assert_member(conn, principal, WRITE_ROLES)
+        prior = _idem(conn, p, "update_context", key, payload)
+        if prior:
+            return _replay(prior)
+        record = _case(conn, p, case_id, True)
+        if record["state"] != "needs_info" or record["version"] != body["expected_case_version"]:
+            raise DomainError(409, "stale_case", "Only a current case awaiting information can receive an order reference.")
+        result = _query_one(conn, """UPDATE resolvelab.cases SET order_ref=:order_ref,
+            resolution=NULL,intent=NULL,routing_score=NULL,version=version+1,updated_at=now()
+            WHERE tenant_id=:tenant AND case_id=:case RETURNING *""",
+                            {**_base(p), "case": case_id, "order_ref": body["order_ref"]})
+        _trace(conn, p, case_id, request_id, "context_updated", details={"changed_fields":["order_ref"],"ownership_recheck_required":True})
+        result = primitive(result)
+        _remember(conn, p, "update_context", key, payload, result)
+        return result
+
+
+def reject_proposal(principal, proposal_id, body, key, request_id=None):
+    """Decline an exact pending proposal and hand off without changing its order."""
+    body = RejectProposalRequest.model_validate(body).model_dump()
+    payload = {"proposal_id": str(proposal_id), **body}
+    request_id = request_id or str(uuid4())
+    with transaction(principal) as conn:
+        p = assert_member(conn, principal, {"approver", "admin"})
+        prior = _idem(conn, p, "reject", key, payload)
+        if prior:
+            return _replay(prior)
+        proposal = _query_one(conn, "SELECT * FROM resolvelab.proposals WHERE tenant_id=:tenant AND proposal_id=:proposal FOR UPDATE",
+                              {**_base(p), "proposal": proposal_id})
+        if not proposal:
+            raise DomainError(404, "not_found", "The requested proposal was not found.")
+        record = _case(conn, p, proposal["case_id"], True)
+        if (proposal["state"] != "pending" or record["state"] != "awaiting_approval"
+                or record["version"] != body["expected_case_version"]
+                or record["version"] != proposal["expected_case_version"]
+                or proposal["proposal_sha256"] != body["proposal_sha256"]):
+            raise DomainError(409, "stale_proposal", "The proposal changed or has already received a decision.")
+        resolution = dict(record["resolution"] or {})
+        resolution.update(disposition="escalated", answer="The cancellation proposal was declined by an approver and sent for manual support review. No cancellation was executed by this decision.",
+                          reason_code="operator_rejected", case_version=record["version"]+1)
+        if isinstance(resolution.get("proposal"), dict):
+            resolution["proposal"] = {**resolution["proposal"], "state":"rejected"}
+        conn.execute(text("UPDATE resolvelab.proposals SET state='rejected' WHERE tenant_id=:tenant AND proposal_id=:proposal"), {**_base(p), "proposal":proposal_id})
+        conn.execute(text("""UPDATE resolvelab.cases SET state='escalated',resolution=CAST(:resolution AS jsonb),
+            version=version+1,updated_at=now() WHERE tenant_id=:tenant AND case_id=:case"""),
+                     {**_base(p), "case":record["case_id"], "resolution":_json(resolution)})
+        conn.execute(text("""INSERT INTO resolvelab.handoffs(tenant_id,case_id,reason_code)
+            VALUES(:tenant,:case,'operator_rejected') ON CONFLICT(tenant_id,case_id) DO NOTHING"""), {**_base(p),"case":record["case_id"]})
+        _trace(conn, p, record["case_id"], request_id, "reject", details={"proposal_id":str(proposal_id),"proposal_sha256":proposal["proposal_sha256"],"actor_id":p.actor_id,"reason_code":body["reason_code"],"effect_executed":False})
+        result = {"case_id":str(record["case_id"]),"proposal_id":str(proposal_id),"state":"rejected","case_state":"escalated","case_version":record["version"]+1,"reason_code":body["reason_code"],"order_changed":False}
+        _remember(conn, p, "reject", key, payload, result)
+        return result
+
+
+def list_cases(principal, limit=50, offset=0, state=None, q=None):
+    limit=min(max(limit,1),100)
+    offset=min(max(offset,0),1_000_000)
+    query=(q or "").strip()
+    if len(query)>200 or "\x00" in query or (state is not None and state not in STATES):
+        raise DomainError(422,"invalid_case_filter","The case search or state filter is invalid.")
+    pattern="%"+query.replace("\\","\\\\").replace("%","\\%").replace("_","\\_")+"%"
+    predicate="""tenant_id=:tenant AND (CAST(:state AS text) IS NULL OR state=:state)
+        AND (:empty_query OR message ILIKE :pattern ESCAPE :escape
+             OR coalesce(order_ref,'') ILIKE :pattern ESCAPE :escape
+             OR CAST(case_id AS text) ILIKE :pattern ESCAPE :escape)"""
     with transaction(principal) as conn:
         p = assert_member(conn, principal, READ_ROLES)
-        items = rows(conn.execute(text("""SELECT * FROM resolvelab.cases WHERE tenant_id=:tenant
-            AND (CAST(:state AS text) IS NULL OR state=:state) ORDER BY created_at DESC,case_id LIMIT :limit OFFSET :offset"""),
-                                  {**_base(p), "state": state, "limit": min(max(limit, 1), 100), "offset": max(offset, 0)}))
-        return {"items": items, "limit": limit, "offset": offset}
+        # Both subqueries use one PostgreSQL statement/snapshot. An empty page
+        # still carries the real filtered count rather than becoming a false zero.
+        result=_query_one(conn,f"""SELECT (SELECT count(*) FROM resolvelab.cases WHERE {predicate}) AS total,
+            coalesce((SELECT jsonb_agg(to_jsonb(page) ORDER BY page.created_at DESC,page.case_id)
+                FROM (SELECT * FROM resolvelab.cases WHERE {predicate}
+                      ORDER BY created_at DESC,case_id LIMIT :limit OFFSET :offset) page),'[]'::jsonb) AS items""",
+                          {**_base(p),"state":state,"limit":limit,"offset":offset,"empty_query":not query,"pattern":pattern,"escape":"\\"})
+        return {"items":primitive(result["items"]),"total":result["total"],"limit":limit,"offset":offset}
 
 
 def load_pinned_router(release):
@@ -660,6 +734,13 @@ def create_evaluation(principal, body, key, request_id=None):
         from sqlalchemy.engine import make_url
         if make_url(os.environ["EVALUATION_DATABASE_URL"]).database == make_url(os.environ.get("DATABASE_URL", "postgresql:///resolvelab")).database:
             raise DomainError(503, "evaluation_not_isolated", "The evaluation database must differ from the serving database.", False)
+        from .isolation import connected_identity,validate_disposable_urls
+        try:
+            target_identity=validate_disposable_urls(os.environ["EVALUATION_DATABASE_URL"],os.environ["ADMIN_EVALUATION_DATABASE_URL"],"resolvelab_evaluation")
+            if connected_identity(conn)==target_identity:
+                raise RuntimeError("The application and evaluation database are identical.")
+        except RuntimeError:
+            raise DomainError(503,"evaluation_not_isolated","The isolated evaluation database configuration could not be verified.") from None
         prior = _idem(conn, p, "create_evaluation", key, body)
         if prior:
             return _replay(prior)

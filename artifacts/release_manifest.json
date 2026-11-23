@@ -1,42 +1,46 @@
 {
-  "release": "v0.1.0",
-  "generated_at": "2026-11-23T08:48:02.927442+00:00",
+  "release": "v0.2.0",
+  "generated_at": "2026-11-23T09:56:51.244831+00:00",
   "environment": {
     "python": "3.12.14",
     "platform": "Windows-11-10.0.26300-SP0"
   },
-  "python_source_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+  "python_source_tree_sha256": "f3c9dc2df82b6333dc6aba15346c39d20b3612be236b9a1aef1f20a7b3b45445",
   "application_file_sha256": {
     "migrations/versions/0001_core.py": "e0be9fb98d6b6450c05ab2c4c0b940581270d7ba042405560a57ff06492ee984",
     "migrations/versions/0002_security.py": "e5096df275ea0872804e3aa288109f4808a41fecc1ce26b4a69d725242ce291b",
     "migrations/versions/0003_retrieval_release.py": "8aa230c5935932a73eeeb55d2966ee84b3a21874560f9a5d7f5144b95676b0c2",
+    "migrations/versions/0004_corpus_bounds.py": "d90006f0300fa5b346e1278b2636cce6064aefc64bb17f282c51cae3b0ffa83c",
+    "migrations/versions/0005_corpus_mvcc.py": "3847089f0f8e897836b122c82ea48cd5b5d98de279c4cfbd7fc841fd350c77b6",
+    "migrations/versions/0006_operator_paths.py": "44c80d0197ca87bd97f27b7511ba2bfba22cdebe6b72448b048b582720ba5968",
     "src/resolvelab/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "src/resolvelab/api.py": "57ff44fe6b8be023fb6e11be976403b9090f3cc9c13b028b5d73176120ca636f",
+    "src/resolvelab/api.py": "d451ff3c7b927580fd0f02801aabea5f7abde2ddf8b239716deab09864daab90",
     "src/resolvelab/auth.py": "38f343cd0192865b542b33bc0e6fa7ef098a290a2cb6a077c0d2cfd031dc38b5",
-    "src/resolvelab/config.py": "e1f0de27e10c8d946eb7ab540f2fa3187ad9d817aab85fb12f1105fef1a5146f",
+    "src/resolvelab/config.py": "84f03ea63ec982f213f0a38a3ee68b42644a022c9305df7cb90fbf3ef4eb0aec",
     "src/resolvelab/db.py": "da076bdc2d995302cf5aea737597eb58c64bd18f45b38e088c95b1882772d8f7",
-    "src/resolvelab/evaluate.py": "751fdeb077f6f8d1ffadfa3de14ae3dc0882a4391f2d35e5028f621873188ea4",
+    "src/resolvelab/evaluate.py": "d201d5049e7c8f27aede81074129b92d48412c691d937322f8e21d1bc1a30293",
     "src/resolvelab/evaluation_job.py": "00582a3738eb9bbc52e970f655c85d1851a3d22b2aedfb37f19020d658950271",
-    "src/resolvelab/generation.py": "bb4708d1ec53be4520212a56e7196167b7f94a706223a47947a2b9584df64760",
+    "src/resolvelab/generation.py": "248f364346c4b2419bf4da8e5b56f960302d9dc104e0281120994cb10de3796d",
+    "src/resolvelab/isolation.py": "cde5749b7df49fbccdb6c10e10df25ab3b45299ce8c6df5e22763c15a5181fd1",
     "src/resolvelab/ml.py": "b54ea98248a85fc1d27569877ad5ab6a7ad1ac99cf81582744a3029a10cb54c9",
     "src/resolvelab/processes.py": "8b60b7e1515f5fa46a070799e7a64a12e6e809fc1d009deb2a518543a1a009a1",
     "src/resolvelab/provision.py": "12b4e11cf88b91d45ac8b5e86961c69ba8a5c6da2c0f9a928b5def32b0df719d",
-    "src/resolvelab/retrieval.py": "f0f6e3f815f3eac21f9e95e142ac17a8c9e8b61b83055cf285334f57675762a2",
-    "src/resolvelab/schemas.py": "26899200bc2aa1aced1b962801ff603d81c39bb21768d1d720925319de2c2e56",
-    "src/resolvelab/security.py": "b3ca55ab41ba658c080cabf49ac78727893c09066e0df300dfaf4bdb5aef65e0",
+    "src/resolvelab/retrieval.py": "2156fd7f7fe1401e1a510cb5631be02977d6ba37270b1a4c69d039195847599b",
+    "src/resolvelab/schemas.py": "2daa8cdfe69b6881dd905b106811389b41c4e238b7b4108e1142c6c7e8b92679",
+    "src/resolvelab/security.py": "f1f5d9b76a11a071d66e8fa667605b710a2ff3b204ae8396a3cdce47eb8a1189",
     "src/resolvelab/seed.py": "f22412651d3cb36758b2db981d0e57c8f8d436b14f710cddab7c6c623fd9a4f3",
-    "src/resolvelab/service.py": "07b11ddd3007efd48836fd179bc0a2c33b62f47a50d01f5265e03968b5fb68bd",
-    "src/resolvelab/worker.py": "ff9353effaa373ed0b619e2c3731d2b71e45bda954c1d37e4210c5529118c551",
-    "web/app.css": "68ba80da21a69156128e2947d649d4c6731022b0e6967650119209a9edd17bd6",
-    "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
-    "web/auth-client-src.js": "3fcf6c58056b3cb580eec8755381bfc6e111a1880bcf4cac5536068e1b6db6a8",
-    "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb",
-    "web/index.html": "b4196e3efc5baa6d7567a2931238049df6cc30b107551bb925cc6d25478eb5e8"
+    "src/resolvelab/service.py": "2f102b4af63c3a422ed8d7242c0677f4092d569cb2fe8fbd65ecea7a90419667",
+    "src/resolvelab/worker.py": "60f3d6fe5db1c2c7dc97f63d5f0e6fee868affb6621091977961ddc5dc1b2020",
+    "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+    "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd",
+    "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81"
   },
   "locks": {
-    "uv.lock": "fb643b44c76d9019fe1003e7902dfa27c2d0992bea26db27cbe18b4f0f58efac",
+    "uv.lock": "ab347bf2ba48509e35d305ba40dbe271bacb1060bc2efd875288a032342d9175",
     "requirements.lock": "63f284589c36a522742f58502e4a3ee9ee77f5c6e973a025f1e66c57b423baf7",
-    "package-lock.json": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701"
+    "package-lock.json": "683438222042de34613c7cf5531b53451c12dce2cd2e56b776eff56b169d4185"
   },
   "model": {
     "version": "domain-router-v4",
@@ -48,18 +52,134 @@
     "errors": "0",
     "failures": "0",
     "skipped": "0",
-    "tests": "95",
-    "time": "38.308",
-    "timestamp": "2026-11-23T03:29:21.414028-05:00",
+    "tests": "157",
+    "time": "49.888",
+    "timestamp": "2026-11-23T04:39:11.135720-05:00",
     "hostname": "Niraj-16ARX8"
   },
+  "linux_tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "157",
+    "time": "31.846",
+    "timestamp": "2026-11-23T09:39:27.307999+00:00",
+    "hostname": "92af5721-ca4"
+  },
+  "linux_environment": {
+    "python": "3.12.14 (main, Sep 29 2026, 15:01:18) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.56-x86_64-with-glibc2.43",
+    "postgresql": "PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1)",
+    "scope": "Private ephemeral Vercel Sandbox; generated fixture-only credentials; no host secrets or public ports."
+  },
+  "container_startup_smoke": {
+    "scope": "Private Vercel Sandbox; no published VM ports",
+    "passed": true,
+    "docker_version": "29.1.3",
+    "compose_exit_code": 0,
+    "readiness_status": 200,
+    "containers": [
+      {
+        "ExitCode": 0,
+        "Health": "starting",
+        "Image": "resolvelab-api",
+        "Service": "api",
+        "State": "running"
+      },
+      {
+        "ExitCode": 0,
+        "Health": "healthy",
+        "Image": "postgres:17.12",
+        "Service": "db",
+        "State": "running"
+      },
+      {
+        "ExitCode": 0,
+        "Health": "",
+        "Image": "resolvelab-worker",
+        "Service": "worker",
+        "State": "running"
+      }
+    ],
+    "cleanup_exit_code": 0
+  },
+  "linux_serving_consistency": {
+    "N": 128,
+    "intent_mismatches": [],
+    "accepted_decision_mismatches": [],
+    "max_absolute_score_difference": 1.1241567465791746e-07,
+    "score_tolerance": 1e-06,
+    "threshold": 0.425,
+    "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "scope": "Actual one-message Router serving path versus saved untuned domain-family test predictions. Float reductions can differ at about1e-7; no decision difference is allowed."
+  },
+  "linux_backup_restore": {
+    "generated_at": "2026-11-23T09:36:05.473413+00:00",
+    "disposable_database": "resolvelab_restore_a3917eb7e957",
+    "restored": true,
+    "original_order_snapshot_verified": true,
+    "synthetic_restore_probe_used": true,
+    "tracking_verified": true,
+    "approval_verified": true,
+    "source_database_written_by_check": false,
+    "command_output": "Restored tracking and atomic approval verified."
+  },
   "browser": {
-    "passed": 9,
+    "passed": 11,
+    "total": 11,
+    "checks": [
+      {
+        "name": "tracking resolves with policy evidence",
+        "passed": true
+      },
+      {
+        "name": "trace stages visible",
+        "passed": true
+      },
+      {
+        "name": "missing order reference is attached to the same case before explicit resolution",
+        "passed": true
+      },
+      {
+        "name": "approver declines a proposal into handoff without executing cancellation",
+        "passed": true
+      },
+      {
+        "name": "cancellation stops for approval",
+        "passed": true
+      },
+      {
+        "name": "approver executes one local cancellation",
+        "passed": true
+      },
+      {
+        "name": "human request persists escalation",
+        "passed": true
+      },
+      {
+        "name": "evaluation and releases render",
+        "passed": true
+      },
+      {
+        "name": "evaluation comparison exposes scoped case reports",
+        "passed": true
+      },
+      {
+        "name": "tenant switch removes alpha case context",
+        "passed": true
+      },
+      {
+        "name": "mobile layout fits viewport",
+        "passed": true
+      }
+    ],
     "source_hashes": {
-      "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
-      "web/app.css": "68ba80da21a69156128e2947d649d4c6731022b0e6967650119209a9edd17bd6",
-      "web/index.html": "b4196e3efc5baa6d7567a2931238049df6cc30b107551bb925cc6d25478eb5e8",
-      "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb"
+      "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+      "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+      "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+      "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
     },
     "source_stable": true,
     "errors": [],
@@ -72,17 +192,17 @@
       390,
       844
     ],
-    "generated_at": "2026-11-23T08:44:46.677Z"
+    "generated_at": "2026-11-23T09:52:36.577Z"
   },
   "oidc": {
-    "generated_at": "2026-11-23T08:44:26.419Z",
+    "generated_at": "2026-11-23T09:52:47.470Z",
     "browser": "158.0.8127.37",
     "mode": "mocked HTTPS IdP and app API, real RSA signatures, no production provider credentials",
     "source_hashes": {
-      "web/auth-client-src.js": "3fcf6c58056b3cb580eec8755381bfc6e111a1880bcf4cac5536068e1b6db6a8",
-      "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb",
-      "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
-      "package-lock.json": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701"
+      "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+      "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd",
+      "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "package-lock.json": "683438222042de34613c7cf5531b53451c12dce2cd2e56b776eff56b169d4185"
     },
     "source_stable": true,
     "passed": 9,
@@ -203,11 +323,25 @@
     ]
   },
   "ui_races": {
-    "generated_at": "2026-11-23T08:44:31.062Z",
+    "generated_at": "2026-11-23T09:36:52.008Z",
     "read_only": true,
     "backend_connected": false,
-    "initial_app_sha256": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
-    "app_sha256": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
+    "initial_app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+    "app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+    "initial_source_hashes": {
+      "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+      "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+      "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+      "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+    },
+    "source_hashes": {
+      "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+      "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+      "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+      "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+    },
     "source_stable": true,
     "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
     "passed": 10,
@@ -220,7 +354,7 @@
         "authentication": "real fixture auth adapter",
         "api_requests_intercepted": 7,
         "page_errors": [],
-        "duration_ms": 1753
+        "duration_ms": 1722
       },
       {
         "name": "late case A evidence cannot replace case B evidence",
@@ -228,7 +362,7 @@
         "authentication": "real fixture auth adapter",
         "api_requests_intercepted": 8,
         "page_errors": [],
-        "duration_ms": 1495
+        "duration_ms": 1426
       },
       {
         "name": "late case A trace cannot replace case B trace",
@@ -236,7 +370,7 @@
         "authentication": "real fixture auth adapter",
         "api_requests_intercepted": 8,
         "page_errors": [],
-        "duration_ms": 1469
+        "duration_ms": 1483
       },
       {
         "name": "late evidence cannot overwrite the newly selected trace tab",
@@ -244,7 +378,7 @@
         "authentication": "real fixture auth adapter",
         "api_requests_intercepted": 7,
         "page_errors": [],
-        "duration_ms": 1523
+        "duration_ms": 1446
       },
       {
         "name": "late evidence error cannot replace another case",
@@ -252,7 +386,7 @@
         "authentication": "real fixture auth adapter",
         "api_requests_intercepted": 8,
         "page_errors": [],
-        "duration_ms": 1447
+        "duration_ms": 1458
       },
       {
         "name": "OIDC 401 during evidence clears the workspace without a page error",
@@ -260,7 +394,7 @@
         "authentication": "synthetic OIDC adapter; real workbench session handling",
         "api_requests_intercepted": 5,
         "page_errors": [],
-        "duration_ms": 1394
+        "duration_ms": 1413
       },
       {
         "name": "OIDC 401 during resolve clears the workspace without a page error",
@@ -268,7 +402,7 @@
         "authentication": "synthetic OIDC adapter; real workbench session handling",
         "api_requests_intercepted": 5,
         "page_errors": [],
-        "duration_ms": 1495
+        "duration_ms": 1358
       },
       {
         "name": "a rejected old request cannot redraw after disconnect",
@@ -276,7 +410,7 @@
         "authentication": "synthetic OIDC adapter; real workbench session handling",
         "api_requests_intercepted": 5,
         "page_errors": [],
-        "duration_ms": 1465
+        "duration_ms": 1418
       },
       {
         "name": "lost create response retries the same idempotency key and creates one case",
@@ -284,7 +418,7 @@
         "authentication": "real fixture auth adapter",
         "api_requests_intercepted": 10,
         "page_errors": [],
-        "duration_ms": 1528
+        "duration_ms": 1478
       },
       {
         "name": "late report A cannot replace a newly opened report B",
@@ -292,22 +426,270 @@
         "authentication": "real fixture auth adapter",
         "api_requests_intercepted": 9,
         "page_errors": [],
-        "duration_ms": 1644
+        "duration_ms": 1630
       }
     ]
   },
+  "additional_browser": {
+    "workbench-feature-results.json": {
+      "generated_at": "2026-11-23T09:36:50.044Z",
+      "read_only": true,
+      "backend_connected": false,
+      "initial_app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "initial_source_hashes": {
+        "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+        "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+        "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      },
+      "source_hashes": {
+        "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+        "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+        "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      },
+      "source_stable": true,
+      "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
+      "passed": 8,
+      "total": 8,
+      "failures": 0,
+      "results": [
+        {
+          "name": "older cases are reachable through paging and server search/filter",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 29,
+          "page_errors": [],
+          "duration_ms": 2106
+        },
+        {
+          "name": "a slow old search cannot overwrite newer matching cases",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 10,
+          "page_errors": [],
+          "duration_ms": 2355
+        },
+        {
+          "name": "inbox failure removes stale actions and retry restores usable cases",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 13,
+          "page_errors": [],
+          "duration_ms": 1486
+        },
+        {
+          "name": "identity changes clear old context immediately and recover failed connections",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 19,
+          "page_errors": [],
+          "duration_ms": 1691
+        },
+        {
+          "name": "read-only production reviewers can inspect with keyboard tabs without fixture actions",
+          "passed": true,
+          "authentication": "synthetic OIDC adapter; real workbench session handling",
+          "api_requests_intercepted": 6,
+          "page_errors": [],
+          "duration_ms": 1351
+        },
+        {
+          "name": "pending creation protects the submitted draft and keyboard dialog recovery",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 9,
+          "page_errors": [],
+          "duration_ms": 1730
+        },
+        {
+          "name": "comparison snapshots survive refresh and partial retries create one job per release",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 15,
+          "page_errors": [],
+          "duration_ms": 1646
+        },
+        {
+          "name": "mobile dialogs, long identifiers and untrusted text remain usable",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 6,
+          "page_errors": [],
+          "duration_ms": 1695
+        }
+      ]
+    },
+    "auth-callback-failure-results.json": {
+      "generated_at": "2026-11-23T09:36:38.658Z",
+      "read_only": true,
+      "backend_connected": false,
+      "initial_app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "initial_source_hashes": {
+        "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+        "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+        "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      },
+      "source_hashes": {
+        "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+        "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+        "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      },
+      "source_stable": true,
+      "scope": "Real bundled browser auth adapter; callback URL and pending PKCE cleanup during HTTP 503, network rejection and malformed config; all API calls intercepted; no backend or identity provider contacted",
+      "passed": 3,
+      "total": 3,
+      "failures": 0,
+      "results": [
+        {
+          "name": "HTTP 503 config callback clears code state and pending PKCE",
+          "passed": true,
+          "authentication": "real bundled browser auth adapter; mocked config failure",
+          "api_requests_intercepted": 2,
+          "page_errors": [],
+          "duration_ms": 1481,
+          "evidence": {
+            "callback_query_cleared": true,
+            "pending_pkce_removed": true,
+            "config_requests": 2,
+            "application_session_requests": 0,
+            "token_or_session_requests": 0
+          }
+        },
+        {
+          "name": "network rejected config callback clears code state and pending PKCE",
+          "passed": true,
+          "authentication": "real bundled browser auth adapter; mocked config failure",
+          "api_requests_intercepted": 2,
+          "page_errors": [],
+          "duration_ms": 1253,
+          "evidence": {
+            "callback_query_cleared": true,
+            "pending_pkce_removed": true,
+            "config_requests": 2,
+            "application_session_requests": 0,
+            "token_or_session_requests": 0
+          }
+        },
+        {
+          "name": "malformed config callback clears code state and pending PKCE",
+          "passed": true,
+          "authentication": "real bundled browser auth adapter; mocked config failure",
+          "api_requests_intercepted": 2,
+          "page_errors": [],
+          "duration_ms": 1305,
+          "evidence": {
+            "callback_query_cleared": true,
+            "pending_pkce_removed": true,
+            "config_requests": 2,
+            "application_session_requests": 0,
+            "token_or_session_requests": 0
+          }
+        }
+      ],
+      "initial_auth_sha256": {
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      },
+      "auth_sha256": {
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      }
+    },
+    "operator-followup-results.json": {
+      "generated_at": "2026-11-23T09:36:02.295Z",
+      "read_only": true,
+      "backend_connected": false,
+      "initial_app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "app_sha256": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+      "initial_source_hashes": {
+        "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+        "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+        "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      },
+      "source_hashes": {
+        "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+        "web/index.html": "c344304d42d4e33fa5a5a9784dd467ce14345a9812db62aa9cc82a421703be81",
+        "web/app.css": "61f7e6fde219b56bfbf91be7bbef385dae5b3457302302fda6bb0e86cd886749",
+        "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+        "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd"
+      },
+      "source_stable": true,
+      "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
+      "passed": 5,
+      "total": 5,
+      "failures": 0,
+      "results": [
+        {
+          "name": "needs-info attachment retries once and requires explicit resolution",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 14,
+          "page_errors": [],
+          "duration_ms": 2635
+        },
+        {
+          "name": "decline is deliberate, idempotent, escalates and never approves or cancels",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 13,
+          "page_errors": [],
+          "duration_ms": 3766
+        },
+        {
+          "name": "read-only reviewers are not offered either follow-up mutation",
+          "passed": true,
+          "authentication": "synthetic OIDC adapter; real workbench session handling",
+          "api_requests_intercepted": 5,
+          "page_errors": [],
+          "duration_ms": 1345
+        },
+        {
+          "name": "switching cases during saved context or decline never retargets the write",
+          "passed": true,
+          "authentication": "real fixture auth adapter",
+          "api_requests_intercepted": 9,
+          "page_errors": [],
+          "duration_ms": 1681
+        },
+        {
+          "name": "disconnect during context update cannot restore a private case or form",
+          "passed": true,
+          "authentication": "synthetic OIDC adapter; real workbench session handling",
+          "api_requests_intercepted": 5,
+          "page_errors": [],
+          "duration_ms": 1457
+        }
+      ],
+      "additional_evidence": {
+        "context_form_accessibility_violations": 0,
+        "decline_form_accessibility_violations": 0
+      }
+    }
+  },
+  "browser_checks_total": 46,
   "accessibility": {
     "states": 9,
     "violations": 0,
     "artifact": {
       "path": "artifacts/accessibility/axe-results.json",
-      "sha256": "7d8d2718bfb94e702027b1315e056b4b816f51b430f74209125f2df97576dc36"
+      "sha256": "2e3aac70987ec8d40dc2b625305fec2789a7e33ca1596fad85c382aeaad32c2b"
     }
   },
   "evaluations": {
     "deterministic": {
       "path": "artifacts/hardening-final-invariants/workflow-evaluation.json",
-      "sha256": "0cca4725320016d53e279827e6f3320b6246dc8a56bdfcff4c195527028f59a7",
+      "sha256": "5a3c3bb9eb7854dde1f5d37135e14605e0f97e17f0e34a5ffb1cb362e357c084",
       "metrics": {
         "workflow_success": {
           "numerator": 20,
@@ -318,8 +700,8 @@
         "critical_failures": 0,
         "unauthorized_effect_count": 0,
         "all_tenant_effect_checks_completed": 20,
-        "p50_ms": 41.143,
-        "p95_ms": 57.089,
+        "p50_ms": 32.5165,
+        "p95_ms": 80.276,
         "estimated_provider_cost_usd": null,
         "citation_support_human_review": null,
         "safe_escalation_recall": {
@@ -335,7 +717,7 @@
     },
     "v4_final": {
       "path": "artifacts/v4/blind-final/workflow-evaluation.json",
-      "sha256": "1271b20677672f9d81ab7b437a8e6f6330367d288ee05e6b8ac0f90195f5d5af",
+      "sha256": "0e48fe43e30a3785b62069dd8f1d98e6232747dfde37dab0087eb47a4eeaf797",
       "metrics": {
         "workflow_success": {
           "numerator": 139,
@@ -346,8 +728,8 @@
         "critical_failures": 21,
         "unauthorized_effect_count": 0,
         "all_tenant_effect_checks_completed": 160,
-        "p50_ms": 36.643,
-        "p95_ms": 47.395,
+        "p50_ms": 36.6785,
+        "p95_ms": 49.508,
         "estimated_provider_cost_usd": null,
         "citation_support_human_review": null,
         "safe_escalation_recall": {
@@ -457,7 +839,7 @@
     },
     "v1_paired": {
       "path": "artifacts/v4/paired-baseline/workflow-evaluation.json",
-      "sha256": "3f961e7edc014a94573108fb5dcb2d3657a10ee9cf52ece8ba705792303382b3",
+      "sha256": "c661b0444fa6f5df6657abc29f8ed3e23881f67b608349b9dc99a1c3192f50e8",
       "metrics": {
         "workflow_success": {
           "numerator": 76,
@@ -468,8 +850,8 @@
         "critical_failures": 84,
         "unauthorized_effect_count": 0,
         "all_tenant_effect_checks_completed": 160,
-        "p50_ms": 30.6455,
-        "p95_ms": 40.181,
+        "p50_ms": 33.0685,
+        "p95_ms": 44.145,
         "estimated_provider_cost_usd": null,
         "citation_support_human_review": null,
         "safe_escalation_recall": {
@@ -579,7 +961,7 @@
     },
     "v3_paired": {
       "path": "artifacts/v4/paired-v3/workflow-evaluation.json",
-      "sha256": "bb05e78659f48a143d6af33fe434f315a07ce5e35203a4632f62c47c98b32647",
+      "sha256": "acd6558541bbd6e7171e23e30d1a77242361b10740e6bbc228850a589701d36b",
       "metrics": {
         "workflow_success": {
           "numerator": 95,
@@ -590,8 +972,8 @@
         "critical_failures": 65,
         "unauthorized_effect_count": 0,
         "all_tenant_effect_checks_completed": 160,
-        "p50_ms": 35.533500000000004,
-        "p95_ms": 43.639,
+        "p50_ms": 37.317499999999995,
+        "p95_ms": 45.856,
         "estimated_provider_cost_usd": null,
         "citation_support_human_review": null,
         "safe_escalation_recall": {
@@ -813,14 +1195,14 @@
     ]
   },
   "dependency_audit": {
-    "generated_at": "2026-11-23T08:14:03.244862+00:00",
+    "generated_at": "2026-11-23T09:37:47.570925+00:00",
     "commands": [
       "python artifacts/security/audit_dependencies.py",
       "npm audit --json --package-lock-only --registry=https://registry.npmjs.org"
     ],
     "inputs": {
       "uv.lock": {
-        "sha256": "fb643b44c76d9019fe1003e7902dfa27c2d0992bea26db27cbe18b4f0f58efac",
+        "sha256": "ab347bf2ba48509e35d305ba40dbe271bacb1060bc2efd875288a032342d9175",
         "bytes": 187786
       },
       "requirements.lock": {
@@ -828,8 +1210,8 @@
         "bytes": 35129
       },
       "package-lock.json": {
-        "sha256": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701",
-        "bytes": 17373
+        "sha256": "683438222042de34613c7cf5531b53451c12dce2cd2e56b776eff56b169d4185",
+        "bytes": 17959
       }
     },
     "osv": {
@@ -856,6 +1238,14 @@
       "sha256": "9d7bb70449b938f7b22dd79c9b402c96c166409754da6138d4ff1f1b2fe1a788"
     },
     {
+      "path": "artifacts/browser/live-isolation.json",
+      "sha256": "5df0a7013e36ae1a77307330e17ceb58c611906b1dae9ee4810c64e1405678a5"
+    },
+    {
+      "path": "artifacts/browser/viewport-results.json",
+      "sha256": "d35b42afa7505479a3cde73559b8873fb0d406e0e682fc86fd3c6062cf01b5cf"
+    },
+    {
       "path": "artifacts/security/production-hardening.json",
       "sha256": "6faf4f1657468886a9d76b1a0f42c2bcfc981183a90012f8ca5e6087c25eb5db"
     },
@@ -865,11 +1255,11 @@
     },
     {
       "path": "artifacts/security/source-exposure-check.json",
-      "sha256": "6207eeccc3dd5349df6d044904403635ce3843a651c351bc731cc0ea173e6caf"
+      "sha256": "06ee3bdc093267046a118d953764cb157af01a97f26196e82c9b480ab6f8bc17"
     },
     {
       "path": "artifacts/v4/final-analysis/analysis.json",
-      "sha256": "be17d58c531753150f636c870c5af3c370a4d0a550dd7e34414d1d1b5a533e09"
+      "sha256": "ad36880faf74b3719df2bbafd0728dbe1a0f9df19d6ccfc62d02c17c8701d233"
     },
     {
       "path": "artifacts/rebuild-runs/390355c7da28/report.json",
@@ -886,7 +1276,7 @@
     "Zero observed unauthorized effects is a bounded test result, not a reliability guarantee.",
     "Mocked HTTPS IdP with real signatures; no real provider account/callback integration.",
     "Automated accessibility scans and limited keyboard/zoom checks do not establish complete WCAG conformance.",
-    "No hosted backend, executed production containers, paid-provider benchmark, merchant/payment/email effects or cloud backup schedule.",
+    "No hosted backend, paid-provider benchmark, merchant/payment/email effects or cloud backup schedule. Container smoke evidence is reported separately.",
     "GitHub previously prevented acceptance runners from starting because of an account restriction; inspect Actions for subsequent status."
   ]
 }

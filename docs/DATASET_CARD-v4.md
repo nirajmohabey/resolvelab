@@ -39,7 +39,7 @@ The evaluator checks actual service/database paths, expected intent/disposition,
 
 Uncertainty uses a paired cluster bootstrap over the **87 semantic groups**, retaining each group's variants together and using the same resample for all models. It is not an estimate for a randomly sampled customer population. Separately authored by another agent does not mean independently reviewed by humans. No intervention impact or production accuracy is inferred.
 
-Final reruns after the verified-customer idempotency fix preserve the same counts and weights and record one source tree across all releases. Original earlier reports are retained in `before-intake-binding/`; release metadata now comes from the actual DB-selected model/hash/corpus/retrieval pin, not a global manifest file.
+The v0.2 source-only reruns preserved the same 139/95/76 paired workflow counts, the baseline fixture 19/20, and unchanged weights/thresholds. The separate deterministic invariant workload passed 20/20; all runs had zero unauthorized effects/runner errors and complete effect audits. Common source SHA-256 is `f3c9dc2df82b6333dc6aba15346c39d20b3612be236b9a1aef1f20a7b3b45445`. No dataset message, label or split changed. Prior v0.1 reports/cards/analysis are hash-preserved under `artifacts/v4/before-v0.2-hardening/`; older reports remain in `before-intake-binding/`. Release metadata comes from the actual DB-selected model/hash/corpus/retrieval pin, not a global manifest file. Reusing these disclosed frozen cases verifies serving compatibility; it does not create a fresh independent generalization estimate.
 
 ## Policies, embeddings, retrieval labels, and factual review
 

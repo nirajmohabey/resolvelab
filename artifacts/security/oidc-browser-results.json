@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-23T08:44:26.419Z",
+  "generated_at": "2026-11-23T09:52:47.470Z",
   "browser": "158.0.8127.37",
   "mode": "mocked HTTPS IdP and app API, real RSA signatures, no production provider credentials",
   "source_hashes": {
-    "web/auth-client-src.js": "3fcf6c58056b3cb580eec8755381bfc6e111a1880bcf4cac5536068e1b6db6a8",
-    "web/auth-client.js": "4dfebe12eed63d9429f09f5a5406308db80fcb71fbac2e1da7663ffccb0d7edb",
-    "web/app.js": "8fa8d1a835d862320d95e44e22f47882212741b43c2e228694bcd839186fee96",
-    "package-lock.json": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701"
+    "web/auth-client-src.js": "ab34807b8e623a047a40ece40331c260ac971fa05e31ca33e2defdec118e50f0",
+    "web/auth-client.js": "9033c813f638a92d9c346dddcc0acb39ee0df15d8fff0067786d81284d655abd",
+    "web/app.js": "a609c6f93309d7ccdcc0ee1fea78d8d44bfdd7175a3bb2633c886cf868cf5d95",
+    "package-lock.json": "683438222042de34613c7cf5531b53451c12dce2cd2e56b776eff56b169d4185"
   },
   "source_stable": true,
   "passed": 9,

@@ -1,0 +1,6 @@
+{
+  "python": "3.12.14 (main, Sep 29 2026, 15:01:18) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.56-x86_64-with-glibc2.43",
+  "postgresql": "PostgreSQL 18.6 (Ubuntu 18.6-0ubuntu0.26.04.1)",
+  "scope": "Private ephemeral Vercel Sandbox; generated fixture-only credentials; no host secrets or public ports."
+}

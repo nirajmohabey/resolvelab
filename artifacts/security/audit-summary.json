@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-23T08:14:03.244862+00:00",
+  "generated_at": "2026-11-23T09:37:47.570925+00:00",
   "commands": [
     "python artifacts/security/audit_dependencies.py",
     "npm audit --json --package-lock-only --registry=https://registry.npmjs.org"
   ],
   "inputs": {
     "uv.lock": {
-      "sha256": "fb643b44c76d9019fe1003e7902dfa27c2d0992bea26db27cbe18b4f0f58efac",
+      "sha256": "ab347bf2ba48509e35d305ba40dbe271bacb1060bc2efd875288a032342d9175",
       "bytes": 187786
     },
     "requirements.lock": {
@@ -14,8 +14,8 @@
       "bytes": 35129
     },
     "package-lock.json": {
-      "sha256": "b86736724e71740ed56c9ca326f7c4db7d30ea0959736518e88f914150d3e701",
-      "bytes": 17373
+      "sha256": "683438222042de34613c7cf5531b53451c12dce2cd2e56b776eff56b169d4185",
+      "bytes": 17959
     }
   },
   "osv": {

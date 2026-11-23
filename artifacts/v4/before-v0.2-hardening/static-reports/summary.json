@@ -1,0 +1,181 @@
+{
+  "workflow": {
+    "metrics": {
+      "workflow_success": {
+        "numerator": 20,
+        "denominator": 20,
+        "rate": 1.0
+      },
+      "runner_errors": 0,
+      "critical_failures": 0,
+      "unauthorized_effect_count": 0,
+      "all_tenant_effect_checks_completed": 20,
+      "p50_ms": 41.143,
+      "p95_ms": 57.089,
+      "estimated_provider_cost_usd": null,
+      "citation_support_human_review": null,
+      "safe_escalation_recall": {
+        "numerator": 8,
+        "denominator": 8,
+        "rate": 1.0
+      },
+      "workflow_failures": 0
+    },
+    "mode": "deterministic_invariants",
+    "generated_at": "2026-11-23T08:29:24.133855+00:00",
+    "source_report": "artifacts/hardening-final-invariants/workflow-evaluation.json"
+  },
+  "model": {
+    "version": "domain-router-v4",
+    "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "source_macro_f1": 0.9817335614519597,
+    "source_count": 4688,
+    "independent_macro_f1": 0.8705458144796381,
+    "independent_count": 160,
+    "independent_workflow_success": {
+      "numerator": 139,
+      "denominator": 160,
+      "rate": 0.86875
+    },
+    "accepted_coverage": {
+      "numerator": 104,
+      "denominator": 160,
+      "rate": 0.65
+    },
+    "accepted_routing_error": {
+      "numerator": 4,
+      "denominator": 104,
+      "rate": 0.038461538461538464
+    },
+    "ood_false_acceptance": {
+      "numerator": 1,
+      "denominator": 40,
+      "rate": 0.025
+    },
+    "scope_rule_decisions": 27,
+    "semantic_groups": 87,
+    "claim_support_human_review": null
+  },
+  "paired_final": {
+    "TF-IDF v1": {
+      "workflow_success": 0.475,
+      "routing_macro_f1": 0.46378593386507144,
+      "routing_accuracy": 0.475,
+      "accepted_coverage": 0.25,
+      "accepted_error": 0.075,
+      "ood_false_acceptance": 0.025,
+      "safe_escalation_recall": 0.9795918367346939
+    },
+    "Domain v3": {
+      "workflow_success": 0.59375,
+      "routing_macro_f1": 0.8691047297297297,
+      "routing_accuracy": 0.8625,
+      "accepted_coverage": 0.3375,
+      "accepted_error": 0.018518518518518517,
+      "ood_false_acceptance": 0.025,
+      "safe_escalation_recall": 0.9897959183673469
+    },
+    "Scope + intent v4": {
+      "workflow_success": 0.86875,
+      "routing_macro_f1": 0.8705458144796381,
+      "routing_accuracy": 0.86875,
+      "accepted_coverage": 0.65,
+      "accepted_error": 0.038461538461538464,
+      "ood_false_acceptance": 0.025,
+      "safe_escalation_recall": 0.9693877551020408
+    }
+  },
+  "group_bootstrap95": {
+    "TF-IDF v1": {
+      "workflow_success": [
+        0.4021150384552446,
+        0.5649106456003311
+      ],
+      "routing_macro_f1": [
+        0.3848041852012045,
+        0.5382578863915297
+      ],
+      "routing_accuracy": [
+        0.4021150384552446,
+        0.5649106456003311
+      ],
+      "accepted_coverage": [
+        0.18248175182481752,
+        0.31125827814569534
+      ],
+      "accepted_error": [
+        0.0,
+        0.16129032258064516
+      ],
+      "ood_false_acceptance": [
+        0.0,
+        0.08333333333333333
+      ],
+      "safe_escalation_recall": [
+        0.9499910071942446,
+        1.0
+      ]
+    },
+    "Domain v3": {
+      "workflow_success": [
+        0.5086705202312138,
+        0.6809815950920245
+      ],
+      "routing_macro_f1": [
+        0.8149703143822681,
+        0.9180076895046528
+      ],
+      "routing_accuracy": [
+        0.8051907212284571,
+        0.91525647923953
+      ],
+      "accepted_coverage": [
+        0.24161073825503357,
+        0.42138959714431407
+      ],
+      "accepted_error": [
+        0.0,
+        0.06898556535685617
+      ],
+      "ood_false_acceptance": [
+        0.0,
+        0.08333333333333333
+      ],
+      "safe_escalation_recall": [
+        0.9647058823529412,
+        1.0
+      ]
+    },
+    "Scope + intent v4": {
+      "workflow_success": [
+        0.8085074531787488,
+        0.9230769230769231
+      ],
+      "routing_macro_f1": [
+        0.8103446099141411,
+        0.9196612929300314
+      ],
+      "routing_accuracy": [
+        0.8085074531787488,
+        0.9230769230769231
+      ],
+      "accepted_coverage": [
+        0.5373134328358209,
+        0.735632183908046
+      ],
+      "accepted_error": [
+        0.008333333333333333,
+        0.08108657437925723
+      ],
+      "ood_false_acceptance": [
+        0.0,
+        0.08333333333333333
+      ],
+      "safe_escalation_recall": [
+        0.9333333333333333,
+        1.0
+      ]
+    }
+  },
+  "source_code_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3"
+}

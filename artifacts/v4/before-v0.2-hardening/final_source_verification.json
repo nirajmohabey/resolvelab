@@ -1,0 +1,50 @@
+{
+  "runs": [
+    {
+      "folder": "blind-final",
+      "model_version": "domain-router-v4",
+      "workflow": {
+        "numerator": 139,
+        "denominator": 160,
+        "rate": 0.86875
+      },
+      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2"
+    },
+    {
+      "folder": "paired-v3",
+      "model_version": "domain-hybrid-v3",
+      "workflow": {
+        "numerator": 95,
+        "denominator": 160,
+        "rate": 0.59375
+      },
+      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829"
+    },
+    {
+      "folder": "paired-baseline",
+      "model_version": "tfidf-logistic-v1",
+      "workflow": {
+        "numerator": 76,
+        "denominator": 160,
+        "rate": 0.475
+      },
+      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "artifact_sha256": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827"
+    },
+    {
+      "folder": "baseline-fixture-final",
+      "model_version": "tfidf-logistic-v1",
+      "workflow": {
+        "numerator": 19,
+        "denominator": 20,
+        "rate": 0.95
+      },
+      "code_tree_sha256": "4f69e052fc81cf937327e85bb6de0db3feb2976827192b5b174ae3489763f3a3",
+      "artifact_sha256": "f002c61bcf9fed15338f774cd86bcef32618102b75ccc36d8ddfebf3172ef827"
+    }
+  ],
+  "same_source_tree_for_all_runs": true,
+  "weights_and_thresholds_unchanged": true
+}

@@ -5,24 +5,31 @@ import re
 import subprocess
 from datetime import datetime, timezone
 from urllib.parse import unquote, urlsplit
+from dotenv import dotenv_values
 
 ROOT = Path(__file__).resolve().parents[1]
 paths = subprocess.check_output(
     ["git", "ls-files", "--cached", "--others", "--exclude-standard", "-z"], cwd=ROOT
 ).decode().split("\0")
 secrets = {}
-envfile = ROOT / ".env"
-if envfile.exists():
-    for line in envfile.read_text().splitlines():
-        if "=" not in line or line.startswith("#"):
+secret_sources = []
+# Include ignored provider credentials pulled during account linking. Parse only
+# fixed local files, without variable interpolation or printing their contents.
+for envname in (".env", ".env.local", ".env.docker", ".env.production"):
+    envfile = ROOT / envname
+    if not envfile.is_file():
+        continue
+    secret_sources.append(envname)
+    for key, value in dotenv_values(envfile, interpolate=False).items():
+        if not isinstance(value, str):
             continue
-        key, value = line.split("=", 1)
-        if any(word in key for word in ("SECRET", "PASSWORD", "API_KEY")) and len(value) >= 16:
-            secrets[key] = value
+        token_value = "TOKEN" in key and not key.endswith(("_URL", "_ENDPOINT", "_TYPE", "_SCOPE"))
+        if (any(word in key for word in ("SECRET", "PASSWORD", "API_KEY")) or token_value) and len(value) >= 16:
+            secrets[envname + ":" + key] = value
         if key.endswith("DATABASE_URL"):
             password = unquote(urlsplit(value).password or "")
             if len(password) >= 16:
-                secrets[key + " password"] = password
+                secrets[envname + ":" + key + " password"] = password
 
 binary_suffixes = {".onnx", ".joblib", ".png", ".jpg", ".pdf", ".zip", ".mp4", ".webm", ".ico"}
 patterns = {
@@ -38,7 +45,7 @@ for name in sorted(set(filter(None, paths))):
     if not path.is_file():
         continue
     parts = Path(name).parts
-    if any(part in {".runtime", ".venv", "node_modules", ".git", "work"} for part in parts):
+    if any(part in {".runtime", ".venv", ".vercel", "node_modules", ".git", "work"} for part in parts):
         findings.append({"path": name, "kind": "private runtime directory"})
     if any(part.startswith(".env") and part != ".env.example" for part in parts):
         findings.append({"path": name, "kind": "environment file"})
@@ -56,7 +63,9 @@ for name in sorted(set(filter(None, paths))):
 report = {
     "generated_at": datetime.now(timezone.utc).isoformat(),
     "text_files_scanned": scanned,
-    "local_secret_values_checked": len(secrets),
+    "local_secret_values_checked": len(set(secrets.values())),
+    "local_secret_labels_checked": len(secrets),
+    "local_secret_source_files": secret_sources,
     "findings": findings,
     "limitations": [
         "Checks the current Git-index and unignored working files, not deleted history or external services.",

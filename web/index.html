@@ -43,7 +43,7 @@
           rel="noopener"
           >Saved regression report <span>↗</span></a
         >
-        <div class="build-label">v0.1 · Fixture retailer</div>
+        <div class="build-label">v0.2 · Fixture retailer</div>
       </div>
     </aside>
     <div class="app-shell">
@@ -119,6 +119,7 @@
                 <input
                   id="search"
                   type="search"
+                  maxlength="200"
                   placeholder="Search cases or order references"
                   aria-label="Search cases"
                 />
@@ -142,7 +143,13 @@
                   </p>
                 </div>
               </div>
-              <div class="inbox-footer">Tenant-scoped · Most recent first</div>
+              <div class="inbox-footer">
+                <span id="pageStatus" role="status">Tenant-scoped · Most recent first</span>
+                <div class="inbox-pagination" aria-label="Case pages">
+                  <button type="button" class="button secondary" id="previousPage" disabled>Previous</button>
+                  <button type="button" class="button secondary" id="nextPage" disabled>Next</button>
+                </div>
+              </div>
             </section>
             <section
               class="detail-panel"
@@ -224,7 +231,7 @@
             ×
           </button>
         </div>
-        <p class="muted">
+        <p class="muted" id="customerContextNote">
           Customer identity comes from the signed fixture session.
         </p>
         <label for="message">Customer message</label

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "read_only": true,
+  "bounds": {
+    "scroll_y": 324,
+    "sidebar_top": 0,
+    "skip_link_bottom": -41
+  },
+  "screenshot": "10-clean-followup-viewport.png",
+  "full_page": false,
+  "viewport": [
+    1440,
+    1000
+  ],
+  "case_mutations": 0
+}

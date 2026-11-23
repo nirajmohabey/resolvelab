@@ -14,9 +14,11 @@ async function scan(name){
 }
 try {
  await page.goto(base);await page.locator('#statTotal').filter({hasText:/\d/}).waitFor();
+ await page.locator('.case-row').filter({hasText:'A-101'}).first().click();
+ await page.locator('#detail .detail-subtitle').filter({hasText:'A-101'}).waitFor();
  await scan('desktop-inbox');
- await page.getByRole('button',{name:'Policy evidence',exact:true}).click();await page.locator('.evidence-card').first().waitFor();await scan('evidence');
- await page.getByRole('button',{name:'Execution trace',exact:true}).click();await page.locator('.trace-row').first().waitFor();await scan('trace');
+ await page.getByRole('tab',{name:'Policy evidence',exact:true}).click();await page.locator('.evidence-card').first().waitFor();await scan('evidence');
+ await page.getByRole('tab',{name:'Execution trace',exact:true}).click();await page.locator('.trace-row').first().waitFor();await scan('trace');
  await page.getByRole('button',{name:'＋ New case',exact:true}).focus();
  await page.keyboard.press('Enter');await page.locator('#caseDialog').waitFor();await scan('new-case-dialog');
  await page.keyboard.press('Escape');assert.equal(await page.locator('#caseDialog').isVisible(),false);assert.equal(await page.locator('#newCase').evaluate(el=>el===document.activeElement),true);

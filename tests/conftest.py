@@ -1,10 +1,16 @@
 """Database tests require the disposable local PostgreSQL instance."""
 from pathlib import Path
+import os
 
 import pytest
 from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+
+# A direct `pytest` invocation must fail before autouse seeding can touch the
+# serving .env database. The wrapper sets these two variables before import.
+from resolvelab.isolation import validate_disposable_urls
+validate_disposable_urls(os.environ.get("DATABASE_URL"),os.environ.get("ADMIN_DATABASE_URL"),"resolvelab_test")
 
 
 @pytest.fixture(autouse=True)

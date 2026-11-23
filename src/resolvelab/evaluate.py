@@ -5,6 +5,9 @@ for the separately measured, grouped-source classifier evaluation.
 """
 from __future__ import annotations
 
+if not __debug__:
+    raise RuntimeError("Evaluation requires assertion checks; Python optimization must be disabled.")
+
 import argparse
 import hashlib
 import html
@@ -35,6 +38,10 @@ def fixture_id(org: str, alias: str) -> str:
 def reset_fixture():
     if os.environ.get("APP_ENV", "local") != "local":
         raise RuntimeError("Fixture evaluation resets data and is allowed only in an isolated local database")
+    from .isolation import validate_disposable_urls
+    from sqlalchemy.engine import make_url
+    expected=make_url(os.environ.get("DATABASE_URL","")).database
+    validate_disposable_urls(os.environ.get("DATABASE_URL"),os.environ.get("ADMIN_DATABASE_URL"),expected)
     from resolvelab.seed import seed
     return seed(reset=True,write_manifest=False)
 

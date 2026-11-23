@@ -1,0 +1,10 @@
+{
+  "reason": "Preserve invariant report and cards before v0.2 refresh; complements the immutable initial archive index.",
+  "files_sha256": {
+    "hardening-final-invariants/workflow-evaluation.html": "ca428aceb38a29322d5824943803bcc6b4df80a825f90219cb6b3c8a12296c43",
+    "hardening-final-invariants/workflow-evaluation.json": "0cca4725320016d53e279827e6f3320b6246dc8a56bdfcff4c195527028f59a7",
+    "docs/DATASET_CARD.md": "41f826e76748eef3cf78b97ea754b66f1477dfcf2a02ccb9bf277210f7f576a7",
+    "docs/ML_ANALYSIS.md": "95017b96afaa1fc8e9d812b85d74ce47ebd7046dfc38d5a922d97f5a34f97d89",
+    "docs/MODEL_CARD.md": "df5cb8dcec40388d37b6c5e295b18a511ee5da5cf51df1277482c826648f3093"
+  }
+}

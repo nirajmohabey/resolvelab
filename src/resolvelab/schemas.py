@@ -21,6 +21,13 @@ class CreateCase(StrictModel):
     message: str = Field(min_length=1, max_length=6000)
     order_ref: str | None = Field(default=None, max_length=100)
 
+    @field_validator("message", "order_ref")
+    @classmethod
+    def database_safe_text(cls, value):
+        if value is not None and "\x00" in value:
+            raise ValueError("Text cannot contain a null character")
+        return value
+
     @field_validator("message")
     @classmethod
     def nonblank_message(cls, value):
@@ -30,12 +37,29 @@ class CreateCase(StrictModel):
 
 
 class ResolveRequest(StrictModel):
-    expected_case_version: int = Field(ge=1)
+    expected_case_version: int = Field(ge=1, le=2147483647, strict=True)
 
 
 class ApproveRequest(ResolveRequest):
     proposal_sha256: str = Field(pattern="^[a-f0-9]{64}$")
-    expected_order_version: int = Field(ge=1)
+    expected_order_version: int = Field(ge=1, le=2147483647, strict=True)
+
+
+class CaseContextRequest(ResolveRequest):
+    order_ref: str = Field(min_length=1, max_length=100)
+
+    @field_validator("order_ref")
+    @classmethod
+    def valid_reference(cls, value):
+        value = value.strip()
+        if not value or "\x00" in value:
+            raise ValueError("A valid order reference is required")
+        return value
+
+
+class RejectProposalRequest(ResolveRequest):
+    proposal_sha256: str = Field(pattern="^[a-f0-9]{64}$")
+    reason_code: Literal["policy_concern", "customer_requested", "needs_manual_review", "other"]
 
 
 class DemoLogin(StrictModel):

@@ -6,13 +6,13 @@ An evaluated support workbench for a fictional online retailer. Operators inspec
 
 **Implemented:** FastAPI API, PostgreSQL migrations and tenant isolation, trained routing, lexical/dense/hybrid retrieval, structured responses, local approval transactions, durable traces, evaluation worker, release rollback, browser interface, repeatable fixtures, backup restore check and CI.
 
-**Verified locally:** 95 PostgreSQL-backed tests, including 25 repeated approval races and real process termination/recovery; 20/20 deterministic workflow regressions; nine operator browser checks; nine browser OIDC scenarios; ten UI race scenarios; zero automated accessibility violations across nine scanned states. The checks do not establish complete accessibility conformance or production identity-provider interoperability.
+**v0.2 backend verification:** 157 PostgreSQL-backed tests passed on Windows/PostgreSQL 17.12 and independently on a clean Linux/PostgreSQL 18.6 environment. The suite covers tenant isolation, repeated approval races, real process termination/recovery, corpus admission bounds, malformed inputs, provider-response bounds and operator decisions. The final v0.2 run passed 11 live operator journeys, nine OIDC scenarios and 26 additional intercepted-API scenarios; nine accessibility states had zero automated violations. These checks do not establish complete accessibility conformance or production identity-provider interoperability.
 
 The frozen v4 router achieved **0.8705 macro-F1 and 139/160 correct intents on a separately authored synthetic holdout**. Full workflow success was also **139/160 (86.9%)**. It accepted 104 routes, including **4 wrong accepted routes**; **1/40 unsupported requests was accepted**. All 160 order-effect audits completed with **zero unauthorized effects observed**. Seventeen supported requests were over-escalated. These are small, agent-authored synthetic tests, not customer accuracy or a reliability guarantee. [Inspect every outcome](artifacts/v4/blind-final/workflow-evaluation.html).
 
 On the **same 160 cases**, retained v1/v3/v4 releases completed 76/95/139 expected workflows respectively. This paired comparison is distinct from older 80- and 100-case audits. Historical failures, models and provenance remain available. See the [model card](docs/MODEL_CARD.md) and [analysis](artifacts/v4/analysis.json).
 
-The workbench supports OIDC Authorization Code + PKCE for a configured provider. Production API tokens are signature-verified and mapped to server-maintained memberships; token-supplied roles do not grant permissions. A hardened TLS/OIDC deployment template is included. **A hosted backend, real merchant connector, real IdP integration and paid-provider benchmark have not been executed.** The portfolio uses the recorded local demonstration.
+The workbench supports OIDC Authorization Code + PKCE for a configured provider. Production API tokens are signature-verified and mapped to server-maintained memberships; token-supplied roles do not grant permissions. A hardened TLS/OIDC deployment template is included. A separate Vercel project is linked; the selected free Neon integration still requires account-side terms acceptance before provisioning. **A hosted backend, real merchant connector, real IdP integration and paid-provider benchmark have not been executed.** The portfolio uses the recorded local demonstration.
 
 ## Run on Windows
 
@@ -37,6 +37,8 @@ If PostgreSQL is installed elsewhere, set `PG_BIN` to its `bin` directory. API r
 4. Switch to **Beta · Operator** to inspect the separate organization. Alpha's objects are unavailable through direct API reads as well as the inbox.
 5. Select **Alpha · Evaluator** to queue the same fixture set for retained releases. The worker runs in a different database and preserves the inbox.
 
+For a case awaiting information, attach an order reference to the same case, then explicitly resolve again. The customer and release stay pinned; the new reference does not establish ownership. An approver can decline a pending proposal with a fixed reason, producing an escalation and immutable decision trace without executing the cancellation. Both paths require the expected case version and idempotency key. See [v0.2 hardening](docs/HARDENING.md).
+
 These signed local fixture identities are disabled outside `APP_ENV=local`. Production uses the separate OIDC flow and requires a real provider plus registered server-side memberships. See [production setup](docs/PRODUCTION.md).
 
 ## Reproduce checks and model results
@@ -53,17 +55,20 @@ The independent workflow evaluation exits nonzero when any expected outcome fail
 
 The trained artifacts and pinned MiniLM weights are included. Validate them with `python scripts/train_all.py`. `python scripts/train_all.py --rebuild` reproduces all training stages using grouped Bitext splits and the frozen domain-development families; it does not fit final evaluation cases. New bytes never overwrite an immutable named artifact. See [dataset provenance and leakage boundaries](docs/DATASET_CARD.md).
 
-To record the browser journey, use a clean fixture reset with pending `A-100`, start the API, and run:
+To record the browser journey, provision a new disposable fixture database with pending `A-100`, point the API and worker at it, and run:
 
 ```powershell
 npm ci
 npm run test:browser
 npm run test:oidc
 npm run test:ui-races
+npm run test:features
+npm run test:auth-callback
+node scripts/operator-followup-check.mjs
 npm run test:accessibility
 ```
 
-Keep both the API and worker running for this check. The browser suite uses installed Google Chrome in an isolated headless session and writes screenshots, a WebM recording and JSON results under `artifacts/browser`. It checks tracking, evidence, trace, proposal, approval, handoff, release/evaluation screens, tenant switching and mobile overflow. It changes the local fixture order. Reset fixtures explicitly before repeating the cancellation journey.
+Keep both the API and worker running for this check. The browser suite uses installed Google Chrome in an isolated headless session and writes screenshots, a WebM recording and JSON results under `artifacts/browser`. It checks tracking, evidence, trace, proposal, approval, handoff, release/evaluation screens, tenant switching and mobile overflow. It changes its disposable fixture order. Preserve any existing workspace database and use a fresh fixture database when repeating the cancellation journey.
 
 ## Docker
 
@@ -72,7 +77,7 @@ python scripts/docker_env.py
 docker compose --env-file .env.docker up --build -d
 ```
 
-Compose includes API, worker, private PostgreSQL, one-shot migrations and durable named volumes. Only the API is published, on loopback. Generated `.env.docker` secrets are ignored. CI includes a container-build/readiness smoke job and a separate PostgreSQL acceptance job. GitHub prevented the initial jobs from starting because of an account runner restriction, so Docker and clean-Linux execution remain unverified. Native Windows/PostgreSQL checks passed. This release does not create billable cloud resources.
+Compose includes API, worker, private PostgreSQL, one-shot migrations and durable named volumes. Only the API is published, on loopback. Generated `.env.docker` secrets are ignored. A private Linux microVM built and started the Compose stack with Docker 29.1.3: PostgreSQL 17.12 became healthy, API readiness returned HTTP 200 and the worker was running. The owned stack/volumes were then removed. This startup smoke does not establish containerized browser acceptance, an image OS audit or a production deployment. The same private Linux environment independently passed all 157 backend tests outside the containers. GitHub-hosted jobs remain blocked before execution by an account billing/runner restriction. See `artifacts/checks/linux-docker-smoke.json`.
 
 ## Critical paths
 

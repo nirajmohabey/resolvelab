@@ -1,0 +1,17 @@
+[
+  {
+    "probe": "nul_message",
+    "accepted_by_contract": true,
+    "fingerprint_works": true
+  },
+  {
+    "probe": "unpaired_surrogate",
+    "accepted_by_contract": false,
+    "error_type": "ValidationError"
+  },
+  {
+    "probe": "nul_reference",
+    "accepted_by_contract": true,
+    "fingerprint_works": true
+  }
+]
