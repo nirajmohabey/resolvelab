@@ -65,6 +65,7 @@ jobs:
       - run: docker compose --env-file .env.docker exec -T api python scripts/populate_demo.py
       - run: npm run test:browser
       - run: npm run test:oidc
+      - run: npm run test:ui-races
       - run: npm run test:accessibility
       - uses: actions/upload-artifact@v7.0.2
         if: always()
