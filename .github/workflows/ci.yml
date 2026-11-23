@@ -66,6 +66,9 @@ jobs:
       - run: npm run test:browser
       - run: npm run test:oidc
       - run: npm run test:ui-races
+      - run: npm run test:features
+      - run: npm run test:auth-callback
+      - run: node scripts/operator-followup-check.mjs
       - run: npm run test:accessibility
       - uses: actions/upload-artifact@v7.0.2
         if: always()
