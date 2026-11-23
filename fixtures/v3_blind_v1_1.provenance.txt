@@ -1,0 +1,10 @@
+ResolveLab frozen independent evaluation fixture v3_blind_v1_1
+Created: 2026-11-23
+Source fixture: v3_blind_v1.jsonl, preserved unchanged.
+Correction basis: The pre-existing fixtures/evaluation_cases.json case AI-E07 specifies A-103 wrong ownership -> escalated, with reason_code order_not_verified. The original authoring brief incorrectly specified needs_info. This is a label-contract correction, independent of model behavior.
+Only change: expected_disposition needs_info -> escalated on the three A-103 rows V3-B007, V3-B016, and V3-B032. All IDs, messages, intents, order references, slices, remaining labels, and row order are unchanged. A-999 labels remain needs_info.
+Before SHA256: 5434bbd26d16358d18f4dadc32a12444a602e4225f9fce106bed81f089571d2f
+After SHA256: f51ebcc14b2bdf39778cfa8c6b01188a5f51142b615144f0cd7533314769bb85
+Validation: Exact text comparison permits only those three disposition replacements. 100 rows remain, balanced 25 per intent. Original source hash rechecked unchanged.
+Independence: No training data, model files, model outputs, or evaluation reports inspected; no model run. Only the original AI-E07 contract case content was consulted for the correction.
+Status: Frozen. Do not change in response to model behavior or evaluation results.

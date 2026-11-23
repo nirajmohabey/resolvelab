@@ -1,0 +1,10 @@
+.git
+.venv
+.env*
+.runtime
+node_modules
+work
+__pycache__
+.pytest_cache
+*.log
+artifacts/browser/*.webm

@@ -1,0 +1,79 @@
+{
+  "seed": 42,
+  "grouping_version": "char4-minhash32-bands8-jaccard078-v1",
+  "groups": 18585,
+  "normalized_rows": 23826,
+  "dropped_exact_duplicates": 3046,
+  "source_rows": 26872,
+  "source_intents": [
+    "cancel_order",
+    "change_order",
+    "change_shipping_address",
+    "check_cancellation_fee",
+    "check_invoice",
+    "check_payment_methods",
+    "check_refund_policy",
+    "complaint",
+    "contact_customer_service",
+    "contact_human_agent",
+    "create_account",
+    "delete_account",
+    "delivery_options",
+    "delivery_period",
+    "edit_account",
+    "get_invoice",
+    "get_refund",
+    "newsletter_subscription",
+    "payment_issue",
+    "place_order",
+    "recover_password",
+    "registration_problems",
+    "review",
+    "set_up_shipping_address",
+    "switch_account",
+    "track_order",
+    "track_refund"
+  ],
+  "label_map": {
+    "track_order": "track_order",
+    "cancel_order": "cancel_request",
+    "contact_human_agent": "human_handoff",
+    "all_other_source_intents": "out_of_scope"
+  },
+  "membership_sha256": "683b330582e2a067018533785a6889c26eaca798999977eeea8c27dc55ab9ac0",
+  "counts": {
+    "train": {
+      "N": 14295,
+      "groups": 11157,
+      "labels": {
+        "cancel_request": 252,
+        "out_of_scope": 13005,
+        "human_handoff": 582,
+        "track_order": 456
+      }
+    },
+    "validation": {
+      "N": 4765,
+      "groups": 3713,
+      "labels": {
+        "cancel_request": 84,
+        "out_of_scope": 4336,
+        "human_handoff": 193,
+        "track_order": 152
+      }
+    },
+    "test": {
+      "N": 4766,
+      "groups": 3715,
+      "labels": {
+        "cancel_request": 85,
+        "out_of_scope": 4336,
+        "human_handoff": 194,
+        "track_order": 151
+      }
+    }
+  },
+  "cross_split_group_count": 0,
+  "cross_split_normalized_duplicate_count": 0,
+  "limitation": "Approximate lexical grouping cannot identify all semantic paraphrases. Results are synthetic source-distribution measurements."
+}

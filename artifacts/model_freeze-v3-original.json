@@ -1,0 +1,8 @@
+{
+  "version": "domain-hybrid-v3",
+  "artifact_uri": "artifacts/router-domain-v3.joblib",
+  "artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+  "model_manifest_sha256": "8cdd2594263146c8eaf3adb1b3e234d10b60fbdf502b982aa902362fde8f38a0",
+  "threshold": 0.725,
+  "blind_final_evaluation": "not opened; a different agent must evaluate after this freeze"
+}

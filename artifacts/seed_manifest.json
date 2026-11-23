@@ -1,0 +1,73 @@
+{
+  "organizations": {
+    "alpha": "11111111-1111-4111-8111-111111111111",
+    "beta": "22222222-2222-4222-8222-222222222222"
+  },
+  "actors": {
+    "alpha-operator": {
+      "tenant_id": "11111111-1111-4111-8111-111111111111",
+      "actor_id": "df8b190d-195f-545b-91e1-288b3b946004",
+      "role": "operator",
+      "customer_subject": "customer-001",
+      "alias": "alpha-operator"
+    },
+    "alpha-approver-one": {
+      "tenant_id": "11111111-1111-4111-8111-111111111111",
+      "actor_id": "c4e854fe-2dd9-5f65-a958-1293ce207a2f",
+      "role": "approver",
+      "customer_subject": "customer-001",
+      "alias": "alpha-approver-one"
+    },
+    "alpha-approver-two": {
+      "tenant_id": "11111111-1111-4111-8111-111111111111",
+      "actor_id": "ca8404cf-6f66-5aa5-a2b3-cc09df279090",
+      "role": "approver",
+      "customer_subject": "customer-001",
+      "alias": "alpha-approver-two"
+    },
+    "alpha-evaluator": {
+      "tenant_id": "11111111-1111-4111-8111-111111111111",
+      "actor_id": "02dd17e1-1ef0-5031-9f87-60970b6ae1c1",
+      "role": "evaluator",
+      "customer_subject": "customer-001",
+      "alias": "alpha-evaluator"
+    },
+    "beta-operator": {
+      "tenant_id": "22222222-2222-4222-8222-222222222222",
+      "actor_id": "5e76db29-4a1d-5a61-ad1b-626187d52623",
+      "role": "operator",
+      "customer_subject": "customer-001",
+      "alias": "beta-operator"
+    },
+    "alpha-admin": {
+      "tenant_id": "11111111-1111-4111-8111-111111111111",
+      "actor_id": "129078d3-2741-57ac-87f5-d32663c63455",
+      "role": "admin",
+      "customer_subject": "customer-001",
+      "alias": "alpha-admin"
+    }
+  },
+  "cases": {
+    "beta-isolation-case": "44d6839e-74fa-5d7e-9d53-77c6df5c90b3"
+  },
+  "corpora": {
+    "alpha-published-v1": "69566eff-09c1-52d7-89a2-596264a71c94",
+    "beta-published-v1": "580558ab-f3ef-5d6a-994e-35d0d5b93911"
+  },
+  "releases": {
+    "alpha/tfidf-logistic-v1": "b6ea31ed-03ed-516c-9e72-f83b7ee4c8fa",
+    "alpha/domain-hybrid-v3": "70ca5649-301c-540a-a93d-abfcf24703e3",
+    "alpha/routing-v1": "70ca5649-301c-540a-a93d-abfcf24703e3",
+    "alpha-active-release": "70ca5649-301c-540a-a93d-abfcf24703e3",
+    "beta/tfidf-logistic-v1": "0d511f51-0b86-58b6-9688-9ae0bd8bd259",
+    "beta/domain-hybrid-v3": "840e0276-ff83-573e-b479-a48d2c6ee89d",
+    "beta/routing-v1": "840e0276-ff83-573e-b479-a48d2c6ee89d",
+    "beta-active-release": "840e0276-ff83-573e-b479-a48d2c6ee89d"
+  },
+  "models": {
+    "alpha/tfidf-logistic-v1": "fa5da148-f1a8-52c2-bbe2-9d5bd2c80849",
+    "alpha/domain-hybrid-v3": "16242107-a965-5a84-8b76-b46f06fb6b66",
+    "beta/tfidf-logistic-v1": "736c8be6-a8fc-561d-8afb-c3fd760ee214",
+    "beta/domain-hybrid-v3": "82fce458-5fbf-58fd-a0d0-b7ccd2c02e1b"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "command": "python scripts/train_all.py --rebuild",
+  "scope": "Executed complete training pipeline in isolated work/rebuild-check with copied frozen sources; original release artifact and database untouched. Numeric metrics/selection reproduced; serialization SHA may differ between builds and each artifact is versioned by its actual SHA.",
+  "checks": {
+    "selected_parameters_equal": true,
+    "source_test_macro_f1_equal": true,
+    "domain_test_macro_f1_equal": true,
+    "production_artifact_sha_unchanged": true
+  },
+  "production_frozen_artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+  "isolated_rebuilt_artifact_sha256": "cb0ef074f21a0e915837ab9355656e8715b7e0063ae2111bbf76a08c3c3bc177",
+  "selected_parameters": {
+    "source_strength": 0.005,
+    "C": 100.0,
+    "blend_weight": 0.5,
+    "threshold": 0.725,
+    "validation": {
+      "source": {
+        "correct_supported": 421,
+        "wrong_accepted": 2,
+        "accepted_count": 423,
+        "ood_accepted": 2,
+        "accepted_error": 0.004728132387706856,
+        "ood_false_acceptance": 0.00046125461254612545
+      },
+      "domain": {
+        "correct_supported": 92,
+        "wrong_accepted": 0,
+        "accepted_count": 92,
+        "ood_accepted": 0,
+        "accepted_error": 0.0,
+        "ood_false_acceptance": 0.0
+      }
+    }
+  },
+  "source_test_macro_f1": 0.9415970451428058,
+  "domain_test_macro_f1": 0.9821200510855683
+}

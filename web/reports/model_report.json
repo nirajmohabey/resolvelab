@@ -1,0 +1,471 @@
+{
+  "active_model": {
+    "version": "domain-hybrid-v3",
+    "artifact_uri": "artifacts/router-domain-v3.joblib",
+    "artifact_path": "artifacts/router-domain-v3.joblib",
+    "artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+    "dataset_sha256": "6f81102b0100b97b8468eb04368033a23206bf1fde9d53500d5806ec1001a434",
+    "split_manifest_sha256": "46d5276caf812c9647398201e97ebcd900f14ea982c4289f41e9df2af618add8",
+    "algorithm": "Domain-adapted word/char TF-IDF and frozen MiniLM dense logistic probability blend",
+    "threshold": 0.725,
+    "validation_threshold": 0.725,
+    "seed": 42,
+    "feature_pipeline": {
+      "word_ngrams": [
+        1,
+        2
+      ],
+      "char_wb_ngrams": [
+        3,
+        5
+      ],
+      "word_max_features": 35000,
+      "char_max_features": 50000,
+      "logistic_C": 100.0,
+      "max_iter": 700,
+      "class_weight": null,
+      "sample_weight": "Class-balanced separately within source and domain; source scaled by source_strength",
+      "source_strength": 0.005,
+      "dense_probability_weight": 0.5,
+      "dense_embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2",
+      "dense_embedding_dimension": 384
+    },
+    "metrics": {
+      "source_test": {
+        "N": 4766,
+        "macro_f1": 0.9415970451428058,
+        "accuracy": 0.9872010071338648,
+        "labels": [
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope",
+          "track_order"
+        ],
+        "class_support": {
+          "cancel_request": 85,
+          "out_of_scope": 4336,
+          "human_handoff": 194,
+          "track_order": 151
+        },
+        "confusion_matrix": [
+          [
+            85,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            194,
+            0,
+            0
+          ],
+          [
+            21,
+            5,
+            4275,
+            35
+          ],
+          [
+            0,
+            0,
+            0,
+            151
+          ]
+        ],
+        "classification_report": {
+          "cancel_request": {
+            "precision": 0.8018867924528302,
+            "recall": 1.0,
+            "f1-score": 0.8900523560209425,
+            "support": 85.0
+          },
+          "human_handoff": {
+            "precision": 0.9748743718592965,
+            "recall": 1.0,
+            "f1-score": 0.9872773536895675,
+            "support": 194.0
+          },
+          "out_of_scope": {
+            "precision": 1.0,
+            "recall": 0.9859317343173432,
+            "f1-score": 0.992916037626292,
+            "support": 4336.0
+          },
+          "track_order": {
+            "precision": 0.8118279569892473,
+            "recall": 1.0,
+            "f1-score": 0.8961424332344213,
+            "support": 151.0
+          },
+          "accuracy": 0.9872010071338648,
+          "macro avg": {
+            "precision": 0.8971472803253435,
+            "recall": 0.9964829335793358,
+            "f1-score": 0.9415970451428058,
+            "support": 4766.0
+          },
+          "weighted avg": {
+            "precision": 0.9894821710038965,
+            "recall": 0.9872010071338648,
+            "f1-score": 0.9877859218303724,
+            "support": 4766.0
+          }
+        },
+        "log_loss": 0.06434817765392144,
+        "accepted_count": 429,
+        "accepted_coverage": 0.09001258917331095,
+        "accepted_routing_error_count": 2,
+        "accepted_routing_error": 0.004662004662004662,
+        "ood_count": 4336,
+        "ood_false_acceptance_count": 2,
+        "ood_false_acceptance": 0.00046125461254612545,
+        "reliability_bins": [
+          {
+            "bin_low": 0.0,
+            "N": 0,
+            "mean_score": null,
+            "accuracy": null
+          },
+          {
+            "bin_low": 0.1,
+            "N": 0,
+            "mean_score": null,
+            "accuracy": null
+          },
+          {
+            "bin_low": 0.2,
+            "N": 0,
+            "mean_score": null,
+            "accuracy": null
+          },
+          {
+            "bin_low": 0.3,
+            "N": 5,
+            "mean_score": 0.37645452466276985,
+            "accuracy": 0.4
+          },
+          {
+            "bin_low": 0.4,
+            "N": 10,
+            "mean_score": 0.4684467218906937,
+            "accuracy": 0.5
+          },
+          {
+            "bin_low": 0.5,
+            "N": 97,
+            "mean_score": 0.5481248585887301,
+            "accuracy": 0.6701030927835051
+          },
+          {
+            "bin_low": 0.6,
+            "N": 93,
+            "mean_score": 0.6527439270221548,
+            "accuracy": 0.8387096774193549
+          },
+          {
+            "bin_low": 0.7,
+            "N": 139,
+            "mean_score": 0.7533013744355135,
+            "accuracy": 0.9568345323741008
+          },
+          {
+            "bin_low": 0.8,
+            "N": 292,
+            "mean_score": 0.8576848755819956,
+            "accuracy": 1.0
+          },
+          {
+            "bin_low": 0.9,
+            "N": 4130,
+            "mean_score": 0.9812423085942598,
+            "accuracy": 1.0
+          }
+        ]
+      },
+      "domain_family_test": {
+        "N": 112,
+        "macro_f1": 0.9821200510855683,
+        "accuracy": 0.9821428571428571,
+        "labels": [
+          "cancel_request",
+          "human_handoff",
+          "out_of_scope",
+          "track_order"
+        ],
+        "class_support": {
+          "track_order": 28,
+          "cancel_request": 28,
+          "human_handoff": 28,
+          "out_of_scope": 28
+        },
+        "confusion_matrix": [
+          [
+            28,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            28,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            26,
+            2
+          ],
+          [
+            0,
+            0,
+            0,
+            28
+          ]
+        ],
+        "classification_report": {
+          "cancel_request": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 28.0
+          },
+          "human_handoff": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1-score": 1.0,
+            "support": 28.0
+          },
+          "out_of_scope": {
+            "precision": 1.0,
+            "recall": 0.9285714285714286,
+            "f1-score": 0.9629629629629629,
+            "support": 28.0
+          },
+          "track_order": {
+            "precision": 0.9333333333333333,
+            "recall": 1.0,
+            "f1-score": 0.9655172413793104,
+            "support": 28.0
+          },
+          "accuracy": 0.9821428571428571,
+          "macro avg": {
+            "precision": 0.9833333333333334,
+            "recall": 0.9821428571428572,
+            "f1-score": 0.9821200510855683,
+            "support": 112.0
+          },
+          "weighted avg": {
+            "precision": 0.9833333333333333,
+            "recall": 0.9821428571428571,
+            "f1-score": 0.9821200510855684,
+            "support": 112.0
+          }
+        },
+        "log_loss": 0.09481139324857131,
+        "accepted_count": 84,
+        "accepted_coverage": 0.75,
+        "accepted_routing_error_count": 0,
+        "accepted_routing_error": 0.0,
+        "ood_count": 28,
+        "ood_false_acceptance_count": 0,
+        "ood_false_acceptance": 0.0,
+        "reliability_bins": [
+          {
+            "bin_low": 0.0,
+            "N": 0,
+            "mean_score": null,
+            "accuracy": null
+          },
+          {
+            "bin_low": 0.1,
+            "N": 0,
+            "mean_score": null,
+            "accuracy": null
+          },
+          {
+            "bin_low": 0.2,
+            "N": 0,
+            "mean_score": null,
+            "accuracy": null
+          },
+          {
+            "bin_low": 0.3,
+            "N": 0,
+            "mean_score": null,
+            "accuracy": null
+          },
+          {
+            "bin_low": 0.4,
+            "N": 1,
+            "mean_score": 0.499146175157744,
+            "accuracy": 0.0
+          },
+          {
+            "bin_low": 0.5,
+            "N": 3,
+            "mean_score": 0.5364213283837299,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "bin_low": 0.6,
+            "N": 1,
+            "mean_score": 0.6882346970493348,
+            "accuracy": 1.0
+          },
+          {
+            "bin_low": 0.7,
+            "N": 9,
+            "mean_score": 0.7490151145992543,
+            "accuracy": 1.0
+          },
+          {
+            "bin_low": 0.8,
+            "N": 14,
+            "mean_score": 0.852548701918427,
+            "accuracy": 1.0
+          },
+          {
+            "bin_low": 0.9,
+            "N": 84,
+            "mean_score": 0.9697801252779809,
+            "accuracy": 1.0
+          }
+        ]
+      }
+    },
+    "environment": {
+      "python": "3.12.14",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "scikit_learn": "1.9.1",
+      "cpu_count": 32,
+      "numpy": "2.5.5"
+    },
+    "report_sha256": "2c6a4b557694563ade6b5664fbb56917b2f732e2fcb20fc93c8eeb90fe19adc4",
+    "selection_report_sha256": "d94d7fb20dbcc6627b7528679ce3439d9ca3ca975009d378fd76ba1b5ea11816",
+    "domain_dataset_sha256": "0c69864dd7c49f1f3de4780ec17b0d50848025c1aac68c752236c1824b454909"
+  },
+  "independent_final": {
+    "dataset_sha256": "f51ebcc14b2bdf39778cfa8c6b01188a5f51142b615144f0cd7533314769bb85",
+    "routing_metrics": {
+      "N": 100,
+      "labels": [
+        "track_order",
+        "cancel_request",
+        "human_handoff",
+        "out_of_scope"
+      ],
+      "macro_f1": 0.8365981975581184,
+      "confusion_matrix": [
+        [
+          18,
+          0,
+          0,
+          7
+        ],
+        [
+          0,
+          20,
+          0,
+          5
+        ],
+        [
+          0,
+          2,
+          20,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          25
+        ]
+      ],
+      "per_class": {
+        "track_order": {
+          "precision": 1.0,
+          "recall": 0.72,
+          "f1-score": 0.8372093023255814,
+          "support": 25.0
+        },
+        "cancel_request": {
+          "precision": 0.9090909090909091,
+          "recall": 0.8,
+          "f1-score": 0.851063829787234,
+          "support": 25.0
+        },
+        "human_handoff": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1-score": 0.8888888888888888,
+          "support": 25.0
+        },
+        "out_of_scope": {
+          "precision": 0.625,
+          "recall": 1.0,
+          "f1-score": 0.7692307692307693,
+          "support": 25.0
+        },
+        "accuracy": 0.83,
+        "macro avg": {
+          "precision": 0.8835227272727273,
+          "recall": 0.8300000000000001,
+          "f1-score": 0.8365981975581184,
+          "support": 100.0
+        },
+        "weighted avg": {
+          "precision": 0.8835227272727272,
+          "recall": 0.83,
+          "f1-score": 0.8365981975581184,
+          "support": 100.0
+        }
+      },
+      "zero_division_handling": "undefined precision/recall/F1 set to zero",
+      "exclusions": "No-message access/input tests and explicitly stubbed routing adapter cases. Separate from grouped Bitext source holdout.",
+      "accepted_coverage": {
+        "numerator": 44,
+        "denominator": 100,
+        "rate": 0.44
+      },
+      "accepted_routing_error": {
+        "numerator": 0,
+        "denominator": 44,
+        "rate": 0.0
+      },
+      "ood_false_acceptance": {
+        "numerator": 0,
+        "denominator": 25,
+        "rate": 0.0
+      }
+    },
+    "workflow_metrics": {
+      "workflow_success": {
+        "numerator": 74,
+        "denominator": 100,
+        "rate": 0.74
+      },
+      "runner_errors": 0,
+      "critical_failures": 26,
+      "unauthorized_effect_count": 0,
+      "all_tenant_effect_checks_completed": 100,
+      "p50_ms": 36.429,
+      "p95_ms": 41.463,
+      "estimated_provider_cost_usd": null,
+      "citation_support_human_review": null,
+      "safe_escalation_recall": {
+        "numerator": 59,
+        "denominator": 59,
+        "rate": 1.0
+      },
+      "workflow_failures": 26
+    },
+    "limitations": [
+      "Synthetic deterministic invariants do not estimate real-customer accuracy.",
+      "Human claim-support review and paid-provider cost are not measured by this runner.",
+      "Each case starts from a fresh fixture seed in a disposable development database."
+    ]
+  }
+}

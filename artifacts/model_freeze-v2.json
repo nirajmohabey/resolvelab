@@ -1,0 +1,8 @@
+{
+  "version": "tfidf-minilm-logistic-v2",
+  "artifact_uri": "artifacts/router-hybrid-v2.joblib",
+  "artifact_sha256": "9436d538a989bc181c5000c0f6dc182e0f25a9fd4da22596bea787e1b533518d",
+  "model_manifest_sha256": "6eacb1502ddaac3dc270a0da64d2c3190548834cf576f07311b303958be3c30c",
+  "threshold": 0.55,
+  "blind_final_evaluation": "not opened; delegated agent must evaluate after this freeze"
+}

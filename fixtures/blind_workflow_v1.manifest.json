@@ -1,0 +1,10 @@
+{
+  "dataset_key": "blind-workflow-v1",
+  "sha256": "8f3b298faa40ae7a43338cc82eb2ffb068bf97bc13286faabda8af4465045a11",
+  "N": 80,
+  "class_counts": {"track_order": 20, "cancel_request": 20, "human_handoff": 20, "out_of_scope": 20},
+  "authorship": "Written by a separate verification agent without reading the developer's original independent-language set or model errors.",
+  "selection_protocol": "Frozen before the selected model artifact was revealed. Contents were withheld from the model developer until artifact selection completed. No training, hyperparameter, threshold or dataset edits are permitted from this holdout's outcomes.",
+  "scope": "Synthetic retail language and expected fixture workflow dispositions. This is an independent regression holdout, not a real-customer performance estimate. Approved cancellation execution is evaluated separately by fixture invariants.",
+  "label_policy": "Mixed supported and unsupported requests are out_of_scope; human contact requests are human_handoff; requests to stop an order are cancel_request; shipment whereabouts/status questions are track_order. Unknown/other-customer references affect workflow disposition, not routing intent."
+}

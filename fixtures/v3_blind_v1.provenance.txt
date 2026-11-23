@@ -1,0 +1,7 @@
+ResolveLab frozen independent evaluation fixture v3_blind_v1
+Authored: 2026-11-23
+Source: Task specification only. Authored independently without inspecting training data, model files, previous evaluation utterances, or reports. No classifier was run during authorship.
+Design: 100 realistic customer utterances; 25 per expected_intent. Tracking and cancellation include 8 missing-reference cases, 6 ownership/unknown-reference cases, and 6 shipped/past-cutoff cancellation cases. Human-handoff labels require an explicit request for human support; mixed-topic human cases also explicitly request a person. Unsupported requests escalate.
+Freeze rule: Freeze after structural validation and SHA256 calculation. Do not change this fixture in response to model behavior, model freeze, or evaluation results. Share only counts, path, and hash with the coordinating agent until final evaluation is authorized.
+Status: Frozen. Validated 100 unique IDs and utterances, balanced intents, specified edge-case counts, and expected dispositions against the supplied order rules.
+Fixture SHA256: 5434bbd26d16358d18f4dadc32a12444a602e4225f9fce106bed81f089571d2f

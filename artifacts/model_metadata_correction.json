@@ -1,0 +1,13 @@
+{
+  "scope": "Metadata only; original manifest feature_pipeline was inherited from TF-IDF baseline and incorrectly described C4. Corrected to actual already-trained v3 C100/domain weighting/50% dense blend. No model bytes, threshold, predictions, datasets or selection parameters changed.",
+  "old_manifest_path": "artifacts/model_manifest-v3-frozen.json",
+  "old_manifest_sha256": "8cdd2594263146c8eaf3adb1b3e234d10b60fbdf502b982aa902362fde8f38a0",
+  "corrected_manifest_path": "artifacts/model_manifest.json",
+  "corrected_manifest_sha256": "d9012f185d359399e3069c97c780ce96c8bf7042bea09e300697d7a9160362f1",
+  "model_artifact_sha256": "6856ace9b0eed25a2d818f6002fa023caa29e8c1199cdb9c5d648ccc217e8829",
+  "threshold": 0.725,
+  "actual_selection_report": "artifacts/domain_training_report.json",
+  "changed_fields": [
+    "feature_pipeline"
+  ]
+}

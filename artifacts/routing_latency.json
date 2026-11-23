@@ -1,0 +1,23 @@
+{
+  "scope": "Separate fresh Python process per artifact. Same original80 diagnostic messages, routing only; no DB or generator. Peak process RSS includes interpreter/libraries. CPU only; local monetary compute cost not estimated.",
+  "models": {
+    "tfidf_v1": {
+      "version": "tfidf-logistic-v1",
+      "N": 80,
+      "cold_load_and_first_query_ms": 60.9979999717325,
+      "warm_p50_ms": 0.9097499714698642,
+      "warm_p95_ms": 1.0873750114114955,
+      "cpu_seconds_including_cold_load": 0.140625,
+      "peak_process_rss_mb": 134.203125
+    },
+    "selected": {
+      "version": "domain-hybrid-v3",
+      "N": 80,
+      "cold_load_and_first_query_ms": 277.88250002777204,
+      "warm_p50_ms": 2.845999988494441,
+      "warm_p95_ms": 3.524214998469688,
+      "cpu_seconds_including_cold_load": 0.78125,
+      "peak_process_rss_mb": 193.12109375
+    }
+  }
+}

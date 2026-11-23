@@ -1,0 +1,25 @@
+{
+  "version": "domain-development-v1",
+  "authoring": "Coding-agent authored after historical audits exposed domain mismatch; no historical audit message copied as a training example. Not independently reviewed.",
+  "families": 200,
+  "rows": 800,
+  "variants_per_family": 4,
+  "split_unit": "authored semantic family",
+  "seed": 420,
+  "splits": {
+    "train": {
+      "families": 140,
+      "rows": 560
+    },
+    "validation": {
+      "families": 32,
+      "rows": 128
+    },
+    "test": {
+      "families": 28,
+      "rows": 112
+    }
+  },
+  "sha256": "0c69864dd7c49f1f3de4780ec17b0d50848025c1aac68c752236c1824b454909",
+  "holdout_policy": "Test families never fit features/select thresholds; a separately authored blind audit is held by another agent until model freeze."
+}

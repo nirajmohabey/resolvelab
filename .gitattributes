@@ -1,0 +1,8 @@
+# Preserve exact source/fixture/manifest bytes used in SHA-256 provenance.
+# Both Python and the browser accept the retained LF or CRLF line endings.
+* -text
+*.joblib binary
+*.onnx binary
+*.png binary
+*.webm binary
+*.zip binary

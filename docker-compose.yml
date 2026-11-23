@@ -1,0 +1,50 @@
+name: resolvelab
+x-runtime: &runtime
+  build: .
+  env_file: .env.docker
+  volumes:
+    - model_artifacts:/app/artifacts
+    - source_cache:/app/work
+  networks: [internal]
+services:
+  db:
+    image: postgres:17.12
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Run python scripts/docker_env.py}
+      POSTGRES_DB: resolvelab
+    volumes: [database:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d resolvelab"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+    networks: [internal]
+  init:
+    <<: *runtime
+    user: root
+    command: [python, scripts/container_setup.py]
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    <<: *runtime
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      init: {condition: service_completed_successfully}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready', timeout=5)"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+  worker:
+    <<: *runtime
+    command: [python, -m, resolvelab.worker]
+    depends_on:
+      init: {condition: service_completed_successfully}
+    restart: unless-stopped
+volumes:
+  database:
+  model_artifacts:
+  source_cache:
+networks:
+  internal:

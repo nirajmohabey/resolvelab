@@ -1,0 +1,1020 @@
+{
+  "dataset_sha256": "161385cc1d094190b1d8d5b9134b200b987f8f00dba298090f0ec8acce8dadd2",
+  "N": 16,
+  "definition": "Mean fraction of labeled relevant policy-section locators found in top k, over all 16 answerable synthetic queries. Each query has one relevant section.",
+  "labeling": "Coding-agent authored queries and section labels; no independent human adjudication. Tiny synthetic corpus, not general search accuracy.",
+  "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+  "corpus_sha256": "0728d8e97e58b59cd423407aae0f259bcc30917ab3589d4477e0f6302e299af0",
+  "corpus_sections": 4,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2",
+  "rrf_constant": 60,
+  "runtime_role": "resolvelab_app",
+  "runtime_bypass_rls": false,
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "modes": {
+    "lexical": {
+      "N": 16,
+      "mean_recall_at_k": {
+        "1": 0.375,
+        "2": 0.625,
+        "4": 1.0
+      },
+      "p50_ms": 2.07644997863099,
+      "p95_ms": 2.5628999865148216,
+      "warm": true,
+      "cases": [
+        {
+          "id": "R01",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R02",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R03",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R04",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R05",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "eligibility",
+            "scope",
+            "ownership",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R06",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R07",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R08",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R09",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "scope",
+            "ownership",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R10",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R11",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R12",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R13",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R14",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R15",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R16",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        }
+      ]
+    },
+    "dense": {
+      "N": 16,
+      "mean_recall_at_k": {
+        "1": 0.9375,
+        "2": 1.0,
+        "4": 1.0
+      },
+      "p50_ms": 4.179399984423071,
+      "p95_ms": 4.952549992594868,
+      "warm": true,
+      "cases": [
+        {
+          "id": "R01",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "ownership",
+            "eligibility",
+            "scope",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R02",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "ownership",
+            "eligibility",
+            "scope",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R03",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "ownership",
+            "eligibility",
+            "approval",
+            "scope"
+          ],
+          "retrieved_chunk_ids": [
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57"
+          ]
+        },
+        {
+          "id": "R04",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "ownership",
+            "scope",
+            "eligibility",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R05",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "eligibility",
+            "approval",
+            "scope",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R06",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "eligibility",
+            "approval",
+            "ownership",
+            "scope"
+          ],
+          "retrieved_chunk_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57"
+          ]
+        },
+        {
+          "id": "R07",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "eligibility",
+            "approval",
+            "scope",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R08",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "eligibility",
+            "scope",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R09",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "eligibility",
+            "ownership",
+            "scope"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57"
+          ]
+        },
+        {
+          "id": "R10",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "eligibility",
+            "ownership",
+            "scope"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57"
+          ]
+        },
+        {
+          "id": "R11",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "eligibility",
+            "scope",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R12",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "eligibility",
+            "ownership",
+            "scope"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57"
+          ]
+        },
+        {
+          "id": "R13",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R14",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "eligibility",
+            "ownership",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R15",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "eligibility",
+            "approval",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R16",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "eligibility",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        }
+      ]
+    },
+    "hybrid": {
+      "N": 16,
+      "mean_recall_at_k": {
+        "1": 0.6875,
+        "2": 0.9375,
+        "4": 1.0
+      },
+      "p50_ms": 3.9557499694637954,
+      "p95_ms": 4.601900014677085,
+      "warm": true,
+      "cases": [
+        {
+          "id": "R01",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "ownership",
+            "scope",
+            "eligibility",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R02",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "ownership",
+            "scope",
+            "eligibility",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R03",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "ownership",
+            "scope",
+            "eligibility",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R04",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R05",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "eligibility",
+            "scope",
+            "approval",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R06",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "eligibility",
+            "ownership",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R07",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "eligibility",
+            "approval",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R08",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 0.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "approval",
+            "ownership",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R09",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "scope",
+            "eligibility",
+            "ownership"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "08525a33-497a-5b81-8605-be14875802b4"
+          ]
+        },
+        {
+          "id": "R10",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "scope",
+            "ownership",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R11",
+          "recall_at_k": {
+            "1": 0.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "approval",
+            "ownership",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R12",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "approval",
+            "scope",
+            "ownership",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R13",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        },
+        {
+          "id": "R14",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "eligibility",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R15",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "eligibility",
+            "approval"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ]
+        },
+        {
+          "id": "R16",
+          "recall_at_k": {
+            "1": 1.0,
+            "2": 1.0,
+            "4": 1.0
+          },
+          "ranked_locators": [
+            "scope",
+            "ownership",
+            "approval",
+            "eligibility"
+          ],
+          "retrieved_chunk_ids": [
+            "039f5537-2b84-59c0-afbd-a6f88be17f57",
+            "08525a33-497a-5b81-8605-be14875802b4",
+            "51872339-c1c5-54c1-8df7-0825789733db",
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ]
+        }
+      ]
+    }
+  },
+  "latency_scope": "Warm retrieval plus one scoped local database transaction; excludes routing and generation. CPU local fixture, no provider cost.",
+  "limitations": "Top4 equals entire four-section alpha corpus; recall@4 is a coverage sanity check. No real-world retrieval or attack-resistance estimate."
+}

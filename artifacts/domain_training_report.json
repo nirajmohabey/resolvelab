@@ -1,0 +1,6921 @@
+{
+  "version": "domain-hybrid-v3",
+  "selected": {
+    "source_strength": 0.005,
+    "C": 100.0,
+    "blend_weight": 0.5,
+    "threshold": 0.725,
+    "validation": {
+      "source": {
+        "correct_supported": 421,
+        "wrong_accepted": 2,
+        "accepted_count": 423,
+        "ood_accepted": 2,
+        "accepted_error": 0.004728132387706856,
+        "ood_false_acceptance": 0.00046125461254612545
+      },
+      "domain": {
+        "correct_supported": 92,
+        "wrong_accepted": 0,
+        "accepted_count": 92,
+        "ood_accepted": 0,
+        "accepted_error": 0.0,
+        "ood_false_acceptance": 0.0
+      }
+    }
+  },
+  "selection_protocol": "Domain validation correct-supported coverage first, then fewer wrong domain accepts, then source correct-supported coverage/fewer wrong source accepts, then simpler model. Domain accepted error <=5%, domain OOD false acceptance <=5%, source OOD false acceptance <=5%. No observed audit is fitted or used for selection.",
+  "candidates": [
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.65,
+      "validation": {
+        "source": {
+          "correct_supported": 333,
+          "wrong_accepted": 46,
+          "accepted_count": 379,
+          "ood_accepted": 46,
+          "accepted_error": 0.12137203166226913,
+          "ood_false_acceptance": 0.010608856088560886
+        },
+        "domain": {
+          "correct_supported": 51,
+          "wrong_accepted": 1,
+          "accepted_count": 52,
+          "ood_accepted": 1,
+          "accepted_error": 0.019230769230769232,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 309,
+          "wrong_accepted": 35,
+          "accepted_count": 344,
+          "ood_accepted": 35,
+          "accepted_error": 0.10174418604651163,
+          "ood_false_acceptance": 0.008071955719557196
+        },
+        "domain": {
+          "correct_supported": 47,
+          "wrong_accepted": 0,
+          "accepted_count": 47,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 285,
+          "wrong_accepted": 24,
+          "accepted_count": 309,
+          "ood_accepted": 24,
+          "accepted_error": 0.07766990291262135,
+          "ood_false_acceptance": 0.005535055350553505
+        },
+        "domain": {
+          "correct_supported": 40,
+          "wrong_accepted": 0,
+          "accepted_count": 40,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 260,
+          "wrong_accepted": 18,
+          "accepted_count": 278,
+          "ood_accepted": 18,
+          "accepted_error": 0.06474820143884892,
+          "ood_false_acceptance": 0.004151291512915129
+        },
+        "domain": {
+          "correct_supported": 33,
+          "wrong_accepted": 0,
+          "accepted_count": 33,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 227,
+          "wrong_accepted": 8,
+          "accepted_count": 235,
+          "ood_accepted": 8,
+          "accepted_error": 0.03404255319148936,
+          "ood_false_acceptance": 0.0018450184501845018
+        },
+        "domain": {
+          "correct_supported": 27,
+          "wrong_accepted": 0,
+          "accepted_count": 27,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 200,
+          "wrong_accepted": 4,
+          "accepted_count": 204,
+          "ood_accepted": 4,
+          "accepted_error": 0.0196078431372549,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 20,
+          "wrong_accepted": 0,
+          "accepted_count": 20,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 170,
+          "wrong_accepted": 0,
+          "accepted_count": 170,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 16,
+          "wrong_accepted": 0,
+          "accepted_count": 16,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 127,
+          "wrong_accepted": 0,
+          "accepted_count": 127,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 12,
+          "wrong_accepted": 0,
+          "accepted_count": 12,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 93,
+          "wrong_accepted": 0,
+          "accepted_count": 93,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 9,
+          "wrong_accepted": 0,
+          "accepted_count": 9,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 71,
+          "wrong_accepted": 0,
+          "accepted_count": 71,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 5,
+          "wrong_accepted": 0,
+          "accepted_count": 5,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 46,
+          "wrong_accepted": 0,
+          "accepted_count": 46,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 14,
+          "wrong_accepted": 0,
+          "accepted_count": 14,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 6,
+          "wrong_accepted": 0,
+          "accepted_count": 6,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.575,
+      "validation": {
+        "source": {
+          "correct_supported": 413,
+          "wrong_accepted": 143,
+          "accepted_count": 556,
+          "ood_accepted": 143,
+          "accepted_error": 0.25719424460431656,
+          "ood_false_acceptance": 0.03297970479704797
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 1,
+          "accepted_count": 91,
+          "ood_accepted": 1,
+          "accepted_error": 0.01098901098901099,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.6,
+      "validation": {
+        "source": {
+          "correct_supported": 409,
+          "wrong_accepted": 113,
+          "accepted_count": 522,
+          "ood_accepted": 113,
+          "accepted_error": 0.2164750957854406,
+          "ood_false_acceptance": 0.02606088560885609
+        },
+        "domain": {
+          "correct_supported": 86,
+          "wrong_accepted": 0,
+          "accepted_count": 86,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.625,
+      "validation": {
+        "source": {
+          "correct_supported": 401,
+          "wrong_accepted": 93,
+          "accepted_count": 494,
+          "ood_accepted": 93,
+          "accepted_error": 0.1882591093117409,
+          "ood_false_acceptance": 0.021448339483394835
+        },
+        "domain": {
+          "correct_supported": 80,
+          "wrong_accepted": 0,
+          "accepted_count": 80,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.65,
+      "validation": {
+        "source": {
+          "correct_supported": 383,
+          "wrong_accepted": 80,
+          "accepted_count": 463,
+          "ood_accepted": 80,
+          "accepted_error": 0.17278617710583152,
+          "ood_false_acceptance": 0.01845018450184502
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 373,
+          "wrong_accepted": 62,
+          "accepted_count": 435,
+          "ood_accepted": 62,
+          "accepted_error": 0.1425287356321839,
+          "ood_false_acceptance": 0.01429889298892989
+        },
+        "domain": {
+          "correct_supported": 72,
+          "wrong_accepted": 0,
+          "accepted_count": 72,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 358,
+          "wrong_accepted": 41,
+          "accepted_count": 399,
+          "ood_accepted": 41,
+          "accepted_error": 0.10275689223057644,
+          "ood_false_acceptance": 0.009455719557195572
+        },
+        "domain": {
+          "correct_supported": 66,
+          "wrong_accepted": 0,
+          "accepted_count": 66,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 337,
+          "wrong_accepted": 24,
+          "accepted_count": 361,
+          "ood_accepted": 24,
+          "accepted_error": 0.0664819944598338,
+          "ood_false_acceptance": 0.005535055350553505
+        },
+        "domain": {
+          "correct_supported": 59,
+          "wrong_accepted": 0,
+          "accepted_count": 59,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 310,
+          "wrong_accepted": 5,
+          "accepted_count": 315,
+          "ood_accepted": 5,
+          "accepted_error": 0.015873015873015872,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 48,
+          "wrong_accepted": 0,
+          "accepted_count": 48,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 274,
+          "wrong_accepted": 2,
+          "accepted_count": 276,
+          "ood_accepted": 2,
+          "accepted_error": 0.007246376811594203,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 35,
+          "wrong_accepted": 0,
+          "accepted_count": 35,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 234,
+          "wrong_accepted": 2,
+          "accepted_count": 236,
+          "ood_accepted": 2,
+          "accepted_error": 0.00847457627118644,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 29,
+          "wrong_accepted": 0,
+          "accepted_count": 29,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 179,
+          "wrong_accepted": 0,
+          "accepted_count": 179,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 22,
+          "wrong_accepted": 0,
+          "accepted_count": 22,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 121,
+          "wrong_accepted": 0,
+          "accepted_count": 121,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 14,
+          "wrong_accepted": 0,
+          "accepted_count": 14,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 87,
+          "wrong_accepted": 0,
+          "accepted_count": 87,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 7,
+          "wrong_accepted": 0,
+          "accepted_count": 7,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 47,
+          "wrong_accepted": 0,
+          "accepted_count": 47,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 4,
+          "wrong_accepted": 0,
+          "accepted_count": 4,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 20,
+          "wrong_accepted": 0,
+          "accepted_count": 20,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 1,
+          "wrong_accepted": 0,
+          "accepted_count": 1,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 7,
+          "wrong_accepted": 0,
+          "accepted_count": 7,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 388,
+          "wrong_accepted": 126,
+          "accepted_count": 514,
+          "ood_accepted": 126,
+          "accepted_error": 0.245136186770428,
+          "ood_false_acceptance": 0.029059040590405903
+        },
+        "domain": {
+          "correct_supported": 82,
+          "wrong_accepted": 0,
+          "accepted_count": 82,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 376,
+          "wrong_accepted": 99,
+          "accepted_count": 475,
+          "ood_accepted": 99,
+          "accepted_error": 0.20842105263157895,
+          "ood_false_acceptance": 0.02283210332103321
+        },
+        "domain": {
+          "correct_supported": 80,
+          "wrong_accepted": 0,
+          "accepted_count": 80,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 357,
+          "wrong_accepted": 81,
+          "accepted_count": 438,
+          "ood_accepted": 81,
+          "accepted_error": 0.18493150684931506,
+          "ood_false_acceptance": 0.01868081180811808
+        },
+        "domain": {
+          "correct_supported": 71,
+          "wrong_accepted": 0,
+          "accepted_count": 71,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 346,
+          "wrong_accepted": 64,
+          "accepted_count": 410,
+          "ood_accepted": 64,
+          "accepted_error": 0.15609756097560976,
+          "ood_false_acceptance": 0.014760147601476014
+        },
+        "domain": {
+          "correct_supported": 61,
+          "wrong_accepted": 0,
+          "accepted_count": 61,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 318,
+          "wrong_accepted": 44,
+          "accepted_count": 362,
+          "ood_accepted": 44,
+          "accepted_error": 0.12154696132596685,
+          "ood_false_acceptance": 0.01014760147601476
+        },
+        "domain": {
+          "correct_supported": 55,
+          "wrong_accepted": 0,
+          "accepted_count": 55,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 283,
+          "wrong_accepted": 23,
+          "accepted_count": 306,
+          "ood_accepted": 23,
+          "accepted_error": 0.07516339869281045,
+          "ood_false_acceptance": 0.005304428044280443
+        },
+        "domain": {
+          "correct_supported": 49,
+          "wrong_accepted": 0,
+          "accepted_count": 49,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 233,
+          "wrong_accepted": 9,
+          "accepted_count": 242,
+          "ood_accepted": 9,
+          "accepted_error": 0.0371900826446281,
+          "ood_false_acceptance": 0.0020756457564575647
+        },
+        "domain": {
+          "correct_supported": 43,
+          "wrong_accepted": 0,
+          "accepted_count": 43,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 174,
+          "wrong_accepted": 1,
+          "accepted_count": 175,
+          "ood_accepted": 1,
+          "accepted_error": 0.005714285714285714,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 29,
+          "wrong_accepted": 0,
+          "accepted_count": 29,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 106,
+          "wrong_accepted": 0,
+          "accepted_count": 106,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 16,
+          "wrong_accepted": 0,
+          "accepted_count": 16,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 78,
+          "wrong_accepted": 0,
+          "accepted_count": 78,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 8,
+          "wrong_accepted": 0,
+          "accepted_count": 8,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 35,
+          "wrong_accepted": 0,
+          "accepted_count": 35,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 4,
+          "wrong_accepted": 0,
+          "accepted_count": 4,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 9,
+          "wrong_accepted": 0,
+          "accepted_count": 9,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 1,
+          "wrong_accepted": 0,
+          "accepted_count": 1,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 339,
+          "wrong_accepted": 127,
+          "accepted_count": 466,
+          "ood_accepted": 127,
+          "accepted_error": 0.27253218884120173,
+          "ood_false_acceptance": 0.029289667896678966
+        },
+        "domain": {
+          "correct_supported": 69,
+          "wrong_accepted": 1,
+          "accepted_count": 70,
+          "ood_accepted": 1,
+          "accepted_error": 0.014285714285714285,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 314,
+          "wrong_accepted": 105,
+          "accepted_count": 419,
+          "ood_accepted": 105,
+          "accepted_error": 0.25059665871121717,
+          "ood_false_acceptance": 0.02421586715867159
+        },
+        "domain": {
+          "correct_supported": 66,
+          "wrong_accepted": 0,
+          "accepted_count": 66,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 276,
+          "wrong_accepted": 78,
+          "accepted_count": 354,
+          "ood_accepted": 78,
+          "accepted_error": 0.22033898305084745,
+          "ood_false_acceptance": 0.017988929889298892
+        },
+        "domain": {
+          "correct_supported": 57,
+          "wrong_accepted": 0,
+          "accepted_count": 57,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 229,
+          "wrong_accepted": 55,
+          "accepted_count": 284,
+          "ood_accepted": 55,
+          "accepted_error": 0.1936619718309859,
+          "ood_false_acceptance": 0.01268450184501845
+        },
+        "domain": {
+          "correct_supported": 47,
+          "wrong_accepted": 0,
+          "accepted_count": 47,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 183,
+          "wrong_accepted": 39,
+          "accepted_count": 222,
+          "ood_accepted": 39,
+          "accepted_error": 0.17567567567567569,
+          "ood_false_acceptance": 0.008994464944649446
+        },
+        "domain": {
+          "correct_supported": 45,
+          "wrong_accepted": 0,
+          "accepted_count": 45,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 128,
+          "wrong_accepted": 18,
+          "accepted_count": 146,
+          "ood_accepted": 18,
+          "accepted_error": 0.1232876712328767,
+          "ood_false_acceptance": 0.004151291512915129
+        },
+        "domain": {
+          "correct_supported": 35,
+          "wrong_accepted": 0,
+          "accepted_count": 35,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 79,
+          "wrong_accepted": 8,
+          "accepted_count": 87,
+          "ood_accepted": 8,
+          "accepted_error": 0.09195402298850575,
+          "ood_false_acceptance": 0.0018450184501845018
+        },
+        "domain": {
+          "correct_supported": 21,
+          "wrong_accepted": 0,
+          "accepted_count": 21,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 21,
+          "wrong_accepted": 1,
+          "accepted_count": 22,
+          "ood_accepted": 1,
+          "accepted_error": 0.045454545454545456,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 9,
+          "wrong_accepted": 0,
+          "accepted_count": 9,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 382,
+          "wrong_accepted": 3,
+          "accepted_count": 385,
+          "ood_accepted": 3,
+          "accepted_error": 0.007792207792207792,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 55,
+          "wrong_accepted": 0,
+          "accepted_count": 55,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 369,
+          "wrong_accepted": 1,
+          "accepted_count": 370,
+          "ood_accepted": 1,
+          "accepted_error": 0.002702702702702703,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 48,
+          "wrong_accepted": 0,
+          "accepted_count": 48,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 339,
+          "wrong_accepted": 0,
+          "accepted_count": 339,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 40,
+          "wrong_accepted": 0,
+          "accepted_count": 40,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 292,
+          "wrong_accepted": 0,
+          "accepted_count": 292,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 28,
+          "wrong_accepted": 0,
+          "accepted_count": 28,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 207,
+          "wrong_accepted": 0,
+          "accepted_count": 207,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 14,
+          "wrong_accepted": 0,
+          "accepted_count": 14,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.65,
+      "validation": {
+        "source": {
+          "correct_supported": 416,
+          "wrong_accepted": 57,
+          "accepted_count": 473,
+          "ood_accepted": 57,
+          "accepted_error": 0.12050739957716702,
+          "ood_false_acceptance": 0.013145756457564576
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 415,
+          "wrong_accepted": 33,
+          "accepted_count": 448,
+          "ood_accepted": 33,
+          "accepted_error": 0.07366071428571429,
+          "ood_false_acceptance": 0.00761070110701107
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 24,
+          "accepted_count": 438,
+          "ood_accepted": 24,
+          "accepted_error": 0.0547945205479452,
+          "ood_false_acceptance": 0.005535055350553505
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 19,
+          "accepted_count": 433,
+          "ood_accepted": 19,
+          "accepted_error": 0.04387990762124711,
+          "ood_false_acceptance": 0.0043819188191881915
+        },
+        "domain": {
+          "correct_supported": 87,
+          "wrong_accepted": 0,
+          "accepted_count": 87,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 413,
+          "wrong_accepted": 14,
+          "accepted_count": 427,
+          "ood_accepted": 14,
+          "accepted_error": 0.03278688524590164,
+          "ood_false_acceptance": 0.0032287822878228783
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 411,
+          "wrong_accepted": 9,
+          "accepted_count": 420,
+          "ood_accepted": 9,
+          "accepted_error": 0.02142857142857143,
+          "ood_false_acceptance": 0.0020756457564575647
+        },
+        "domain": {
+          "correct_supported": 81,
+          "wrong_accepted": 0,
+          "accepted_count": 81,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 408,
+          "wrong_accepted": 4,
+          "accepted_count": 412,
+          "ood_accepted": 4,
+          "accepted_error": 0.009708737864077669,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 401,
+          "wrong_accepted": 4,
+          "accepted_count": 405,
+          "ood_accepted": 4,
+          "accepted_error": 0.009876543209876543,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 71,
+          "wrong_accepted": 0,
+          "accepted_count": 71,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 387,
+          "wrong_accepted": 2,
+          "accepted_count": 389,
+          "ood_accepted": 2,
+          "accepted_error": 0.005141388174807198,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 68,
+          "wrong_accepted": 0,
+          "accepted_count": 68,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 374,
+          "wrong_accepted": 1,
+          "accepted_count": 375,
+          "ood_accepted": 1,
+          "accepted_error": 0.0026666666666666666,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 61,
+          "wrong_accepted": 0,
+          "accepted_count": 61,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 355,
+          "wrong_accepted": 1,
+          "accepted_count": 356,
+          "ood_accepted": 1,
+          "accepted_error": 0.0028089887640449437,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 51,
+          "wrong_accepted": 0,
+          "accepted_count": 51,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 328,
+          "wrong_accepted": 0,
+          "accepted_count": 328,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 38,
+          "wrong_accepted": 0,
+          "accepted_count": 38,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 258,
+          "wrong_accepted": 0,
+          "accepted_count": 258,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 27,
+          "wrong_accepted": 0,
+          "accepted_count": 27,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 411,
+          "wrong_accepted": 65,
+          "accepted_count": 476,
+          "ood_accepted": 65,
+          "accepted_error": 0.13655462184873948,
+          "ood_false_acceptance": 0.014990774907749077
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 1,
+          "accepted_count": 91,
+          "ood_accepted": 1,
+          "accepted_error": 0.01098901098901099,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 407,
+          "wrong_accepted": 47,
+          "accepted_count": 454,
+          "ood_accepted": 47,
+          "accepted_error": 0.10352422907488987,
+          "ood_false_acceptance": 0.010839483394833949
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 0,
+          "accepted_count": 90,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 404,
+          "wrong_accepted": 32,
+          "accepted_count": 436,
+          "ood_accepted": 32,
+          "accepted_error": 0.07339449541284404,
+          "ood_false_acceptance": 0.007380073800738007
+        },
+        "domain": {
+          "correct_supported": 86,
+          "wrong_accepted": 0,
+          "accepted_count": 86,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 400,
+          "wrong_accepted": 17,
+          "accepted_count": 417,
+          "ood_accepted": 17,
+          "accepted_error": 0.0407673860911271,
+          "ood_false_acceptance": 0.003920664206642066
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 393,
+          "wrong_accepted": 9,
+          "accepted_count": 402,
+          "ood_accepted": 9,
+          "accepted_error": 0.022388059701492536,
+          "ood_false_acceptance": 0.0020756457564575647
+        },
+        "domain": {
+          "correct_supported": 76,
+          "wrong_accepted": 0,
+          "accepted_count": 76,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 382,
+          "wrong_accepted": 3,
+          "accepted_count": 385,
+          "ood_accepted": 3,
+          "accepted_error": 0.007792207792207792,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 71,
+          "wrong_accepted": 0,
+          "accepted_count": 71,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 365,
+          "wrong_accepted": 2,
+          "accepted_count": 367,
+          "ood_accepted": 2,
+          "accepted_error": 0.005449591280653951,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 64,
+          "wrong_accepted": 0,
+          "accepted_count": 64,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 334,
+          "wrong_accepted": 0,
+          "accepted_count": 334,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 51,
+          "wrong_accepted": 0,
+          "accepted_count": 51,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 289,
+          "wrong_accepted": 0,
+          "accepted_count": 289,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 36,
+          "wrong_accepted": 0,
+          "accepted_count": 36,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 369,
+          "wrong_accepted": 53,
+          "accepted_count": 422,
+          "ood_accepted": 53,
+          "accepted_error": 0.12559241706161137,
+          "ood_false_acceptance": 0.012223247232472324
+        },
+        "domain": {
+          "correct_supported": 76,
+          "wrong_accepted": 0,
+          "accepted_count": 76,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 343,
+          "wrong_accepted": 29,
+          "accepted_count": 372,
+          "ood_accepted": 29,
+          "accepted_error": 0.07795698924731183,
+          "ood_false_acceptance": 0.006688191881918819
+        },
+        "domain": {
+          "correct_supported": 71,
+          "wrong_accepted": 0,
+          "accepted_count": 71,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 303,
+          "wrong_accepted": 17,
+          "accepted_count": 320,
+          "ood_accepted": 17,
+          "accepted_error": 0.053125,
+          "ood_false_acceptance": 0.003920664206642066
+        },
+        "domain": {
+          "correct_supported": 63,
+          "wrong_accepted": 0,
+          "accepted_count": 63,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 396,
+          "wrong_accepted": 0,
+          "accepted_count": 396,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 57,
+          "wrong_accepted": 1,
+          "accepted_count": 58,
+          "ood_accepted": 1,
+          "accepted_error": 0.017241379310344827,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 423,
+          "wrong_accepted": 4,
+          "accepted_count": 427,
+          "ood_accepted": 4,
+          "accepted_error": 0.00936768149882904,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 422,
+          "wrong_accepted": 3,
+          "accepted_count": 425,
+          "ood_accepted": 3,
+          "accepted_error": 0.007058823529411765,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 2,
+          "accepted_count": 423,
+          "ood_accepted": 2,
+          "accepted_error": 0.004728132387706856,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 0,
+          "accepted_count": 92,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 2,
+          "accepted_count": 423,
+          "ood_accepted": 2,
+          "accepted_error": 0.004728132387706856,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 0,
+          "accepted_count": 90,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 2,
+          "accepted_count": 422,
+          "ood_accepted": 2,
+          "accepted_error": 0.004739336492890996,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 86,
+          "wrong_accepted": 0,
+          "accepted_count": 86,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 2,
+          "accepted_count": 422,
+          "ood_accepted": 2,
+          "accepted_error": 0.004739336492890996,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 85,
+          "wrong_accepted": 0,
+          "accepted_count": 85,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 1,
+          "accepted_count": 420,
+          "ood_accepted": 1,
+          "accepted_error": 0.002380952380952381,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 82,
+          "wrong_accepted": 0,
+          "accepted_count": 82,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 0,
+          "accepted_count": 418,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 81,
+          "wrong_accepted": 0,
+          "accepted_count": 81,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 417,
+          "wrong_accepted": 0,
+          "accepted_count": 417,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 79,
+          "wrong_accepted": 0,
+          "accepted_count": 79,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 0,
+          "accepted_count": 414,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 398,
+          "wrong_accepted": 0,
+          "accepted_count": 398,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 67,
+          "wrong_accepted": 0,
+          "accepted_count": 67,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 384,
+          "wrong_accepted": 0,
+          "accepted_count": 384,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 58,
+          "wrong_accepted": 0,
+          "accepted_count": 58,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 4,
+          "accepted_count": 423,
+          "ood_accepted": 4,
+          "accepted_error": 0.009456264775413711,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 4,
+          "accepted_count": 423,
+          "ood_accepted": 4,
+          "accepted_error": 0.009456264775413711,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 2,
+          "accepted_count": 421,
+          "ood_accepted": 2,
+          "accepted_error": 0.004750593824228029,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 91,
+          "wrong_accepted": 0,
+          "accepted_count": 91,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 417,
+          "wrong_accepted": 1,
+          "accepted_count": 418,
+          "ood_accepted": 1,
+          "accepted_error": 0.0023923444976076554,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 91,
+          "wrong_accepted": 0,
+          "accepted_count": 91,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 412,
+          "wrong_accepted": 0,
+          "accepted_count": 412,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 87,
+          "wrong_accepted": 0,
+          "accepted_count": 87,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 407,
+          "wrong_accepted": 0,
+          "accepted_count": 407,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 81,
+          "wrong_accepted": 0,
+          "accepted_count": 81,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 401,
+          "wrong_accepted": 0,
+          "accepted_count": 401,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 77,
+          "wrong_accepted": 0,
+          "accepted_count": 77,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 383,
+          "wrong_accepted": 0,
+          "accepted_count": 383,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 67,
+          "wrong_accepted": 0,
+          "accepted_count": 67,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.005,
+      "C": 100.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 386,
+          "wrong_accepted": 5,
+          "accepted_count": 391,
+          "ood_accepted": 5,
+          "accepted_error": 0.01278772378516624,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 81,
+          "wrong_accepted": 1,
+          "accepted_count": 82,
+          "ood_accepted": 1,
+          "accepted_error": 0.012195121951219513,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 390,
+          "wrong_accepted": 9,
+          "accepted_count": 399,
+          "ood_accepted": 9,
+          "accepted_error": 0.022556390977443608,
+          "ood_false_acceptance": 0.0020756457564575647
+        },
+        "domain": {
+          "correct_supported": 43,
+          "wrong_accepted": 0,
+          "accepted_count": 43,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 379,
+          "wrong_accepted": 5,
+          "accepted_count": 384,
+          "ood_accepted": 5,
+          "accepted_error": 0.013020833333333334,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 35,
+          "wrong_accepted": 0,
+          "accepted_count": 35,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 365,
+          "wrong_accepted": 3,
+          "accepted_count": 368,
+          "ood_accepted": 3,
+          "accepted_error": 0.008152173913043478,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 25,
+          "wrong_accepted": 0,
+          "accepted_count": 25,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 349,
+          "wrong_accepted": 1,
+          "accepted_count": 350,
+          "ood_accepted": 1,
+          "accepted_error": 0.002857142857142857,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 20,
+          "wrong_accepted": 0,
+          "accepted_count": 20,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 317,
+          "wrong_accepted": 1,
+          "accepted_count": 318,
+          "ood_accepted": 1,
+          "accepted_error": 0.0031446540880503146,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 15,
+          "wrong_accepted": 0,
+          "accepted_count": 15,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 284,
+          "wrong_accepted": 0,
+          "accepted_count": 284,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 9,
+          "wrong_accepted": 0,
+          "accepted_count": 9,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 240,
+          "wrong_accepted": 0,
+          "accepted_count": 240,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 8,
+          "wrong_accepted": 0,
+          "accepted_count": 8,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 187,
+          "wrong_accepted": 0,
+          "accepted_count": 187,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 2,
+          "wrong_accepted": 0,
+          "accepted_count": 2,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 117,
+          "wrong_accepted": 0,
+          "accepted_count": 117,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 61,
+          "wrong_accepted": 0,
+          "accepted_count": 61,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.6,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 33,
+          "accepted_count": 447,
+          "ood_accepted": 33,
+          "accepted_error": 0.0738255033557047,
+          "ood_false_acceptance": 0.00761070110701107
+        },
+        "domain": {
+          "correct_supported": 85,
+          "wrong_accepted": 1,
+          "accepted_count": 86,
+          "ood_accepted": 1,
+          "accepted_error": 0.011627906976744186,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.625,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 27,
+          "accepted_count": 441,
+          "ood_accepted": 27,
+          "accepted_error": 0.061224489795918366,
+          "ood_false_acceptance": 0.0062269372693726935
+        },
+        "domain": {
+          "correct_supported": 82,
+          "wrong_accepted": 0,
+          "accepted_count": 82,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.65,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 18,
+          "accepted_count": 432,
+          "ood_accepted": 18,
+          "accepted_error": 0.041666666666666664,
+          "ood_false_acceptance": 0.004151291512915129
+        },
+        "domain": {
+          "correct_supported": 78,
+          "wrong_accepted": 0,
+          "accepted_count": 78,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 15,
+          "accepted_count": 429,
+          "ood_accepted": 15,
+          "accepted_error": 0.03496503496503497,
+          "ood_false_acceptance": 0.003459409594095941
+        },
+        "domain": {
+          "correct_supported": 76,
+          "wrong_accepted": 0,
+          "accepted_count": 76,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 410,
+          "wrong_accepted": 13,
+          "accepted_count": 423,
+          "ood_accepted": 13,
+          "accepted_error": 0.030732860520094562,
+          "ood_false_acceptance": 0.0029981549815498157
+        },
+        "domain": {
+          "correct_supported": 73,
+          "wrong_accepted": 0,
+          "accepted_count": 73,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 407,
+          "wrong_accepted": 6,
+          "accepted_count": 413,
+          "ood_accepted": 6,
+          "accepted_error": 0.014527845036319613,
+          "ood_false_acceptance": 0.0013837638376383763
+        },
+        "domain": {
+          "correct_supported": 67,
+          "wrong_accepted": 0,
+          "accepted_count": 67,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 398,
+          "wrong_accepted": 4,
+          "accepted_count": 402,
+          "ood_accepted": 4,
+          "accepted_error": 0.009950248756218905,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 61,
+          "wrong_accepted": 0,
+          "accepted_count": 61,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 382,
+          "wrong_accepted": 2,
+          "accepted_count": 384,
+          "ood_accepted": 2,
+          "accepted_error": 0.005208333333333333,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 46,
+          "wrong_accepted": 0,
+          "accepted_count": 46,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 369,
+          "wrong_accepted": 1,
+          "accepted_count": 370,
+          "ood_accepted": 1,
+          "accepted_error": 0.002702702702702703,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 36,
+          "wrong_accepted": 0,
+          "accepted_count": 36,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 353,
+          "wrong_accepted": 1,
+          "accepted_count": 354,
+          "ood_accepted": 1,
+          "accepted_error": 0.002824858757062147,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 26,
+          "wrong_accepted": 0,
+          "accepted_count": 26,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 328,
+          "wrong_accepted": 1,
+          "accepted_count": 329,
+          "ood_accepted": 1,
+          "accepted_error": 0.00303951367781155,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 18,
+          "wrong_accepted": 0,
+          "accepted_count": 18,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 285,
+          "wrong_accepted": 0,
+          "accepted_count": 285,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 11,
+          "wrong_accepted": 0,
+          "accepted_count": 11,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 233,
+          "wrong_accepted": 0,
+          "accepted_count": 233,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 4,
+          "wrong_accepted": 0,
+          "accepted_count": 4,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 127,
+          "wrong_accepted": 0,
+          "accepted_count": 127,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 3,
+          "wrong_accepted": 0,
+          "accepted_count": 3,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 54,
+          "wrong_accepted": 0,
+          "accepted_count": 54,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 59,
+          "accepted_count": 473,
+          "ood_accepted": 59,
+          "accepted_error": 0.12473572938689217,
+          "ood_false_acceptance": 0.0136070110701107
+        },
+        "domain": {
+          "correct_supported": 82,
+          "wrong_accepted": 0,
+          "accepted_count": 82,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 412,
+          "wrong_accepted": 37,
+          "accepted_count": 449,
+          "ood_accepted": 37,
+          "accepted_error": 0.08240534521158129,
+          "ood_false_acceptance": 0.008533210332103322
+        },
+        "domain": {
+          "correct_supported": 79,
+          "wrong_accepted": 0,
+          "accepted_count": 79,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 406,
+          "wrong_accepted": 31,
+          "accepted_count": 437,
+          "ood_accepted": 31,
+          "accepted_error": 0.07093821510297482,
+          "ood_false_acceptance": 0.007149446494464945
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 401,
+          "wrong_accepted": 20,
+          "accepted_count": 421,
+          "ood_accepted": 20,
+          "accepted_error": 0.047505938242280284,
+          "ood_false_acceptance": 0.004612546125461255
+        },
+        "domain": {
+          "correct_supported": 72,
+          "wrong_accepted": 0,
+          "accepted_count": 72,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 391,
+          "wrong_accepted": 10,
+          "accepted_count": 401,
+          "ood_accepted": 10,
+          "accepted_error": 0.02493765586034913,
+          "ood_false_acceptance": 0.0023062730627306273
+        },
+        "domain": {
+          "correct_supported": 64,
+          "wrong_accepted": 0,
+          "accepted_count": 64,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 383,
+          "wrong_accepted": 5,
+          "accepted_count": 388,
+          "ood_accepted": 5,
+          "accepted_error": 0.01288659793814433,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 57,
+          "wrong_accepted": 0,
+          "accepted_count": 57,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 363,
+          "wrong_accepted": 1,
+          "accepted_count": 364,
+          "ood_accepted": 1,
+          "accepted_error": 0.0027472527472527475,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 49,
+          "wrong_accepted": 0,
+          "accepted_count": 49,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 340,
+          "wrong_accepted": 1,
+          "accepted_count": 341,
+          "ood_accepted": 1,
+          "accepted_error": 0.002932551319648094,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 38,
+          "wrong_accepted": 0,
+          "accepted_count": 38,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 315,
+          "wrong_accepted": 0,
+          "accepted_count": 315,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 19,
+          "wrong_accepted": 0,
+          "accepted_count": 19,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 255,
+          "wrong_accepted": 0,
+          "accepted_count": 255,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 11,
+          "wrong_accepted": 0,
+          "accepted_count": 11,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 171,
+          "wrong_accepted": 0,
+          "accepted_count": 171,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 6,
+          "wrong_accepted": 0,
+          "accepted_count": 6,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 77,
+          "wrong_accepted": 0,
+          "accepted_count": 77,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 1,
+          "wrong_accepted": 0,
+          "accepted_count": 1,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 393,
+          "wrong_accepted": 69,
+          "accepted_count": 462,
+          "ood_accepted": 69,
+          "accepted_error": 0.14935064935064934,
+          "ood_false_acceptance": 0.015913284132841328
+        },
+        "domain": {
+          "correct_supported": 74,
+          "wrong_accepted": 0,
+          "accepted_count": 74,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 389,
+          "wrong_accepted": 57,
+          "accepted_count": 446,
+          "ood_accepted": 57,
+          "accepted_error": 0.12780269058295965,
+          "ood_false_acceptance": 0.013145756457564576
+        },
+        "domain": {
+          "correct_supported": 67,
+          "wrong_accepted": 0,
+          "accepted_count": 67,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 375,
+          "wrong_accepted": 37,
+          "accepted_count": 412,
+          "ood_accepted": 37,
+          "accepted_error": 0.08980582524271845,
+          "ood_false_acceptance": 0.008533210332103322
+        },
+        "domain": {
+          "correct_supported": 57,
+          "wrong_accepted": 0,
+          "accepted_count": 57,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 350,
+          "wrong_accepted": 20,
+          "accepted_count": 370,
+          "ood_accepted": 20,
+          "accepted_error": 0.05405405405405406,
+          "ood_false_acceptance": 0.004612546125461255
+        },
+        "domain": {
+          "correct_supported": 53,
+          "wrong_accepted": 0,
+          "accepted_count": 53,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 318,
+          "wrong_accepted": 11,
+          "accepted_count": 329,
+          "ood_accepted": 11,
+          "accepted_error": 0.03343465045592705,
+          "ood_false_acceptance": 0.00253690036900369
+        },
+        "domain": {
+          "correct_supported": 45,
+          "wrong_accepted": 0,
+          "accepted_count": 45,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 279,
+          "wrong_accepted": 5,
+          "accepted_count": 284,
+          "ood_accepted": 5,
+          "accepted_error": 0.017605633802816902,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 40,
+          "wrong_accepted": 0,
+          "accepted_count": 40,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 211,
+          "wrong_accepted": 1,
+          "accepted_count": 212,
+          "ood_accepted": 1,
+          "accepted_error": 0.0047169811320754715,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 27,
+          "wrong_accepted": 0,
+          "accepted_count": 27,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 112,
+          "wrong_accepted": 0,
+          "accepted_count": 112,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 13,
+          "wrong_accepted": 0,
+          "accepted_count": 13,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 395,
+          "wrong_accepted": 0,
+          "accepted_count": 395,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 51,
+          "wrong_accepted": 0,
+          "accepted_count": 51,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 385,
+          "wrong_accepted": 0,
+          "accepted_count": 385,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 33,
+          "wrong_accepted": 0,
+          "accepted_count": 33,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 357,
+          "wrong_accepted": 0,
+          "accepted_count": 357,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 20,
+          "wrong_accepted": 0,
+          "accepted_count": 20,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 4,
+          "accepted_count": 425,
+          "ood_accepted": 4,
+          "accepted_error": 0.009411764705882352,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 3,
+          "accepted_count": 423,
+          "ood_accepted": 3,
+          "accepted_error": 0.0070921985815602835,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 1,
+          "accepted_count": 91,
+          "ood_accepted": 1,
+          "accepted_error": 0.01098901098901099,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 2,
+          "accepted_count": 421,
+          "ood_accepted": 2,
+          "accepted_error": 0.004750593824228029,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 87,
+          "wrong_accepted": 1,
+          "accepted_count": 88,
+          "ood_accepted": 1,
+          "accepted_error": 0.011363636363636364,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 2,
+          "accepted_count": 421,
+          "ood_accepted": 2,
+          "accepted_error": 0.004750593824228029,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 87,
+          "wrong_accepted": 0,
+          "accepted_count": 87,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 2,
+          "accepted_count": 420,
+          "ood_accepted": 2,
+          "accepted_error": 0.004761904761904762,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 417,
+          "wrong_accepted": 2,
+          "accepted_count": 419,
+          "ood_accepted": 2,
+          "accepted_error": 0.00477326968973747,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 80,
+          "wrong_accepted": 0,
+          "accepted_count": 80,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 415,
+          "wrong_accepted": 1,
+          "accepted_count": 416,
+          "ood_accepted": 1,
+          "accepted_error": 0.002403846153846154,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 71,
+          "wrong_accepted": 0,
+          "accepted_count": 71,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 413,
+          "wrong_accepted": 1,
+          "accepted_count": 414,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024154589371980675,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 69,
+          "wrong_accepted": 0,
+          "accepted_count": 69,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 407,
+          "wrong_accepted": 0,
+          "accepted_count": 407,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 64,
+          "wrong_accepted": 0,
+          "accepted_count": 64,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 399,
+          "wrong_accepted": 0,
+          "accepted_count": 399,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 56,
+          "wrong_accepted": 0,
+          "accepted_count": 56,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 378,
+          "wrong_accepted": 0,
+          "accepted_count": 378,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 50,
+          "wrong_accepted": 0,
+          "accepted_count": 50,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 352,
+          "wrong_accepted": 0,
+          "accepted_count": 352,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 27,
+          "wrong_accepted": 0,
+          "accepted_count": 27,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 14,
+          "accepted_count": 433,
+          "ood_accepted": 14,
+          "accepted_error": 0.03233256351039261,
+          "ood_false_acceptance": 0.0032287822878228783
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 5,
+          "accepted_count": 423,
+          "ood_accepted": 5,
+          "accepted_error": 0.01182033096926714,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 91,
+          "wrong_accepted": 1,
+          "accepted_count": 92,
+          "ood_accepted": 1,
+          "accepted_error": 0.010869565217391304,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 3,
+          "accepted_count": 421,
+          "ood_accepted": 3,
+          "accepted_error": 0.007125890736342043,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 91,
+          "wrong_accepted": 0,
+          "accepted_count": 91,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 415,
+          "wrong_accepted": 2,
+          "accepted_count": 417,
+          "ood_accepted": 2,
+          "accepted_error": 0.004796163069544364,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 89,
+          "wrong_accepted": 0,
+          "accepted_count": 89,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 413,
+          "wrong_accepted": 1,
+          "accepted_count": 414,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024154589371980675,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 83,
+          "wrong_accepted": 0,
+          "accepted_count": 83,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 411,
+          "wrong_accepted": 1,
+          "accepted_count": 412,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024271844660194173,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 78,
+          "wrong_accepted": 0,
+          "accepted_count": 78,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 403,
+          "wrong_accepted": 0,
+          "accepted_count": 403,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 396,
+          "wrong_accepted": 0,
+          "accepted_count": 396,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 66,
+          "wrong_accepted": 0,
+          "accepted_count": 66,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 384,
+          "wrong_accepted": 0,
+          "accepted_count": 384,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 60,
+          "wrong_accepted": 0,
+          "accepted_count": 60,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 358,
+          "wrong_accepted": 0,
+          "accepted_count": 358,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 40,
+          "wrong_accepted": 0,
+          "accepted_count": 40,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 401,
+          "wrong_accepted": 8,
+          "accepted_count": 409,
+          "ood_accepted": 8,
+          "accepted_error": 0.019559902200488997,
+          "ood_false_acceptance": 0.0018450184501845018
+        },
+        "domain": {
+          "correct_supported": 80,
+          "wrong_accepted": 1,
+          "accepted_count": 81,
+          "ood_accepted": 1,
+          "accepted_error": 0.012345679012345678,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 396,
+          "wrong_accepted": 5,
+          "accepted_count": 401,
+          "ood_accepted": 5,
+          "accepted_error": 0.012468827930174564,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 78,
+          "wrong_accepted": 0,
+          "accepted_count": 78,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 382,
+          "wrong_accepted": 3,
+          "accepted_count": 385,
+          "ood_accepted": 3,
+          "accepted_error": 0.007792207792207792,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 76,
+          "wrong_accepted": 0,
+          "accepted_count": 76,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 365,
+          "wrong_accepted": 2,
+          "accepted_count": 367,
+          "ood_accepted": 2,
+          "accepted_error": 0.005449591280653951,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 61,
+          "wrong_accepted": 0,
+          "accepted_count": 61,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 424,
+          "wrong_accepted": 0,
+          "accepted_count": 424,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 92,
+          "wrong_accepted": 1,
+          "accepted_count": 93,
+          "ood_accepted": 1,
+          "accepted_error": 0.010752688172043012,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 424,
+          "wrong_accepted": 0,
+          "accepted_count": 424,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 91,
+          "wrong_accepted": 1,
+          "accepted_count": 92,
+          "ood_accepted": 1,
+          "accepted_error": 0.010869565217391304,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 423,
+          "wrong_accepted": 0,
+          "accepted_count": 423,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 89,
+          "wrong_accepted": 0,
+          "accepted_count": 89,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 422,
+          "wrong_accepted": 0,
+          "accepted_count": 422,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 87,
+          "wrong_accepted": 0,
+          "accepted_count": 87,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 422,
+          "wrong_accepted": 0,
+          "accepted_count": 422,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 87,
+          "wrong_accepted": 0,
+          "accepted_count": 87,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 86,
+          "wrong_accepted": 0,
+          "accepted_count": 86,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 83,
+          "wrong_accepted": 0,
+          "accepted_count": 83,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 79,
+          "wrong_accepted": 0,
+          "accepted_count": 79,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 74,
+          "wrong_accepted": 0,
+          "accepted_count": 74,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 0,
+          "accepted_count": 418,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 64,
+          "wrong_accepted": 0,
+          "accepted_count": 64,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 411,
+          "wrong_accepted": 0,
+          "accepted_count": 411,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 59,
+          "wrong_accepted": 0,
+          "accepted_count": 59,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 1,
+          "accepted_count": 91,
+          "ood_accepted": 1,
+          "accepted_error": 0.01098901098901099,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 1,
+          "accepted_count": 91,
+          "ood_accepted": 1,
+          "accepted_error": 0.01098901098901099,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 89,
+          "wrong_accepted": 1,
+          "accepted_count": 90,
+          "ood_accepted": 1,
+          "accepted_error": 0.011111111111111112,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 0,
+          "accepted_count": 419,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 416,
+          "wrong_accepted": 0,
+          "accepted_count": 416,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 77,
+          "wrong_accepted": 0,
+          "accepted_count": 77,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 405,
+          "wrong_accepted": 0,
+          "accepted_count": 405,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 69,
+          "wrong_accepted": 0,
+          "accepted_count": 69,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.02,
+      "C": 100.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 403,
+          "wrong_accepted": 1,
+          "accepted_count": 404,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024752475247524753,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 83,
+          "wrong_accepted": 1,
+          "accepted_count": 84,
+          "ood_accepted": 1,
+          "accepted_error": 0.011904761904761904,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 410,
+          "wrong_accepted": 1,
+          "accepted_count": 411,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024330900243309003,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 34,
+          "wrong_accepted": 0,
+          "accepted_count": 34,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 405,
+          "wrong_accepted": 0,
+          "accepted_count": 405,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 27,
+          "wrong_accepted": 0,
+          "accepted_count": 27,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 394,
+          "wrong_accepted": 0,
+          "accepted_count": 394,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 21,
+          "wrong_accepted": 0,
+          "accepted_count": 21,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 383,
+          "wrong_accepted": 0,
+          "accepted_count": 383,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 13,
+          "wrong_accepted": 0,
+          "accepted_count": 13,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 371,
+          "wrong_accepted": 0,
+          "accepted_count": 371,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 5,
+          "wrong_accepted": 0,
+          "accepted_count": 5,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 340,
+          "wrong_accepted": 0,
+          "accepted_count": 340,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 1,
+          "wrong_accepted": 0,
+          "accepted_count": 1,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 282,
+          "wrong_accepted": 0,
+          "accepted_count": 282,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.65,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 10,
+          "accepted_count": 431,
+          "ood_accepted": 10,
+          "accepted_error": 0.02320185614849188,
+          "ood_false_acceptance": 0.0023062730627306273
+        },
+        "domain": {
+          "correct_supported": 81,
+          "wrong_accepted": 1,
+          "accepted_count": 82,
+          "ood_accepted": 1,
+          "accepted_error": 0.012195121951219513,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 10,
+          "accepted_count": 430,
+          "ood_accepted": 10,
+          "accepted_error": 0.023255813953488372,
+          "ood_false_acceptance": 0.0023062730627306273
+        },
+        "domain": {
+          "correct_supported": 79,
+          "wrong_accepted": 1,
+          "accepted_count": 80,
+          "ood_accepted": 1,
+          "accepted_error": 0.0125,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 419,
+          "wrong_accepted": 7,
+          "accepted_count": 426,
+          "ood_accepted": 7,
+          "accepted_error": 0.01643192488262911,
+          "ood_false_acceptance": 0.0016143911439114391
+        },
+        "domain": {
+          "correct_supported": 78,
+          "wrong_accepted": 0,
+          "accepted_count": 78,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 4,
+          "accepted_count": 422,
+          "ood_accepted": 4,
+          "accepted_error": 0.009478672985781991,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 74,
+          "wrong_accepted": 0,
+          "accepted_count": 74,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 417,
+          "wrong_accepted": 2,
+          "accepted_count": 419,
+          "ood_accepted": 2,
+          "accepted_error": 0.00477326968973747,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 72,
+          "wrong_accepted": 0,
+          "accepted_count": 72,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 416,
+          "wrong_accepted": 1,
+          "accepted_count": 417,
+          "ood_accepted": 1,
+          "accepted_error": 0.002398081534772182,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 64,
+          "wrong_accepted": 0,
+          "accepted_count": 64,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 408,
+          "wrong_accepted": 1,
+          "accepted_count": 409,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024449877750611247,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 57,
+          "wrong_accepted": 0,
+          "accepted_count": 57,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 406,
+          "wrong_accepted": 1,
+          "accepted_count": 407,
+          "ood_accepted": 1,
+          "accepted_error": 0.002457002457002457,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 40,
+          "wrong_accepted": 0,
+          "accepted_count": 40,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 400,
+          "wrong_accepted": 0,
+          "accepted_count": 400,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 27,
+          "wrong_accepted": 0,
+          "accepted_count": 27,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 390,
+          "wrong_accepted": 0,
+          "accepted_count": 390,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 19,
+          "wrong_accepted": 0,
+          "accepted_count": 19,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 365,
+          "wrong_accepted": 0,
+          "accepted_count": 365,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 10,
+          "wrong_accepted": 0,
+          "accepted_count": 10,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 346,
+          "wrong_accepted": 0,
+          "accepted_count": 346,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 3,
+          "wrong_accepted": 0,
+          "accepted_count": 3,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 299,
+          "wrong_accepted": 0,
+          "accepted_count": 299,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 0,
+          "wrong_accepted": 0,
+          "accepted_count": 0,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.65,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 15,
+          "accepted_count": 436,
+          "ood_accepted": 15,
+          "accepted_error": 0.034403669724770644,
+          "ood_false_acceptance": 0.003459409594095941
+        },
+        "domain": {
+          "correct_supported": 86,
+          "wrong_accepted": 1,
+          "accepted_count": 87,
+          "ood_accepted": 1,
+          "accepted_error": 0.011494252873563218,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.675,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 12,
+          "accepted_count": 430,
+          "ood_accepted": 12,
+          "accepted_error": 0.027906976744186046,
+          "ood_false_acceptance": 0.0027675276752767526
+        },
+        "domain": {
+          "correct_supported": 80,
+          "wrong_accepted": 1,
+          "accepted_count": 81,
+          "ood_accepted": 1,
+          "accepted_error": 0.012345679012345678,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.7,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 12,
+          "accepted_count": 430,
+          "ood_accepted": 12,
+          "accepted_error": 0.027906976744186046,
+          "ood_false_acceptance": 0.0027675276752767526
+        },
+        "domain": {
+          "correct_supported": 78,
+          "wrong_accepted": 0,
+          "accepted_count": 78,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 417,
+          "wrong_accepted": 10,
+          "accepted_count": 427,
+          "ood_accepted": 10,
+          "accepted_error": 0.0234192037470726,
+          "ood_false_acceptance": 0.0023062730627306273
+        },
+        "domain": {
+          "correct_supported": 76,
+          "wrong_accepted": 0,
+          "accepted_count": 76,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 8,
+          "accepted_count": 422,
+          "ood_accepted": 8,
+          "accepted_error": 0.018957345971563982,
+          "ood_false_acceptance": 0.0018450184501845018
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 413,
+          "wrong_accepted": 3,
+          "accepted_count": 416,
+          "ood_accepted": 3,
+          "accepted_error": 0.007211538461538462,
+          "ood_false_acceptance": 0.0006918819188191881
+        },
+        "domain": {
+          "correct_supported": 73,
+          "wrong_accepted": 0,
+          "accepted_count": 73,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 411,
+          "wrong_accepted": 1,
+          "accepted_count": 412,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024271844660194173,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 69,
+          "wrong_accepted": 0,
+          "accepted_count": 69,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 407,
+          "wrong_accepted": 1,
+          "accepted_count": 408,
+          "ood_accepted": 1,
+          "accepted_error": 0.0024509803921568627,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 66,
+          "wrong_accepted": 0,
+          "accepted_count": 66,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 400,
+          "wrong_accepted": 0,
+          "accepted_count": 400,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 50,
+          "wrong_accepted": 0,
+          "accepted_count": 50,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 389,
+          "wrong_accepted": 0,
+          "accepted_count": 389,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 33,
+          "wrong_accepted": 0,
+          "accepted_count": 33,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 368,
+          "wrong_accepted": 0,
+          "accepted_count": 368,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 18,
+          "wrong_accepted": 0,
+          "accepted_count": 18,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 346,
+          "wrong_accepted": 0,
+          "accepted_count": 346,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 10,
+          "wrong_accepted": 0,
+          "accepted_count": 10,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 315,
+          "wrong_accepted": 0,
+          "accepted_count": 315,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 1,
+          "wrong_accepted": 0,
+          "accepted_count": 1,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 23,
+          "accepted_count": 437,
+          "ood_accepted": 23,
+          "accepted_error": 0.05263157894736842,
+          "ood_false_acceptance": 0.005304428044280443
+        },
+        "domain": {
+          "correct_supported": 79,
+          "wrong_accepted": 1,
+          "accepted_count": 80,
+          "ood_accepted": 1,
+          "accepted_error": 0.0125,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 412,
+          "wrong_accepted": 16,
+          "accepted_count": 428,
+          "ood_accepted": 16,
+          "accepted_error": 0.037383177570093455,
+          "ood_false_acceptance": 0.0036900369003690036
+        },
+        "domain": {
+          "correct_supported": 76,
+          "wrong_accepted": 1,
+          "accepted_count": 77,
+          "ood_accepted": 1,
+          "accepted_error": 0.012987012987012988,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 408,
+          "wrong_accepted": 11,
+          "accepted_count": 419,
+          "ood_accepted": 11,
+          "accepted_error": 0.026252983293556086,
+          "ood_false_acceptance": 0.00253690036900369
+        },
+        "domain": {
+          "correct_supported": 71,
+          "wrong_accepted": 0,
+          "accepted_count": 71,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 402,
+          "wrong_accepted": 8,
+          "accepted_count": 410,
+          "ood_accepted": 8,
+          "accepted_error": 0.01951219512195122,
+          "ood_false_acceptance": 0.0018450184501845018
+        },
+        "domain": {
+          "correct_supported": 66,
+          "wrong_accepted": 0,
+          "accepted_count": 66,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 399,
+          "wrong_accepted": 2,
+          "accepted_count": 401,
+          "ood_accepted": 2,
+          "accepted_error": 0.004987531172069825,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 63,
+          "wrong_accepted": 0,
+          "accepted_count": 63,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 389,
+          "wrong_accepted": 0,
+          "accepted_count": 389,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 56,
+          "wrong_accepted": 0,
+          "accepted_count": 56,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 374,
+          "wrong_accepted": 0,
+          "accepted_count": 374,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 46,
+          "wrong_accepted": 0,
+          "accepted_count": 46,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 350,
+          "wrong_accepted": 0,
+          "accepted_count": 350,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 32,
+          "wrong_accepted": 0,
+          "accepted_count": 32,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 1.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 319,
+          "wrong_accepted": 0,
+          "accepted_count": 319,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 28,
+          "wrong_accepted": 0,
+          "accepted_count": 28,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 87,
+          "wrong_accepted": 1,
+          "accepted_count": 88,
+          "ood_accepted": 1,
+          "accepted_error": 0.011363636363636364,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 86,
+          "wrong_accepted": 0,
+          "accepted_count": 86,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 82,
+          "wrong_accepted": 0,
+          "accepted_count": 82,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 73,
+          "wrong_accepted": 0,
+          "accepted_count": 73,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 64,
+          "wrong_accepted": 0,
+          "accepted_count": 64,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 417,
+          "wrong_accepted": 0,
+          "accepted_count": 417,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 59,
+          "wrong_accepted": 0,
+          "accepted_count": 59,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 412,
+          "wrong_accepted": 0,
+          "accepted_count": 412,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 53,
+          "wrong_accepted": 0,
+          "accepted_count": 53,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 398,
+          "wrong_accepted": 0,
+          "accepted_count": 398,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 41,
+          "wrong_accepted": 0,
+          "accepted_count": 41,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.725,
+      "validation": {
+        "source": {
+          "correct_supported": 422,
+          "wrong_accepted": 0,
+          "accepted_count": 422,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 91,
+          "wrong_accepted": 1,
+          "accepted_count": 92,
+          "ood_accepted": 1,
+          "accepted_error": 0.010869565217391304,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.75,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 91,
+          "wrong_accepted": 1,
+          "accepted_count": 92,
+          "ood_accepted": 1,
+          "accepted_error": 0.010869565217391304,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.775,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 90,
+          "wrong_accepted": 1,
+          "accepted_count": 91,
+          "ood_accepted": 1,
+          "accepted_error": 0.01098901098901099,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 89,
+          "wrong_accepted": 1,
+          "accepted_count": 90,
+          "ood_accepted": 1,
+          "accepted_error": 0.011111111111111112,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 85,
+          "wrong_accepted": 0,
+          "accepted_count": 85,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 83,
+          "wrong_accepted": 0,
+          "accepted_count": 83,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 0,
+          "accepted_count": 418,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 76,
+          "wrong_accepted": 0,
+          "accepted_count": 76,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 415,
+          "wrong_accepted": 0,
+          "accepted_count": 415,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 74,
+          "wrong_accepted": 0,
+          "accepted_count": 74,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 411,
+          "wrong_accepted": 0,
+          "accepted_count": 411,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 63,
+          "wrong_accepted": 0,
+          "accepted_count": 63,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 397,
+          "wrong_accepted": 0,
+          "accepted_count": 397,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 50,
+          "wrong_accepted": 0,
+          "accepted_count": 50,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 5,
+          "accepted_count": 423,
+          "ood_accepted": 5,
+          "accepted_error": 0.01182033096926714,
+          "ood_false_acceptance": 0.0011531365313653136
+        },
+        "domain": {
+          "correct_supported": 86,
+          "wrong_accepted": 1,
+          "accepted_count": 87,
+          "ood_accepted": 1,
+          "accepted_error": 0.011494252873563218,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 415,
+          "wrong_accepted": 4,
+          "accepted_count": 419,
+          "ood_accepted": 4,
+          "accepted_error": 0.00954653937947494,
+          "ood_false_acceptance": 0.0009225092250922509
+        },
+        "domain": {
+          "correct_supported": 83,
+          "wrong_accepted": 1,
+          "accepted_count": 84,
+          "ood_accepted": 1,
+          "accepted_error": 0.011904761904761904,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 414,
+          "wrong_accepted": 2,
+          "accepted_count": 416,
+          "ood_accepted": 2,
+          "accepted_error": 0.004807692307692308,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 81,
+          "wrong_accepted": 1,
+          "accepted_count": 82,
+          "ood_accepted": 1,
+          "accepted_error": 0.012195121951219513,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 408,
+          "wrong_accepted": 2,
+          "accepted_count": 410,
+          "ood_accepted": 2,
+          "accepted_error": 0.004878048780487805,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 10.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 394,
+          "wrong_accepted": 1,
+          "accepted_count": 395,
+          "ood_accepted": 1,
+          "accepted_error": 0.002531645569620253,
+          "ood_false_acceptance": 0.00023062730627306272
+        },
+        "domain": {
+          "correct_supported": 68,
+          "wrong_accepted": 0,
+          "accepted_count": 68,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.8,
+      "validation": {
+        "source": {
+          "correct_supported": 423,
+          "wrong_accepted": 0,
+          "accepted_count": 423,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 85,
+          "wrong_accepted": 1,
+          "accepted_count": 86,
+          "ood_accepted": 1,
+          "accepted_error": 0.011627906976744186,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.825,
+      "validation": {
+        "source": {
+          "correct_supported": 423,
+          "wrong_accepted": 0,
+          "accepted_count": 423,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 84,
+          "wrong_accepted": 0,
+          "accepted_count": 84,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 422,
+          "wrong_accepted": 0,
+          "accepted_count": 422,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 83,
+          "wrong_accepted": 0,
+          "accepted_count": 83,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 77,
+          "wrong_accepted": 0,
+          "accepted_count": 77,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 421,
+          "wrong_accepted": 0,
+          "accepted_count": 421,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 75,
+          "wrong_accepted": 0,
+          "accepted_count": 75,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 69,
+          "wrong_accepted": 0,
+          "accepted_count": 69,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.5,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 0,
+          "accepted_count": 418,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 62,
+          "wrong_accepted": 0,
+          "accepted_count": 62,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.85,
+      "validation": {
+        "source": {
+          "correct_supported": 422,
+          "wrong_accepted": 0,
+          "accepted_count": 422,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 83,
+          "wrong_accepted": 1,
+          "accepted_count": 84,
+          "ood_accepted": 1,
+          "accepted_error": 0.011904761904761904,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.875,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 82,
+          "wrong_accepted": 1,
+          "accepted_count": 83,
+          "ood_accepted": 1,
+          "accepted_error": 0.012048192771084338,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.9,
+      "validation": {
+        "source": {
+          "correct_supported": 420,
+          "wrong_accepted": 0,
+          "accepted_count": 420,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 80,
+          "wrong_accepted": 0,
+          "accepted_count": 80,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.925,
+      "validation": {
+        "source": {
+          "correct_supported": 418,
+          "wrong_accepted": 0,
+          "accepted_count": 418,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 78,
+          "wrong_accepted": 0,
+          "accepted_count": 78,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 0.75,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 416,
+          "wrong_accepted": 0,
+          "accepted_count": 416,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        },
+        "domain": {
+          "correct_supported": 72,
+          "wrong_accepted": 0,
+          "accepted_count": 72,
+          "ood_accepted": 0,
+          "accepted_error": 0.0,
+          "ood_false_acceptance": 0.0
+        }
+      }
+    },
+    {
+      "source_strength": 0.1,
+      "C": 100.0,
+      "blend_weight": 1.0,
+      "threshold": 0.95,
+      "validation": {
+        "source": {
+          "correct_supported": 416,
+          "wrong_accepted": 2,
+          "accepted_count": 418,
+          "ood_accepted": 2,
+          "accepted_error": 0.004784688995215311,
+          "ood_false_acceptance": 0.00046125461254612545
+        },
+        "domain": {
+          "correct_supported": 82,
+          "wrong_accepted": 1,
+          "accepted_count": 83,
+          "ood_accepted": 1,
+          "accepted_error": 0.012048192771084338,
+          "ood_false_acceptance": 0.03125
+        }
+      }
+    }
+  ],
+  "domain_dataset_sha256": "0c69864dd7c49f1f3de4780ec17b0d50848025c1aac68c752236c1824b454909",
+  "source_split_sha256": "46d5276caf812c9647398201e97ebcd900f14ea982c4289f41e9df2af618add8",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2",
+  "results": {
+    "source_test": {
+      "N": 4766,
+      "macro_f1": 0.9415970451428058,
+      "accuracy": 0.9872010071338648,
+      "labels": [
+        "cancel_request",
+        "human_handoff",
+        "out_of_scope",
+        "track_order"
+      ],
+      "class_support": {
+        "cancel_request": 85,
+        "out_of_scope": 4336,
+        "human_handoff": 194,
+        "track_order": 151
+      },
+      "confusion_matrix": [
+        [
+          85,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          194,
+          0,
+          0
+        ],
+        [
+          21,
+          5,
+          4275,
+          35
+        ],
+        [
+          0,
+          0,
+          0,
+          151
+        ]
+      ],
+      "classification_report": {
+        "cancel_request": {
+          "precision": 0.8018867924528302,
+          "recall": 1.0,
+          "f1-score": 0.8900523560209425,
+          "support": 85.0
+        },
+        "human_handoff": {
+          "precision": 0.9748743718592965,
+          "recall": 1.0,
+          "f1-score": 0.9872773536895675,
+          "support": 194.0
+        },
+        "out_of_scope": {
+          "precision": 1.0,
+          "recall": 0.9859317343173432,
+          "f1-score": 0.992916037626292,
+          "support": 4336.0
+        },
+        "track_order": {
+          "precision": 0.8118279569892473,
+          "recall": 1.0,
+          "f1-score": 0.8961424332344213,
+          "support": 151.0
+        },
+        "accuracy": 0.9872010071338648,
+        "macro avg": {
+          "precision": 0.8971472803253435,
+          "recall": 0.9964829335793358,
+          "f1-score": 0.9415970451428058,
+          "support": 4766.0
+        },
+        "weighted avg": {
+          "precision": 0.9894821710038965,
+          "recall": 0.9872010071338648,
+          "f1-score": 0.9877859218303724,
+          "support": 4766.0
+        }
+      },
+      "log_loss": 0.06434817765392144,
+      "accepted_count": 429,
+      "accepted_coverage": 0.09001258917331095,
+      "accepted_routing_error_count": 2,
+      "accepted_routing_error": 0.004662004662004662,
+      "ood_count": 4336,
+      "ood_false_acceptance_count": 2,
+      "ood_false_acceptance": 0.00046125461254612545,
+      "reliability_bins": [
+        {
+          "bin_low": 0.0,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.1,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.2,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.3,
+          "N": 5,
+          "mean_score": 0.37645452466276985,
+          "accuracy": 0.4
+        },
+        {
+          "bin_low": 0.4,
+          "N": 10,
+          "mean_score": 0.4684467218906937,
+          "accuracy": 0.5
+        },
+        {
+          "bin_low": 0.5,
+          "N": 97,
+          "mean_score": 0.5481248585887301,
+          "accuracy": 0.6701030927835051
+        },
+        {
+          "bin_low": 0.6,
+          "N": 93,
+          "mean_score": 0.6527439270221548,
+          "accuracy": 0.8387096774193549
+        },
+        {
+          "bin_low": 0.7,
+          "N": 139,
+          "mean_score": 0.7533013744355135,
+          "accuracy": 0.9568345323741008
+        },
+        {
+          "bin_low": 0.8,
+          "N": 292,
+          "mean_score": 0.8576848755819956,
+          "accuracy": 1.0
+        },
+        {
+          "bin_low": 0.9,
+          "N": 4130,
+          "mean_score": 0.9812423085942598,
+          "accuracy": 1.0
+        }
+      ]
+    },
+    "domain_family_test": {
+      "N": 112,
+      "macro_f1": 0.9821200510855683,
+      "accuracy": 0.9821428571428571,
+      "labels": [
+        "cancel_request",
+        "human_handoff",
+        "out_of_scope",
+        "track_order"
+      ],
+      "class_support": {
+        "track_order": 28,
+        "cancel_request": 28,
+        "human_handoff": 28,
+        "out_of_scope": 28
+      },
+      "confusion_matrix": [
+        [
+          28,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          28,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          26,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          28
+        ]
+      ],
+      "classification_report": {
+        "cancel_request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 28.0
+        },
+        "human_handoff": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 28.0
+        },
+        "out_of_scope": {
+          "precision": 1.0,
+          "recall": 0.9285714285714286,
+          "f1-score": 0.9629629629629629,
+          "support": 28.0
+        },
+        "track_order": {
+          "precision": 0.9333333333333333,
+          "recall": 1.0,
+          "f1-score": 0.9655172413793104,
+          "support": 28.0
+        },
+        "accuracy": 0.9821428571428571,
+        "macro avg": {
+          "precision": 0.9833333333333334,
+          "recall": 0.9821428571428572,
+          "f1-score": 0.9821200510855683,
+          "support": 112.0
+        },
+        "weighted avg": {
+          "precision": 0.9833333333333333,
+          "recall": 0.9821428571428571,
+          "f1-score": 0.9821200510855684,
+          "support": 112.0
+        }
+      },
+      "log_loss": 0.09481139324857131,
+      "accepted_count": 84,
+      "accepted_coverage": 0.75,
+      "accepted_routing_error_count": 0,
+      "accepted_routing_error": 0.0,
+      "ood_count": 28,
+      "ood_false_acceptance_count": 0,
+      "ood_false_acceptance": 0.0,
+      "reliability_bins": [
+        {
+          "bin_low": 0.0,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.1,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.2,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.3,
+          "N": 0,
+          "mean_score": null,
+          "accuracy": null
+        },
+        {
+          "bin_low": 0.4,
+          "N": 1,
+          "mean_score": 0.499146175157744,
+          "accuracy": 0.0
+        },
+        {
+          "bin_low": 0.5,
+          "N": 3,
+          "mean_score": 0.5364213283837299,
+          "accuracy": 0.6666666666666666
+        },
+        {
+          "bin_low": 0.6,
+          "N": 1,
+          "mean_score": 0.6882346970493348,
+          "accuracy": 1.0
+        },
+        {
+          "bin_low": 0.7,
+          "N": 9,
+          "mean_score": 0.7490151145992543,
+          "accuracy": 1.0
+        },
+        {
+          "bin_low": 0.8,
+          "N": 14,
+          "mean_score": 0.852548701918427,
+          "accuracy": 1.0
+        },
+        {
+          "bin_low": 0.9,
+          "N": 84,
+          "mean_score": 0.9697801252779809,
+          "accuracy": 1.0
+        }
+      ]
+    }
+  },
+  "elapsed_seconds": 8.742611699970439,
+  "historical_audit_policy": "Both observed80 sets are retired diagnostics for v3. New final audit must remain hidden until the artifact and threshold are frozen.",
+  "domain_split_check": {
+    "cross_split_normalized_duplicates": 0,
+    "cross_split_authored_families": 0
+  }
+}

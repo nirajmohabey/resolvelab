@@ -1,0 +1,18 @@
+[
+  {"id":"R01","query":"May I see the tracking status for my own order?","relevant_locators":["ownership"]},
+  {"id":"R02","query":"Someone gave me another customer's order number. Can I track it?","relevant_locators":["ownership"]},
+  {"id":"R03","query":"We have not verified that this buyer owns the package.","relevant_locators":["ownership"]},
+  {"id":"R04","query":"What customer identity check is required before disclosing tracking?","relevant_locators":["ownership"]},
+  {"id":"R05","query":"Can a pending order be cancelled before its deadline?","relevant_locators":["eligibility"]},
+  {"id":"R06","query":"The parcel has shipped. Is automatic cancellation allowed?","relevant_locators":["eligibility"]},
+  {"id":"R07","query":"The stored cancellation cutoff has already passed.","relevant_locators":["eligibility"]},
+  {"id":"R08","query":"What makes a cancellation proposal eligible?","relevant_locators":["eligibility"]},
+  {"id":"R09","query":"Does preparing a draft cancel the order?","relevant_locators":["approval"]},
+  {"id":"R10","query":"Who must approve cancellation and which order version is bound?","relevant_locators":["approval"]},
+  {"id":"R11","query":"The proposal is ready but no approver has approved it.","relevant_locators":["approval"]},
+  {"id":"R12","query":"Why must the exact proposal and current order version be approved?","relevant_locators":["approval"]},
+  {"id":"R13","query":"I need to speak with a human support representative.","relevant_locators":["scope"]},
+  {"id":"R14","query":"Can the automated service issue a refund?","relevant_locators":["scope"]},
+  {"id":"R15","query":"Unsupported account changes should go to which queue?","relevant_locators":["scope"]},
+  {"id":"R16","query":"How do we arrange human review for a customer?","relevant_locators":["scope"]}
+]

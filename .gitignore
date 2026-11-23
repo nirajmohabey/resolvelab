@@ -1,0 +1,22 @@
+.venv/
+.env
+.env.*
+!.env.example
+.runtime/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+work/
+node_modules/
+test-results/
+*.log
+*.pid
+artifacts/hf-cache/
+artifacts/splits/*.csv
+artifacts/splits/*.jsonl
+
+# Browser recordings are shipped as release assets.
+artifacts/browser/*.webm
+artifacts/release_operations.jsonl

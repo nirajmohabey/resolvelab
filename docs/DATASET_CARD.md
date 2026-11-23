@@ -1,0 +1,35 @@
+# ResolveLab routing data
+
+The source is [Bitext's customer-support dataset](https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset), revision `430d1a89bd93bd1fa23c16f29dd53e73f0087443`. The publisher identifies it as hybrid synthetic data under **CDLA-Sharing-1.0**. Preserve the publisher attribution and review that license before redistributing the source. `scripts/fetch_dataset.py` saves the unmodified CSV and publisher card in ignored `work/raw/`; `artifacts/source_manifest.json` records URLs, byte counts, and SHA-256 checksums. The CSV hash is `6f81102b0100b97b8468eb04368033a23206bf1fde9d53500d5806ec1001a434`.
+
+The downloaded file contains 26,872 rows and 27 source intents. Only `instruction` enters training. The templated `response` is never an input feature or a retailer policy. The label mapping is `track_order` to `track_order`, `cancel_order` to `cancel_request`, `contact_human_agent` to `human_handoff`, and all other source intents to `out_of_scope`. This deliberately narrow mapping means some seemingly related customer-service requests remain unsupported.
+
+Normalization lowercases English text, replaces source order placeholders and fixture references, removes punctuation, and collapses whitespace. Deduplication retains the first normalized instruction and rejects contradictory normalized labels. This removed 3,046 repeats, leaving 23,826 rows. Source response text and flags are not features.
+
+Before fitting features, the fixed grouping heuristic creates character-four-gram shingles, 32 deterministic MinHash values, eight bands, and candidate edges with actual Jaccard similarity at least 0.78. Connected components remain together. This created 18,585 groups. Five stratified group folds with seed 42 allocate three folds to training, one to validation, and one to final test. `artifacts/split_membership.jsonl` preserves each original source row, normalized text hash, source intent, group, and split. `split_manifest.json` records counts and checksums. Detected near duplicates and normalized duplicates never cross splits. This approximate lexical heuristic cannot prove that all semantic or template paraphrases were found; the high source score may still reflect synthetic template overlap.
+
+| Split | Rows | Groups | cancel | human | unsupported | track |
+|---|---:|---:|---:|---:|---:|---:|
+| Train | 14,295 | 11,157 | 252 | 582 | 13,005 | 456 |
+| Validation | 4,765 | 3,713 | 84 | 193 | 4,336 | 152 |
+| Test | 4,766 | 3,715 | 85 | 194 | 4,336 | 151 |
+
+The measurement sets remain separate. The grouped source holdout measures source-distribution routing. `fixtures/independent_routing_cases.jsonl` contains the first 80 coding-agent-authored synthetic audit cases, 20 per class, frozen before v1 training output was inspected. Another agent authored `fixtures/blind_workflow_v1.jsonl`, the second 80-case audit, without reading that first set. Both observed audits were retired as historical diagnostics before v3 domain development. They are preserved unchanged and are not fresh final tests for v3. The supplied 20-case `evaluation_cases.json` is a deterministic workflow/security regression specification, scored separately by the database-backed runner. Never average these sets into one headline score.
+
+The independent set's label for a mixed request is `out_of_scope`, because a release supporting a single bounded task cannot honor all parts. Ownership and tenant boundaries do not alter a routing label; deterministic services decide whether data or actions are permitted. No case text is a verified customer identity.
+
+## V3 domain development and final audit
+
+After historical audits exposed source-to-domain mismatch, `scripts/create_domain_data.py` authored 200 new meaning families, 50 per class, based on the bounded retailer scope. Four polite/context variants per family create 800 development rows in `fixtures/domain_development_v1.jsonl`. Every variant stays with its family: 560 training rows/140 families, 128 validation rows/32 families, and 112 test rows/28 families. The seed and exact hash are in `artifacts/domain_manifest.json`. No historical audit sentence is copied into these training rows. This is coding-agent-generated development data and has no independent human review.
+
+`scripts/train_domain.py` fits only source/domain training rows. It checks that normalized duplicates and authored families do not cross domain splits. TF-IDF learns vocabulary/IDF only from training text; MiniLM features use frozen pretrained weights. Source and domain validation select source sample weight, regularization, blend, and acceptance threshold. Domain test families and final audit cases do not select them. The semantic-family grouping protects generated variants; it cannot prove complete separation of all related meanings or linguistic templates.
+
+A fresh agent authored the final **100 cases, 25/class**, after the domain-development brief was fixed. Their messages were hidden from the training agent until `artifacts/model_freeze.json` pinned v3's artifact/hash/threshold. The original fixture is `fixtures/v3_blind_v1.jsonl`; its 71/100 workflow report is preserved in `artifacts/v3-blind-original-labels/`. Three wrong-owner A-103 disposition labels were subsequently corrected from `needs_info` to `escalated` to match original AI-E07. The corrected `fixtures/v3_blind_v1_1.jsonl` has SHA-256 `f51ebcc14b2bdf39778cfa8c6b01188a5f51142b615144f0cd7533314769bb85`; its actual-service report under `artifacts/v3-blind-final/` measures 74/100 workflow success. No messages, routing labels, model parameters, or threshold changed. Both reports and provenance remain available. Agent separation reduces direct copying; it is not independent human adjudication or random sampling from customer traffic.
+
+Future data work should collect consented, deidentified retailer-domain language, define ambiguous label policies with support staff, use independent human reviewers, and freeze a new holdout. Do not tune on final failures and then advertise the same set as fresh evidence. The current final routing/workflow numbers are bounded synthetic measurements.
+
+## Policy and embedding data
+
+The retailer, orders, customers, policies, deadlines, and organization canary are fictional fixtures. Bitext responses do not supply factual support. Published policy versions are separate from training data.
+
+Dense retrieval uses [sentence-transformers/all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2), revision `1110a243fdf4706b3f48f1d95db1a4f5529b4d41`, Apache-2.0, quantized `onnx/model_quint8_avx2.onnx`. Its tokenizer and ONNX file are downloaded at build/setup time, not during a request. Inference uses ONNX Runtime on CPU, 256-token truncation, attention-mask mean pooling, and unit normalization, producing 384 dimensions. File checksums are in `source_manifest.json`. Changing embedding revisions requires rebuilding a distinct corpus version; vector spaces must not be mixed.
