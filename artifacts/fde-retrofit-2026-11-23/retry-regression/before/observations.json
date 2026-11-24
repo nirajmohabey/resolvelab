@@ -1,0 +1,5 @@
+{
+  "phase": "before",
+  "scope": "Synthetic API responses; real workbench UI; no backend or provider connected",
+  "observations": []
+}

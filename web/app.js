@@ -646,6 +646,9 @@ function renderDetail() {
   let html = `<div class="section-label">${scopeRule ? "SCOPE CHECK" : "TRAINED ROUTING"}</div><div class="routing-row"><span class="intent-label">${esc((c.intent || r.intent || "unavailable").replaceAll("_", " "))}</span><span class="score">${esc(scoreText)}</span></div><p class="score-caveat">${scopeRule ? "A versioned scope rule requires human review. This decision is not a model probability." : "A routing score measures intent confidence. It does not establish factual correctness or permission."}</p><div class="section-label">CUSTOMER RESPONSE</div><div class="answer-card"><p>${esc(r.answer)}</p><div class="answer-meta">${r.citations?.length ? `◈ ${r.citations.length} permitted policy section${r.citations.length === 1 ? "" : "s"} cited` : "Human review or additional information required"} <button class="text-button" id="inspectEvidence">Inspect evidence</button></div></div>`;
   if (r.missing_information?.length)
     html += `<p class="muted">Needed: ${esc(r.missing_information.join(", "))}</p>`;
+  if (c.state === "failed") {
+    html += `<div class="resolution-empty"><h3>A dependency needs attention.</h3><p>The failed response and trace are preserved. After the dependency recovers, an authorized operator can explicitly retry this case with its current version.</p>${canWrite() ? '<button class="button primary" id="resolveCase">Retry resolution</button>' : '<p class="role-hint">Resolution requires an authorized operator.</p>'}</div>`;
+  }
   const p = c.proposals?.find((p) => p.state === "pending") || r.proposal;
   if (p && c.state === "awaiting_approval") {
     html += `<div class="action-card"><h3>◇ Cancellation proposed</h3><p>Order ${esc(p.order_ref || c.order_ref)} is eligible under the frozen policy. Preparing this proposal has not changed the order.</p><div class="action-grid"><div><span>ORDER VERSION</span><strong>v${p.expected_order_version}</strong></div><div><span>PROPOSAL DIGEST</span><strong>${esc((p.proposal_sha256 || "").slice(0, 16))}…</strong></div></div>${["approver", "admin"].includes(state.principal?.role) ? '<div class="action-footer"><small>Approval checks the exact proposal and current order again.</small><button class="button primary" id="approveProposal">Approve cancellation</button></div>' : `<div class="role-hint">${state.authConfig?.mode === "fixture" ? "Switch to Alpha · Approver to review and approve this proposal." : "An authorized approver must review this proposal."}</div>`}</div>`;
@@ -660,6 +663,7 @@ function renderDetail() {
   $("#inspectEvidence").onclick = () => {
     activateDetailTab("evidence");
   };
+  if ($("#resolveCase")) $("#resolveCase").onclick = resolveSelected;
   if ($("#approveProposal")) $("#approveProposal").onclick = () => approve(p);
   bindInlineForms(c, p);
 }
@@ -786,7 +790,7 @@ async function resolveSelected() {
   } catch (e) {
     if (e instanceof SessionChanged) return;
     notify(e.message, true);
-    if ((state.selected?.case_id || state.selectingId) === selected.case_id) await selectCase(selected.case_id);
+    if ((state.selected?.case_id || state.selectingId) === selected.case_id) await refresh({ preserveCaseId: selected.case_id });
   } finally {
     setBusy(button, false);
     if (state.inlineOperation === operation) { state.inlineOperation = null; syncInlineControls(); }

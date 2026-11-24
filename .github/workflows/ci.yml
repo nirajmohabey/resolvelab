@@ -72,6 +72,7 @@ jobs:
       - run: npm run test:features
       - run: npm run test:auth-callback
       - run: node scripts/operator-followup-check.mjs
+      - run: node scripts/retry-resolution-check.mjs
       - run: npm run test:accessibility
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # verified v7.0.2
         if: always()
@@ -80,6 +81,7 @@ jobs:
           retention-days: 1
           path: |
             artifacts/browser
+            artifacts/fde-retrofit-2026-11-23/retry-regression/current
             artifacts/accessibility
             artifacts/security/oidc-browser-results.json
       - if: always()

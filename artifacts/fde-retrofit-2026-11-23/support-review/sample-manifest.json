@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "selection": {
+    "method": "First 10 IDs in each of two expected-label strata: owned tracking resolved_read_only and eligible cancellation awaiting_approval. Select on frozen expectations, not observed success. Retain wrong routes and missing outputs.",
+    "eligible_counts": {
+      "track_order": 28,
+      "cancel_request": 18
+    },
+    "selected_ids": [
+      "V4-B001",
+      "V4-B002",
+      "V4-B003",
+      "V4-B004",
+      "V4-B005",
+      "V4-B006",
+      "V4-B007",
+      "V4-B008",
+      "V4-B009",
+      "V4-B010",
+      "V4-B041",
+      "V4-B042",
+      "V4-B043",
+      "V4-B044",
+      "V4-B045",
+      "V4-B046",
+      "V4-B047",
+      "V4-B048",
+      "V4-B049",
+      "V4-B050"
+    ],
+    "timing": "Retrospective deterministic sample after the report was viewed; not preregistered or blind.",
+    "unique_semantic_groups": 15
+  },
+  "source_hashes": {
+    "artifacts/production-v0.3/evaluations/v4-blind-final/workflow-evaluation.json": "8276fe7b467775a20c7c68165781deab96e21bed55bfe1bd85fddefb38a51908",
+    "fixtures/v4_blind_v1.jsonl": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+    "fixtures/evaluation_cases.json": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+    "artifacts/v4/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/router-domain-v4.joblib": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "artifacts/v4/final-analysis/human_claim_review_queue.csv": "b34cb776da241be63102980cea8c1711914b6930aecd49983eec3dbeae2c8373"
+  },
+  "source_report": "artifacts/production-v0.3/evaluations/v4-blind-final/workflow-evaluation.json",
+  "expected_answerable_cases": 20,
+  "nonempty_saved_answers": 20,
+  "human_review_status": "pending"
+}

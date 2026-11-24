@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "AI-agent simulated operator; no outside reviewer",
+  "source_database_touched": false,
+  "production_touched": false,
+  "own_cluster": true,
+  "own_database": "resolvelab_uat_4602ba3a4e05",
+  "db_host": "127.0.0.1",
+  "db_port": 55571,
+  "base_url": "http://127.0.0.1:8137",
+  "source_commit": "1207948cc6684830fed29d9c73ca47ad38352120",
+  "environment": {
+    "python": "3.12.14",
+    "postgres": "postgres (PostgreSQL) 17.12",
+    "node": "v24.22.3"
+  },
+  "baseline_state": {
+    "orders": [
+      [
+        "A-100",
+        "pending",
+        1
+      ],
+      [
+        "A-101",
+        "shipped",
+        1
+      ],
+      [
+        "A-102",
+        "pending",
+        1
+      ],
+      [
+        "A-103",
+        "shipped",
+        1
+      ],
+      [
+        "B-100",
+        "pending",
+        1
+      ]
+    ],
+    "actions": 0,
+    "proposals": [],
+    "cases": [
+      [
+        "new",
+        1
+      ]
+    ]
+  },
+  "browser_exit_code": 1,
+  "final_state": {
+    "orders": [
+      [
+        "A-100",
+        "pending",
+        1
+      ],
+      [
+        "A-101",
+        "shipped",
+        1
+      ],
+      [
+        "A-102",
+        "pending",
+        1
+      ],
+      [
+        "A-103",
+        "shipped",
+        1
+      ],
+      [
+        "B-100",
+        "pending",
+        1
+      ]
+    ],
+    "actions": 0,
+    "proposals": [
+      [
+        "rejected",
+        1
+      ]
+    ],
+    "cases": [
+      [
+        "escalated",
+        2
+      ],
+      [
+        "failed",
+        1
+      ],
+      [
+        "new",
+        1
+      ],
+      [
+        "resolved",
+        2
+      ]
+    ]
+  },
+  "passed": false,
+  "owned_cluster_stopped": true,
+  "protected_files_unchanged": true,
+  "owned_scratch_cluster": "owned-91b93eaaccf6",
+  "protected_files_checked": [
+    ".env",
+    ".runtime/api.process.json",
+    ".runtime/worker.process.json"
+  ],
+  "privacy": "Local environment and process-record values/hashes omitted; unchanged comparison retained. Raw comparison retained only in private scratch."
+}

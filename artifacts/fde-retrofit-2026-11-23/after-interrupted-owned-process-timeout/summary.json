@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "AI-agent simulated operator; no outside reviewer",
+  "status": "interrupted_harness_attempt_not_completed_acceptance",
+  "failure": "Existing Windows owned-process helper taskkill exceeded its ten-second timeout during the owned API generation-boundary restart, before AC06 execution. This is a harness lifecycle interruption, not an application assertion result.",
+  "completed_browser_cases": [
+    "PASS AC01 Owned-order tracking",
+    "PASS AC02 Eligible cancellation stops for approval",
+    "PASS AC03 Approver declines cancellation",
+    "PASS AC04 Unsupported refund request",
+    "PASS AC05 Missing order information is attached to same case"
+  ],
+  "completed_case_count": 5,
+  "planned_case_count": 6,
+  "all_six_passed": false,
+  "final_application_state_captured": false,
+  "isolation_evidence": "isolation.json",
+  "owned_database_removed": true,
+  "owned_cluster_stopped": true,
+  "protected_files_unchanged": true,
+  "followup": "A bounded retry for the exact Popen-owned process tree was added to the scratch/public reproducibility harness. The separate ../after/summary.json records the fresh completed six-case replay. Original interrupted evidence was retained."
+}

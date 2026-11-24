@@ -1,6 +1,10 @@
 # Two-minute reviewer walkthrough
 
-The supplied WebM is an actual automated browser recording, without narration. Use this script for a longer live explanation. The retailer, orders, policies and customer subjects are fictional.
+The supplied WebM is an actual **v0.2.1 local fixture** browser recording, without narration. It has not been replaced or relabeled as a hosted v0.3.0 recording. The retailer, orders, policies and customer subjects are fictional. Use the script below for a longer local explanation with a disposable fixture database.
+
+The current [v0.3.0 hosted app](https://resolvelab-blush.vercel.app) instead uses Neon Managed Better Auth and explicitly enrolled server-side memberships; its fixture identity selector is disabled. A hosted reviewer must sign in with a verified, enrolled identity and may use only its authorized workspace/roles. Signup alone grants no membership. Real authentication is separate from the synthetic retailer workflow. See [current production evidence and limits](PRODUCTION.md); a successful authenticated production owner journey has not yet been confirmed in the published evidence.
+
+## Local fixture walkthrough
 
 | Time | Show | Explain |
 |---|---|---|

@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-24T03:00:35.481912+00:00",
+  "exercise": "agent-run simulated operator documentation review",
+  "baseline_commit": "1207948cc6684830fed29d9c73ca47ad38352120",
+  "scope": {
+    "documents": [
+      "docs/CASE_STUDY.md",
+      "docs/RUNBOOK.md",
+      "docs/DEMO.md"
+    ],
+    "review_method": "Pinned old document comparison with current PRODUCTION.md, source and published component evidence; local link and whitespace checks.",
+    "outside_customer_participated": false,
+    "human_reviewer_participated": false,
+    "runtime_test_execution_claimed_by_this_record": false,
+    "hosted_owner_signin_claimed": false,
+    "business_savings_claimed": false,
+    "exclusions": [
+      "This record does not claim the whole application runtime is unchanged. The observed frontend Retry fix and six-case acceptance replay are recorded separately.",
+      "The 210-test Python proof and frozen model reports retain their original source scopes; this record does not relabel them as new executions.",
+      "CUSTOMER_DELIVERY.md is a separately owned evolving acceptance document, so its hash is intentionally excluded."
+    ]
+  },
+  "findings": [
+    {
+      "id": "FDE-01-A",
+      "path": "docs/CASE_STUDY.md",
+      "before": {
+        "commit": "1207948cc6684830fed29d9c73ca47ad38352120",
+        "line": 15,
+        "text": "The release supplies a hardened TLS/OIDC template, migrations, locks, provenance, operations documentation, video and portfolio case study. A real IdP, hosted backend, production-container execution, paid provider, merchant connector and human claim-support study remain external validation work. A future remote connector needs provider idempotency and explicit unknown-outcome/reconciliation; local database atomicity cannot guarantee a remote effect."
+      },
+      "after": {
+        "line": 7,
+        "text": "The [live workbench](https://resolvelab-blush.vercel.app) runs its FastAPI backend and private evaluation consumer on Vercel, with restricted Neon PostgreSQL roles, separate serving/evaluation databases and Neon Managed Better Auth. Production fixture login is disabled. A verified provider identity must be explicitly mapped to a server-maintained membership and customer context; public signup alone grants no workspace access. The retailer, orders and policies remain synthetic portfolio data. See [production scope and evidence](PRODUCTION.md) for configuration, enrollment and operating limits."
+      },
+      "reviewer": "automated agent acting as simulated operator/documentation reviewer",
+      "result": "corrected_and_replayed_by_document_comparison"
+    },
+    {
+      "id": "FDE-01-B",
+      "path": "docs/RUNBOOK.md",
+      "before": {
+        "commit": "1207948cc6684830fed29d9c73ca47ad38352120",
+        "line": 27,
+        "text": "The command verifies artifact hash/version/threshold before moving the pointer and writes `artifacts/release_operations.jsonl`. Existing cases keep their pinned release. This is local fixture administration; a public release requires an established identity provider and separate operational controls."
+      },
+      "after": {
+        "line": 41,
+        "text": "The command verifies artifact hash/version/threshold before moving the pointer and writes `artifacts/release_operations.jsonl`. Existing cases keep their pinned release. These commands are local fixture administration. The hosted release already has provider authentication and separate operational controls described in [PRODUCTION.md](PRODUCTION.md)."
+      },
+      "reviewer": "automated agent acting as simulated operator/documentation reviewer",
+      "result": "corrected_and_replayed_by_document_comparison"
+    },
+    {
+      "id": "FDE-01-C",
+      "path": "docs/RUNBOOK.md",
+      "before": {
+        "commit": "1207948cc6684830fed29d9c73ca47ad38352120",
+        "line": 48,
+        "text": "Docker Compose contains an API, worker, private PostgreSQL, durable volumes and one-shot migration/artifact preparation. `scripts/docker_env.py` generates ignored secrets. The default port is loopback-only, and demo identities are local-only. Do not publish this fixture identity selector to the Internet. A hosted production deployment needs HTTPS, a real verified intake/authentication integration, managed secrets, database backup scheduling and provider-cost review. No AWS resource or billable hosting is created by this release."
+      },
+      "after": {
+        "line": 5,
+        "text": "The [live app](https://resolvelab-blush.vercel.app) runs on Vercel with Neon PostgreSQL and Neon Managed Better Auth. It uses production authentication, restricted database roles and an isolated evaluation database. The retailer and business data remain synthetic. [PRODUCTION.md](PRODUCTION.md) is the current deployment/configuration reference; [the v0.2.1 review](REVIEW-2026-11-23.md) and its local recording retain their original historical scope."
+      },
+      "reviewer": "automated agent acting as simulated operator/documentation reviewer",
+      "result": "corrected_and_replayed_by_document_comparison"
+    },
+    {
+      "id": "FDE-01-D",
+      "path": "docs/DEMO.md",
+      "before": {
+        "commit": "1207948cc6684830fed29d9c73ca47ad38352120",
+        "line": 3,
+        "text": "The supplied WebM is an actual automated browser recording, without narration. Use this script for a longer live explanation. The retailer, orders, policies and customer subjects are fictional."
+      },
+      "after": {
+        "line": 3,
+        "text": "The supplied WebM is an actual **v0.2.1 local fixture** browser recording, without narration. It has not been replaced or relabeled as a hosted v0.3.0 recording. The retailer, orders, policies and customer subjects are fictional. Use the script below for a longer local explanation with a disposable fixture database."
+      },
+      "reviewer": "automated agent acting as simulated operator/documentation reviewer",
+      "result": "corrected_and_replayed_by_document_comparison"
+    }
+  ],
+  "document_hashes": {
+    "docs/CASE_STUDY.md": {
+      "before_sha256": "4c8a8bc9eba8a06da37bf0dbb8bb540fbb1f493ad39344d04071e6fb0eb47ca9",
+      "after_sha256": "13899268be5c55b37737679923c8fbbc823652e9bdcc8f551c6b9e2daa27b862",
+      "after_bytes": 6085,
+      "crlf_lines": 33,
+      "bare_lf_lines": 0
+    },
+    "docs/RUNBOOK.md": {
+      "before_sha256": "71843d60efc154d1f45d27eee6c40eeb26d793c4df4e9df874f75476c29c011e",
+      "after_sha256": "47c3a517090bd55002c39189fdc0765fcad1a7584e4f3e55a52d09c0b2017a98",
+      "after_bytes": 7356,
+      "crlf_lines": 64,
+      "bare_lf_lines": 0
+    },
+    "docs/DEMO.md": {
+      "before_sha256": "8b50bf743926d8cd0abbcaf18cfceeb1bb0af9380c404a1cb941704ebdca38c1",
+      "after_sha256": "f426a896c4ce9e705547a08609589191ae457672c9e088e00d1efa778aea9a92",
+      "after_bytes": 3077,
+      "crlf_lines": 23,
+      "bare_lf_lines": 0
+    }
+  },
+  "reference_document": {
+    "path": "docs/PRODUCTION.md",
+    "sha256_at_review": "5117b636b5b9e3a9c3c75a2e71c2335ecd6d66825ccc6d8210b08feed04f0c55"
+  },
+  "checks": {
+    "local_markdown_links": {
+      "checked": 13,
+      "missing": 0,
+      "results": [
+        {
+          "document": "docs/CASE_STUDY.md",
+          "target": "PRODUCTION.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/CASE_STUDY.md",
+          "target": "../src/resolvelab/generation.py",
+          "file_exists": true
+        },
+        {
+          "document": "docs/CASE_STUDY.md",
+          "target": "REVIEW-2026-11-23.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/CASE_STUDY.md",
+          "target": "CLOUD-RECOVERY-2026-11-23.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/CASE_STUDY.md",
+          "target": "../artifacts/production-v0.3/cloud/resolvelab/native-and-model-components.json",
+          "file_exists": true
+        },
+        {
+          "document": "docs/CASE_STUDY.md",
+          "target": "DEMO.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/CASE_STUDY.md",
+          "target": "CUSTOMER_DELIVERY.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/RUNBOOK.md",
+          "target": "PRODUCTION.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/RUNBOOK.md",
+          "target": "REVIEW-2026-11-23.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/RUNBOOK.md",
+          "target": "CLOUD-RECOVERY-2026-11-23.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/RUNBOOK.md",
+          "target": "PRODUCTION.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/RUNBOOK.md",
+          "target": "CUSTOMER_DELIVERY.md",
+          "file_exists": true
+        },
+        {
+          "document": "docs/DEMO.md",
+          "target": "PRODUCTION.md",
+          "file_exists": true
+        }
+      ],
+      "scope": "File existence only; external URLs were not fetched by this record."
+    },
+    "whitespace": {
+      "command": "git -c core.whitespace=cr-at-eol diff --check 1207948cc6684830fed29d9c73ca47ad38352120 -- docs/CASE_STUDY.md docs/RUNBOOK.md docs/DEMO.md",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "",
+      "reason_for_crlf_rule": "Repository .gitattributes preserves exact bytes with * -text; these existing documents retain CRLF."
+    },
+    "discoverability": {
+      "docs/CASE_STUDY.md": true,
+      "docs/RUNBOOK.md": true
+    }
+  },
+  "result": "All four document contradictions corrected; all local targets exist and CRLF-aware whitespace check passes."
+}

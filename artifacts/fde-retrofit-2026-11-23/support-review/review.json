@@ -1,0 +1,2594 @@
+{
+  "schema_version": "1.0",
+  "review_type": "AI-assisted preparation for human review; not human validation",
+  "prepared_at": "2026-11-24T02:57:04.163236+00:00",
+  "source_report": "artifacts/production-v0.3/evaluations/v4-blind-final/workflow-evaluation.json",
+  "source_report_generated_at": "2026-11-23T19:12:07.075318+00:00",
+  "source_report_code_tree_sha256": "091147eeb2d6e4518aa147aaa5128514f6ef39884941c95bc86599689af35c6c",
+  "model_artifact_sha256": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+  "source_hashes": {
+    "artifacts/production-v0.3/evaluations/v4-blind-final/workflow-evaluation.json": "8276fe7b467775a20c7c68165781deab96e21bed55bfe1bd85fddefb38a51908",
+    "fixtures/v4_blind_v1.jsonl": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+    "fixtures/evaluation_cases.json": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+    "artifacts/v4/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/router-domain-v4.joblib": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "artifacts/v4/final-analysis/human_claim_review_queue.csv": "b34cb776da241be63102980cea8c1711914b6930aecd49983eec3dbeae2c8373"
+  },
+  "selection": {
+    "method": "First 10 IDs in each of two expected-label strata: owned tracking resolved_read_only and eligible cancellation awaiting_approval. Select on frozen expectations, not observed success. Retain wrong routes and missing outputs.",
+    "eligible_counts": {
+      "track_order": 28,
+      "cancel_request": 18
+    },
+    "selected_ids": [
+      "V4-B001",
+      "V4-B002",
+      "V4-B003",
+      "V4-B004",
+      "V4-B005",
+      "V4-B006",
+      "V4-B007",
+      "V4-B008",
+      "V4-B009",
+      "V4-B010",
+      "V4-B041",
+      "V4-B042",
+      "V4-B043",
+      "V4-B044",
+      "V4-B045",
+      "V4-B046",
+      "V4-B047",
+      "V4-B048",
+      "V4-B049",
+      "V4-B050"
+    ],
+    "timing": "Retrospective deterministic sample after the report was viewed; not preregistered or blind.",
+    "unique_semantic_groups": 15
+  },
+  "rubric": {
+    "supported": "Every material factual claim requires evidence of the same fact from that case's permitted policy or observed authorized tool result.",
+    "insufficient_archived_evidence": "Conditions, fixture seeds, proposal metadata, and runner assertions can corroborate a claim but cannot replace a missing observed authorized order lookup.",
+    "contradicted_by_frozen_workflow_rubric": "The response's scope claim conflicts with the frozen supported-workflow expectation; this does not regrade or change the original benchmark.",
+    "completeness": "Tracking must include the required owned-order status. Cancellation must state eligibility for review and exact-proposal approval before change. Missing answer or required fact fails response completeness.",
+    "citations": "Check cited IDs, source/version/locator/text against this response's saved permitted evidence. Policy citations cannot substantiate current order status alone."
+  },
+  "limitations": [
+    "No human reviewed this packet. Reviewer disagreement is unavailable; blank reviewer fields are intentional.",
+    "These are synthetic offline-deterministic answers from the frozen v4 report, not real customer or paid-provider output.",
+    "The sample covers two answerable workflow strata and related semantic groups, not a random sample of production traffic.",
+    "Raw authorized order lookup outputs were not saved in the selected report. No order fact is credited as fully supported on primary observed tool evidence.",
+    "The already known V4-B003 routing failure is retained. No threshold, training data, final fixture, release, or model is changed.",
+    "This packet is an evidence-readiness audit. It adds no claim of customer adoption, productivity savings, merchant integration, or completed human validation."
+  ],
+  "metrics": {
+    "sample_responses": 20,
+    "material_claims": 30,
+    "claim_judgments": {
+      "insufficient_archived_evidence": 19,
+      "contradicted_by_frozen_workflow_rubric": 1,
+      "supported": 10
+    },
+    "strict_support_given_archived_evidence": {
+      "numerator": 0,
+      "denominator": 20,
+      "interpretation": "Evidence-packet sufficiency only, not model factual accuracy: every order-based response lacks an archived raw authorized lookup result."
+    },
+    "substantive_truth": {
+      "measured": false,
+      "rate": null,
+      "interpretation": "Nineteen order claims are unverifiable from the saved primary tool evidence, not classified as false. No substantive factual-accuracy estimate is made."
+    },
+    "responses_with_contradicted_claim": 1,
+    "responses_missing_required_facts": 1,
+    "missing_outputs": 0,
+    "saved_workflow_checks_passed": {
+      "numerator": 19,
+      "denominator": 20
+    },
+    "human_claim_support_review": null,
+    "human_reviewer_agreement": null,
+    "paid_provider_quality_and_cost": null
+  },
+  "cases": [
+    {
+      "id": "V4-B001",
+      "group_id": "tracking_fulfillment_stage",
+      "slice": "owned_fulfillment_stage",
+      "input": "My order is A-100. Is it sitting in the queue or being packed?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-100",
+      "archived_case_id": "79425fc1-b219-47dd-8981-8a1b6e2c346d",
+      "archived_workflow_passed": true,
+      "answer": "Order A-100 is pending",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.31975364685058594,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.23582884669303894,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.22587722539901733,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.1957583725452423,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-100 is pending",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B002",
+      "group_id": "tracking_status_snapshot",
+      "slice": "owned_tracking_context",
+      "input": "Could you pull the latest shipment update for A-101 before I leave for work?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-101",
+      "archived_case_id": "4ef5f960-c83e-4ca4-98dd-f1bb09981ed7",
+      "archived_workflow_passed": true,
+      "answer": "Order A-101 is shipped",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.2849941849708557,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.21427935361862183,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.2077176421880722,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.2006223052740097,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-101",
+        "customer_subject": "customer-001",
+        "status": "shipped",
+        "tracking_summary": "Order A-101 is shipped",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-101 is shipped",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B003",
+      "group_id": "tracking_nonarrival",
+      "slice": "owned_tracking_implicit",
+      "input": "There's nothing on my doorstep for A-102 yet; what does the order record show?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-102",
+      "archived_case_id": "a220d3db-e4f3-49f9-844a-34766b5e7f60",
+      "archived_workflow_passed": false,
+      "answer": "This request is outside automated support. Please contact the support review team.",
+      "observed_disposition": "escalated",
+      "reason_code": "unsupported_intent",
+      "citations": [],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.3464556038379669,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.2067813277244568,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.19880370795726776,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.17547264695167542,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-102",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-102 is pending",
+        "cancel_deadline": "2026-11-23T11:59:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "This request is outside automated support.",
+          "kind": "scope_classification_claim",
+          "judgment": "contradicted_by_frozen_workflow_rubric",
+          "citation_status": "uncited",
+          "reason": "The frozen case asks what the owned A-102 order record shows, labels tracking as supported, and expects resolved_read_only. The saved output routes out_of_scope. This is the already reported V4-B003 route_wrong failure, not a newly discovered merchant/provider failure."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "missing_required_order_answer",
+      "missing_required_facts": [
+        "Required owned-order answer absent: Order A-102 is pending"
+      ],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B004",
+      "group_id": "tracking_status_snapshot",
+      "slice": "owned_tracking_shorthand",
+      "input": "A-100 / progress check, please.",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-100",
+      "archived_case_id": "a4ebfe12-41ac-4593-8b83-3a7510de1272",
+      "archived_workflow_passed": true,
+      "answer": "Order A-100 is pending",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.1536172330379486,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.12118752300739288,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.09491701424121857,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.09363408386707306,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-100 is pending",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B005",
+      "group_id": "tracking_preserve_order",
+      "slice": "owned_tracking_negation",
+      "input": "Please leave A-100 as it is. I'm only checking whether processing has started.",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-100",
+      "archived_case_id": "a40a6250-04dd-44cf-82c7-9b8c5730e080",
+      "archived_workflow_passed": true,
+      "answer": "Order A-100 is pending",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.16034828126430511,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.13091684877872467,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.12578600645065308,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.1036333292722702,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-100 is pending",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B006",
+      "group_id": "tracking_notification_gap",
+      "slice": "owned_tracking_notification_gap",
+      "input": "The order confirmation for A-101 came through, but I haven't seen another update. What's the current state?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-101",
+      "archived_case_id": "a395ca5b-9ee9-4d60-b4e0-9df4eb38a4fe",
+      "archived_workflow_passed": true,
+      "answer": "Order A-101 is shipped",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.3058708906173706,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.2810043692588806,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.2391488254070282,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.22292214632034302,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-101",
+        "customer_subject": "customer-001",
+        "status": "shipped",
+        "tracking_summary": "Order A-101 is shipped",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-101 is shipped",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B007",
+      "group_id": "tracking_information_lookup",
+      "slice": "owned_tracking_standard",
+      "input": "Do you have any tracking information associated with A-102?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-102",
+      "archived_case_id": "50ef11cd-2faa-4098-a496-4f03123bbb4e",
+      "archived_workflow_passed": true,
+      "answer": "Order A-102 is pending",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.3773840665817261,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.20430231094360352,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.08465072512626648,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.04631485044956207,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-102",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-102 is pending",
+        "cancel_deadline": "2026-11-23T11:59:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-102 is pending",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B008",
+      "group_id": "tracking_dispatch_check",
+      "slice": "owned_tracking_gift",
+      "input": "I bought A-100 as a present and the recipient keeps asking me when it is being sent. Can you check the status?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-100",
+      "archived_case_id": "7e0931c1-186e-4845-9318-2184d57f48ab",
+      "archived_workflow_passed": true,
+      "answer": "Order A-100 is pending",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.4077422022819519,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.34977805614471436,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.318268358707428,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.24006739258766174,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-100 is pending",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B009",
+      "group_id": "tracking_dispatch_check",
+      "slice": "owned_tracking_casual",
+      "input": "A-101: sent out already, or still at your end?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-101",
+      "archived_case_id": "96c50632-cf10-42e0-a5a5-8e4e12ae7b97",
+      "archived_workflow_passed": true,
+      "answer": "Order A-101 is shipped",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.30084729194641113,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.28857648372650146,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.15140874683856964,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.13771648705005646,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-101",
+        "customer_subject": "customer-001",
+        "status": "shipped",
+        "tracking_summary": "Order A-101 is shipped",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-101 is shipped",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B010",
+      "group_id": "tracking_status_snapshot",
+      "slice": "owned_tracking_formal",
+      "input": "May I have a readout of the current status on A-102?",
+      "expected_intent": "track_order",
+      "expected_disposition": "resolved_read_only",
+      "order_ref": "A-102",
+      "archived_case_id": "cd44842c-4bba-4e9b-91bb-724cfda92f73",
+      "archived_workflow_passed": true,
+      "answer": "Order A-102 is pending",
+      "observed_disposition": "resolved_read_only",
+      "reason_code": "authorized_tracking",
+      "citations": [
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "excerpt": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.22776341438293457,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.20096218585968018,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.17050307989120483,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.15612229704856873,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-102",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-102 is pending",
+        "cancel_deadline": "2026-11-23T11:59:00Z",
+        "version": 1
+      },
+      "saved_proposal": null,
+      "claims": [
+        {
+          "text": "Order A-102 is pending",
+          "kind": "current_order_fact",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_citation_does_not_establish_current_order_status",
+          "cited_policy_support": "The ownership policy establishes the disclosure condition, not this order's status.",
+          "fixture_corroboration": "Matches the selected customer's seeded tracking_summary and archived runner fact check.",
+          "reason": "The archived output omits the raw tenant/customer-authorized order lookup result. A fixture definition and a pass assertion are indirect corroboration; they are not that observed tool result."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B041",
+      "group_id": "cancellation_duplicate_purchase",
+      "slice": "eligible_cancellation_duplicate",
+      "input": "I placed the purchase twice by accident. Please cancel A-100, this is the extra one.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "d4b74a22-5101-494b-b36c-2b14cf22c743",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.3402262330055237,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.3084776997566223,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.2320391982793808,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.17934472858905792,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "8b31b53b-e3da-4bf0-a0d0-50ac277c79ba",
+        "case_id": "d4b74a22-5101-494b-b36c-2b14cf22c743",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "435bfa4bded58079760b52cda7545ce35c1152167b4115d60ac28a5cac83c91e",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:53.629365+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B042",
+      "group_id": "cancellation_changed_mind",
+      "slice": "eligible_cancellation_standard",
+      "input": "A-100 was an impulse buy. Let's cancel it.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "6106574e-b566-45fa-aad7-ddabaa04c66f",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.29068851470947266,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.26741763949394226,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.1707947552204132,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.05158611387014389,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "b2bde6eb-ed66-462c-8cbd-000e01cdfe70",
+        "case_id": "6106574e-b566-45fa-aad7-ddabaa04c66f",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "de08dae9a6cd2093453412b22d40e9068fedc91b48e7901f564c02debf74d55c",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:54.150424+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B043",
+      "group_id": "cancellation_review_request",
+      "slice": "eligible_cancellation_approval",
+      "input": "Please begin a cancellation request for A-100; I understand it needs review.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "02dc5b4d-73a5-469d-9c78-1825c7f92a0f",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.501165509223938,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.4603827893733978,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.33650341629981995,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.14192795753479004,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "07ae59a1-7ade-4ad6-a169-c4706e676ebd",
+        "case_id": "02dc5b4d-73a5-469d-9c78-1825c7f92a0f",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "344f86481595a02d4e487c6bdefb7498a5a3e6c6b704a4e43afb6acec6399f48",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:54.672563+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B044",
+      "group_id": "cancellation_stop_fulfillment",
+      "slice": "eligible_cancellation_implicit",
+      "input": "Stop A-100 before it is prepared, please.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "91d74b96-41cb-4cf7-863e-a09bde5d1b11",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.17814017832279205,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.11576973646879196,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.02166765369474888,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": -0.031793441623449326,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "a3d30754-1317-424d-8d7b-1737e7815232",
+        "case_id": "91d74b96-41cb-4cf7-863e-a09bde5d1b11",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "7eaf9c5d22f6518fcd58663458955d707ea5491f6c595ec77e4b0296a003c4ce",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:55.211972+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B045",
+      "group_id": "cancellation_withdraw_purchase",
+      "slice": "eligible_cancellation_implicit",
+      "input": "I no longer want the A-100 purchase to proceed.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "ac3f8f4b-8bf8-4ec8-9341-0511c85ebb34",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.2941877841949463,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.25945812463760376,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.24012944102287292,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.1197650283575058,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "cd97cef0-6718-4100-862d-b18231997377",
+        "case_id": "ac3f8f4b-8bf8-4ec8-9341-0511c85ebb34",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "64007fd093dabb48ea19033ba700b551cf713fda8351fe6e5fd6868f8278ebd0",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:55.774980+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B046",
+      "group_id": "cancellation_withdraw_purchase",
+      "slice": "eligible_cancellation_short",
+      "input": "Can I withdraw order A-100?",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "2dbc4f9a-b892-49a0-bf1f-2a2ca7b65a34",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.3902689516544342,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.3877788186073303,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.23937079310417175,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.1994931399822235,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "2bb02745-1b40-4485-9c98-b3c3ea15b725",
+        "case_id": "2dbc4f9a-b892-49a0-bf1f-2a2ca7b65a34",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "1636b5b7055a1aef0a43b3fabab603aedc84284f5271224adfd11dec6832a6bd",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:56.326813+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B047",
+      "group_id": "cancellation_wrong_purchase",
+      "slice": "eligible_cancellation_wrong_choice",
+      "input": "I meant to buy something else, so please cancel the entire A-100 order.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "a50ed92f-01f7-45c6-913d-78be6b02eb52",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.44595569372177124,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.38700032234191895,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.16624286770820618,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.1555195450782776,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "b9a4ab70-934b-4515-a39f-a6379bf06eab",
+        "case_id": "a50ed92f-01f7-45c6-913d-78be6b02eb52",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "7d2f505cd0488e88463ecdd2eac9ac40f88a5464c6ff7eab835f934a3f09d2fe",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:56.976673+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B048",
+      "group_id": "cancellation_whole_order",
+      "slice": "eligible_cancellation_shorthand",
+      "input": "A-100: cancel the lot, thanks.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "f723c1f1-2782-4953-b08a-26fe9cc6b69d",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.37333235144615173,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.3502562642097473,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.16243639588356018,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.06773252040147781,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "c57c605b-595c-4ff5-8acc-756a11a92833",
+        "case_id": "f723c1f1-2782-4953-b08a-26fe9cc6b69d",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "668e5cf186567fefbfc3ef6a332c1bb83835297d697989a4f398e918dc64c89f",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:57.489931+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B049",
+      "group_id": "cancellation_changed_plans",
+      "slice": "eligible_cancellation_context",
+      "input": "The event I needed this for was called off. I'd like A-100 cancelled.",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "6fbb9f2e-93d3-4ab2-9761-b79fab0e06ea",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.36659038066864014,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.3554832339286804,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.14264586567878723,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.02049320936203003,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "efb34868-c13e-4317-a75f-e6da04e08af5",
+        "case_id": "6fbb9f2e-93d3-4ab2-9761-b79fab0e06ea",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "edce148f0083434cb2408a5c891e0be026e44f179939fe90f04afbaa5514019c",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:58.095763+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    },
+    {
+      "id": "V4-B050",
+      "group_id": "cancellation_review_request",
+      "slice": "eligible_cancellation_standard",
+      "input": "Could you queue A-100 for cancellation?",
+      "expected_intent": "cancel_request",
+      "expected_disposition": "awaiting_approval",
+      "order_ref": "A-100",
+      "archived_case_id": "08fd05dc-a121-4541-a84b-b5b0600b9ff7",
+      "archived_workflow_passed": true,
+      "answer": "Cancellation of A-100 is eligible for review. An approver must approve the exact proposal before any order change.",
+      "observed_disposition": "awaiting_approval",
+      "reason_code": "approval_required",
+      "citations": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "excerpt": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "excerpt": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1"
+        }
+      ],
+      "permitted_policy_snapshot": [
+        {
+          "chunk_id": "862ad040-dd75-52fa-ad4c-f119bbd3c1d5",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "eligibility",
+          "body": "A cancellation may be proposed only when the verified customer's order is pending and the current clock has not passed the stored cancellation deadline. Shipped or expired orders require human review.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.5143414735794067,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "51872339-c1c5-54c1-8df7-0825789733db",
+          "document_id": "f8b53aae-834e-58e1-a941-e58ac253c09b",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "approval",
+          "body": "Cancellation requires an approver to approve the exact proposal and the current order version. Preparing a draft never cancels an order.",
+          "source_label": "alpha-cancel-v1",
+          "title": "Alpha Cancel V1",
+          "score": 0.4013637900352478,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "039f5537-2b84-59c0-afbd-a6f88be17f57",
+          "document_id": "8f5fb16d-352c-5c00-b455-4312c09e0cc7",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "scope",
+          "body": "A customer may request human support. Refunds and unsupported account changes are outside automated handling and go to the internal support review queue.",
+          "source_label": "alpha-handoff-v1",
+          "title": "Alpha Handoff V1",
+          "score": 0.2389219105243683,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        },
+        {
+          "chunk_id": "08525a33-497a-5b81-8605-be14875802b4",
+          "document_id": "4212cc4e-a35e-5f3a-878b-be5de748b012",
+          "corpus_id": "69566eff-09c1-52d7-89a2-596264a71c94",
+          "locator": "ownership",
+          "body": "Tracking may be disclosed only after verifying that the authenticated customer subject owns the order. An unverified reference requires verified order information or human review.",
+          "source_label": "alpha-tracking-v1",
+          "title": "Alpha Tracking V1",
+          "score": 0.10313425958156586,
+          "mode": "dense",
+          "lexical_mode": "all",
+          "embedding_model": "sentence-transformers/all-MiniLM-L6-v2@1110a243fdf4706b3f48f1d95db1a4f5529b4d41/onnx-quint8-avx2"
+        }
+      ],
+      "authorized_order_tool_snapshot": null,
+      "indirect_fixture_context_not_an_observed_tool_result": {
+        "order_ref": "A-100",
+        "customer_subject": "customer-001",
+        "status": "pending",
+        "tracking_summary": "Order A-100 is pending",
+        "cancel_deadline": "2026-11-23T12:20:00Z",
+        "version": 1
+      },
+      "saved_proposal": {
+        "tenant_id": "11111111-1111-4111-8111-111111111111",
+        "proposal_id": "17968fca-7e68-4d38-bb8e-7ed2da8df264",
+        "case_id": "08fd05dc-a121-4541-a84b-b5b0600b9ff7",
+        "tool_name": "cancel_order",
+        "order_ref": "A-100",
+        "expected_order_version": 1,
+        "expected_case_version": 2,
+        "proposal_sha256": "50990009fd947872f4518c98735882f96e4a83b44f8d820fb58cf666e3da4389",
+        "tool_policy_version": "fixture-policy-v1",
+        "state": "pending",
+        "expires_at": "2026-11-23T12:15:00+00:00",
+        "created_at": "2026-11-23T19:10:58.829508+00:00"
+      },
+      "claims": [
+        {
+          "text": "Cancellation of A-100 is eligible for review.",
+          "kind": "policy_and_current_order_eligibility",
+          "judgment": "insufficient_archived_evidence",
+          "citation_status": "policy_conditions_cited_current_order_inputs_not_archived",
+          "evidence_ids": [
+            "862ad040-dd75-52fa-ad4c-f119bbd3c1d5"
+          ],
+          "cited_policy_support": "The cited policy supports the pending/owned/deadline conditions for eligibility.",
+          "fixture_corroboration": "The selected customer's seeded A-100 is pending at version 1 with a 12:20Z deadline; evaluation fixes the clock at 12:00Z. The saved proposal is pending at order version 1.",
+          "reason": "The policy and saved proposal do not independently establish the observed ownership/status/deadline lookup. No raw authorized order-tool result is archived."
+        },
+        {
+          "text": "An approver must approve the exact proposal before any order change.",
+          "kind": "approval_policy",
+          "judgment": "supported",
+          "citation_status": "supported_by_cited_permitted_policy",
+          "evidence_ids": [
+            "51872339-c1c5-54c1-8df7-0825789733db"
+          ],
+          "reason": "The permitted approval section requires approval of the exact proposal and current order version and states that preparing a draft never cancels an order."
+        }
+      ],
+      "citation_provenance_consistent_with_snapshot": true,
+      "completeness": "complete_for_bounded_workflow",
+      "missing_required_facts": [],
+      "response_fully_supported_by_archived_primary_evidence": false,
+      "reviewer_type": "coding_agent_ai_assisted",
+      "human_reviewer_1": null,
+      "human_reviewer_2": null,
+      "human_adjudication": null
+    }
+  ]
+}

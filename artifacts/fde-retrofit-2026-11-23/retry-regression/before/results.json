@@ -1,0 +1,93 @@
+{
+  "generated_at": "2026-11-24T03:00:30.149Z",
+  "read_only": true,
+  "backend_connected": false,
+  "initial_app_sha256": "8afc8d32fe890aaaa63706404cc36cccde105bca4c4779a52c76a1006804fbde",
+  "app_sha256": "8afc8d32fe890aaaa63706404cc36cccde105bca4c4779a52c76a1006804fbde",
+  "initial_source_hashes": {
+    "web/app.js": "8afc8d32fe890aaaa63706404cc36cccde105bca4c4779a52c76a1006804fbde",
+    "web/index.html": "d49875f2587d1b2b9b394f2dffa1f2386bee36726ccabb6efbf2147e01150020",
+    "web/app.css": "2e86f491106f12c998bd99a51e9aee99025f77f892e761d8dbf7c3efc05211f2",
+    "web/auth-client-src.js": "e25b23818e9254de40235d8480042f2623db7ebe0cad78efa82feb59f211fa3f",
+    "web/auth-client.js": "0fd2bd70474f524febdd52fc14a1bafc4e4e296e53334ad76f555d454ab628f2",
+    "package.json": "0e39acb112c0ef19fed0fd5b4901b69731f8c7ebcf401acc94e6c7ba472aa4c3",
+    "package-lock.json": "f796d0f9175407652eef14070ac0e8955c4c842630500f64bad14111864cc84b"
+  },
+  "source_hashes": {
+    "web/app.js": "8afc8d32fe890aaaa63706404cc36cccde105bca4c4779a52c76a1006804fbde",
+    "web/index.html": "d49875f2587d1b2b9b394f2dffa1f2386bee36726ccabb6efbf2147e01150020",
+    "web/app.css": "2e86f491106f12c998bd99a51e9aee99025f77f892e761d8dbf7c3efc05211f2",
+    "web/auth-client-src.js": "e25b23818e9254de40235d8480042f2623db7ebe0cad78efa82feb59f211fa3f",
+    "web/auth-client.js": "0fd2bd70474f524febdd52fc14a1bafc4e4e296e53334ad76f555d454ab628f2",
+    "package.json": "0e39acb112c0ef19fed0fd5b4901b69731f8c7ebcf401acc94e6c7ba472aa4c3",
+    "package-lock.json": "f796d0f9175407652eef14070ac0e8955c4c842630500f64bad14111864cc84b"
+  },
+  "source_stable": true,
+  "scope": "Actual workbench DOM and application module; all API responses intercepted; creation is persisted only in a mock Map; OIDC adapter is synthetic, not an IdP interoperability test",
+  "passed": 2,
+  "total": 7,
+  "failures": 5,
+  "results": [
+    {
+      "name": "fixture-operator: persisted failure retries current version and preserves trace",
+      "passed": false,
+      "error": "Failed case with a nonempty persisted response must expose Retry resolution\n\n0 !== 1\n",
+      "page_errors": [],
+      "harness_errors": [],
+      "api_requests_intercepted": 5,
+      "duration_ms": 5349
+    },
+    {
+      "name": "fixture-admin: persisted failure retries current version and preserves trace",
+      "passed": false,
+      "error": "Failed case with a nonempty persisted response must expose Retry resolution\n\n0 !== 1\n",
+      "page_errors": [],
+      "harness_errors": [],
+      "api_requests_intercepted": 5,
+      "duration_ms": 1267
+    },
+    {
+      "name": "fixture-evaluator: persisted failure remains inspectable without retry or writes",
+      "passed": true,
+      "authentication": "real fixture auth adapter",
+      "api_requests_intercepted": 6,
+      "page_errors": [],
+      "duration_ms": 2064
+    },
+    {
+      "name": "oidc-operator: persisted failure retries current version and preserves trace",
+      "passed": false,
+      "error": "Failed case with a nonempty persisted response must expose Retry resolution\n\n0 !== 1\n",
+      "page_errors": [],
+      "harness_errors": [],
+      "api_requests_intercepted": 4,
+      "duration_ms": 919
+    },
+    {
+      "name": "oidc-admin: persisted failure retries current version and preserves trace",
+      "passed": false,
+      "error": "Failed case with a nonempty persisted response must expose Retry resolution\n\n0 !== 1\n",
+      "page_errors": [],
+      "harness_errors": [],
+      "api_requests_intercepted": 4,
+      "duration_ms": 1260
+    },
+    {
+      "name": "oidc-evaluator: persisted failure remains inspectable without retry or writes",
+      "passed": true,
+      "authentication": "synthetic OIDC adapter; real workbench session handling",
+      "api_requests_intercepted": 5,
+      "page_errors": [],
+      "duration_ms": 1213
+    },
+    {
+      "name": "oidc-operator: disconnect during retry cannot restore private case or response",
+      "passed": false,
+      "error": "Failed case with a nonempty persisted response must expose Retry resolution\n\n0 !== 1\n",
+      "page_errors": [],
+      "harness_errors": [],
+      "api_requests_intercepted": 4,
+      "duration_ms": 1175
+    }
+  ]
+}

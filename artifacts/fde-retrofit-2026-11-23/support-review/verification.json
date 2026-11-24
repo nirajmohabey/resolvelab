@@ -1,0 +1,43 @@
+{
+  "read_only_inputs_unchanged": true,
+  "source_hashes": {
+    "artifacts/production-v0.3/evaluations/v4-blind-final/workflow-evaluation.json": "8276fe7b467775a20c7c68165781deab96e21bed55bfe1bd85fddefb38a51908",
+    "fixtures/v4_blind_v1.jsonl": "f2296dcf802833e8dda69786bef5e9a9ccb07b8f44aa2dfd9c1565fa576c07f0",
+    "fixtures/evaluation_cases.json": "6e28129dbd69f9c165905ce2b9123cff30ead4958ec3c55df892d79c3336c29b",
+    "artifacts/v4/model_manifest.json": "6b1af961adbe73c034674074e2a16500734ff3841aab6f9c0e0e13da2ff01857",
+    "artifacts/router-domain-v4.joblib": "4978ea5c17100409db15be570fe9985581eb86402acb451aa638aeafedfa57e2",
+    "artifacts/v4/final-analysis/human_claim_review_queue.csv": "b34cb776da241be63102980cea8c1711914b6930aecd49983eec3dbeae2c8373"
+  },
+  "selected_cases": 20,
+  "material_claim_rows": 30,
+  "human_review_status": "pending",
+  "metrics": {
+    "sample_responses": 20,
+    "material_claims": 30,
+    "claim_judgments": {
+      "insufficient_archived_evidence": 19,
+      "contradicted_by_frozen_workflow_rubric": 1,
+      "supported": 10
+    },
+    "strict_support_given_archived_evidence": {
+      "numerator": 0,
+      "denominator": 20,
+      "interpretation": "Evidence-packet sufficiency only, not model factual accuracy: every order-based response lacks an archived raw authorized lookup result."
+    },
+    "substantive_truth": {
+      "measured": false,
+      "rate": null,
+      "interpretation": "Nineteen order claims are unverifiable from the saved primary tool evidence, not classified as false. No substantive factual-accuracy estimate is made."
+    },
+    "responses_with_contradicted_claim": 1,
+    "responses_missing_required_facts": 1,
+    "missing_outputs": 0,
+    "saved_workflow_checks_passed": {
+      "numerator": 19,
+      "denominator": 20
+    },
+    "human_claim_support_review": null,
+    "human_reviewer_agreement": null,
+    "paid_provider_quality_and_cost": null
+  }
+}

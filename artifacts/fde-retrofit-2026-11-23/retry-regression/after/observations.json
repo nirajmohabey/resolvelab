@@ -1,0 +1,97 @@
+{
+  "phase": "after",
+  "scope": "Synthetic API responses; real workbench UI; no backend or provider connected",
+  "observations": [
+    {
+      "scenario": "initial-503",
+      "writes": [
+        {
+          "case_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "body": {
+            "expected_case_version": 6
+          },
+          "key": "bb9f949c-91b9-48f7-9cc5-3066e3286c5a"
+        },
+        {
+          "case_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "body": {
+            "expected_case_version": 7
+          },
+          "key": "54aeffbc-bd04-4068-8c9a-30711dd6c2b8"
+        }
+      ],
+      "mock_case_version": 8,
+      "original_failure_preserved": true
+    },
+    {
+      "scenario": "fixture-operator",
+      "writes": [
+        {
+          "case_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "body": {
+            "expected_case_version": 7
+          },
+          "key": "e0cb7ffd-b07b-448c-b07e-5dc73a6aed5c"
+        }
+      ],
+      "mock_case_version": 8,
+      "original_failure_preserved": true,
+      "mobile_layout": null
+    },
+    {
+      "scenario": "fixture-admin",
+      "writes": [
+        {
+          "case_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "body": {
+            "expected_case_version": 7
+          },
+          "key": "f2c41e54-9550-4222-b31d-5d063d82bb64"
+        }
+      ],
+      "mock_case_version": 8,
+      "original_failure_preserved": true,
+      "mobile_layout": null
+    },
+    {
+      "scenario": "oidc-operator",
+      "writes": [
+        {
+          "case_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "body": {
+            "expected_case_version": 7
+          },
+          "key": "cc658c13-db6a-4ae5-b05b-d5c56b1d689f"
+        }
+      ],
+      "mock_case_version": 8,
+      "original_failure_preserved": true,
+      "mobile_layout": {
+        "viewport_width": 375,
+        "viewport_height": 812,
+        "document_width": 375,
+        "retry_bounds": {
+          "left": 147.734375,
+          "right": 285.25,
+          "top": 532.71875,
+          "bottom": 576.71875
+        }
+      }
+    },
+    {
+      "scenario": "oidc-admin",
+      "writes": [
+        {
+          "case_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+          "body": {
+            "expected_case_version": 7
+          },
+          "key": "10a69123-d6a4-465b-af6a-43f7fd2703b8"
+        }
+      ],
+      "mock_case_version": 8,
+      "original_failure_preserved": true,
+      "mobile_layout": null
+    }
+  ]
+}
